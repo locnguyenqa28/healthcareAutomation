@@ -42,14 +42,8 @@ describe("Add New Lesion on eDerm", function () {
       dashboardActions.saveBodyMap();
 
       //Upload Dermascopic Images
-      cy.fixture('ederm.png').then((file) => {
-        cy.request({
-          url: 'C:\Users\markdennist\Pictures',
-          method: 'put',
-          body: file,
-        });
-      });
-
+      dashboardActions.uploadImage();
+      dashboardActions.startUpload();
     });
   });
   

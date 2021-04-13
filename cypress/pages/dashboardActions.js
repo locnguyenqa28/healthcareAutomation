@@ -97,10 +97,6 @@ export class DashboardActions extends CommonActions
   }
 
   selectBodyRegion(){
-      // cy.get('select#BodyMapRegion')
-      //   .select('Hand', {force: true})
-      //   .invoke('val')
-      //   .should('eq', 'Hand')
       cy.get('select[id="BodyMapRegion"]')
       .eq(0)
       .select('Hand', {force: true})
@@ -117,5 +113,12 @@ export class DashboardActions extends CommonActions
   }
 
   //Upload Dermascopic Images
-
+  uploadImage(){
+      cy.get('input[type="file"]')
+        .attachFile('ederm.png')
+  }
+  startUpload(){
+    cy.get('[type="submit"]')
+      .click()
+  }
 }
