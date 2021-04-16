@@ -3,4 +3,9 @@ export class CommonActions {
     cy.visit('');
   }
 
+  uploadImage(){
+    cy.get('input[type="file"]')
+      .attachFile('ederm.png')
+}
+
 }

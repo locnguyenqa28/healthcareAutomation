@@ -12,14 +12,14 @@ export class DashboardActions extends CommonActions
         .select('Mrs')
   }
   
-  enterFirstName(){
+  enterFirstName(firstname){
       cy.get('input[id="case_FirstName"]')
-        .type('Quality')
+        .type(firstname)
   }
 
-  enterLastName(){
+  enterLastName(lastname){
       cy.get('input[id="case_LastName"]')
-        .type('Tester One')
+        .type(lastname)
   }
 
   selectGenderM(){
@@ -32,19 +32,19 @@ export class DashboardActions extends CommonActions
         .click()
   }
 
-  enterDOB(){
+  enterDOB(DOB){
       cy.get('input[id="case_DOB"]')
-        .type('15042000')
+        .type(DOB)
   }
 
-  enterHomeAdd(){
+  enterHomeAdd(address){
       cy.get('input[id="case_Address"]')
-        .type('Pine Street')
+        .type(address)
   }
 
-  enterCity(){
+  enterCity(city){
       cy.get('input[id="case_suburb"]')
-        .type('Angeles')
+        .type(city)
   }
 
   selectState(){
@@ -52,19 +52,19 @@ export class DashboardActions extends CommonActions
         .select('NSW')
   }
 
-  enterPostcode(){
+  enterPostcode(postcode){
       cy.get('input[id="case_PostCode"]')
-        .type('2525')
+        .type(postcode)
   }
 
-  enterContact(){
+  enterContact(contact){
       cy.get('input[id="case_NotificationPhone"]')
-        .type('5507891')
+        .type(contact)
   }
 
-  enterMedicare(){
+  enterMedicare(medicare){
       cy.get('input[id="case_NHS"]')
-        .type('0000052545')
+        .type(medicare)
   }
 
   saveDraft(){
@@ -86,7 +86,22 @@ export class DashboardActions extends CommonActions
       cy.get('input[id="important_1"]')
         .click()
   }
-
+  provisionalDiagnosis(){
+    cy.get('select[id="ProvisionalDiagnosis"]')
+      .select('BCC (Basal Cell Carcinoma)')
+  }
+  excludeMelasma(){
+    cy.get('[id="ExcludeMelanoma_1"]')
+      .click()
+  }
+  excludeNmsc(){
+    cy.get('[id="ExcludeNMSC_1"]')
+      .click()
+  }
+  selectBiopsyType(){
+    cy.get('select[id="BiopsyType"]')
+      .select('O (Other)')
+  }
   clickImage(){
     cy.get('img[id="showimaged"]')
       .click()
@@ -99,7 +114,7 @@ export class DashboardActions extends CommonActions
   selectBodyRegion(){
       cy.get('select[id="BodyMapRegion"]')
       .eq(0)
-      .select('Hand', {force: true})
+      .select('Neck', {force: true})
   }
 
   enterSpecimenLocation(){
@@ -119,6 +134,28 @@ export class DashboardActions extends CommonActions
   }
   startUpload(){
     cy.get('[type="submit"]')
+      .click()
+  }
+  isImageUploadedSuccessfully(){
+    cy.get('td[class="preview"]')
+      .should('be.visible')
+  }
+  nextButtonUploadImg(){
+    cy.get('a[id="showlinkshow"]')
+      .click()
+  }
+
+  //Case Summary
+  caseSummary(){
+    cy.get('a[class="addlesion"]')
+      .contains('Case summary >>').click()
+  }
+  submitCasePrint(){
+    cy.get('[class="docnavright submit1"]')
+      .contains('Submit case & print »').click()
+  }
+  returnToDashboard(){
+    cy.get('a[href="/cases/dashboard"]')
       .click()
   }
 }
