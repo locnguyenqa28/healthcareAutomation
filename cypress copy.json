@@ -1,0 +1,9 @@
+{
+  "projectId": "1nt22d",
+  "defaultCommandTimeout": 30000,
+  "baseUrl": "https://sonic.ederm.com.au/",
+  "chromeWebSecurity": false,
+  "viewportWidth": 1366,
+  "viewportHeight": 768,
+  "failOnStatusCode": false
+}
