@@ -4,12 +4,12 @@ export class DashboardActions extends CommonActions
 {
   clickAddNewLesion(){
       cy.get('a[href="/cases?urgent=1"]')
-        .contains('Submit New Lesion').click()
+        .contains('Create New Pathology Request').click()
   }
 
-  selectTitle(){
+  selectTitle(option){
       cy.get('select[id="temptitle"]')
-        .select('Mrs')
+        .select(option)
   }
   
   enterFirstName(firstname){
@@ -21,6 +21,11 @@ export class DashboardActions extends CommonActions
       cy.get('input[id="case_LastName"]')
         .type(lastname)
   }
+
+  selectGender(option){
+    cy.get('select[id="case_Gender"]')
+      .select(option)
+}
 
   selectGenderM(){
       cy.get('input[value="m"]')
@@ -68,7 +73,7 @@ export class DashboardActions extends CommonActions
   }
 
   saveDraft(){
-      cy.get('a[class="docnavright2"]')
+      cy.get('a[onclick]')
         .contains('Save draft » ').click()
   }
   nextButton(){
@@ -76,6 +81,23 @@ export class DashboardActions extends CommonActions
         .contains('Next »').click()
   }
 
+  assertFirstName(firstname){
+    cy.get('.x-grid3-col-1').first()
+    .contains(firstname)
+    .should('be.visible')
+  }
+
+  assertLastName(lastname){
+    cy.get('.x-grid3-col-2').first()
+    .contains(lastname)
+    .should('be.visible')
+  }
+
+  isReviewCase(status){
+    cy.get('.x-grid3-col-4').first()
+    .contains(status)
+    .should('be.visible')
+  }
   //Clinical Condition
   addBodyMap(){
     cy.get('a[id="goodlink"]')
@@ -130,7 +152,7 @@ export class DashboardActions extends CommonActions
   //Upload Dermascopic Images
   uploadImage(){
       cy.get('input[type="file"]')
-        .attachFile('ederm.png')
+        .attachFile('1.jpg')
   }
   startUpload(){
     cy.get('[type="submit"]')
@@ -141,21 +163,66 @@ export class DashboardActions extends CommonActions
       .should('be.visible')
   }
   nextButtonUploadImg(){
-    cy.get('a[id="showlinkshow"]')
+    cy.get('a[id="showlinkshownextv2"]')
       .click()
   }
-
+  assertTitle(text){
+    cy.get('.txt-header')
+    .contains(text)
+    .should('be.visible')
+  }
+  assertFile(fileName){
+    cy.get(`a[download="${fileName}"]`)
+    .should('be.visible')
+  }
   //Case Summary
+  addAnotherLesion(){
+    cy.get('a[class="addlesion"]')
+      .contains('Add another lesion').click()
+  }
   caseSummary(){
     cy.get('a[class="addlesion"]')
-      .contains('Case summary >>').click()
+      .contains('Request summary >>').click()
   }
   submitCasePrint(){
     cy.get('[class="docnavright submit1"]')
-      .contains('Submit case & print »').click()
+      .contains('Submit request & print » ').click()
   }
   returnToDashboard(){
     cy.get('a[href="/cases/dashboard"]')
       .click()
   }
+  isUploadSuccesfully(index){
+    cy.get(".x-grid3-cell-last[tabindex='0']")
+    .eq(index)
+    .contains('Successful')
+    .should('be.visible')
+  }
+
+  // Summary add lesion
+  addALesion() {
+    //Clinical Condition
+    this.noPreviousHistory();
+    this.provisionalDiagnosis();
+    this.excludeMelasma();
+    this.excludeNmsc();
+    this.selectBiopsyType();
+
+    //Case Images
+    this.addBodyMap();
+    this.clickImage();
+    this.selectBodyRegion();
+    this.enterSpecimenLocation();
+    this.saveBodyMap();
+
+    //Upload Dermascopic Images
+    this.assertTitle('Upload ');
+    this.uploadImage();
+    this.startUpload();
+    this.isImageUploadedSuccessfully();
+    this.assertFile('1.jpg')
+    this.nextButtonUploadImg();
+  }
+
 }
+

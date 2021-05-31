@@ -5,7 +5,7 @@ export class CommonActions {
 
   uploadImage(){
     cy.get('input[type="file"]')
-      .attachFile('ederm.png')
+      .attachFile('1.jpg')
 }
 
 }
