@@ -154,8 +154,21 @@ export class DashboardActions extends CommonActions
       cy.get('input[type="file"]')
         .attachFile('1.jpg')
   }
+  uploadMultiImages(number){
+    const imageArr = []
+    for(let i = 1; i< number+1; i++){
+     imageArr.push(`${i}.jpg`)
+    }
+    cy.get('input[type="file"]')
+    .attachFile(imageArr)
+    .wait(500)  
+  }
+  isProgressBarDisappear(){
+    cy.get('body').find('.fileupload-progress').should('not.be.visible')
+  }
+
   startUpload(){
-    cy.get('[type="submit"]')
+    cy.get('[id="btn-start-upload"][type="submit"]')
       .click()
   }
   isImageUploadedSuccessfully(){
@@ -168,6 +181,11 @@ export class DashboardActions extends CommonActions
   }
   assertTitle(text){
     cy.get('.txt-header')
+    .contains(text)
+    .should('be.visible')
+  }
+  assertButton(text){
+    cy.get('[onclick]')
     .contains(text)
     .should('be.visible')
   }
@@ -222,6 +240,34 @@ export class DashboardActions extends CommonActions
     this.startUpload();
     this.isImageUploadedSuccessfully();
     this.assertFile('1.jpg')
+    this.nextButtonUploadImg();
+  }
+
+  addALesionMoreThan4Images() {
+    //Clinical Condition
+    this.noPreviousHistory();
+    this.provisionalDiagnosis();
+    this.excludeMelasma();
+    this.excludeNmsc();
+    this.selectBiopsyType();
+
+    //Case Images
+    this.addBodyMap();
+    this.clickImage();
+    this.selectBodyRegion();
+    this.enterSpecimenLocation();
+    this.saveBodyMap();
+
+    //Upload Dermascopic Images
+    this.assertTitle('Upload ');
+    this.uploadMultiImages(5);
+    this.startUpload();
+    this.isProgressBarDisappear();
+    this.isImageUploadedSuccessfully();
+    this.assertFile('1.jpg');
+    this.assertFile('2.jpg');
+    this.assertFile('3.jpg');
+    this.assertFile('4.jpg');
     this.nextButtonUploadImg();
   }
 
