@@ -193,6 +193,7 @@ export class DashboardActions extends CommonActions
       .click()
   }
   isUploadSuccesfully(index){
+    cy.reload()
     cy.get(".x-grid3-cell-last[tabindex='0']")
     .eq(index)
     .contains('Successful')
