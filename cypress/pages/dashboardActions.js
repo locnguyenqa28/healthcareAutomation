@@ -1,15 +1,44 @@
 import { CommonActions } from "./commonAction";
+import user from "../support/constants";
 
 export class DashboardActions extends CommonActions
 {
+  clickSetup(){
+      this.clickHrefByText('Setup')
+  }
+  clickEditAccount(){
+      cy.get('a[href="/users/edit/17"]').click()
+  }
+  clickSaveUpdateAccount(){
+      cy.get('[onclick][type = "submit"][value="Save Update"]').click()
+  }
+
   clickAddNewLesion(){
       cy.get('a[href="/cases?urgent=1"]')
         .contains('Create New Pathology Request').click()
   }
 
+  clickDeleteLesion(index = 0){
+      cy.get('a[href]').contains('Delete').eq(index).click();
+      cy.wait(1000);
+  }
+
+  clickPathologyRequestByFristName(name){
+      cy.get('.x-grid3-col')
+        .contains(name)
+        .parent()
+        .nextUntil('td.x-grid3-col.x-grid3-td-4').next().contains('Draft').click();
+  }
+
   selectTitle(option){
       cy.get('select[id="temptitle"]')
         .select(option)
+  }
+  
+  enterSubHurbAccount(text){
+      cy.get('input[id="user_Suburb"]')
+        .clear()
+        .type(text)
   }
   
   enterFirstName(firstname){
@@ -25,7 +54,24 @@ export class DashboardActions extends CommonActions
   selectGender(option){
     cy.get('select[id="case_Gender"]')
       .select(option)
-}
+  }
+
+  selectLab(option){
+    cy.get('select[id="labcode"]')
+      .select(option)
+  }
+
+  isLab(option){
+    cy.get('select[id="labcode"] [selected="selected"]')
+      .contains(option)
+      .should('be.visible')
+  }
+
+  isTitle(option){
+    cy.get('select[id="temptitle"] [selected="selected"]')
+      .contains(option)
+      .should('be.visible')
+  }
 
   selectGenderM(){
       cy.get('input[value="m"]')
@@ -79,6 +125,16 @@ export class DashboardActions extends CommonActions
   nextButton(){
       cy.get('a[class="docnavright"]')
         .contains('Next »').click()
+  }
+  backButton(){
+      cy.get('a.clss-back')
+        .contains('Back').first().click()
+  }
+
+  assertTextArea(text){
+    cy.get('textarea')
+    .contains(text)
+    .should('be.visible')
   }
 
   assertFirstName(firstname){
@@ -139,6 +195,11 @@ export class DashboardActions extends CommonActions
       .select('Neck', {force: true})
   }
 
+  enterClinicalNote(text="test notes"){
+      cy.get('textarea[id="important_16"]')
+        .type(text)
+  }
+
   enterSpecimenLocation(){
       cy.get('textarea[id="specimenLocation"]')
         .type('Test Location')
@@ -179,24 +240,11 @@ export class DashboardActions extends CommonActions
     cy.get('a[id="showlinkshownextv2"]')
       .click()
   }
-  assertTitle(text){
-    cy.get('.txt-header')
-    .contains(text)
-    .should('be.visible')
-  }
-  assertButton(text){
-    cy.get('[onclick]')
-    .contains(text)
-    .should('be.visible')
-  }
-  assertFile(fileName){
-    cy.get(`a[download="${fileName}"]`)
-    .should('be.visible')
-  }
+ 
   //Case Summary
   addAnotherLesion(){
-    cy.get('a[class="addlesion"]')
-      .contains('Add another lesion').click()
+    cy.get('a[href]')
+      .contains('Add another lesion').first().click()
   }
   caseSummary(){
     cy.get('a[class="addlesion"]')
@@ -211,7 +259,8 @@ export class DashboardActions extends CommonActions
       .click()
   }
   isUploadSuccesfully(index){
-    cy.reload()
+    cy.reload();
+    cy.reload();
     cy.get(".x-grid3-cell-last[tabindex='0']")
     .eq(index)
     .contains('Successful')
@@ -271,5 +320,23 @@ export class DashboardActions extends CommonActions
     this.nextButtonUploadImg();
   }
 
+  assertAllLabNextAndBack() {
+    for(const index in user.lab){
+      this.selectLab(user.lab[index])
+      this.nextButton();
+      this.noPreviousHistory();
+      this.backButton();
+      this.isLab(user.lab[index]);
+    }
+  }
+
+  assertAllLabSaveAndDraft(name) {
+    for(const index in user.lab){
+      this.selectLab(user.lab[index])
+      this.clickButtonByText('Save');
+      this.clickPathologyRequestByFristName(name);
+      this.isLab(user.lab[index]);
+    }
+  }
 }
 
