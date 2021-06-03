@@ -3,7 +3,7 @@ const user = {
    password : "629188",
    firstname : "Automation",
    lastname : "Tester",
-   DOB : "15042000",
+   DOB : "23/01/1969",
    address: "ACP",
    city : "Angeles",
    postcode : "2525",

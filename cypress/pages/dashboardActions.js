@@ -329,6 +329,12 @@ export class DashboardActions extends CommonActions
       this.isLab(user.lab[index]);
     }
   }
+  isPatientDetails(txt = 'Patient details') {
+    cy.get('.bgbox-left .txt-header')
+    .last()
+    .contains(txt)
+    .should('be.visible')
+  }
 
   assertAllLabSaveAndDraft(name) {
     for(const index in user.lab){
@@ -337,6 +343,12 @@ export class DashboardActions extends CommonActions
       this.clickPathologyRequestByFristName(name);
       this.isLab(user.lab[index]);
     }
+  }
+
+  compareDOB(DOB) {
+   cy.get('input[id="case_DOB"]')
+   .invoke('attr','value')
+   .should('eq',DOB)
   }
 }
 

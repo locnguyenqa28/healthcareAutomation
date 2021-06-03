@@ -19,7 +19,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     
     //Add New Lesion - Patient Details
     const firstname = user.firstname + homeActions.randomAlpha(10);
-    const lastname = `${user.lastname} EDERMPATH one one two`;
+    const lastname = `EDERMPATH one one two`;
     const title = 'Other';
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle(title);
@@ -48,7 +48,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     
     //Add New Lesion - Patient Details
     const firstname = user.firstname;
-    const lastname = `${user.lastname} EDERMPATH one one nine`;
+    const lastname = `EDERMPATH one one nine`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
@@ -283,5 +283,186 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
 
+  it("EDERMPATH-83. After adding two conditions the DOB is missing", function () 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = user.firstname + homeActions.randomAlpha(10);
+    const lastname = `EDERMPATH eight three`;
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Other');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.assertButton('Dashboard')
+    //Delete first lesion
+    dashboardActions.assertText('Lesion 1')
+    dashboardActions.assertText('Submit request & print');
+    dashboardActions.compareDOB(user.DOB)
+    dashboardActions.saveDraft();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.assertFirstName(firstname)
+    dashboardActions.isReviewCase('Draft');
+  });
+
+  it("EDERMPATH-64. Back button is not functional after backing from the Body Map", function () 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = user.firstname + homeActions.randomAlpha(10);
+    const lastname = `EDERMPATH six four`;
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Other');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.noPreviousHistory();
+    dashboardActions.provisionalDiagnosis();
+    dashboardActions.excludeMelasma();
+    dashboardActions.excludeNmsc();
+    dashboardActions.selectBiopsyType();
+
+    //Case Images
+    dashboardActions.addBodyMap();
+    dashboardActions.assertTitle('Body map');
+    dashboardActions.backButton();
+    dashboardActions.assertTitle('Clinical indication')
+    dashboardActions.backButton();
+    dashboardActions.isPatientDetails('Patient details')
+    dashboardActions.saveDraft();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.assertFirstName(firstname)
+    dashboardActions.isReviewCase('Draft');
+  });
+  
+  it("EDERMPATH-62. The delete button is not presented after adding a new lesion", function () 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = user.firstname + homeActions.randomAlpha(10);
+    const lastname = `EDERMPATH six two`;
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Other');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.assertButton('Dashboard')
+    //Delete first lesion
+    dashboardActions.assertText('Lesion 1')
+    dashboardActions.assertText('Submit request & print');
+    dashboardActions.assertText('Delete')
+    dashboardActions.saveDraft();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.assertFirstName(firstname)
+    dashboardActions.isReviewCase('Draft');
+  });
+  
+  it("EDERMPATH-76. The Laboratory selector is disappeared after adding new conditions", function () 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = user.firstname + homeActions.randomAlpha(10);
+    const lastname = `EDERMPATH seven six`;
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Other');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.selectLab(user.lab[4])
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesion();
+    dashboardActions.caseSummary();
+    dashboardActions.isLab(user.lab[4])
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.assertText('Lesion 1')
+    dashboardActions.assertText('Submit request & print');
+    dashboardActions.isLab(user.lab[4])
+    dashboardActions.saveDraft();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.assertFirstName(firstname)
+    dashboardActions.isReviewCase('Draft');
+  });
 });
   

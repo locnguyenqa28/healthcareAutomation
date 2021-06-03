@@ -19,7 +19,7 @@ describe("Save Draft", function () {
       
       //Add New Lesion - Patient Details
       const firstname = user.firstname;
-      const lastname = `${user.lastname} save ${homeActions.randomAlpha(10)}`;
+      const lastname = `save ${homeActions.randomAlpha(10)}`;
       dashboardActions.clickAddNewLesion();
       dashboardActions.selectTitle('Other');
       dashboardActions.enterFirstName(firstname);
@@ -40,7 +40,7 @@ describe("Save Draft", function () {
     it("02. One Lesion saving", function () 
     {
       const firstname = user.firstname;
-      const lastname = `${user.lastname} save one lesion ${homeActions.randomAlpha(10)}`;
+      const lastname = `save one lesion ${homeActions.randomAlpha(10)}`;
       loginActions.visitPage();
       loginActions.inputUserName(user.username);
       loginActions.inputPassword(user.password);
@@ -75,7 +75,7 @@ describe("Save Draft", function () {
     it("03. Two Lesion saving", function () 
     {
       const firstname = user.firstname;
-      const lastname = `${user.lastname} save two lesion ${homeActions.randomAlpha(10)}`;
+      const lastname = `save two lesion ${homeActions.randomAlpha(10)}`;
       loginActions.visitPage();
       loginActions.inputUserName(user.username);
       loginActions.inputPassword(user.password);
@@ -114,7 +114,7 @@ describe("Save Draft", function () {
     it("04. Three Lesion saving", function () 
     {
       const firstname = user.firstname;
-      const lastname = `${user.lastname} save three lesion ${homeActions.randomAlpha(10)}`;
+      const lastname = `save three lesion ${homeActions.randomAlpha(10)}`;
       loginActions.visitPage();
       loginActions.inputUserName(user.username);
       loginActions.inputPassword(user.password);
@@ -157,7 +157,7 @@ describe("Save Draft", function () {
     it("05. Four Lesion saving", function () 
     {
       const firstname = user.firstname;
-      const lastname = `${user.lastname} save four lesion ${homeActions.randomAlpha(10)}`;
+      const lastname = `save four lesion ${homeActions.randomAlpha(10)}`;
       loginActions.visitPage();
       loginActions.inputUserName(user.username);
       loginActions.inputPassword(user.password);
