@@ -113,8 +113,8 @@ describe("Add New Lesion on eDerm", function () {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = user.firstname;
-    const lastname = `${user.lastname} submit three lesion ${homeActions.randomAlpha(10)}`;
+    const firstname = user.firstname + homeActions.randomAlpha(10);
+    const lastname = `submit three lesion ${homeActions.randomAlpha(10)} ${homeActions.randomAlpha(10)}`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
@@ -232,7 +232,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("06. Submit four Lesion more than 4 images", function () 
+  it("06. Submit four Lesion  4 images", function () 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -242,7 +242,7 @@ describe("Add New Lesion on eDerm", function () {
     
     //Add New Lesion - Patient Details
     const firstname = user.firstname;
-    const lastname = `${user.lastname} submit one lesion more than four images ${homeActions.randomAlpha(10)}`;
+    const lastname = `four images ${homeActions.randomAlpha(10)}`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
@@ -258,19 +258,163 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images();
+    dashboardActions.addALesionMoreThan4Images(4);
 
     //Add another lesion
     dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionMoreThan4Images();
+    dashboardActions.addALesionMoreThan4Images(4);
 
     //Add another lesion
     dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionMoreThan4Images();
+    dashboardActions.addALesionMoreThan4Images(4);
 
     //Add another lesion
     dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionMoreThan4Images();
+    dashboardActions.addALesionMoreThan4Images(4);
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+
+  it("07. Submit four Lesion 3 images", function () 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = user.firstname;
+    const lastname = `three images ${homeActions.randomAlpha(10)}`;
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Other');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionMoreThan4Images(3);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionMoreThan4Images(3);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionMoreThan4Images(3);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionMoreThan4Images(3);
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+
+  it("08. Submit four Lesion 2 images", function () 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = user.firstname;
+    const lastname = `two images ${homeActions.randomAlpha(10)}`;
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Other');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionMoreThan4Images(2);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionMoreThan4Images(2);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionMoreThan4Images(2);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionMoreThan4Images(2);
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+
+  it("09. Submit four Lesion 1 images", function () 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = user.firstname;
+    const lastname = `one images ${homeActions.randomAlpha(10)}`;
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Other');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionMoreThan4Images(1);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionMoreThan4Images(1);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionMoreThan4Images(1);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionMoreThan4Images(1);
 
     //Case Summary
     dashboardActions.caseSummary();

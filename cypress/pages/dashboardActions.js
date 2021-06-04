@@ -126,9 +126,10 @@ export class DashboardActions extends CommonActions
       cy.get('a[class="docnavright"]')
         .contains('Next »').click()
   }
-  backButton(){
+  backButton(isForce = false){
+      cy.wait(500);
       cy.get('a.clss-back')
-        .contains('Back').first().click()
+        .contains('Back').first().click({ force: isForce});
   }
 
   assertTextArea(text){
@@ -259,6 +260,7 @@ export class DashboardActions extends CommonActions
       .click()
   }
   isUploadSuccesfully(index){
+    cy.wait(10000);
     cy.reload();
     cy.reload();
     cy.get(".x-grid3-cell-last[tabindex='0']")
@@ -292,7 +294,7 @@ export class DashboardActions extends CommonActions
     this.nextButtonUploadImg();
   }
 
-  addALesionMoreThan4Images() {
+  addALesionMoreThan4Images(number = 4) {
     //Clinical Condition
     this.noPreviousHistory();
     this.provisionalDiagnosis();
@@ -309,14 +311,10 @@ export class DashboardActions extends CommonActions
 
     //Upload Dermascopic Images
     this.assertTitle('Upload ');
-    this.uploadMultiImages(5);
+    this.uploadMultiImages(number);
     this.startUpload();
     this.isProgressBarDisappear();
     this.isImageUploadedSuccessfully();
-    this.assertFile('1.jpg');
-    this.assertFile('2.jpg');
-    this.assertFile('3.jpg');
-    this.assertFile('4.jpg');
     this.nextButtonUploadImg();
   }
 
@@ -349,6 +347,11 @@ export class DashboardActions extends CommonActions
    cy.get('input[id="case_DOB"]')
    .invoke('attr','value')
    .should('eq',DOB)
+  }
+
+  assertNoPreviousHistologyChecked() {
+   cy.get('[id="important_1"][checked="checked"]')
+   .should('be.visible')
   }
 }
 

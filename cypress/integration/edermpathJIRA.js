@@ -464,5 +464,70 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.assertFirstName(firstname)
     dashboardActions.isReviewCase('Draft');
   });
+
+      
+  it("EDERMPATH-114. All fields are blank after editing the body map", function () 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = user.firstname + homeActions.randomAlpha(10);
+    const lastname = `EDERMPATH one one four`;
+    const quoteText = 'automation';
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Other');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Clinical Condition
+    dashboardActions.noPreviousHistory();
+    dashboardActions.provisionalDiagnosis();
+    dashboardActions.excludeMelasma();
+    dashboardActions.excludeNmsc();
+    dashboardActions.enterClinicalNote(quoteText);
+    dashboardActions.selectBiopsyType();
+
+    //Case AddBodyMap
+    dashboardActions.addBodyMap();
+    dashboardActions.clickImage();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation();
+    dashboardActions.saveBodyMap();
+    dashboardActions.assertTitle('Upload');
+    dashboardActions.assertTitle('Lesion');
+    dashboardActions.assertTitle('Images');
+    dashboardActions.backButton(true);
+    dashboardActions.assertTitle('Clinical indication');
+    dashboardActions.backButton(true);
+    dashboardActions.isPatientDetails();
+    dashboardActions.nextButton(true);
+    dashboardActions.assertText(quoteText);
+    dashboardActions.assertText('BCC (Basal Cell Carcinoma)');
+    dashboardActions.assertNoPreviousHistologyChecked()
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.assertButton('Dashboard')
+
+    //Submit
+    dashboardActions.saveDraft();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.assertFirstName(firstname)
+    dashboardActions.isReviewCase('Draft');
+  });
 });
   
