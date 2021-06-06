@@ -464,7 +464,6 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.assertFirstName(firstname)
     dashboardActions.isReviewCase('Draft');
   });
-
       
   it("EDERMPATH-114. All fields are blank after editing the body map", function () 
   {

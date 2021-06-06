@@ -158,7 +158,7 @@ describe("Add New Lesion on eDerm", function () {
     
     //Add New Lesion - Patient Details
     const firstname = user.firstname;
-    const lastname = `${user.lastname} submit four lesion ${homeActions.randomAlpha(5)}`;
+    const lastname = `${user.lastname} submit four lesion ${homeActions.randomAlpha(20)}`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
