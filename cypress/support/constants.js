@@ -1,6 +1,6 @@
 const user = {
    username : "apidoc",
-   password : "629188",
+   password : "!3Derm2021",
    firstname : "Automation",
    lastname : "Tester",
    DOB : "23/01/1969",
