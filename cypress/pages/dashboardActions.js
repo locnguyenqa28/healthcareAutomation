@@ -285,7 +285,7 @@ export class DashboardActions extends CommonActions
       .contains('Submit request & print » ').click()
   }
   returnToDashboard(){
-    cy.get('a[href="/cases/dashboard"]')
+    cy.get('a[href*="/cases/dashboard"]')
       .click()
   }
   isUploadSuccesfully(index){
