@@ -528,5 +528,123 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.assertFirstName(firstname)
     dashboardActions.isReviewCase('Draft');
   });
+      
+  it("EDERMPATH-150. The status is upload failure when creating an order that having a long lastname and 3 lesions continuously ", function () 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    //Add New Lesion - Patient Details
+    const firstname = user.firstname + homeActions.randomAlpha(20);
+    const lastname = `EDERMPATH one five zero ${homeActions.randomAlpha(20)}`;
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Other');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+  
+  it("EDERMPATH-151. Upload issue from Melanie", function () 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `EDERMPATH one five one ${homeActions.randomAlpha(20)}`;
+    const lastname = `Upload issue from Melanie ${homeActions.randomAlpha(20)}`;
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Other');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Clinical Condition
+    dashboardActions.noPreviousHistory();
+    dashboardActions.provisionalDiagnosis();
+    dashboardActions.excludeMelasma();
+    dashboardActions.excludeNmsc();
+    dashboardActions.selectBiopsyType();
+
+    //Case Images
+    dashboardActions.addBodyMap();
+    dashboardActions.clickImage();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation();
+    dashboardActions.saveBodyMap();
+
+    //Upload Dermascopic Images
+    dashboardActions.assertTitle('Upload ');
+    dashboardActions.uploadMultiImages(2);
+    dashboardActions.startUpload();
+    dashboardActions.isImageUploadedSuccessfully();
+    dashboardActions.assertFile('1.jpg')
+    dashboardActions.assertFile('2.jpg')
+    dashboardActions.nextButtonUploadImg();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.assertButton('Dashboard')
+
+    //Click on Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.assertTitle('Clinical indication');
+    dashboardActions.backButton();
+
+    // Add additions Images
+    dashboardActions.uploadAdditionalImages(1)
+    
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.assertText('Add additional images')
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.assertTitle('Clinical indication');
+    dashboardActions.backButton();
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
 });
   

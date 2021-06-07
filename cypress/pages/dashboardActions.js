@@ -216,6 +216,7 @@ export class DashboardActions extends CommonActions
       cy.get('input[type="file"]')
         .attachFile('1.jpg')
   }
+
   uploadMultiImages(number){
     const imageArr = []
     for(let i = 1; i< number+1; i++){
@@ -225,6 +226,34 @@ export class DashboardActions extends CommonActions
     .attachFile(imageArr)
     .wait(500)  
   }
+  
+
+  uploadAdditionalImages(number=1){
+    cy.url(url => {
+      // Get window object
+      cy.window().then((win) => {
+        cy.stub(win, 'open', newUrl => {
+           // change window location to be same as the popup url
+          win.location.href = Cypress.config().baseUrl + newUrl;
+        }).as('windowOpen') 
+      });
+
+      this.clickHrefByText('Add additional images')
+
+      cy.get('@windowOpen').should('be.called')
+      cy.window().then((win) => {
+        cy.stub(win, 'open', newUrl => {
+          win.location.href = Cypress.config().baseUrl + newUrl;
+        }).as('windowOpen') 
+      });
+      cy.wait(2000);
+      this.uploadMultiImages(number);
+      this.startUpload();
+      cy.wait(2000);
+      cy.visit(url);
+    });
+  }
+
   isProgressBarDisappear(){
     cy.get('body').find('.fileupload-progress').should('not.be.visible')
   }
