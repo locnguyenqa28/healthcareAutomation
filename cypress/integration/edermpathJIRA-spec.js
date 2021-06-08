@@ -273,7 +273,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.caseSummary();
     dashboardActions.assertButton('Dashboard')
     //Delete first lesion
-    dashboardActions.clickDeleteLesion(0)
+    dashboardActions.clickDeleteLesion()
     dashboardActions.assertButton('Dashboard')
     dashboardActions.assertText('Lesion 1')
     dashboardActions.assertText('Submit request & print');
@@ -641,6 +641,56 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.assertTitle('Clinical indication');
     dashboardActions.backButton();
     dashboardActions.assertButton('Dashboard')
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+  
+  it("EDERMPATH-115. Case fails to upload if Lesion 3 is deleted before submition", function () 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `EDERMPATH one one five ${homeActions.randomAlpha(20)}`;
+    const lastname = `delete third lesion`;
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Other');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    //Delete first lesion
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.scrollToLesion('Lesion 3')
+    dashboardActions.assertText('Lesion 3')
+    dashboardActions.clickDeleteLesion('Lesion 3')
+    dashboardActions.assertText('Submit request & print');
     dashboardActions.submitCasePrint();
     dashboardActions.returnToDashboard();
     homeActions.isDashboardDisplayed();

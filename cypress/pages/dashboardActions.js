@@ -18,8 +18,8 @@ export class DashboardActions extends CommonActions
         .contains('Create New Pathology Request').click()
   }
 
-  clickDeleteLesion(index = 0){
-      cy.get('a[href]').contains('Delete').eq(index).click();
+  clickDeleteLesion(text = 'Lesion 1'){
+      cy.get('div[id] h3').contains(text).next().contains('Delete').click();
       cy.wait(1000);
   }
 
@@ -381,6 +381,10 @@ export class DashboardActions extends CommonActions
   assertNoPreviousHistologyChecked() {
    cy.get('[id="important_1"][checked="checked"]')
    .should('be.visible')
+  }
+
+  scrollToLesion(text) {
+   cy.get('h3>span').contains(text).scrollIntoView();
   }
 }
 
