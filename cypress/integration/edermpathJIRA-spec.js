@@ -735,11 +735,11 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     //Case Summary
     dashboardActions.caseSummary();
     dashboardActions.assertButton('Dashboard');
-    dashboardActions.assertText('Submit request & print');
-    dashboardActions.submitCasePrint();
-    dashboardActions.returnToDashboard();
+    dashboardActions.saveDraft();
+    dashboardActions.assertFirstName(firstname)
+
     homeActions.isDashboardDisplayed();
-    dashboardActions.isUploadSuccesfully(0);
+    dashboardActions.isReviewCase('Draft')
   });
     
   it("EDERMPATH-78. The state is not saved", function () 
