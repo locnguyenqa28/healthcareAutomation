@@ -67,6 +67,12 @@ export class DashboardActions extends CommonActions
       .should('be.visible')
   }
 
+  isState(option){
+    cy.get('select[id="case_patientstate"] [selected="selected"]')
+      .contains(option)
+      .should('be.visible')
+  }
+
   isTitle(option){
     cy.get('select[id="temptitle"] [selected="selected"]')
       .contains(option)
@@ -98,9 +104,9 @@ export class DashboardActions extends CommonActions
         .type(city)
   }
 
-  selectState(){
+  selectState(state = 'NSW'){
       cy.get('select[id="case_patientstate"]')
-        .select('NSW')
+        .select(state)
   }
 
   enterPostcode(postcode){
@@ -356,6 +362,7 @@ export class DashboardActions extends CommonActions
       this.isLab(user.lab[index]);
     }
   }
+
   isPatientDetails(txt = 'Patient details') {
     cy.get('.bgbox-left .txt-header')
     .last()
@@ -369,6 +376,15 @@ export class DashboardActions extends CommonActions
       this.clickButtonByText('Save');
       this.clickPathologyRequestByFristName(name);
       this.isLab(user.lab[index]);
+    }
+  }
+
+  assertAllStateSaveAndDraft(name) {
+    for(const index in user.state){
+      this.selectState(user.state[index])
+      this.clickButtonByText('Save');
+      this.clickPathologyRequestByFristName(name);
+      this.isState(user.state[index]);
     }
   }
 

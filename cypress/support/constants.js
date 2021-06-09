@@ -23,6 +23,16 @@ const user = {
       'SNP - Sullivan Nicolaides Pathology',
       'SOP - Southern Iml Pathology',
       'WWG - Wagga Pathology'
+   ],
+   state : [
+      'ACT',
+      'NSW',
+      'NT',
+      'QLD',
+      'SA',
+      'TAS',
+      'VIC',
+      'WA',
    ]
 };
 

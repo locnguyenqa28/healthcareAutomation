@@ -12,6 +12,10 @@ export class CommonActions {
     .contains(text)
     .should('be.visible')
   }
+  assertNoText(text){
+    cy.get('body')
+    .should('not.contain.text',text)
+  }
   assertTitle(text){
     cy.get('.txt-header')
     .contains(text)

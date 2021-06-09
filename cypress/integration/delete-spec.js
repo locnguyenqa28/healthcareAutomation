@@ -1068,5 +1068,131 @@ describe("Delete lesion on eDerm", function () {
     homeActions.isDashboardDisplayed();
     dashboardActions.isUploadSuccesfully(0);
   });
+      
+  it("18. 4 lesions, 1 image delete the all lesions", function () 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `four lesion one image ${homeActions.randomAlpha(20)}`;
+    const lastname = `delete all lesions`;
+    const lesion = 'Lesion 1';
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Other');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    
+    //Delete lesion
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.scrollToLesion(lesion)
+    dashboardActions.assertText(lesion)
+    dashboardActions.clickDeleteLesion(lesion)
+    dashboardActions.assertText('Submit request & print');
+
+    //Delete lesion
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.scrollToLesion(lesion)
+    dashboardActions.assertText(lesion)
+    dashboardActions.clickDeleteLesion(lesion)
+    dashboardActions.assertText('Submit request & print');
+
+    //Delete lesion
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.scrollToLesion(lesion)
+    dashboardActions.assertText(lesion)
+    dashboardActions.clickDeleteLesion(lesion)
+    dashboardActions.assertText('Submit request & print');
+
+    //Delete lesion
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.scrollToLesion(lesion)
+    dashboardActions.assertText(lesion)
+    dashboardActions.clickDeleteLesion(lesion)
+    dashboardActions.assertNoText('Submit request & print');
+
+
+    dashboardActions.saveDraft();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isReviewCase('Draft');
+  })
+  
+  it("19. 2 lesions, delete a lesion", function () 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `two lesion one image ${homeActions.randomAlpha(20)}`;
+    const lastname = `delete a lesion`;
+    const lesion = 'Lesion 1';
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Other');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    //Delete first lesion
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.scrollToLesion(lesion)
+    dashboardActions.assertText(lesion)
+    dashboardActions.clickDeleteLesion(lesion)
+    dashboardActions.assertText('Submit request & print');
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
 });
   
