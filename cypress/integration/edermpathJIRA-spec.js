@@ -25,7 +25,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.selectTitle(title);
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -53,7 +53,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -79,7 +79,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -101,12 +101,13 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     //Add New Lesion - Patient Details
     const firstname = user.firstname + homeActions.randomAlpha(10);
     const lastname = `EDERMPATH one three seven`;
-    const quoteText = '""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""';
+    const invalidQuoteText = '"""""""""""""""""""""""""""""';
+    const quoteText = "(((((((((((())))))))))))";
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -121,10 +122,14 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.provisionalDiagnosis();
     dashboardActions.excludeMelasma();
     dashboardActions.excludeNmsc();
-    dashboardActions.enterClinicalNote(quoteText);
+    dashboardActions.enterClinicalNote(invalidQuoteText);
     dashboardActions.selectBiopsyType();
 
     //Case Images
+    dashboardActions.addBodyMap();
+    dashboardActions.assertText("Please enter a clinical notes. Allowed characters: a-z, A-Z, 0-9, /, #, -, (,).")
+
+    dashboardActions.enterClinicalNote(quoteText);
     dashboardActions.addBodyMap();
     dashboardActions.clickImage();
     dashboardActions.selectBodyRegion();
@@ -185,7 +190,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -248,7 +253,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -298,7 +303,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -343,7 +348,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -388,7 +393,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -433,7 +438,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -481,7 +486,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -544,7 +549,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -588,7 +593,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -662,7 +667,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -712,7 +717,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -757,7 +762,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -766,6 +771,73 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.assertAllStateSaveAndDraft(firstname); 
+  });
+    
+  it("EDERMPATH-80. Unable to save the new lesion although the last name changing to a valid value", function () 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `EDERMPATH eight zero ${homeActions.randomAlpha(10)}`;
+    const invalidLastname = `Invalid lastname 123`;
+    const lastname = "a-zA-Z'`";
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(invalidLastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+
+    dashboardActions.saveDraft();
+    dashboardActions.assertText("Please enter a last name. Allowed characters: a-z,A-Z,-,',`.");
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.saveDraft();
+    dashboardActions.assertFirstName(firstname)
+    dashboardActions.isReviewCase('Draft')
+  });
+    
+  it("EDERMPATH-155. Remove Gender Other", function () 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `EDERMPATH five five ${homeActions.randomAlpha(10)}`;
+    const lastname = `Remove Gender Other`;
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.clickGender();
+    dashboardActions.isGender('Male');
+    dashboardActions.isGender('Female');
+    dashboardActions.isGender('Unknown');
+    dashboardActions.isNotGender('Other');
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+
+    dashboardActions.saveDraft();
+    dashboardActions.assertFirstName(firstname)
+    dashboardActions.isReviewCase('Draft')
   });
 
 });

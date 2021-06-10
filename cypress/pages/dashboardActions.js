@@ -48,7 +48,24 @@ export class DashboardActions extends CommonActions
 
   enterLastName(lastname){
       cy.get('input[id="case_LastName"]')
+        .clear()
         .type(lastname)
+  }
+
+  clickGender(){
+    cy.get('select[id="case_Gender"]')
+      .parent()
+      .click()
+  }
+
+  isGender(text){
+    cy.get('select[id="case_Gender"]')
+      .contains(text).should('be.visible')
+  }
+
+  isNotGender(text){
+    cy.get('select[id="case_Gender"]')
+      .should('not.contain.text', text)
   }
 
   selectGender(option){
@@ -204,6 +221,7 @@ export class DashboardActions extends CommonActions
 
   enterClinicalNote(text="test notes"){
       cy.get('textarea[id="important_16"]')
+        .clear()
         .type(text)
   }
 

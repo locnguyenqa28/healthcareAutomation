@@ -24,7 +24,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -60,7 +60,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -100,7 +100,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -144,7 +144,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -192,7 +192,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -240,7 +240,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -288,7 +288,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -336,7 +336,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -384,7 +384,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -428,7 +428,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -472,7 +472,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -516,7 +516,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -560,7 +560,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -600,7 +600,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -640,7 +640,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -680,7 +680,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -720,7 +720,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -756,7 +756,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -792,7 +792,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -828,7 +828,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.selectTitle('Other');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Other');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
