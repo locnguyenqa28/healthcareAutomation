@@ -33,7 +33,25 @@ const user = {
       'TAS',
       'VIC',
       'WA',
-   ]
+   ],
+   validMessage:[
+      "Please enter a first name. Allowed characters: a-z,A-Z,-,',`.",
+      "Please enter a last name. Allowed characters: a-z,A-Z,-,',`.",
+      "Please select a gender.",
+      "Please enter a valid date of birth.",
+      "Please enter an address. Allowed characters: a-z, A-Z, 0-9, /, #, -, (,).",
+      "Please enter a city/town. Allowed characters: a-z, A-Z, 0-9, /, #, -, (,).",
+      "Please select a state.",
+      "Please enter a postcode. Allowed characters: 0-9.",
+      "Please enter a contact number. Allowed characters: 0-9,+,-, (,).",
+      "Please enter a DVA number. Allowed characters: a-z, A-Z, 0-9, /, #, -, (,).",
+   ],
+   validNoteMessage: "Please enter a clinical notes. Allowed characters: a-z, A-Z, 0-9, /, #, -, (,), ,, .",
+   billing:{
+      DVA: "S",
+      bulkBill: "D",
+      private: "P"
+   }
 };
 
 export default user

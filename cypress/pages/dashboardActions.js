@@ -132,13 +132,23 @@ export class DashboardActions extends CommonActions
   }
 
   enterContact(contact){
-      cy.get('input[id="case_NotificationPhone"]')
+    cy.get('input[id="case_NotificationPhone"]')
         .type(contact)
   }
 
   enterMedicare(medicare){
-      cy.get('input[id="case_NHS"]')
-        .type(medicare)
+    cy.get('input[id="case_NHS"]')
+      .type(medicare)
+  }
+
+  selecBilling(option = 'DVA'){
+    cy.get('select#case_patientfinancial')
+      .select(option)
+  }
+
+  enterDVANumber(text){
+    cy.get('input#case_dvano')
+      .type(text)
   }
 
   saveDraft(){
@@ -205,7 +215,7 @@ export class DashboardActions extends CommonActions
       .select('O (Other)')
   }
   clickImage(){
-    cy.get('img[id="showimaged"]')
+    cy.get('img[id="showimaged"]').first()
       .click()
   }
   clickRIghtHand(){
@@ -213,10 +223,10 @@ export class DashboardActions extends CommonActions
         .click()
   }
 
-  selectBodyRegion(){
+  selectBodyRegion(text = 'Neck'){
       cy.get('select[id="BodyMapRegion"]')
       .eq(0)
-      .select('Neck', {force: true})
+      .select(text, {force: true})
   }
 
   enterClinicalNote(text="test notes"){
@@ -225,9 +235,10 @@ export class DashboardActions extends CommonActions
         .type(text)
   }
 
-  enterSpecimenLocation(){
+  enterSpecimenLocation(text = 'automation text'){
       cy.get('textarea[id="specimenLocation"]')
-        .type('Test Location')
+        .clear()
+        .type(text)
   }
 
   enterOtherTitle(text){
@@ -433,6 +444,12 @@ export class DashboardActions extends CommonActions
 
   scrollToLesion(text) {
    cy.get('h3>span').contains(text).scrollIntoView();
+  }
+
+  assertAllValidMessage() {
+   for(const message of user.validMessage){
+     this.assertText(message);
+   }
   }
 }
 

@@ -852,10 +852,19 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const firstname = `EDERMPATH one five four ${homeActions.randomAlpha(10)}`;
     const lastname = `Update field validation and details`;
     const validText = "abcdzABCDZ()--";
+    const validDVANumber = "abcdzABCDZ()--/#,1234567890";
+    const validNote = "abcdzABCDZ()--/#,1234567890.";
+    const invalidNote = "!@@@@@@@$$$$$";
     dashboardActions.clickAddNewLesion();
+    dashboardActions.selecBilling(user.billing.DVA);
+    dashboardActions.saveDraft();
+    dashboardActions.assertAllValidMessage()
+    dashboardActions.nextButton();
+    dashboardActions.assertAllValidMessage()
+
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validText)
-    dashboardActions.assertMaxLengthOtherTitle(10)
+    dashboardActions.assertMaxLengthOtherTitle('10')
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -865,7 +874,31 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
-    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.enterDVANumber(validDVANumber);
+    dashboardActions.nextButton();
+
+    //Clinical Condition
+    dashboardActions.noPreviousHistory();
+    dashboardActions.provisionalDiagnosis();
+    dashboardActions.excludeMelasma();
+    dashboardActions.excludeNmsc();
+    dashboardActions.selectBiopsyType();
+    dashboardActions.enterClinicalNote(invalidNote);
+    dashboardActions.addBodyMap();
+    dashboardActions.assertText(user.validNoteMessage);
+    dashboardActions.enterClinicalNote(validNote);
+
+    //Case Images
+    dashboardActions.addBodyMap();
+    dashboardActions.assertNoText(user.validNoteMessage);
+    dashboardActions.clickImage();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation(invalidNote);
+    dashboardActions.saveBodyMap();
+    dashboardActions.assertText(user.validNoteMessage);
+    dashboardActions.enterSpecimenLocation(validNote);
+    dashboardActions.saveBodyMap();
+    dashboardActions.assertNoText(user.validNoteMessage);
 
     dashboardActions.saveDraft();
     dashboardActions.assertFirstName(firstname)
@@ -907,5 +940,73 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.assertMaxLengthOtherTitle('10')
   });
 
+  it("EDERMPATH-81. The 5th condition will be generated after editing twice", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `EDERMPATH eight one ${homeActions.randomAlpha(10)}`;
+    const lastname = `The five condition will be generated after editing twice`;
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionMoreThan4Images(1);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionMoreThan4Images(1);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionMoreThan4Images(1);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionMoreThan4Images(1);
+
+    //Edit body map
+    dashboardActions.clickHrefByText('Edit body map and location');
+    dashboardActions.selectBodyRegion('Arm');
+    dashboardActions.enterSpecimenLocation(homeActions.randomAlpha(40));
+    dashboardActions.saveBodyMap();
+    dashboardActions.assertNoText('Save body map');
+
+    //Edit body map
+    dashboardActions.assertNoText('Save body map');
+    dashboardActions.clickHrefByText('Edit body map and location');
+    dashboardActions.selectBodyRegion('Arm');
+    dashboardActions.enterSpecimenLocation(homeActions.randomAlpha(40));
+    dashboardActions.saveBodyMap();
+    dashboardActions.assertNoText('Save body map');
+
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.assertText('Lesion 1')
+    dashboardActions.assertText('Lesion 2')
+    dashboardActions.assertText('Lesion 3')
+    dashboardActions.assertText('Lesion 4')
+    dashboardActions.assertNoText('Lesion 5')
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
 });
   
