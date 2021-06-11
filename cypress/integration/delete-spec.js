@@ -4,12 +4,12 @@ import { DashboardActions } from "../pages/dashboardActions";
 import user from "../support/constants"
 
 
-describe("Delete lesion on eDerm", function () {
+describe("Delete lesion on eDerm", () => {
     const loginActions = new LoginActions();
     const homeActions = new HomeActions();
     const dashboardActions = new DashboardActions();
 
-  it("01. 3 lesions, 1 image delete the second lesion", function () 
+  it("01. 3 lesions, 1 image delete the second lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -60,7 +60,7 @@ describe("Delete lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
     
-  it("02. 3 lesions, 1 image delete the first and second lesion", function () 
+  it("02. 3 lesions, 1 image delete the first and second lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -121,7 +121,7 @@ describe("Delete lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
     
-  it("03. 3 lesions, 1 image delete the 2 and 3 lesion", function () 
+  it("03. 3 lesions, 1 image delete the 2 and 3 lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -182,7 +182,7 @@ describe("Delete lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
     
-  it("04. 3 lesions, 1 image delete the 1 and 3 lesion", function () 
+  it("04. 3 lesions, 1 image delete the 1 and 3 lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -243,7 +243,7 @@ describe("Delete lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
     
-  it("05. 4 lesions, 1 image delete the first lesion", function () 
+  it("05. 4 lesions, 1 image delete the first lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -298,7 +298,7 @@ describe("Delete lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
     
-  it("06. 4 lesions, 1 image delete the second lesion", function () 
+  it("06. 4 lesions, 1 image delete the second lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -353,7 +353,7 @@ describe("Delete lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
     
-  it("07. 4 lesions, 1 image delete the third lesion", function () 
+  it("07. 4 lesions, 1 image delete the third lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -408,7 +408,7 @@ describe("Delete lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
     
-  it("08. 4 lesions, 1 image delete the fourth lesion", function () 
+  it("08. 4 lesions, 1 image delete the fourth lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -463,7 +463,7 @@ describe("Delete lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
     
-  it("09. 4 lesions, 1 image delete the 1 2 3 lesion", function () 
+  it("09. 4 lesions, 1 image delete the 1 2 3 lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -534,7 +534,7 @@ describe("Delete lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
     
-  it("10. 4 lesions, 1 image delete the 2 3 4 lesion", function () 
+  it("10. 4 lesions, 1 image delete the 2 3 4 lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -605,7 +605,7 @@ describe("Delete lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
     
-  it("11. 4 lesions, 1 image delete the 4 3 2 lesion", function () 
+  it("11. 4 lesions, 1 image delete the 4 3 2 lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -679,7 +679,7 @@ describe("Delete lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
       
-  it("12. 4 lesions, 1 image delete the 1 2 lesion", function () 
+  it("12. 4 lesions, 1 image delete the 1 2 lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -743,7 +743,7 @@ describe("Delete lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
       
-  it("13. 4 lesions, 1 image delete the  3 4 lesion", function () 
+  it("13. 4 lesions, 1 image delete the  3 4 lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -807,7 +807,7 @@ describe("Delete lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
       
-  it("14. 4 lesions, 1 image delete the  2 3 lesion", function () 
+  it("14. 4 lesions, 1 image delete the  2 3 lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -871,7 +871,7 @@ describe("Delete lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
       
-  it("15. 4 lesions, 1 image delete the  1 4 lesion", function () 
+  it("15. 4 lesions, 1 image delete the  1 4 lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -937,7 +937,7 @@ describe("Delete lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
       
-  it("16. 4 lesions, 1 image delete the  2 4 lesion", function () 
+  it("16. 4 lesions, 1 image delete the  2 4 lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -1003,7 +1003,7 @@ describe("Delete lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
       
-  it("17. 4 lesions, 1 image delete the  1 3 lesion", function () 
+  it("17. 4 lesions, 1 image delete the  1 3 lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -1069,7 +1069,7 @@ describe("Delete lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
       
-  it("18. 4 lesions, 1 image delete the all lesions", function () 
+  it("18. 4 lesions, 1 image delete the all lesions", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -1148,7 +1148,7 @@ describe("Delete lesion on eDerm", function () {
     dashboardActions.isReviewCase('Draft');
   })
   
-  it("19. 2 lesions, delete a lesion", function () 
+  it("19. 2 lesions, delete a lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);

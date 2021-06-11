@@ -4,12 +4,12 @@ import { DashboardActions } from "../pages/dashboardActions";
 import user from "../support/constants"
 
 
-describe("Verify bug on EDERMPATH JIRA", function () {
+describe("Verify bug on EDERMPATH JIRA", () => {
     const loginActions = new LoginActions();
     const homeActions = new HomeActions();
     const dashboardActions = new DashboardActions();
   
-  it("EDERMPATH-102. The Title is rollbacked to blank after selecting Other", function () 
+  it("EDERMPATH-102. The Title is rollbacked to blank after selecting Other", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -38,7 +38,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.isTitle(title)
   });
   
-  it("EDERMPATH-119. The Laboratory is not be saved after backing", function () 
+  it("EDERMPATH-119. The Laboratory is not be saved after backing", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -64,7 +64,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.assertAllLabNextAndBack();
   });
   
-  it("EDERMPATH-119. The Laboratory is not be saved after backing - Draft", function () 
+  it("EDERMPATH-119. The Laboratory is not be saved after backing - Draft", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -90,7 +90,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.assertAllLabSaveAndDraft(firstname);
   });
     
-  it("EDERMPATH-137. The Clinical note is not be saved after inputting the quote symbol", function () 
+  it("EDERMPATH-137. The Clinical note is not be saved after inputting the quote symbol", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -157,7 +157,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
   
-  it("EDERMPATH-141. Return to setup screen from Edit Account", function () 
+  it("EDERMPATH-141. Return to setup screen from Edit Account", () => 
   {
     const subhurb = `Pattaya City ${dashboardActions.randomAlphanumeric(5)}`
     loginActions.visitPage();
@@ -175,7 +175,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.assertText('Account Setup');
   });
 
-  it("EDERMPATH-145. eOrder did not upload", function () 
+  it("EDERMPATH-145. eOrder did not upload", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -238,7 +238,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("EDERMPATH-146. eOrder no uploading - deleting lesion 1 when there were 3 lesions", function () 
+  it("EDERMPATH-146. eOrder no uploading - deleting lesion 1 when there were 3 lesions", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -288,7 +288,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("EDERMPATH-83. After adding two conditions the DOB is missing", function () 
+  it("EDERMPATH-83. After adding two conditions the DOB is missing", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -333,7 +333,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.isReviewCase('Draft');
   });
 
-  it("EDERMPATH-64. Back button is not functional after backing from the Body Map", function () 
+  it("EDERMPATH-64. Back button is not functional after backing from the Body Map", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -378,7 +378,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.isReviewCase('Draft');
   });
   
-  it("EDERMPATH-62. The delete button is not presented after adding a new lesion", function () 
+  it("EDERMPATH-62. The delete button is not presented after adding a new lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -423,7 +423,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.isReviewCase('Draft');
   });
   
-  it("EDERMPATH-76. The Laboratory selector is disappeared after adding new conditions", function () 
+  it("EDERMPATH-76. The Laboratory selector is disappeared after adding new conditions", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -470,7 +470,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.isReviewCase('Draft');
   });
       
-  it("EDERMPATH-114. All fields are blank after editing the body map", function () 
+  it("EDERMPATH-114. All fields are blank after editing the body map", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -534,7 +534,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.isReviewCase('Draft');
   });
       
-  it("EDERMPATH-150. The status is upload failure when creating an order that having a long lastname and 3 lesions continuously ", function () 
+  it("EDERMPATH-150. The status is upload failure when creating an order that having a long lastname and 3 lesions continuously ", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -578,7 +578,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
   
-  it("EDERMPATH-151. Upload issue from Melanie", function () 
+  it("EDERMPATH-151. Upload issue from Melanie", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -652,7 +652,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
   
-  it("EDERMPATH-115. Case fails to upload if Lesion 3 is deleted before submition", function () 
+  it("EDERMPATH-115. Case fails to upload if Lesion 3 is deleted before submition", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -702,7 +702,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
     
-  it("EDERMPATH-79. Unable to add new conditions from the draft", function () 
+  it("EDERMPATH-79. Unable to add new conditions from the draft", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -747,7 +747,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.isReviewCase('Draft')
   });
     
-  it("EDERMPATH-78. The state is not saved", function () 
+  it("EDERMPATH-78. The state is not saved", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -773,7 +773,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.assertAllStateSaveAndDraft(firstname); 
   });
     
-  it("EDERMPATH-80. Unable to save the new lesion although the last name changing to a valid value", function () 
+  it("EDERMPATH-80. Unable to save the new lesion although the last name changing to a valid value", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -806,7 +806,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.isReviewCase('Draft')
   });
     
-  it("EDERMPATH-155. Remove Gender Other", function () 
+  it("EDERMPATH-155. Remove Gender Other", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -815,7 +815,7 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `EDERMPATH five five ${homeActions.randomAlpha(10)}`;
+    const firstname = `EDERMPATH one five five ${homeActions.randomAlpha(10)}`;
     const lastname = `Remove Gender Other`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
@@ -838,6 +838,73 @@ describe("Verify bug on EDERMPATH JIRA", function () {
     dashboardActions.saveDraft();
     dashboardActions.assertFirstName(firstname)
     dashboardActions.isReviewCase('Draft')
+  });
+    
+  it("EDERMPATH-154. Update field validation and details", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `EDERMPATH one five four ${homeActions.randomAlpha(10)}`;
+    const lastname = `Update field validation and details`;
+    const validText = "abcdzABCDZ()--";
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validText)
+    dashboardActions.assertMaxLengthOtherTitle(10)
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(validText);
+    dashboardActions.enterCity(validText);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+
+    dashboardActions.saveDraft();
+    dashboardActions.assertFirstName(firstname)
+    dashboardActions.isReviewCase('Draft')
+  });
+    
+  it("EDERMPATH-156. The other's maxlength is changed to 20 after saving", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `EDERMPATH one five six ${homeActions.randomAlpha(10)}`;
+    const lastname = `The others maxlength is changed to twenty after saving`;
+    const validText = "abcdzABCDZ()--";
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validText)
+    dashboardActions.assertMaxLengthOtherTitle('10')
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(validText);
+    dashboardActions.enterCity(validText);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+
+    dashboardActions.saveDraft();
+    dashboardActions.assertFirstName(firstname)
+    dashboardActions.isReviewCase('Draft')
+
+    dashboardActions.clickPathologyRequestByFristName(firstname);
+    dashboardActions.assertMaxLengthOtherTitle('10')
   });
 
 });

@@ -4,12 +4,12 @@ import { DashboardActions } from "../pages/dashboardActions";
 import user from "../support/constants"
 
 
-describe("Save Draft", function () {
+describe("Save Draft", () => {
     const loginActions = new LoginActions();
     const homeActions = new HomeActions();
     const dashboardActions = new DashboardActions();
   
-    it("01. Patient Details saving", function () 
+    it("01. Patient Details saving", () => 
     {
       loginActions.visitPage();
       loginActions.inputUserName(user.username);
@@ -37,7 +37,7 @@ describe("Save Draft", function () {
       dashboardActions.isReviewCase('Draft')
     });
   
-    it("02. One Lesion saving", function () 
+    it("02. One Lesion saving", () => 
     {
       const firstname = user.firstname;
       const lastname = `save one lesion ${homeActions.randomAlpha(10)}`;
@@ -72,7 +72,7 @@ describe("Save Draft", function () {
       dashboardActions.isReviewCase('Draft')
     });
   
-    it("03. Two Lesion saving", function () 
+    it("03. Two Lesion saving", () => 
     {
       const firstname = user.firstname;
       const lastname = `save two lesion ${homeActions.randomAlpha(10)}`;
@@ -111,7 +111,7 @@ describe("Save Draft", function () {
       dashboardActions.isReviewCase('Draft')
     });
   
-    it("04. Three Lesion saving", function () 
+    it("04. Three Lesion saving", () => 
     {
       const firstname = user.firstname;
       const lastname = `save three lesion ${homeActions.randomAlpha(10)}`;
@@ -154,7 +154,7 @@ describe("Save Draft", function () {
       dashboardActions.isReviewCase('Draft')
     });
   
-    it("05. Four Lesion saving", function () 
+    it("05. Four Lesion saving", () => 
     {
       const firstname = user.firstname;
       const lastname = `save four lesion ${homeActions.randomAlpha(10)}`;

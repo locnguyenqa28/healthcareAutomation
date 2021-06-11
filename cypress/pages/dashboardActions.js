@@ -230,6 +230,18 @@ export class DashboardActions extends CommonActions
         .type('Test Location')
   }
 
+  enterOtherTitle(text){
+      cy.get('#showtitle input')
+        .clear()
+        .type(text)
+  }
+
+  assertMaxLengthOtherTitle(number){
+      cy.get('#showtitle input')
+        .invoke('attr', 'maxlength')
+        .should('eq', number)
+  }
+
   saveBodyMap(){
       cy.get('button[id="uploadbodylayoutupdate"]')
         .click()
@@ -286,10 +298,12 @@ export class DashboardActions extends CommonActions
     cy.get('[id="btn-start-upload"][type="submit"]')
       .click()
   }
+
   isImageUploadedSuccessfully(){
     cy.get('td[class="preview"]')
       .should('be.visible')
   }
+
   nextButtonUploadImg(){
     cy.get('a[id="showlinkshownextv2"]')
       .click()

@@ -4,12 +4,12 @@ import { DashboardActions } from "../pages/dashboardActions";
 import user from "../support/constants"
 
 
-describe("Add New Lesion on eDerm", function () {
+describe("Add New Lesion on eDerm", () => {
     const loginActions = new LoginActions();
     const homeActions = new HomeActions();
     const dashboardActions = new DashboardActions();
 
-  it("01. Submit one Lesion more than 4 images", function () 
+  it("01. Submit one Lesion more than 4 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -45,7 +45,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("02. Submit two Lesion more than 4 images", function () 
+  it("02. Submit two Lesion more than 4 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -85,7 +85,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("03. Submit three Lesion more than 4 images", function () 
+  it("03. Submit three Lesion more than 4 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -129,7 +129,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("04. Submit four Lesion more than 4 images", function () 
+  it("04. Submit four Lesion more than 4 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -177,7 +177,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("05. Submit four Lesion 4 images", function () 
+  it("05. Submit four Lesion 4 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -225,7 +225,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("06. Submit four Lesion 3 images", function () 
+  it("06. Submit four Lesion 3 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -273,7 +273,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("07. Submit four Lesion 2 images", function () 
+  it("07. Submit four Lesion 2 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -321,7 +321,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("08. Submit four Lesion 1 images", function () 
+  it("08. Submit four Lesion 1 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -369,7 +369,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("09. Submit three Lesion 4 images", function () 
+  it("09. Submit three Lesion 4 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -413,7 +413,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("10. Submit three Lesion 3 images", function () 
+  it("10. Submit three Lesion 3 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -457,7 +457,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("11. Submit three Lesion 2 images", function () 
+  it("11. Submit three Lesion 2 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -501,7 +501,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("12. Submit three Lesion 1 images", function () 
+  it("12. Submit three Lesion 1 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -545,7 +545,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("13. Submit two Lesion 4 images", function () 
+  it("13. Submit two Lesion 4 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -585,7 +585,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("14. Submit two Lesion 3 images", function () 
+  it("14. Submit two Lesion 3 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -625,7 +625,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("15. Submit two Lesion 2 images", function () 
+  it("15. Submit two Lesion 2 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -665,7 +665,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("16. Submit three Lesion 1 images", function () 
+  it("16. Submit three Lesion 1 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -705,7 +705,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("17. Submit one Lesion 4 images", function () 
+  it("17. Submit one Lesion 4 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -741,7 +741,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("18. Submit one Lesion 3 images", function () 
+  it("18. Submit one Lesion 3 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -777,7 +777,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("19. Submit one Lesion 2 images", function () 
+  it("19. Submit one Lesion 2 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -813,7 +813,7 @@ describe("Add New Lesion on eDerm", function () {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("20. Submit one Lesion 1 images", function () 
+  it("20. Submit one Lesion 1 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
