@@ -155,6 +155,13 @@ export class DashboardActions extends CommonActions
       cy.get('a[onclick]')
         .contains('Save draft » ').click()
   }
+
+  dblclicksaveDraft(){
+      cy.get('a[onclick]')
+        .contains('Save draft » ')
+        .dblclick()
+        .wait(1000)
+  }
   nextButton(){
       cy.get('a[class="docnavright"]')
         .contains('Next »').click()
@@ -450,6 +457,17 @@ export class DashboardActions extends CommonActions
    for(const message of user.validMessage){
      this.assertText(message);
    }
+  }
+
+  assertTitleTop(text) {
+    cy.get('.txt-titile-top').contains(text).should('be.visible');
+  }
+
+  isTheOrderOnlyOne(name) {
+    cy.get('.x-grid3-td-1')
+    .find('.x-grid3-col-1')
+    .contains(name)
+    .should('have.length',1);
   }
 }
 

@@ -51,6 +51,14 @@ const user = {
       DVA: "S",
       bulkBill: "D",
       private: "P"
+   },
+   
+   titleTop: {
+      dashboard: "Dashboard",
+      patientDetails: "Add patient details",
+      addLesionDetails: "Add lesion details",
+      lesionDetails: "Lesion Details",
+      confirmDetails: "Confirm request details",
    }
 };
 

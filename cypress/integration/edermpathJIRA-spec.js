@@ -1050,5 +1050,197 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     homeActions.isDashboardDisplayed();
     dashboardActions.isUploadSuccesfully(0);
   });
+      
+  it("EDERMPATH-157. Make all the page headings in Arial and not the Images.", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `EDERMPATH one five seven ${homeActions.randomAlpha(10)}`;
+    const lastname = `Make all the page headings in Arial and not the Images.`;
+    const validText = "abcdzABCDZ()--";
+    const validDVANumber = "abcdzABCDZ()--/#,1234567890";
+    const validNote = "abcdzABCDZ()--/#,1234567890.";
+    const invalidNote = "!@@@@@@@$$$$$";
+    dashboardActions.assertTitleTop(user.titleTop.dashboard)
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.assertTitleTop(user.titleTop.patientDetails)
+    dashboardActions.selecBilling(user.billing.DVA);
+    dashboardActions.saveDraft();
+    dashboardActions.assertAllValidMessage()
+    dashboardActions.nextButton();
+    dashboardActions.assertAllValidMessage()
+
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validText)
+    dashboardActions.assertMaxLengthOtherTitle('10')
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(validText);
+    dashboardActions.enterCity(validText);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterDVANumber(validDVANumber);
+    dashboardActions.nextButton();
+
+    //Clinical Condition
+    dashboardActions.assertTitleTop(user.titleTop.patientDetails)
+    dashboardActions.noPreviousHistory();
+    dashboardActions.provisionalDiagnosis();
+    dashboardActions.excludeMelasma();
+    dashboardActions.excludeNmsc();
+    dashboardActions.selectBiopsyType();
+    dashboardActions.enterClinicalNote(invalidNote);
+    dashboardActions.addBodyMap();
+    dashboardActions.assertText(user.validNoteMessage);
+    dashboardActions.enterClinicalNote(validNote);
+
+    //Case Images
+    dashboardActions.addBodyMap();
+    dashboardActions.assertTitleTop(user.titleTop.addLesionDetails)
+    dashboardActions.clickImage();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation(invalidNote);
+    dashboardActions.saveBodyMap();
+    dashboardActions.assertText(user.validNoteMessage);
+    dashboardActions.enterSpecimenLocation(validNote);
+    dashboardActions.saveBodyMap();
+
+     //Upload Dermascopic Images
+     dashboardActions.assertTitle('Upload ');
+     dashboardActions.uploadImage();
+     dashboardActions.startUpload();
+     dashboardActions.isImageUploadedSuccessfully();
+     dashboardActions.assertFile('1.jpg')
+     dashboardActions.nextButtonUploadImg();
+
+      //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.assertTitleTop(user.titleTop.confirmDetails)
+    dashboardActions.saveDraft();
+    dashboardActions.assertFirstName(firstname)
+    dashboardActions.isReviewCase('Draft')
+  });
+      
+  it("EDERMPATH-157. Make all the page headings in Arial and not the Images.", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `EDERMPATH one five seven ${homeActions.randomAlpha(10)}`;
+    const lastname = `Make all the page headings in Arial and not the Images.`;
+    const validText = "abcdzABCDZ()--";
+    const validDVANumber = "abcdzABCDZ()--/#,1234567890";
+    const validNote = "abcdzABCDZ()--/#,1234567890.";
+    const invalidNote = "!@@@@@@@$$$$$";
+    dashboardActions.assertTitleTop(user.titleTop.dashboard)
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.assertTitleTop(user.titleTop.patientDetails)
+    dashboardActions.selecBilling(user.billing.DVA);
+    dashboardActions.saveDraft();
+    dashboardActions.assertAllValidMessage()
+    dashboardActions.nextButton();
+    dashboardActions.assertAllValidMessage()
+
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validText)
+    dashboardActions.assertMaxLengthOtherTitle('10')
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(validText);
+    dashboardActions.enterCity(validText);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterDVANumber(validDVANumber);
+    dashboardActions.nextButton();
+
+    //Clinical Condition
+    dashboardActions.assertTitleTop(user.titleTop.patientDetails)
+    dashboardActions.noPreviousHistory();
+    dashboardActions.provisionalDiagnosis();
+    dashboardActions.excludeMelasma();
+    dashboardActions.excludeNmsc();
+    dashboardActions.selectBiopsyType();
+    dashboardActions.enterClinicalNote(invalidNote);
+    dashboardActions.addBodyMap();
+    dashboardActions.assertText(user.validNoteMessage);
+    dashboardActions.enterClinicalNote(validNote);
+
+    //Case Images
+    dashboardActions.addBodyMap();
+    dashboardActions.assertTitleTop(user.titleTop.addLesionDetails)
+    dashboardActions.clickImage();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation(invalidNote);
+    dashboardActions.saveBodyMap();
+    dashboardActions.assertText(user.validNoteMessage);
+    dashboardActions.enterSpecimenLocation(validNote);
+    dashboardActions.saveBodyMap();
+
+     //Upload Dermascopic Images
+     dashboardActions.assertTitle('Upload ');
+     dashboardActions.uploadImage();
+     dashboardActions.startUpload();
+     dashboardActions.isImageUploadedSuccessfully();
+     dashboardActions.assertFile('1.jpg')
+     dashboardActions.nextButtonUploadImg();
+
+      //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.assertTitleTop(user.titleTop.confirmDetails)
+    dashboardActions.saveDraft();
+    dashboardActions.assertFirstName(firstname)
+    dashboardActions.isReviewCase('Draft')
+  });
+
+  it("EDERMPATH-158. The order is multiplied after multi clicking the save draft button", () => 
+  {
+    const firstname = `E - one five eight ${homeActions.randomAlpha(10)}`;
+    const lastname = `The order is multiplied ${homeActions.randomAlpha(10)}`;
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesion();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.dblclicksaveDraft();
+    dashboardActions.assertTitleTop(user.titleTop.dashboard)
+    dashboardActions.isTheOrderOnlyOne(firstname)
+    dashboardActions.isReviewCase('Draft')
+  });
 });
   
