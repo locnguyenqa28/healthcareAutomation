@@ -18,7 +18,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = user.firstname + homeActions.randomAlpha(10);
+    const firstname =`EDERMPATH one one two ${homeActions.randomAlpha(10)}`;
     const lastname = `EDERMPATH one one two`;
     const title = 'Other';
     dashboardActions.clickAddNewLesion();
@@ -806,6 +806,40 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.isReviewCase('Draft')
   });
     
+  it("EDERMPATH-140. Unknown added", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `EDERMPATH one four zero ${homeActions.randomAlpha(10)}`;
+    const lastname = `Added unknown gender`;
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.clickGender();
+    dashboardActions.isGender('Male');
+    dashboardActions.isGender('Female');
+    dashboardActions.isGender('Unknown');
+    dashboardActions.isNotGender('Other');
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+
+    dashboardActions.saveDraft();
+    dashboardActions.assertFirstName(firstname)
+    dashboardActions.isReviewCase('Draft')
+  });
+    
   it("EDERMPATH-155. Remove Gender Other", () => 
   {
     loginActions.visitPage();
@@ -890,7 +924,6 @@ describe("Verify bug on EDERMPATH JIRA", () => {
 
     //Case Images
     dashboardActions.addBodyMap();
-    dashboardActions.assertNoText(user.validNoteMessage);
     dashboardActions.clickImage();
     dashboardActions.selectBodyRegion();
     dashboardActions.enterSpecimenLocation(invalidNote);
@@ -898,8 +931,17 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.assertText(user.validNoteMessage);
     dashboardActions.enterSpecimenLocation(validNote);
     dashboardActions.saveBodyMap();
-    dashboardActions.assertNoText(user.validNoteMessage);
 
+     //Upload Dermascopic Images
+     dashboardActions.assertTitle('Upload ');
+     dashboardActions.uploadImage();
+     dashboardActions.startUpload();
+     dashboardActions.isImageUploadedSuccessfully();
+     dashboardActions.assertFile('1.jpg')
+     dashboardActions.nextButtonUploadImg();
+
+      //Case Summary
+    dashboardActions.caseSummary();
     dashboardActions.saveDraft();
     dashboardActions.assertFirstName(firstname)
     dashboardActions.isReviewCase('Draft')
