@@ -126,6 +126,12 @@ export class DashboardActions extends CommonActions
         .select(state)
   }
 
+  isStateVisible(state = 'NSW'){
+      cy.get('#case_patientstate')
+        .contains(state)
+        .should('be.visible')
+  }
+
   enterPostcode(postcode){
       cy.get('input[id="case_PostCode"]')
         .type(postcode)
@@ -263,6 +269,11 @@ export class DashboardActions extends CommonActions
   saveBodyMap(){
       cy.get('button[id="uploadbodylayoutupdate"]')
         .click()
+  }
+
+  dblclickSaveBodyMap(){
+      cy.get('button[id="uploadbodylayoutupdate"]')
+        .dblclick()
   }
 
   //Upload Dermascopic Images

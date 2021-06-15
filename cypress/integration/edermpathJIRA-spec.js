@@ -1242,5 +1242,117 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.isTheOrderOnlyOne(firstname)
     dashboardActions.isReviewCase('Draft')
   });
+
+  it("EDERMPATH-75. The state is always back to ACT after adding a new conditions", () => 
+  {
+    const firstname = `EDERMPATH seven five ${homeActions.randomAlpha(10)}`;
+    const lastname = `The state is always back to ACT`;
+    const state = user.state[Math.floor(Math.random() * 7)]
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState(state);
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesion();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.isStateVisible(state);
+    dashboardActions.saveDraft();
+    dashboardActions.assertTitleTop(user.titleTop.dashboard)
+    dashboardActions.isReviewCase('Draft')
+  });
+  
+  it("EDERMPATH-85. Able to add more than 4 conditions by multi clicking on Save body map", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `EDERMPATH eight five ${homeActions.randomAlpha(10)}`;
+    const lastname = `Able to add more than four conditions`;
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionMoreThan4Images(1);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionMoreThan4Images(1);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionMoreThan4Images(1);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+
+    //Clinical Condition
+    dashboardActions.noPreviousHistory();
+    dashboardActions.provisionalDiagnosis();
+    dashboardActions.excludeMelasma();
+    dashboardActions.excludeNmsc();
+    dashboardActions.selectBiopsyType();
+
+    //Case Images
+    dashboardActions.addBodyMap();
+    dashboardActions.clickImage();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation();
+    dashboardActions.dblclickSaveBodyMap();
+
+    //Upload Dermascopic Images
+    dashboardActions.assertTitle('Upload ');
+    dashboardActions.uploadMultiImages(1);
+    dashboardActions.startUpload();
+    dashboardActions.isProgressBarDisappear();
+    dashboardActions.isImageUploadedSuccessfully();
+    dashboardActions.nextButtonUploadImg();
+
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.assertText('Lesion 1')
+    dashboardActions.assertText('Lesion 2')
+    dashboardActions.assertText('Lesion 3')
+    dashboardActions.assertText('Lesion 4')
+    dashboardActions.assertNoText('Lesion 5')
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
 });
   
