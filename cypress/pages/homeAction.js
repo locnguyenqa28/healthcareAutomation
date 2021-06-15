@@ -7,7 +7,8 @@ export class HomeActions extends CommonActions{
   }
 
   isDashboardDisplayed(){
-    cy.get('img[src="/images/header-dashboard.png"]')
+    cy.get('.txt-titile-top')
+    .contains('Dashboard')
     .should('be.visible')
   }
 
