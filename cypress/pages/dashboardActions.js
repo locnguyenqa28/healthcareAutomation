@@ -211,6 +211,11 @@ export class DashboardActions extends CommonActions
       cy.get('input[id="important_1"]')
         .click()
   }
+
+  previousHistory(){
+      cy.get('input[id="important_17"]')
+        .click()
+  }
   provisionalDiagnosis(){
     cy.get('select[id="ProvisionalDiagnosis"]')
       .select('BCC (Basal Cell Carcinoma)')
@@ -479,6 +484,63 @@ export class DashboardActions extends CommonActions
     .find('.x-grid3-col-1')
     .contains(name)
     .should('have.length',1);
+  }
+
+  clickBackToUploadImage() {
+    cy.get('#backtoupload')
+    .should('be.visible')
+    .click()
+  }
+
+  clickDeleteImage(number = 1) {
+    cy.get('.delete>button')
+    .eq(--number)
+    .should('be.visible')
+    .click()
+  }
+
+  isBackButtonOfUploadImage() {
+    cy.get('#showlinkuploadback .docnavleft2')
+    .should('be.visible')
+  }
+
+  isNextButtonOfUploadImage() {
+    cy.get('#showlinkshownextv2.docnavright')
+    .should('be.visible')
+  }
+
+  isPreviousHistologyChecked() {
+    cy.get('label')
+    .contains('Previous histology')
+    .prev()
+    .should('be.checked')
+  }
+
+  assertNoExcludemelanomaByLesion() {
+    cy.get('[id^="ExcludeMelanoma"]')
+    .eq(1)
+    .should('be.disabled')
+    .should('be.checked')
+  }
+
+  assertNoExcludeNMSCByLesion() {
+    cy.get('[id^="ExcludeMelanoma"]')
+    .eq(1)
+    .should('be.disabled')
+    .should('be.checked')
+  }
+
+  assertNoDermoscopyPerformedByLesion() {
+    cy.get('[id^="DermoscopyPerformed"]')
+    .eq(1)
+    .should('be.disabled')
+    .should('be.checked')
+  }
+
+  assertProvisionalDiagnosis(number = 1) {
+    cy.get('[id^="ProvisionalDiagnosis"]')
+    .eq(--number)
+    .should('be.disabled')
   }
 }
 

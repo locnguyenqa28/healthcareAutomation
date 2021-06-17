@@ -69,4 +69,15 @@ export class CommonActions {
     }
    return result.join('');
   }
+
+  okDialog() {
+    cy.on('window:confirm', () => true);
+  }
+
+  assertAlert(text) {
+    cy.on('window:alert',(txt)=>{
+      //Mocha assertions
+      expect(txt).to.contains(text);
+   })
+  }
 }

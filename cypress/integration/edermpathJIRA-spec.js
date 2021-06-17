@@ -1390,5 +1390,169 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     homeActions.isDashboardDisplayed();
     dashboardActions.isUploadSuccesfully(0);
   });
+  
+  it("EDERMPATH-84. Unable to move to any sections after uploading images using the backing image upload", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+     //Add New Lesion - Patient Details
+     const firstname = `EDERMPATH eight four ${homeActions.randomAlpha(10)}`;
+     const lastname = ` Unable to move to any sections`;
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionMoreThan4Images(5)
+    
+    dashboardActions.clickBackToUploadImage()
+    dashboardActions.clickDeleteImage()
+    dashboardActions.isBackButtonOfUploadImage()
+    dashboardActions.isNextButtonOfUploadImage()
+
+    //Upload Dermascopic Images
+    dashboardActions.assertTitle('Upload ');
+    dashboardActions.uploadMultiImages(5);
+    dashboardActions.startUpload();
+    dashboardActions.isProgressBarDisappear();
+    dashboardActions.isImageUploadedSuccessfully();
+    dashboardActions.nextButtonUploadImg();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+  
+  it("EDERMPATH-71. Previous history field selection is inconsistent", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+     //Add New Lesion - Patient Details
+     const firstname = `EDERMPATH seven one ${homeActions.randomAlpha(10)}`;
+     const lastname = `Previous history field selection is inconsistent`;
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    //Clinical Condition
+    dashboardActions.previousHistory();
+    // dashboardActions.provisionalDiagnosis();
+    // dashboardActions.excludeMelasma();
+    // dashboardActions.excludeNmsc();
+    // dashboardActions.selectBiopsyType();
+
+    //Case Images
+    dashboardActions.addBodyMap();
+    dashboardActions.clickImage();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation();
+    dashboardActions.saveBodyMap();
+
+    //Upload Dermascopic Images
+    dashboardActions.assertTitle('Upload ');
+    dashboardActions.uploadMultiImages(1);
+    dashboardActions.startUpload();
+    dashboardActions.isProgressBarDisappear();
+    dashboardActions.isImageUploadedSuccessfully();
+    dashboardActions.nextButtonUploadImg();
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.assertNoExcludemelanomaByLesion()
+    dashboardActions.assertNoExcludeNMSCByLesion()
+    dashboardActions.assertNoDermoscopyPerformedByLesion()
+    dashboardActions.assertProvisionalDiagnosis()
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+  
+  it("EDERMPATH-87. The Save body map button is not functional", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+  
+    //Add New Lesion - Patient Details
+    const firstname = `EDERMPATH eight seven ${homeActions.randomAlpha(10)}`;
+    const lastname = `The Save body map button is not functional`;
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    //Clinical Condition
+    dashboardActions.previousHistory();
+
+    //Case Images
+    dashboardActions.addBodyMap();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation();
+    dashboardActions.saveBodyMap();
+    dashboardActions.assertAlert('Please select an area on the body map.');
+    dashboardActions.okDialog();
+
+    dashboardActions.clickImage();
+    dashboardActions.saveBodyMap();
+
+    //Upload Dermascopic Images
+    dashboardActions.assertTitle('Upload ');
+    dashboardActions.uploadMultiImages(1);
+    dashboardActions.startUpload();
+    dashboardActions.isProgressBarDisappear();
+    dashboardActions.isImageUploadedSuccessfully();
+    dashboardActions.nextButtonUploadImg();
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+
 });
   
