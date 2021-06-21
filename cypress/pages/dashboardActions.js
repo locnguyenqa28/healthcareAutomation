@@ -542,5 +542,21 @@ export class DashboardActions extends CommonActions
     .eq(--number)
     .should('be.disabled')
   }
+
+  assertAddress(maxLength = '100') {
+    cy.get('#user_Address')
+    .invoke('attr', 'maxlength')
+    .should('eq', maxLength)
+  }
+
+  isStateDropdownVisible(){
+    cy.get('select#user_State2')
+    .should('be.visible')
+  }
+
+  selectStateAccount(state = 'TAS'){
+    cy.get('select#user_State2')
+    .select(state);
+  }
 }
 

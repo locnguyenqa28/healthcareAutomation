@@ -8,6 +8,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const loginActions = new LoginActions();
     const homeActions = new HomeActions();
     const dashboardActions = new DashboardActions();
+    const validOtherText = "abdzABCZ--.";
   
   it("EDERMPATH-102. The Title is rollbacked to blank after selecting Other", () => 
   {
@@ -23,6 +24,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const title = 'Other';
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle(title);
+    dashboardActions.enterOtherTitle(validOtherText)
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -51,6 +53,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const lastname = `EDERMPATH one one nine`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText)
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -77,6 +80,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const lastname = `${user.lastname} EDERMPATH one one nine`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText)
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -105,6 +109,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const quoteText = "(((((((((((())))))))))))";
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText)
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -171,6 +176,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.assertText('Account Setup');
     dashboardActions.clickEditAccount();
     dashboardActions.enterSubHurbAccount(subhurb);
+    dashboardActions.selectStateAccount();
     dashboardActions.clickSaveUpdateAccount();
     dashboardActions.assertText('Account Setup');
   });
@@ -188,6 +194,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const lastname = `EDERMPATH one four five`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText)
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -251,6 +258,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const lastname = `EDERMPATH one four six`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText)
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -301,6 +309,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const lastname = `EDERMPATH eight three`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText)
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -346,6 +355,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const lastname = `EDERMPATH six four`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText)
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -391,6 +401,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const lastname = `EDERMPATH six two`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText)
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -436,6 +447,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const lastname = `EDERMPATH seven six`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText)
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -484,6 +496,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const quoteText = 'automation';
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText)
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -547,6 +560,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const lastname = `EDERMPATH one five zero ${homeActions.randomAlpha(20)}`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText)
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -591,6 +605,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const lastname = `Upload issue from Melanie ${homeActions.randomAlpha(20)}`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText)
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -665,6 +680,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const lastname = `delete third lesion`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText)
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -715,6 +731,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const lastname = `Unable to add new conditions from the draft`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText)
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -760,6 +777,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const lastname = `The state is not saved`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText)
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -787,6 +805,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const lastname = "a-zA-Z'`";
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText)
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(invalidLastname);
     dashboardActions.selectGender('Unknown');
@@ -819,6 +838,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const lastname = `Added unknown gender`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText)
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.clickGender();
@@ -840,7 +860,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.isReviewCase('Draft')
   });
     
-  it("EDERMPATH-155. Remove Gender Other", () => 
+  it("EDERMPATH-155. Gender Other, updated 582", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -850,16 +870,17 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     
     //Add New Lesion - Patient Details
     const firstname = `EDERMPATH one five five ${homeActions.randomAlpha(10)}`;
-    const lastname = `Remove Gender Other`;
+    const lastname = `Gender Other`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText)
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.clickGender();
     dashboardActions.isGender('Male');
     dashboardActions.isGender('Female');
     dashboardActions.isGender('Unknown');
-    dashboardActions.isNotGender('Other');
+    dashboardActions.isGender('Other');
     dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
@@ -995,7 +1016,8 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const lastname = `The five condition will be generated after editing twice`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
-    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterOtherTitle(validOtherText);
+dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
@@ -1063,6 +1085,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const firstname = `EDERMPATH one five seven ${homeActions.randomAlpha(10)}`;
     const lastname = `Make all the page headings in Arial and not the Images.`;
     const validText = "abcdzABCDZ()--";
+    const validOtherText = "abdzABCZ--.";
     const validDVANumber = "abcdzABCDZ()--/#,1234567890";
     const validNote = "abcdzABCDZ()--/#,1234567890.";
     const invalidNote = "!@@@@@@@$$$$$";
@@ -1076,85 +1099,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.assertAllValidMessage()
 
     dashboardActions.selectTitle('Other');
-    dashboardActions.enterOtherTitle(validText)
-    dashboardActions.assertMaxLengthOtherTitle('10')
-    dashboardActions.enterFirstName(firstname);
-    dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
-    dashboardActions.enterDOB(user.DOB);
-    dashboardActions.enterHomeAdd(validText);
-    dashboardActions.enterCity(validText);
-    dashboardActions.selectState();
-    dashboardActions.enterPostcode(user.postcode);
-    dashboardActions.enterContact(user.contact);
-    dashboardActions.enterDVANumber(validDVANumber);
-    dashboardActions.nextButton();
-
-    //Clinical Condition
-    dashboardActions.assertTitleTop(user.titleTop.patientDetails)
-    dashboardActions.noPreviousHistory();
-    dashboardActions.provisionalDiagnosis();
-    dashboardActions.excludeMelasma();
-    dashboardActions.excludeNmsc();
-    dashboardActions.selectBiopsyType();
-    dashboardActions.enterClinicalNote(invalidNote);
-    dashboardActions.addBodyMap();
-    dashboardActions.assertText(user.validNoteMessage);
-    dashboardActions.enterClinicalNote(validNote);
-
-    //Case Images
-    dashboardActions.addBodyMap();
-    dashboardActions.assertTitleTop(user.titleTop.addLesionDetails)
-    dashboardActions.clickImage();
-    dashboardActions.selectBodyRegion();
-    dashboardActions.enterSpecimenLocation(invalidNote);
-    dashboardActions.saveBodyMap();
-    dashboardActions.assertText(user.validNoteMessage);
-    dashboardActions.enterSpecimenLocation(validNote);
-    dashboardActions.saveBodyMap();
-
-     //Upload Dermascopic Images
-     dashboardActions.assertTitle('Upload ');
-     dashboardActions.uploadImage();
-     dashboardActions.startUpload();
-     dashboardActions.isImageUploadedSuccessfully();
-     dashboardActions.assertFile('1.jpg')
-     dashboardActions.nextButtonUploadImg();
-
-      //Case Summary
-    dashboardActions.caseSummary();
-    dashboardActions.assertTitleTop(user.titleTop.confirmDetails)
-    dashboardActions.saveDraft();
-    dashboardActions.assertFirstName(firstname)
-    dashboardActions.isReviewCase('Draft')
-  });
-      
-  it("EDERMPATH-157. Make all the page headings in Arial and not the Images.", () => 
-  {
-    loginActions.visitPage();
-    loginActions.inputUserName(user.username);
-    loginActions.inputPassword(user.password);
-    loginActions.clickLoginButton();
-    homeActions.isDashBoardButtonDisplayed();
-    
-    //Add New Lesion - Patient Details
-    const firstname = `EDERMPATH one five seven ${homeActions.randomAlpha(10)}`;
-    const lastname = `Make all the page headings in Arial and not the Images.`;
-    const validText = "abcdzABCDZ()--";
-    const validDVANumber = "abcdzABCDZ()--/#,1234567890";
-    const validNote = "abcdzABCDZ()--/#,1234567890.";
-    const invalidNote = "!@@@@@@@$$$$$";
-    dashboardActions.assertTitleTop(user.titleTop.dashboard)
-    dashboardActions.clickAddNewLesion();
-    dashboardActions.assertTitleTop(user.titleTop.patientDetails)
-    dashboardActions.selecBilling(user.billing.DVA);
-    dashboardActions.saveDraft();
-    dashboardActions.assertAllValidMessage()
-    dashboardActions.nextButton();
-    dashboardActions.assertAllValidMessage()
-
-    dashboardActions.selectTitle('Other');
-    dashboardActions.enterOtherTitle(validText)
+    dashboardActions.enterOtherTitle(validOtherText)
     dashboardActions.assertMaxLengthOtherTitle('10')
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
@@ -1220,7 +1165,8 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     //Add New Lesion - Patient Details
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
-    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterOtherTitle(validOtherText);
+dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
@@ -1257,6 +1203,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     //Add New Lesion - Patient Details
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText);
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -1293,6 +1240,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const lastname = `Able to add more than four conditions`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText);
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -1368,7 +1316,8 @@ describe("Verify bug on EDERMPATH JIRA", () => {
      const lastname = `The status is always pending after submitting`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
-    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterOtherTitle(validOtherText);
+dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
@@ -1404,7 +1353,8 @@ describe("Verify bug on EDERMPATH JIRA", () => {
      const lastname = ` Unable to move to any sections`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
-    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterOtherTitle(validOtherText);
+dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
@@ -1453,7 +1403,8 @@ describe("Verify bug on EDERMPATH JIRA", () => {
      const lastname = `Previous history field selection is inconsistent`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
-    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterOtherTitle(validOtherText);
+dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
@@ -1512,7 +1463,8 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const lastname = `The Save body map button is not functional`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
-    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterOtherTitle(validOtherText);
+dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
@@ -1553,6 +1505,60 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     homeActions.isDashboardDisplayed();
     dashboardActions.isUploadSuccesfully(0);
   });
+      
+  it("EDERMPATH-163. Patient Details field validation changes", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Setup
+    dashboardActions.clickSetup();
+    dashboardActions.assertText('Account Setup');
+    dashboardActions.clickEditAccount();
+    dashboardActions.assertAddress();
+    dashboardActions.isStateDropdownVisible()
+    dashboardActions.clickHrefByText('Dashboard')
+    
+    //Add New Lesion - Patient Details
+    const firstname = `EDERMPATH one seix three ${homeActions.randomAlpha(10)}`;
+    const lastname = `Patient Details field validation changes`;
+    const validOtherText = "abdzABCZ--.";
+    const validText = "abcdzABCDZ()--";
+    const validDVANumber = "abcdzABCDZ()--/#,1234567890";
+    homeActions.isDashBoardButtonDisplayed();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selecBilling(user.billing.DVA);
+    dashboardActions.saveDraft();
+    dashboardActions.assertAllValidMessage()
+    dashboardActions.nextButton();
+    dashboardActions.assertAllValidMessage()
 
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText);
+    dashboardActions.assertMaxLengthOtherTitle('10');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.clickGender();
+    dashboardActions.isGender('Male');
+    dashboardActions.isGender('Female');
+    dashboardActions.isGender('Unknown');
+    dashboardActions.isGender('Other');
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(validText);
+    dashboardActions.enterCity(validText);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterDVANumber(validDVANumber);
+
+    dashboardActions.saveDraft();
+    dashboardActions.assertFirstName(firstname)
+    dashboardActions.isReviewCase('Draft')
+  });
+    
 });
   
