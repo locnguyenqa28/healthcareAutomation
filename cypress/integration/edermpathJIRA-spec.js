@@ -845,7 +845,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.isGender('Male');
     dashboardActions.isGender('Female');
     dashboardActions.isGender('Unknown');
-    dashboardActions.isNotGender('Other');
+    dashboardActions.isGender('Other');
     dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
@@ -1017,7 +1017,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText);
-dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
@@ -1464,7 +1464,7 @@ dashboardActions.enterFirstName(firstname);
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText);
-dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
