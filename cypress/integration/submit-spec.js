@@ -21,7 +21,7 @@ describe("Add New Lesion on eDerm", () => {
     const firstname = `one Lesion ${homeActions.randomAlpha(20)}`;
     const lastname = `more than four images ${homeActions.randomAlpha(20)}`;
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -57,7 +57,7 @@ describe("Add New Lesion on eDerm", () => {
     const firstname = `two Lesions ${homeActions.randomAlpha(20)}`;
     const lastname = `more than four images ${homeActions.randomAlpha(20)}`;
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -97,7 +97,7 @@ describe("Add New Lesion on eDerm", () => {
     const firstname = `three Lesions ${homeActions.randomAlpha(20)}`;
     const lastname = `more than four images ${homeActions.randomAlpha(20)}`;
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -141,7 +141,7 @@ describe("Add New Lesion on eDerm", () => {
     const firstname = `four Lesions ${homeActions.randomAlpha(20)}`;
     const lastname = `more than four images ${homeActions.randomAlpha(20)}`;
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -189,7 +189,7 @@ describe("Add New Lesion on eDerm", () => {
     const firstname = `four lesion ${homeActions.randomAlpha(20)}`;
     const lastname = `four images ${homeActions.randomAlpha(20)}`;
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -237,7 +237,7 @@ describe("Add New Lesion on eDerm", () => {
     const firstname = `four lesion ${homeActions.randomAlpha(20)}`;
     const lastname = `three images ${homeActions.randomAlpha(20)}`;
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -285,7 +285,7 @@ describe("Add New Lesion on eDerm", () => {
     const firstname = `four lesion ${homeActions.randomAlpha(20)}`;
     const lastname = `two images ${homeActions.randomAlpha(20)}`;
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -333,7 +333,7 @@ describe("Add New Lesion on eDerm", () => {
     const firstname = `four lesion ${homeActions.randomAlpha(20)}`;
     const lastname = `one images ${homeActions.randomAlpha(20)}`;
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -381,7 +381,7 @@ describe("Add New Lesion on eDerm", () => {
     const firstname = `three Lesion ${homeActions.randomAlpha(20)}`;
     const lastname = `four images ${homeActions.randomAlpha(20)}`;
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -425,7 +425,7 @@ describe("Add New Lesion on eDerm", () => {
     const firstname = `three Lesion ${homeActions.randomAlpha(20)}`;
     const lastname = `three images ${homeActions.randomAlpha(20)}`;
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -469,7 +469,7 @@ describe("Add New Lesion on eDerm", () => {
     const firstname = `three Lesion ${homeActions.randomAlpha(20)}`;
     const lastname = `two images ${homeActions.randomAlpha(10)}`;
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -513,7 +513,7 @@ describe("Add New Lesion on eDerm", () => {
     const firstname = `three Lesion ${homeActions.randomAlpha(20)}`;
     const lastname = `one images ${homeActions.randomAlpha(20)}`;
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -557,7 +557,7 @@ describe("Add New Lesion on eDerm", () => {
     const firstname = `two Lesion ${homeActions.randomAlpha(20)}`;
     const lastname = `four images ${homeActions.randomAlpha(20)}`;
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -597,7 +597,7 @@ describe("Add New Lesion on eDerm", () => {
     const firstname = `two Lesion ${homeActions.randomAlpha(20)}`;
     const lastname = `three images ${homeActions.randomAlpha(20)}`;
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -637,7 +637,7 @@ describe("Add New Lesion on eDerm", () => {
     const firstname = `two Lesion ${homeActions.randomAlpha(20)}`;
     const lastname = `two images ${homeActions.randomAlpha(10)}`;
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -677,7 +677,7 @@ describe("Add New Lesion on eDerm", () => {
     const firstname = `three Lesion ${homeActions.randomAlpha(20)}`;
     const lastname = `one images ${homeActions.randomAlpha(20)}`;
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -717,7 +717,7 @@ describe("Add New Lesion on eDerm", () => {
     const firstname = `one Lesion ${homeActions.randomAlpha(20)}`;
     const lastname = `four images ${homeActions.randomAlpha(20)}`;
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -753,7 +753,7 @@ describe("Add New Lesion on eDerm", () => {
     const firstname = `one Lesion ${homeActions.randomAlpha(20)}`;
     const lastname = `three images ${homeActions.randomAlpha(20)}`;
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -789,7 +789,7 @@ describe("Add New Lesion on eDerm", () => {
     const firstname = `one Lesion ${homeActions.randomAlpha(20)}`;
     const lastname = `two images ${homeActions.randomAlpha(10)}`;
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -825,7 +825,7 @@ describe("Add New Lesion on eDerm", () => {
     const firstname = `three Lesion ${homeActions.randomAlpha(20)}`;
     const lastname = `one images ${homeActions.randomAlpha(20)}`;
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');

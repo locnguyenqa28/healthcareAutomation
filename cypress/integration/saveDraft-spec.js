@@ -21,7 +21,7 @@ describe("Save Draft", () => {
       const firstname = user.firstname;
       const lastname = `save ${homeActions.randomAlpha(10)}`;
       dashboardActions.clickAddNewLesion();
-      dashboardActions.selectTitle('Other');
+      dashboardActions.selectTitle('Mrs');
       dashboardActions.enterFirstName(firstname);
       dashboardActions.enterLastName(lastname);
       dashboardActions.selectGender('Unknown');
@@ -49,7 +49,7 @@ describe("Save Draft", () => {
       
       //Add New Lesion - Patient Details
       dashboardActions.clickAddNewLesion();
-      dashboardActions.selectTitle('Other');
+      dashboardActions.selectTitle('Mrs');
       dashboardActions.enterFirstName(firstname);
       dashboardActions.enterLastName(lastname);
       dashboardActions.selectGender('Unknown');
@@ -84,7 +84,7 @@ describe("Save Draft", () => {
       
       //Add New Lesion - Patient Details
       dashboardActions.clickAddNewLesion();
-      dashboardActions.selectTitle('Other');
+      dashboardActions.selectTitle('Mrs');
       dashboardActions.enterFirstName(firstname);
       dashboardActions.enterLastName(lastname);
       dashboardActions.selectGender('Unknown');
@@ -123,7 +123,7 @@ describe("Save Draft", () => {
       
       //Add New Lesion - Patient Details
       dashboardActions.clickAddNewLesion();
-      dashboardActions.selectTitle('Other');
+      dashboardActions.selectTitle('Mrs');
       dashboardActions.enterFirstName(firstname);
       dashboardActions.enterLastName(lastname);
       dashboardActions.selectGender('Unknown');
@@ -166,7 +166,7 @@ describe("Save Draft", () => {
       
       //Add New Lesion - Patient Details
       dashboardActions.clickAddNewLesion();
-      dashboardActions.selectTitle('Other');
+      dashboardActions.selectTitle('Mrs');
       dashboardActions.enterFirstName(firstname);
       dashboardActions.enterLastName(lastname);
       dashboardActions.selectGender('Unknown');
