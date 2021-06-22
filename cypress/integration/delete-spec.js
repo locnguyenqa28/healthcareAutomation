@@ -22,7 +22,7 @@ describe("Delete lesion on eDerm", () => {
     const lastname = `the second lesion`;
     const lesion = 'Lesion 3';
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -74,7 +74,7 @@ describe("Delete lesion on eDerm", () => {
     const lesion1 = 'Lesion 1';
     // const lesion2= 'Lesion 2';
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -135,7 +135,7 @@ describe("Delete lesion on eDerm", () => {
     const lesion1 = 'Lesion 2';
     // const lesion2= 'Lesion 2';
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -196,7 +196,7 @@ describe("Delete lesion on eDerm", () => {
     const lesion1 = 'Lesion 1';
     const lesion2= 'Lesion 2';
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -256,7 +256,7 @@ describe("Delete lesion on eDerm", () => {
     const lastname = `the first lesion`;
     const lesion = 'Lesion 1';
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -311,7 +311,7 @@ describe("Delete lesion on eDerm", () => {
     const lastname = `the second lesion`;
     const lesion = 'Lesion 2';
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -366,7 +366,7 @@ describe("Delete lesion on eDerm", () => {
     const lastname = `the third lesion`;
     const lesion = 'Lesion 3';
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -421,7 +421,7 @@ describe("Delete lesion on eDerm", () => {
     const lastname = `the fourth lesion`;
     const lesion = 'Lesion 4';
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -476,7 +476,7 @@ describe("Delete lesion on eDerm", () => {
     const lastname = `first second third lesion`;
     const lesion = 'Lesion 1';
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -547,7 +547,7 @@ describe("Delete lesion on eDerm", () => {
     const lastname = `second third fourth lesion`;
     const lesion = 'Lesion 2';
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -619,7 +619,7 @@ describe("Delete lesion on eDerm", () => {
     let num = 4;
     let lesion = `Lesion ${num}`;
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -692,7 +692,7 @@ describe("Delete lesion on eDerm", () => {
     const lastname = `first second lesion`;
     const lesion = 'Lesion 1';
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -756,7 +756,7 @@ describe("Delete lesion on eDerm", () => {
     const lastname = `third fourth lesion`;
     const lesion = 'Lesion 3';
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -820,7 +820,7 @@ describe("Delete lesion on eDerm", () => {
     const lastname = `second third lesion`;
     const lesion = 'Lesion 2';
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -885,7 +885,7 @@ describe("Delete lesion on eDerm", () => {
     let num = 1
     let lesion = `Lesion ${num}`;
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -951,7 +951,7 @@ describe("Delete lesion on eDerm", () => {
     let num = 2
     let lesion = `Lesion ${num}`;
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -1017,7 +1017,7 @@ describe("Delete lesion on eDerm", () => {
     let num = 1
     let lesion = `Lesion ${num}`;
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -1082,7 +1082,7 @@ describe("Delete lesion on eDerm", () => {
     const lastname = `delete all lesions`;
     const lesion = 'Lesion 1';
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
@@ -1161,7 +1161,7 @@ describe("Delete lesion on eDerm", () => {
     const lastname = `delete a lesion`;
     const lesion = 'Lesion 1';
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
+    dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
