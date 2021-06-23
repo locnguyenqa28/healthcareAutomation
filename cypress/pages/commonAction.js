@@ -16,11 +16,6 @@ export class CommonActions {
     cy.get('body')
     .should('not.contain.text',text)
   }
-  assertTitle(text){
-    cy.get('.txt-header')
-    .contains(text)
-    .should('be.visible')
-  }
   assertButton(text){
     cy.get('[onclick]')
     .contains(text)

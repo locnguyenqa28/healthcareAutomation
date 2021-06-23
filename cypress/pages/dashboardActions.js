@@ -387,7 +387,7 @@ export class DashboardActions extends CommonActions
     this.saveBodyMap();
 
     //Upload Dermascopic Images
-    this.assertTitle('Upload ');
+    this.assertHeader('Upload ');
     this.uploadImage();
     this.startUpload();
     this.isImageUploadedSuccessfully();
@@ -411,7 +411,7 @@ export class DashboardActions extends CommonActions
     this.saveBodyMap();
 
     //Upload Dermascopic Images
-    this.assertTitle('Upload ');
+    this.assertHeader('Upload ');
     this.uploadMultiImages(number);
     this.startUpload();
     this.isProgressBarDisappear();
@@ -477,6 +477,22 @@ export class DashboardActions extends CommonActions
 
   assertTitleTop(text) {
     cy.get('.txt-titile-top').contains(text).should('be.visible');
+  }
+
+  assertTitleTxt(text) {
+    cy.get('.title-txt').contains(text).should('be.visible');
+  }
+  
+  assertHeader(text) {
+    cy.get('.txt-header').contains(text).should('be.visible');
+  }
+
+  isOrBetweenBiopsyTypeAndSurgicalManagement() {
+    cy.get('select#BiopsyType').parent().contains('Or').should('be.visible');
+  }
+
+  assertUploadImagesDescription(text) {
+    cy.get('.row.fileupload-buttonbar').contains(text).should('be.visible');
   }
 
   isTheOrderOnlyOne(name) {
