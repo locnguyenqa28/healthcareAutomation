@@ -1327,7 +1327,7 @@ dashboardActions.enterFirstName(firstname);
     const validNote = "abcdzABCDZ()--/#,1234567890.";
     const invalidNote = "!@@@@@@@$$$$$";
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selecBilling(user.billing.DVA);
+    dashboardActions.selectBilling(user.billing.DVA);
     dashboardActions.saveDraft();
     dashboardActions.assertAllValidMessage()
     dashboardActions.nextButton();
@@ -1473,7 +1473,7 @@ dashboardActions.enterFirstName(firstname);
     dashboardActions.assertTitleTop(user.titleTop.dashboard)
     dashboardActions.clickAddNewLesion();
     dashboardActions.assertTitleTop(user.titleTop.patientDetails)
-    dashboardActions.selecBilling(user.billing.DVA);
+    dashboardActions.selectBilling(user.billing.DVA);
     dashboardActions.saveDraft();
     dashboardActions.assertAllValidMessage()
     dashboardActions.nextButton();
@@ -1631,7 +1631,7 @@ dashboardActions.enterFirstName(firstname);
     const validDVANumber = "abcdzABCDZ()--/#,1234567890";
     homeActions.isDashBoardButtonDisplayed();
     dashboardActions.clickAddNewLesion();
-    dashboardActions.selecBilling(user.billing.DVA);
+    dashboardActions.selectBilling(user.billing.DVA);
     dashboardActions.saveDraft();
     dashboardActions.assertAllValidMessage()
     dashboardActions.nextButton();

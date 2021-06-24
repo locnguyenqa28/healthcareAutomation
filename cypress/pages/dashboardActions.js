@@ -147,9 +147,14 @@ export class DashboardActions extends CommonActions
       .type(medicare)
   }
 
-  selecBilling(option = 'DVA'){
+  selectBilling(option = 'DVA'){
     cy.get('select#case_patientfinancial')
       .select(option)
+  }
+
+  checkPrivate(){
+    cy.get('#shownhsprivate #case_patientinformedfinancial')
+      .click()
   }
 
   enterDVANumber(text){
