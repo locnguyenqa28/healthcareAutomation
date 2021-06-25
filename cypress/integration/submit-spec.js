@@ -1006,7 +1006,7 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
   
-  it("25. DVA to Private", () => 
+  it("25. Private to DVA", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -1016,7 +1016,7 @@ describe("Add New Lesion on eDerm", () => {
     
     //Add New Lesion - Patient Details
     const firstname = `submit ${homeActions.randomAlpha(10)}`;
-    const lastname = `DVA to private`;
+    const lastname = `private to DVA`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
@@ -1048,7 +1048,7 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
     
-  it("26. Bulk bill to Private", () => 
+  it("26. Private to Bulk bill", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -1058,7 +1058,7 @@ describe("Add New Lesion on eDerm", () => {
     
     //Add New Lesion - Patient Details
     const firstname = `submit ${homeActions.randomAlpha(20)}`;
-    const lastname = `Bulk bill to Private`;
+    const lastname = `Private to Bulk bill`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
