@@ -59,6 +59,13 @@ const user = {
       addLesionDetails: "Add lesion details",
       lesionDetails: "Lesion Details",
       confirmDetails: "Confirm request details",
+   },
+
+   gender: {
+      female : 'Female',
+      male : 'Male',
+      other : 'Other',
+      unknown : 'Unknown',
    }
 };
 

@@ -30,6 +30,16 @@ export class DashboardActions extends CommonActions
         .nextUntil('td.x-grid3-col.x-grid3-td-4').next().contains('Draft').click();
   }
 
+  clickReviewCaseByFirstName(name){
+      cy.get('.x-grid3-col')
+        .contains(name)
+        .parent()
+        .nextUntil('td.x-grid3-col.x-grid3-td-4').next().contains('Review Case').click();
+  }
+
+  assertGender(gender){
+    cy.get('#case_Gender [selected]').contains(gender).should('be.visible')
+  }
   selectTitle(option){
       cy.get('select[id="temptitle"]')
         .select(option)
