@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "cypress:dashboard": "npx cypress run -b chrome --record --spec --key 9fe0806d-98ae-483e-9337-7deb2d08dfdc",
+    "cypress:login": "npx cypress run -b chrome --record --spec \"cypress/integration/loginTest-spec.js\" --key 9fe0806d-98ae-483e-9337-7deb2d08dfdc"
   },
   "author": "",
   "license": "ISC",
