@@ -26,10 +26,10 @@ export class CommonActions {
     .contains(text)
     .click()
   }
-  clickHrefByText(text){
+  clickHrefByText(text, isForce){
     cy.get('[href]')
     .contains(text)
-    .click()
+    .click({ force: isForce });
   }
   assertFile(fileName){
     cy.get(`a[download="${fileName}"]`)
@@ -75,4 +75,10 @@ export class CommonActions {
       expect(txt).to.contains(text);
    })
   }
+
+ getValueSelection(locator) {
+  cy.get('select').find(locator).then($options => {
+    return  [...$options].map(option => option.innerText)
+  })   
+ }
 }
