@@ -77,8 +77,8 @@ export class CommonActions {
   }
 
  getValueSelection(locator) {
-  cy.get('select').find(locator).then($options => {
-    return  [...$options].map(option => option.innerText)
+  cy.get(locator).then($options => {
+    return Cypress._.map($options, ($option) => $option.innerText)
   })   
  }
 }

@@ -66,7 +66,23 @@ const user = {
       male : 'Male',
       other : 'Other',
       unknown : 'Unknown',
-   }
+   },
+
+   locaton: [
+      'Please Select One',
+      'Abdomen',
+      'Back',
+      'Buttock',
+      'Chest',
+      'Ear',
+      'Eyelid',
+      'Finger',
+      'Finger palmar',
+      'Foot',
+      'Foot plantar',
+      'Forearm (elbow and below)',
+      'Genitalia'
+   ]
 };
 
 export default user

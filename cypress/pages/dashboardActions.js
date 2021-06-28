@@ -40,6 +40,7 @@ export class DashboardActions extends CommonActions
   assertGender(gender){
     cy.get('#case_Gender [selected]').contains(gender).should('be.visible')
   }
+
   selectTitle(option){
       cy.get('select[id="temptitle"]')
         .select(option)
@@ -222,6 +223,10 @@ export class DashboardActions extends CommonActions
       .click()
   }
 
+  clickEditBodyMap(){
+    this.clickHrefByText('Edit body map and location', true)
+  }
+
   noPreviousHistory(){
       cy.get('input[id="important_1"]')
         .click()
@@ -256,10 +261,10 @@ export class DashboardActions extends CommonActions
         .click()
   }
 
-  selectBodyRegion(text = 'Neck'){
-      cy.get('select[id="BodyMapRegion"]')
+  selectBodyRegion(text = 'Neck', isForce = true){
+      cy.get('#body_layout_form select#BodyMapRegion')
       .eq(0)
-      .select(text, {force: true})
+      .select(text, {force: isForce})
   }
 
   enterClinicalNote(text="test notes"){
@@ -588,6 +593,31 @@ export class DashboardActions extends CommonActions
   selectStateAccount(state = 'TAS'){
     cy.get('select#user_State2')
     .select(state);
+  }
+
+  selectAndAssertEditedRegion(){
+    this.clickEditBodyMap(true);
+    this.assertHeader('Body map');
+
+    cy.get('#body_layout_form select#BodyMapRegion option')
+    .then(($options) => {
+      // get the text of each option
+      const regions =  Cypress._.map($options, ($option) => $option.innerText)
+      for(let i=1; i<regions.length; i++){
+        this.selectBodyRegion(regions[i], false)
+        this.saveBodyMap();
+        this.assertText('Body map is updating, please wait.')
+        this.assertNoText('Body map is updating, please wait.')
+        this.assertTitleTop('Confirm request details')
+        cy.get('a[href]').contains('Edit body map and location').scrollIntoView();
+        this.assertText(regions[i])
+        if(i<regions.length - 1) {
+          this.clickEditBodyMap(true);
+          this.assertHeader('Body map');
+        }
+      }  
+    })
+     
   }
 }
 
