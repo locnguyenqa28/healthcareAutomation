@@ -236,9 +236,10 @@ export class DashboardActions extends CommonActions
       cy.get('input[id="important_17"]')
         .click()
   }
-  provisionalDiagnosis(){
-    cy.get('select[id="ProvisionalDiagnosis"]')
-      .select('BCC (Basal Cell Carcinoma)')
+  provisionalDiagnosis(text = 'IEC (IEC/SCCis/Bowens)'){
+    cy.get('select[id *= "ProvisionalDiagnosis"]')
+      .should('be.visible')
+      .select(text)
   }
   excludeMelasma(){
     cy.get('[id="ExcludeMelanoma_1"]')
@@ -615,6 +616,34 @@ export class DashboardActions extends CommonActions
           this.clickEditBodyMap(true);
           this.assertHeader('Body map');
         }
+      }  
+    })
+     
+  }
+
+  selectAndAssertEditedProvisionalDiagnosis(firstname) {
+    cy.get('select[id *= ProvisionalDiagnosis] option')
+    .then(($options) => {
+      // get the text of each option
+      const pds =  Cypress._.map($options, ($option) => $option.innerText)
+      for(let i=1; i<pds.length; i++){
+        const tmpText = pds[i].trim();
+        this.assertTitleTop('Confirm request details');
+        this.assertText('Lesion 1');
+        cy.get('.txt-header').contains('Clinical indication').scrollIntoView();
+        this.assertText('Provisional diagnosis:')
+        this.provisionalDiagnosis(tmpText, false)
+        this.assertText(tmpText)
+        this.clickHrefByText('Save update')
+        this.assertTitleTop('Dashboard')
+        this.assertFirstName(firstname)
+        this.isReviewCase('Draft')
+        this.clickPathologyRequestByFristName(firstname);
+        this.assertTitleTop('Confirm request details');
+        this.assertText('Lesion 1');
+        cy.get('.txt-header').contains('Clinical indication').scrollIntoView();
+        this.assertText('Provisional diagnosis:')
+        this.assertText(tmpText)
       }  
     })
      
