@@ -23,7 +23,7 @@ export class DashboardActions extends CommonActions
       cy.wait(1000);
   }
 
-  clickPathologyRequestByFristName(name){
+  clickPathologyRequestByFirstName(name){
       cy.get('.x-grid3-col')
         .contains(name)
         .parent()
@@ -158,9 +158,19 @@ export class DashboardActions extends CommonActions
       .type(medicare)
   }
 
+  assertMedicare(medicare){
+    cy.get(`input[id="case_NHS"][value="${medicare}"]`)
+      .should('be.visible')
+  }
+
   selectBilling(option = 'DVA'){
     cy.get('select#case_patientfinancial')
       .select(option)
+  }
+
+  assertSelectedBilling(option = 'DVA'){
+    cy.get(`select#case_patientfinancial [selected="selected"][value="${option}"]`)
+    .should('be.visible')
   }
 
   checkPrivate(){
@@ -168,9 +178,19 @@ export class DashboardActions extends CommonActions
       .click()
   }
 
+  isPrivateChecked(){
+    cy.get('#shownhsprivate #case_patientinformedfinancial')
+      .should('be.checked')
+  }
+
   enterDVANumber(text){
     cy.get('input#case_dvano')
       .type(text)
+  }
+
+  assertDVANumber(text){
+    cy.get(`input#case_dvano[value="${text}"]`)
+      .should('be.visible')
   }
 
   saveDraft(){
@@ -461,7 +481,7 @@ export class DashboardActions extends CommonActions
     for(const index in user.lab){
       this.selectLab(user.lab[index])
       this.clickButtonByText('Save');
-      this.clickPathologyRequestByFristName(name);
+      this.clickPathologyRequestByFirstName(name);
       this.isLab(user.lab[index]);
     }
   }
@@ -470,7 +490,7 @@ export class DashboardActions extends CommonActions
     for(const index in user.state){
       this.selectState(user.state[index])
       this.clickButtonByText('Save');
-      this.clickPathologyRequestByFristName(name);
+      this.clickPathologyRequestByFirstName(name);
       this.isState(user.state[index]);
     }
   }
@@ -638,7 +658,7 @@ export class DashboardActions extends CommonActions
         this.assertTitleTop('Dashboard')
         this.assertFirstName(firstname)
         this.isReviewCase('Draft')
-        this.clickPathologyRequestByFristName(firstname);
+        this.clickPathologyRequestByFirstName(firstname);
         this.assertTitleTop('Confirm request details');
         this.assertText('Lesion 1');
         cy.get('.txt-header').contains('Clinical indication').scrollIntoView();

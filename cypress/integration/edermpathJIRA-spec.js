@@ -305,7 +305,7 @@ dashboardActions.enterFirstName(firstname);
     homeActions.isDashboardDisplayed();
     dashboardActions.isReviewCase('Draft')
 
-    dashboardActions.clickPathologyRequestByFristName(firstname);
+    dashboardActions.clickPathologyRequestByFirstName(firstname);
 
     //Add another lesion
     dashboardActions.addAnotherLesion();
@@ -679,7 +679,7 @@ dashboardActions.enterFirstName(firstname);
     dashboardActions.enterContact(user.contact);
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.saveDraft();
-    dashboardActions.clickPathologyRequestByFristName(firstname)
+    dashboardActions.clickPathologyRequestByFirstName(firstname)
     dashboardActions.isTitle(title)
   });
         
@@ -1450,7 +1450,7 @@ dashboardActions.enterFirstName(firstname);
     dashboardActions.assertFirstName(firstname)
     dashboardActions.isReviewCase('Draft')
 
-    dashboardActions.clickPathologyRequestByFristName(firstname);
+    dashboardActions.clickPathologyRequestByFirstName(firstname);
     dashboardActions.assertMaxLengthOtherTitle('10')
   });
 
