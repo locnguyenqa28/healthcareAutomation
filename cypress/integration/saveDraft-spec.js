@@ -338,5 +338,60 @@ describe("Save Draft", () => {
       dashboardActions.assertSelectedBilling(user.billing.private);
       dashboardActions.isPrivateChecked();
     });
+    
+    it("09. Check all Gender", () => 
+    {
+      loginActions.visitPage();
+      loginActions.inputUserName(user.username);
+      loginActions.inputPassword(user.password);
+      loginActions.clickLoginButton();
+      homeActions.isDashBoardButtonDisplayed();
+
+      const firstname = `Draft-${homeActions.randomAlpha(10)}`;
+      const lastname = `Check all gender`;
+      dashboardActions.clickAddNewLesion();
+      dashboardActions.selectTitle('Mrs');
+      dashboardActions.enterFirstName(firstname);
+      dashboardActions.enterLastName(lastname);
+      dashboardActions.selectGender(user.gender.male);
+      dashboardActions.enterDOB(user.DOB);
+      dashboardActions.enterHomeAdd(user.address);
+      dashboardActions.enterCity(user.city);
+      dashboardActions.selectState();
+      dashboardActions.enterPostcode(user.postcode);
+      dashboardActions.enterContact(user.contact);
+      dashboardActions.enterMedicare(user.medicare);
+      dashboardActions.nextButton();
+
+      //Add first lesion
+      dashboardActions.addALesionMoreThan4Images(1);
+
+      //Case Summary
+      dashboardActions.caseSummary();
+      dashboardActions.assertGender(user.gender.male);
+      dashboardActions.selectGender(user.gender.female);
+      dashboardActions.saveDraft();
+      dashboardActions.assertTitleTop('Dashboard');
+      dashboardActions.assertFirstName(firstname);
+      dashboardActions.isReviewCase('Draft');
+      dashboardActions.clickPathologyRequestByFirstName(firstname);
+      
+      dashboardActions.assertGender(user.gender.female);
+      dashboardActions.selectGender(user.gender.other);
+      dashboardActions.clickHrefByText('Save update');
+      dashboardActions.assertTitleTop('Dashboard')
+      dashboardActions.assertFirstName(firstname)
+      dashboardActions.isReviewCase('Draft')
+      dashboardActions.clickPathologyRequestByFirstName(firstname);
+      dashboardActions.assertGender(user.gender.other)
+
+      dashboardActions.selectGender(user.gender.unknown)
+      dashboardActions.clickHrefByText('Save update');
+      dashboardActions.assertTitleTop('Dashboard')
+      dashboardActions.assertFirstName(firstname)
+      dashboardActions.isReviewCase('Draft')
+      dashboardActions.clickPathologyRequestByFirstName(firstname);
+      dashboardActions.assertGender(user.gender.unknown);
+    });
   });
   

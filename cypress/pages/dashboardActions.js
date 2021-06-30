@@ -84,6 +84,11 @@ export class DashboardActions extends CommonActions
       .select(option)
   }
 
+  assertGender(option){
+    cy.get('select[id="case_Gender"] [selected="selected"]')
+      .should('be.visible')
+  }
+
   selectLab(option){
     cy.get('select[id="labcode"]')
       .select(option)
