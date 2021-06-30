@@ -18,7 +18,7 @@ describe("Save Draft", () => {
       homeActions.isDashBoardButtonDisplayed();
       
       //Add New Lesion - Patient Details
-      const firstname = `Draft  ${homeActions.randomAlpha(10)}`;
+      const firstname = `Draft-${homeActions.randomAlpha(10)}`;
       const lastname = `save ${homeActions.randomAlpha(10)}`;
       dashboardActions.clickAddNewLesion();
       dashboardActions.selectTitle('Mrs');
@@ -39,7 +39,7 @@ describe("Save Draft", () => {
   
     it("02. One Lesion saving", () => 
     {
-      const firstname = `Draft  ${homeActions.randomAlpha(10)}`;
+      const firstname = `Draft-${homeActions.randomAlpha(10)}`;
       const lastname = `save one lesion ${homeActions.randomAlpha(10)}`;
       loginActions.visitPage();
       loginActions.inputUserName(user.username);
@@ -74,7 +74,7 @@ describe("Save Draft", () => {
   
     it("03. Two Lesion saving", () => 
     {
-      const firstname = `Draft  ${homeActions.randomAlpha(10)}`;
+      const firstname = `Draft-${homeActions.randomAlpha(10)}`;
       const lastname = `save two lesion ${homeActions.randomAlpha(10)}`;
       loginActions.visitPage();
       loginActions.inputUserName(user.username);
@@ -113,7 +113,7 @@ describe("Save Draft", () => {
   
     it("04. Three Lesion saving", () => 
     {
-      const firstname = `Draft  ${homeActions.randomAlpha(10)}`;
+      const firstname = `Draft-${homeActions.randomAlpha(10)}`;
       const lastname = `save three lesion ${homeActions.randomAlpha(10)}`;
       loginActions.visitPage();
       loginActions.inputUserName(user.username);
@@ -156,7 +156,7 @@ describe("Save Draft", () => {
   
     it("05. Four Lesion saving", () => 
     {
-      const firstname = `Draft  ${homeActions.randomAlpha(10)}`;
+      const firstname = `Draft-${homeActions.randomAlpha(10)}`;
       const lastname = `save four lesion ${homeActions.randomAlpha(10)}`;
       loginActions.visitPage();
       loginActions.inputUserName(user.username);
