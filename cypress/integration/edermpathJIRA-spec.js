@@ -1660,5 +1660,50 @@ dashboardActions.enterFirstName(firstname);
     dashboardActions.assertFirstName(firstname)
     dashboardActions.isReviewCase('Draft')
   });
+  
+  it("EDERMPATH-166. The page crash after deleting the lesion then double click on back button of the browser", () => 
+  {
+    const firstname = `E-one six six -${homeActions.randomAlpha(10)}`;
+    const lastname = `The page crash after deleting the lesion`;
+    const lesion = 'Lesion 1';
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText);
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+    //Add first lesion
+    dashboardActions.addALesion();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    //Delete first lesion
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.scrollToLesion(lesion)
+    dashboardActions.assertText(lesion)
+    dashboardActions.clickDeleteLesion(lesion)
+
+    cy.go('back');
+    cy.go('back');
+    dashboardActions.assertTitleTop(user.titleTop.confirmDetails)
+    dashboardActions.saveDraft()
+    dashboardActions.assertFirstName(firstname)
+    dashboardActions.isReviewCase('Draft')
+  });
 });
   

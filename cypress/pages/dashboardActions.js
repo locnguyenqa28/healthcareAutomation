@@ -198,9 +198,9 @@ export class DashboardActions extends CommonActions
       .should('be.visible')
   }
 
-  saveDraft(){
+  saveDraft(isForce = false){
       cy.get('a[onclick]')
-        .contains('Save draft » ').click()
+        .contains('Save draft » ').click({force:isForce});
   }
 
   dblclicksaveDraft(){
