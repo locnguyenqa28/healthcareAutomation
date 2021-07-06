@@ -19,8 +19,8 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = user.firstname + homeActions.randomAlpha(10);
-    const lastname = `EDERMPATH six two`;
+    const firstname = `EDERMPATH six two-${homeActions.randomAlpha(10)}`;
+    const lastname = `The delete button is not presented after adding a new lesion`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText)
@@ -65,8 +65,8 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = user.firstname + homeActions.randomAlpha(10);
-    const lastname = `EDERMPATH six four`;
+    const firstname = `EDERMPATH six four-${homeActions.randomAlpha(10)}`;
+    const lastname = `Back button is not functional after backing from the Body Map`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText)
@@ -116,7 +116,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText);
-dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
     dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
@@ -480,7 +480,7 @@ dashboardActions.enterFirstName(firstname);
     homeActions.isDashBoardButtonDisplayed();
     
      //Add New Lesion - Patient Details
-     const firstname = `EDERMPATH eight four ${homeActions.randomAlpha(10)}`;
+     const firstname = `EDERMPATH eight four-${homeActions.randomAlpha(10)}`;
      const lastname = ` Unable to move to any sections`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
@@ -1068,12 +1068,12 @@ dashboardActions.enterFirstName(firstname);
     
     //Setup
     dashboardActions.clickSetup();
-    dashboardActions.assertText('Account Setup');
+    dashboardActions.assertText('Account setup');
     dashboardActions.clickEditAccount();
     dashboardActions.enterSubHurbAccount(subhurb);
     dashboardActions.selectStateAccount();
     dashboardActions.clickSaveUpdateAccount();
-    dashboardActions.assertText('Account Setup');
+    dashboardActions.assertText('Account setup');
   });
 
   it("EDERMPATH-145. eOrder did not upload", () => 
@@ -1617,7 +1617,7 @@ dashboardActions.enterFirstName(firstname);
     
     //Setup
     dashboardActions.clickSetup();
-    dashboardActions.assertText('Account Setup');
+    dashboardActions.assertText('Account setup');
     dashboardActions.clickEditAccount();
     dashboardActions.assertAddress();
     dashboardActions.isStateDropdownVisible()
