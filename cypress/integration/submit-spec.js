@@ -1554,6 +1554,5 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.clickReviewCaseByFirstName(firstname);
     dashboardActions.assertGender(user.gender.other)
   });
-
 });
   

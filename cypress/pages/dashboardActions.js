@@ -328,9 +328,9 @@ export class DashboardActions extends CommonActions
   }
 
   //Upload Dermascopic Images
-  uploadImage(){
+  uploadImage(name = '1.jpg'){
       cy.get('input[type="file"]')
-        .attachFile('1.jpg')
+        .attachFile(name)
   }
 
   uploadMultiImages(number){
@@ -459,6 +459,34 @@ export class DashboardActions extends CommonActions
     //Upload Dermascopic Images
     this.assertHeader('Upload ');
     this.uploadMultiImages(number);
+    this.startUpload();
+    this.isProgressBarDisappear();
+    this.isImageUploadedSuccessfully();
+    this.nextButtonUploadImg();
+  }
+
+  addALesionLargeImages(number = 1) {
+    //Clinical Condition
+    this.noPreviousHistory();
+    this.provisionalDiagnosis();
+    this.excludeMelasma();
+    this.excludeNmsc();
+    this.selectBiopsyType();
+
+    //Case Images
+    this.addBodyMap();
+    this.clickImage();
+    this.selectBodyRegion();
+    this.enterSpecimenLocation();
+    this.saveBodyMap();
+
+    //Upload Dermascopic Images
+    for(let i = 1; i<=number; i++){
+      this.assertHeader('Upload ');
+      this.uploadImage('largeImage.jpg');
+    }
+    this.assertHeader('Upload ');
+    cy.wait(500);
     this.startUpload();
     this.isProgressBarDisappear();
     this.isImageUploadedSuccessfully();
