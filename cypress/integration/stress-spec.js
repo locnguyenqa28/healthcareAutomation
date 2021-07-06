@@ -4,7 +4,7 @@ import { DashboardActions } from "../pages/dashboardActions";
 import user from "../support/constants"
 
 
-describe("parallel", () => {
+describe("stress", () => {
     const loginActions = new LoginActions();
     const homeActions = new HomeActions();
     const dashboardActions = new DashboardActions();
@@ -18,7 +18,7 @@ describe("parallel", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `parallel-${homeActions.randomAlpha(10)}`;
+    const firstname = `stress-${homeActions.randomAlpha(10)}`;
     const lastname = `three lesions-three large images`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
@@ -47,7 +47,6 @@ describe("parallel", () => {
 
     //Case Summary
     dashboardActions.caseSummary();
-    dashboardActions.selectGender(user.gender.other);
     dashboardActions.submitCasePrint();
     dashboardActions.returnToDashboard();
     homeActions.isDashboardDisplayed();
@@ -63,7 +62,7 @@ describe("parallel", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `parallel ${homeActions.randomAlpha(20)}`;
+    const firstname = `stress ${homeActions.randomAlpha(20)}`;
     const lastname = `four lesions-four large images`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
@@ -96,7 +95,6 @@ describe("parallel", () => {
 
     //Case Summary
     dashboardActions.caseSummary();
-    dashboardActions.selectGender(user.gender.other);
     dashboardActions.submitCasePrint();
     dashboardActions.returnToDashboard();
     homeActions.isDashboardDisplayed();

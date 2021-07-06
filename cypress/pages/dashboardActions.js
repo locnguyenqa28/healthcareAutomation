@@ -409,7 +409,7 @@ export class DashboardActions extends CommonActions
   isUploadSuccesfully(index){
     cy.wait(10000);
     cy.reload();
-    cy.reload();
+    this.isReviewCase('Draft')
     cy.get(".x-grid3-cell-last[tabindex='0']")
     .eq(index)
     .contains('Successful')
@@ -488,6 +488,7 @@ export class DashboardActions extends CommonActions
     this.assertHeader('Upload ');
     cy.wait(500);
     this.startUpload();
+    cy.wait(5000);
     this.isProgressBarDisappear();
     this.isImageUploadedSuccessfully();
     this.nextButtonUploadImg();
