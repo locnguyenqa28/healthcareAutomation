@@ -370,22 +370,22 @@ export class DashboardActions extends CommonActions
     });
   }
 
-  isProgressBarDisappear(){
-    cy.get('body').find('.fileupload-progress').should('not.be.visible')
+  isProgressBarDisappear(timeOut = 30000){
+    cy.get('body').find('.fileupload-progress', { timeout: timeOut }).should('not.be.visible')
   }
 
-  startUpload(){
+  startUpload(isForce=true){
     cy.get('[id="btn-start-upload"][type="submit"]')
-      .click()
+      .click({force:isForce})
   }
 
-  isImageUploadedSuccessfully(){
-    cy.get('td[class="preview"]')
+  isImageUploadedSuccessfully(timeOut = 30000){
+    cy.get('td[class="preview"]', { timeout: timeOut })
       .should('be.visible')
   }
 
-  nextButtonUploadImg(){
-    cy.get('a[id="showlinkshownextv2"]')
+  nextButtonUploadImg(timeOut = 30000){
+    cy.get('a[id="showlinkshownextv2"]', { timeout: timeOut })
       .click()
   }
  
@@ -487,11 +487,15 @@ export class DashboardActions extends CommonActions
     }
     this.assertHeader('Upload ');
     cy.wait(500);
+    this.assertText('Remove');
+    cy.wait(500);
     this.startUpload();
-    cy.wait(5000);
-    this.isProgressBarDisappear();
-    this.isImageUploadedSuccessfully();
-    this.nextButtonUploadImg();
+    this.isProgressBarDisappear(90000);
+    cy.wait(500);
+    this.startUpload(true);
+    cy.wait(30000);
+    this.isImageUploadedSuccessfully(90000);
+    this.nextButtonUploadImg(90000);
   }
 
   assertAllLabNextAndBack() {
