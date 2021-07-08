@@ -409,7 +409,7 @@ export class DashboardActions extends CommonActions
   isUploadSuccesfully(index){
     cy.wait(10000);
     cy.reload();
-    this.isReviewCase('Draft')
+    this.isReviewCase('Review Case')
     cy.get(".x-grid3-cell-last[tabindex='0']")
     .eq(index)
     .contains('Successful')
