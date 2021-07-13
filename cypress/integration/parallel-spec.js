@@ -9,7 +9,7 @@ describe("parallel", () => {
     const homeActions = new HomeActions();
     const dashboardActions = new DashboardActions();
 
-  it.only("1.Large images 3 lesions + 3 images", () => 
+  it("1.Large images 2 lesions + 2 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -19,7 +19,7 @@ describe("parallel", () => {
     
     //Add New Lesion - Patient Details
     const firstname = `parallel-${homeActions.randomAlpha(10)}`;
-    const lastname = `three lesions-three large images`;
+    const lastname = `two lesions-two large images`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
@@ -54,7 +54,7 @@ describe("parallel", () => {
     // dashboardActions.isUploadSuccesfully(0);
   });
  
-  it("2.Large images 4 lesions + 4 images", () => 
+  it("2.Large images 3 lesions + 1 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -64,7 +64,7 @@ describe("parallel", () => {
     
     //Add New Lesion - Patient Details
     const firstname = `parallel ${homeActions.randomAlpha(20)}`;
-    const lastname = `four lesions-four large images`;
+    const lastname = `three lesions-one large images`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
@@ -80,19 +80,15 @@ describe("parallel", () => {
     dashboardActions.nextButton();
 
     //Add lesion
-    dashboardActions.addALesionLargeImages(4);
+    dashboardActions.addALesionLargeImages(1);
 
     //Add another lesion
     dashboardActions.addAnotherLesion()
-    dashboardActions.addALesionLargeImages(4)
+    dashboardActions.addALesionLargeImages(1)
 
     //Add another lesion
     dashboardActions.addAnotherLesion()
-    dashboardActions.addALesionLargeImages(4)
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion()
-    dashboardActions.addALesionLargeImages(4)
+    dashboardActions.addALesionLargeImages(1)
 
     //Case Summary
     dashboardActions.caseSummary();
