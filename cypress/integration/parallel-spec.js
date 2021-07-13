@@ -35,15 +35,15 @@ describe("parallel", () => {
     dashboardActions.nextButton();
 
     //Add lesion
-    dashboardActions.addALesionLargeImages(3);
+    dashboardActions.addALesionLargeImages(2);
 
     //Add another lesion
     dashboardActions.addAnotherLesion()
-    dashboardActions.addALesionLargeImages(3)
+    dashboardActions.addALesionLargeImages(2)
 
-    //Add another lesion
-    dashboardActions.addAnotherLesion()
-    dashboardActions.addALesionLargeImages(3)
+    // //Add another lesion
+    // dashboardActions.addAnotherLesion()
+    // dashboardActions.addALesionLargeImages(2)
 
     //Case Summary
     dashboardActions.caseSummary();
