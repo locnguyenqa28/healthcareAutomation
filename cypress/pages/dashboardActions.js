@@ -370,7 +370,7 @@ export class DashboardActions extends CommonActions
     });
   }
 
-  isProgressBarDisappear(timeOut = 30000){
+  isProgressBarDisappear(timeOut = 60000){
     cy.get('body').find('.fileupload-progress', { timeout: timeOut }).should('not.be.visible')
   }
 
@@ -379,12 +379,12 @@ export class DashboardActions extends CommonActions
       .click({force:isForce})
   }
 
-  isImageUploadedSuccessfully(timeOut = 30000){
+  isImageUploadedSuccessfully(timeOut = 60000){
     cy.get('td[class="preview"]', { timeout: timeOut })
       .should('be.visible')
   }
 
-  nextButtonUploadImg(timeOut = 30000){
+  nextButtonUploadImg(timeOut = 60000){
     cy.get('a[id="showlinkshownextv2"]', { timeout: timeOut })
       .click()
   }
@@ -435,6 +435,7 @@ export class DashboardActions extends CommonActions
     //Upload Dermascopic Images
     this.assertHeader('Upload ');
     this.uploadImage();
+    cy.wait(500);
     this.startUpload();
     this.isImageUploadedSuccessfully();
     this.assertFile('1.jpg')
