@@ -435,7 +435,7 @@ export class DashboardActions extends CommonActions
     //Upload Dermascopic Images
     this.assertHeader('Upload ');
     this.uploadImage();
-    cy.wait(500);
+    this.assertText('Remove');
     this.startUpload();
     this.isImageUploadedSuccessfully();
     this.assertFile('1.jpg')
@@ -460,6 +460,7 @@ export class DashboardActions extends CommonActions
     //Upload Dermascopic Images
     this.assertHeader('Upload ');
     this.uploadMultiImages(number);
+    this.assertText('Remove');
     this.startUpload();
     this.isProgressBarDisappear();
     this.isImageUploadedSuccessfully();
