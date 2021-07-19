@@ -498,6 +498,55 @@ export class DashboardActions extends CommonActions
     this.nextButtonUploadImg(90000);
   }
 
+  addALesionCombineImages() {
+    //Clinical Condition
+    this.noPreviousHistory();
+    this.provisionalDiagnosis();
+    this.excludeMelasma();
+    this.excludeNmsc();
+    this.selectBiopsyType();
+
+    //Case Images
+    this.addBodyMap();
+    this.clickImage();
+    this.selectBodyRegion();
+    this.enterSpecimenLocation();
+    this.saveBodyMap();
+
+    //Upload Dermascopic Images
+    this.assertHeader('Upload ');
+    this.uploadImage('15.jpg');
+    this.assertHeader('Upload ');
+    this.assertText('Remove');
+    cy.wait(500);
+    this.startUpload();
+
+    this.assertHeader('Upload ');
+    this.uploadImage('1.jpg');
+    this.assertHeader('Upload ');
+    this.assertText('Remove');
+    cy.wait(500);
+    this.startUpload();
+
+    this.assertHeader('Upload ');
+    this.uploadImage('2.jpg');
+    this.assertHeader('Upload ');
+    this.assertText('Remove');
+    cy.wait(500);
+    this.startUpload();
+
+    this.assertHeader('Upload ');
+    this.uploadImage('3.jpg');
+    this.assertHeader('Upload ');
+    this.assertText('Remove');
+    cy.wait(500);
+    this.startUpload();
+
+    this.isProgressBarDisappear(90000);
+    this.isImageUploadedSuccessfully(90000);
+    this.nextButtonUploadImg(90000);
+  }
+
   assertAllLabNextAndBack() {
     for(const index in user.lab){
       this.selectLab(user.lab[index])
