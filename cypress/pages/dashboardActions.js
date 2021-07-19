@@ -340,7 +340,8 @@ export class DashboardActions extends CommonActions
     }
     cy.get('input[type="file"]')
     .attachFile(imageArr)
-    .wait(500)  
+    .wait(500)
+    this.startUpload();  
   }
   
 
