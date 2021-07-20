@@ -195,7 +195,7 @@ describe("parallel", () => {
     
     //Add New Lesion - Patient Details
     const firstname = `parallel ${homeActions.randomAlpha(20)}`;
-    const lastname = `one lesions-one combine images`;
+    const lastname = `two lesions-one combine images`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
@@ -236,7 +236,7 @@ describe("parallel", () => {
     
     //Add New Lesion - Patient Details
     const firstname = `parallel ${homeActions.randomAlpha(20)}`;
-    const lastname = `one lesions-one combine images`;
+    const lastname = `three lesions-one combine images`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
@@ -281,7 +281,7 @@ describe("parallel", () => {
     
     //Add New Lesion - Patient Details
     const firstname = `parallel ${homeActions.randomAlpha(20)}`;
-    const lastname = `one lesions-one combine images`;
+    const lastname = `four lesions-one combine images`;
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
