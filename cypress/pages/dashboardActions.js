@@ -756,5 +756,15 @@ export class DashboardActions extends CommonActions
     })
      
   }
+
+  selectClinicOptionByName(name = 'QA Loc') {
+    cy.get("#id_set_default")
+    .select(name);
+  }
+
+  clickOkSelectClinic() {
+    cy.get('[onclick="setdefaultclinic()"]')
+    .click();
+  }
 }
 

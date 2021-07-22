@@ -20,7 +20,9 @@ describe("Save Draft", () => {
       //Add New Lesion - Patient Details
       const firstname = `Draft-${homeActions.randomAlpha(10)}`;
       const lastname = `save ${homeActions.randomAlpha(10)}`;
-      dashboardActions.clickAddNewLesion();
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
       dashboardActions.selectTitle('Mrs');
       dashboardActions.enterFirstName(firstname);
       dashboardActions.enterLastName(lastname);
@@ -48,7 +50,9 @@ describe("Save Draft", () => {
       homeActions.isDashBoardButtonDisplayed();
       
       //Add New Lesion - Patient Details
-      dashboardActions.clickAddNewLesion();
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
       dashboardActions.selectTitle('Mrs');
       dashboardActions.enterFirstName(firstname);
       dashboardActions.enterLastName(lastname);
@@ -83,7 +87,9 @@ describe("Save Draft", () => {
       homeActions.isDashBoardButtonDisplayed();
       
       //Add New Lesion - Patient Details
-      dashboardActions.clickAddNewLesion();
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
       dashboardActions.selectTitle('Mrs');
       dashboardActions.enterFirstName(firstname);
       dashboardActions.enterLastName(lastname);
@@ -122,7 +128,9 @@ describe("Save Draft", () => {
       homeActions.isDashBoardButtonDisplayed();
       
       //Add New Lesion - Patient Details
-      dashboardActions.clickAddNewLesion();
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
       dashboardActions.selectTitle('Mrs');
       dashboardActions.enterFirstName(firstname);
       dashboardActions.enterLastName(lastname);
@@ -165,7 +173,9 @@ describe("Save Draft", () => {
       homeActions.isDashBoardButtonDisplayed();
       
       //Add New Lesion - Patient Details
-      dashboardActions.clickAddNewLesion();
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
       dashboardActions.selectTitle('Mrs');
       dashboardActions.enterFirstName(firstname);
       dashboardActions.enterLastName(lastname);
@@ -212,7 +222,9 @@ describe("Save Draft", () => {
       homeActions.isDashBoardButtonDisplayed();
       
       //Add New Lesion - Patient Details
-      dashboardActions.clickAddNewLesion();
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
       dashboardActions.selectTitle('Mrs');
       dashboardActions.enterFirstName(firstname);
       dashboardActions.enterLastName(lastname);
@@ -250,7 +262,9 @@ describe("Save Draft", () => {
       homeActions.isDashBoardButtonDisplayed();
       
       //Add New Lesion - Patient Details
-      dashboardActions.clickAddNewLesion();
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
       dashboardActions.selectTitle('Mrs');
       dashboardActions.enterFirstName(firstname);
       dashboardActions.enterLastName(lastname);
@@ -287,7 +301,9 @@ describe("Save Draft", () => {
 
       const firstname = `Draft-${homeActions.randomAlpha(10)}`;
       const lastname = `Check all Billing`;
-      dashboardActions.clickAddNewLesion();
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
       dashboardActions.selectTitle('Mrs');
       dashboardActions.enterFirstName(firstname);
       dashboardActions.enterLastName(lastname);
@@ -349,7 +365,9 @@ describe("Save Draft", () => {
 
       const firstname = `Draft-${homeActions.randomAlpha(10)}`;
       const lastname = `Check all gender`;
-      dashboardActions.clickAddNewLesion();
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
       dashboardActions.selectTitle('Mrs');
       dashboardActions.enterFirstName(firstname);
       dashboardActions.enterLastName(lastname);

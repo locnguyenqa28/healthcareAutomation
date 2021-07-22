@@ -21,6 +21,11 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     //Add New Lesion - Patient Details
     const firstname = `EDERMPATH six two-${homeActions.randomAlpha(10)}`;
     const lastname = `The delete button is not presented after adding a new lesion`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText)
@@ -67,6 +72,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     //Add New Lesion - Patient Details
     const firstname = `EDERMPATH six four-${homeActions.randomAlpha(10)}`;
     const lastname = `Back button is not functional after backing from the Body Map`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText)
@@ -113,6 +121,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
      //Add New Lesion - Patient Details
      const firstname = `EDERMPATH seven one ${homeActions.randomAlpha(10)}`;
      const lastname = `Previous history field selection is inconsistent`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText);
@@ -174,6 +185,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText);
@@ -211,6 +225,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     //Add New Lesion - Patient Details
     const firstname = user.firstname + homeActions.randomAlpha(10);
     const lastname = `EDERMPATH seven six`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText)
@@ -259,6 +276,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     //Add New Lesion - Patient Details
     const firstname = `EDERMPATH seven eight ${homeActions.randomAlpha(10)}`;
     const lastname = `The state is not saved`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText)
@@ -286,6 +306,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     //Add New Lesion - Patient Details
     const firstname = `EDERMPATH seven nine ${homeActions.randomAlpha(10)}`;
     const lastname = `Unable to add new conditions from the draft`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText)
@@ -333,6 +356,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const firstname = `EDERMPATH eight zero ${homeActions.randomAlpha(10)}`;
     const invalidLastname = `Invalid lastname 123`;
     const lastname = "a-zA-Z'`";
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText)
@@ -366,6 +392,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     //Add New Lesion - Patient Details
     const firstname = `EDERMPATH eight one ${homeActions.randomAlpha(10)}`;
     const lastname = `The five condition will be generated after editing twice`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText);
@@ -436,6 +465,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     //Add New Lesion - Patient Details
     const firstname = user.firstname + homeActions.randomAlpha(10);
     const lastname = `EDERMPATH eight three`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText)
@@ -482,6 +514,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
      //Add New Lesion - Patient Details
      const firstname = `EDERMPATH eight four-${homeActions.randomAlpha(10)}`;
      const lastname = ` Unable to move to any sections`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText);
@@ -532,6 +567,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     //Add New Lesion - Patient Details
     const firstname = `EDERMPATH eight five ${homeActions.randomAlpha(10)}`;
     const lastname = `Able to add more than four conditions`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText);
@@ -608,6 +646,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     //Add New Lesion - Patient Details
     const firstname = `EDERMPATH eight seven ${homeActions.randomAlpha(10)}`;
     const lastname = `The Save body map button is not functional`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText);
@@ -665,6 +706,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const firstname =`EDERMPATH one one two ${homeActions.randomAlpha(10)}`;
     const lastname = `EDERMPATH one one two`;
     const title = 'Other';
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle(title);
     dashboardActions.enterOtherTitle(validOtherText)
@@ -695,6 +739,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const firstname = `EDERMPATH one zero three ${homeActions.randomAlpha(10)}`;
     const lastname = `Clinical indication page check`;
     const validOtherText = "abdzABCZ--.";
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText);
@@ -735,6 +782,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     //Add New Lesion - Patient Details
     const firstname = `EDERMPATH one zero four ${homeActions.randomAlpha(10)}`;
     const lastname = `UI - Upload image word changes`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText);
@@ -796,6 +846,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const firstname = user.firstname + homeActions.randomAlpha(10);
     const lastname = `EDERMPATH one one four`;
     const quoteText = 'automation';
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText)
@@ -860,6 +913,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     //Add New Lesion - Patient Details
     const firstname = `EDERMPATH one one five ${homeActions.randomAlpha(20)}`;
     const lastname = `delete third lesion`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText)
@@ -911,6 +967,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     //Add New Lesion - Patient Details
     const firstname = user.firstname;
     const lastname = `EDERMPATH one one nine`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText)
@@ -938,6 +997,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     //Add New Lesion - Patient Details
     const firstname = user.firstname + homeActions.randomAlpha(10);
     const lastname = `${user.lastname} EDERMPATH one one nine`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText)
@@ -967,6 +1029,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const lastname = `EDERMPATH one three seven`;
     const invalidQuoteText = '"""""""""""""""""""""""""""""';
     const quoteText = "(((((((((((())))))))))))";
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText)
@@ -1033,6 +1098,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     //Add New Lesion - Patient Details
     const firstname = `EDERMPATH one four zero ${homeActions.randomAlpha(10)}`;
     const lastname = `Added unknown gender`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText)
@@ -1087,6 +1155,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     //Add New Lesion - Patient Details
     const firstname = user.firstname + homeActions.randomAlpha(10);
     const lastname = `EDERMPATH one four five`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText)
@@ -1151,6 +1222,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     //Add New Lesion - Patient Details
     const firstname = user.firstname + homeActions.randomAlpha(10);
     const lastname = `EDERMPATH one four six`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText)
@@ -1202,6 +1276,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     //Add New Lesion - Patient Details
     const firstname = user.firstname + homeActions.randomAlpha(20);
     const lastname = `EDERMPATH one five zero ${homeActions.randomAlpha(20)}`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText)
@@ -1247,6 +1324,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     //Add New Lesion - Patient Details
     const firstname = `EDERMPATH one five one ${homeActions.randomAlpha(20)}`;
     const lastname = `Upload issue from Melanie ${homeActions.randomAlpha(20)}`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText)
@@ -1326,6 +1406,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const validDVANumber = "abcdzABCDZ()--/#,1234567890";
     const validNote = "abcdzABCDZ()--/#,1234567890.";
     const invalidNote = "!@@@@@@@$$$$$";
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectBilling(user.billing.DVA);
     dashboardActions.saveDraft();
@@ -1395,6 +1478,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     //Add New Lesion - Patient Details
     const firstname = `EDERMPATH one five five ${homeActions.randomAlpha(10)}`;
     const lastname = `Gender Other`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText)
@@ -1431,6 +1517,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const firstname = `EDERMPATH one five six ${homeActions.randomAlpha(10)}`;
     const lastname = `The others maxlength is changed to twenty after saving`;
     const validText = "abcdzABCDZ()--";
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validText)
@@ -1471,6 +1560,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const validNote = "abcdzABCDZ()--/#,1234567890.";
     const invalidNote = "!@@@@@@@$$$$$";
     dashboardActions.assertTitleTop(user.titleTop.dashboard)
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.assertTitleTop(user.titleTop.patientDetails)
     dashboardActions.selectBilling(user.billing.DVA);
@@ -1544,6 +1636,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText);
@@ -1581,6 +1676,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
      //Add New Lesion - Patient Details
      const firstname = `EDERMPATH six zero ${homeActions.randomAlpha(10)}`;
      const lastname = `The status is always pending after submitting`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText);
@@ -1630,6 +1728,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const validText = "abcdzABCDZ()--";
     const validDVANumber = "abcdzABCDZ()--/#,1234567890";
     homeActions.isDashBoardButtonDisplayed();
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectBilling(user.billing.DVA);
     dashboardActions.saveDraft();
@@ -1673,6 +1774,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
     dashboardActions.enterOtherTitle(validOtherText);

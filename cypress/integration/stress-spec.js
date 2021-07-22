@@ -20,6 +20,8 @@ describe("stress", () => {
     //Add New Lesion - Patient Details
     const firstname = `stress-${homeActions.randomAlpha(10)}`;
     const lastname = `three lesions-three large images`;
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);

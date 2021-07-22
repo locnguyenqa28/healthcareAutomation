@@ -20,6 +20,8 @@ describe("parallel", () => {
     //Add New Lesion - Patient Details
     const firstname = `parallel-${homeActions.randomAlpha(10)}`;
     const lastname = `two lesions-two large images`;
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
@@ -65,6 +67,8 @@ describe("parallel", () => {
     //Add New Lesion - Patient Details
     const firstname = `parallel ${homeActions.randomAlpha(20)}`;
     const lastname = `three lesions-one large images`;
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
@@ -110,6 +114,8 @@ describe("parallel", () => {
     //Add New Lesion - Patient Details
     const firstname = `parallel ${homeActions.randomAlpha(20)}`;
     const lastname = `three lesions-one large images`;
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
@@ -159,6 +165,8 @@ describe("parallel", () => {
     //Add New Lesion - Patient Details
     const firstname = `parallel ${homeActions.randomAlpha(20)}`;
     const lastname = `one lesions-one combine images`;
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
@@ -196,6 +204,8 @@ describe("parallel", () => {
     //Add New Lesion - Patient Details
     const firstname = `parallel ${homeActions.randomAlpha(20)}`;
     const lastname = `two lesions-one combine images`;
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
@@ -237,6 +247,8 @@ describe("parallel", () => {
     //Add New Lesion - Patient Details
     const firstname = `parallel ${homeActions.randomAlpha(20)}`;
     const lastname = `three lesions-one combine images`;
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
@@ -282,6 +294,8 @@ describe("parallel", () => {
     //Add New Lesion - Patient Details
     const firstname = `parallel ${homeActions.randomAlpha(20)}`;
     const lastname = `four lesions-one combine images`;
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
