@@ -21,9 +21,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     //Add New Lesion - Patient Details
     const firstname = `EDERMPATH six two-${homeActions.randomAlpha(10)}`;
     const lastname = `The delete button is not presented after adding a new lesion`;
-    dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-   
+ 
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
