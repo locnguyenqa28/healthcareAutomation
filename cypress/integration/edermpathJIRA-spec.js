@@ -212,57 +212,6 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.isReviewCase('Draft')
   });
 
-  it("EDERMPATH-76. The Laboratory selector is disappeared after adding new conditions", () => 
-  {
-    loginActions.visitPage();
-    loginActions.inputUserName(user.username);
-    loginActions.inputPassword(user.password);
-    loginActions.clickLoginButton();
-    homeActions.isDashBoardButtonDisplayed();
-    
-    //Add New Lesion - Patient Details
-    const firstname = user.firstname + homeActions.randomAlpha(10);
-    const lastname = `EDERMPATH seven six`;
-   
-  dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
-    dashboardActions.enterOtherTitle(validOtherText)
-    dashboardActions.enterFirstName(firstname);
-    dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
-    dashboardActions.enterDOB(user.DOB);
-    dashboardActions.enterHomeAdd(user.address);
-    dashboardActions.enterCity(user.city);
-    dashboardActions.selectState();
-    dashboardActions.enterPostcode(user.postcode);
-    dashboardActions.enterContact(user.contact);
-    dashboardActions.enterMedicare(user.medicare);
-    dashboardActions.selectLab(user.lab[4])
-    dashboardActions.nextButton();
-
-    //Add first lesion
-    dashboardActions.addALesion();
-    dashboardActions.caseSummary();
-    dashboardActions.isLab(user.lab[4])
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesion();
-
-    //Case Summary
-    dashboardActions.caseSummary();
-    dashboardActions.assertButton('Dashboard')
-    dashboardActions.assertText('Lesion 1')
-    dashboardActions.assertText('Submit request & print');
-    dashboardActions.isLab(user.lab[4])
-    dashboardActions.saveDraft();
-    homeActions.isDashboardDisplayed();
-    dashboardActions.assertFirstName(firstname)
-    dashboardActions.isReviewCase('Draft');
-  });
-
   it("EDERMPATH-78. The state is not saved", () => 
   {
     loginActions.visitPage();
@@ -953,66 +902,6 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     homeActions.isDashboardDisplayed();
     dashboardActions.isUploadSuccesfully(0);
   });
-
-  it("EDERMPATH-119. The Laboratory is not be saved after backing", () => 
-  {
-    loginActions.visitPage();
-    loginActions.inputUserName(user.username);
-    loginActions.inputPassword(user.password);
-    loginActions.clickLoginButton();
-    homeActions.isDashBoardButtonDisplayed();
-    
-    //Add New Lesion - Patient Details
-    const firstname = user.firstname;
-    const lastname = `EDERMPATH one one nine`;
-   
-  dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
-    dashboardActions.enterOtherTitle(validOtherText)
-    dashboardActions.enterFirstName(firstname);
-    dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
-    dashboardActions.enterDOB(user.DOB);
-    dashboardActions.enterHomeAdd(user.address);
-    dashboardActions.enterCity(user.city);
-    dashboardActions.selectState();
-    dashboardActions.enterPostcode(user.postcode);
-    dashboardActions.enterContact(user.contact);
-    dashboardActions.enterMedicare(user.medicare);
-    dashboardActions.assertAllLabNextAndBack();
-  });
-  
-  it("EDERMPATH-119. The Laboratory is not be saved after backing - Draft", () => 
-  {
-    loginActions.visitPage();
-    loginActions.inputUserName(user.username);
-    loginActions.inputPassword(user.password);
-    loginActions.clickLoginButton();
-    homeActions.isDashBoardButtonDisplayed();
-    
-    //Add New Lesion - Patient Details
-    const firstname = user.firstname + homeActions.randomAlpha(10);
-    const lastname = `${user.lastname} EDERMPATH one one nine`;
-   
-  dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Other');
-    dashboardActions.enterOtherTitle(validOtherText)
-    dashboardActions.enterFirstName(firstname);
-    dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
-    dashboardActions.enterDOB(user.DOB);
-    dashboardActions.enterHomeAdd(user.address);
-    dashboardActions.enterCity(user.city);
-    dashboardActions.selectState();
-    dashboardActions.enterPostcode(user.postcode);
-    dashboardActions.enterContact(user.contact);
-    dashboardActions.enterMedicare(user.medicare);
-    dashboardActions.assertAllLabSaveAndDraft(firstname);
-  });
     
   it("EDERMPATH-137. The Clinical note is not be saved after inputting the quote symbol", () => 
   {
@@ -1121,25 +1010,6 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.saveDraft();
     dashboardActions.assertFirstName(firstname)
     dashboardActions.isReviewCase('Draft')
-  });
-  
-  it("EDERMPATH-141. Return to setup screen from Edit Account", () => 
-  {
-    const subhurb = `Pattaya City ${dashboardActions.randomAlphanumeric(5)}`
-    loginActions.visitPage();
-    loginActions.inputUserName(user.username);
-    loginActions.inputPassword(user.password);
-    loginActions.clickLoginButton();
-    homeActions.isDashBoardButtonDisplayed();
-    
-    //Setup
-    dashboardActions.clickSetup();
-    dashboardActions.assertText('Account setup');
-    dashboardActions.clickEditAccount();
-    dashboardActions.enterSubHurbAccount(subhurb);
-    dashboardActions.selectStateAccount();
-    dashboardActions.clickSaveUpdateAccount();
-    dashboardActions.assertText('Account setup');
   });
 
   it("EDERMPATH-145. eOrder did not upload", () => 
@@ -1710,15 +1580,6 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     loginActions.inputPassword(user.password);
     loginActions.clickLoginButton();
     homeActions.isDashBoardButtonDisplayed();
-    
-    //Setup
-    dashboardActions.clickSetup();
-    dashboardActions.assertText('Account setup');
-    dashboardActions.clickEditAccount();
-    dashboardActions.assertAddress();
-    dashboardActions.isStateDropdownVisible()
-    dashboardActions.clickHrefByText('Dashboard')
-    
     //Add New Lesion - Patient Details
     const firstname = `EDERMPATH one six three ${homeActions.randomAlpha(10)}`;
     const lastname = `Patient Details field validation changes`;
