@@ -757,7 +757,7 @@ export class DashboardActions extends CommonActions
      
   }
 
-  selectClinicOptionByName(name = 'QA Loc') {
+  selectClinicOptionByName(name = 'QALoc') {
     cy.get("#id_set_default")
     .select(name);
   }
