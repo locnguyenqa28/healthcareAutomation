@@ -757,9 +757,16 @@ export class DashboardActions extends CommonActions
      
   }
 
-  selectClinicOptionByName(name = 'QALoc', isTrue = false) {
-    cy.get("#id_set_default")
-    .select(name, {force: isTrue});
+  selectClinicOptionByName(name, isTrue = false) {
+    if(typeof(name)!= 'string' || name === null)
+    {
+      cy.get('#id_set_default > option')
+        .eq(1)
+        .then(element => cy.get('#id_set_default').select(element.val(), {force: isTrue}))
+    } else {
+      cy.get("#id_set_default")
+      .select(name, {force: isTrue});
+    }
   }
 
   clickOkSelectClinic() {
