@@ -117,5 +117,151 @@ describe("Clinic", () => {
     clinicActions.isClinicTable();
     clinicActions.isClinicNameNotExist(clinicName); 
   });
+
+  it("4. Create multi clinic", () => {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Clinic
+    // dashboardActions.selectClinicOptionByName();
+    // dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickHrefByText('Setup', true);
+    clinicActions.createMultiClinic(2);
+  })
+
+  it("5. Unable to create a clinic with the invalid email", () => {
+    const clinicName = `Automation-${homeActions.randomAlpha(10)}`;
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Clinic
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickHrefByText('Setup');
+    clinicActions.clickHrefByText('Add new clinic');
+
+    // Clinic modal
+    clinicActions.isModal('Add new clinic');
+    clinicActions.enterClinicName(clinicName);
+    clinicActions.enterClinicProvidernumber();
+    clinicActions.enterClinicNumber();
+    clinicActions.enterClinicAddress();
+    clinicActions.enterClinicSubhub();
+    clinicActions.enterClinicPostcode();
+    clinicActions.selectClinicLab();
+    clinicActions.selectClinicState();
+    clinicActions.enterClinicPhone();
+    clinicActions.enterClinicMobilePhone();
+
+    //Invalid email 
+    clinicActions.enterClinicEmail('a');
+    clinicActions.clickSaveClinic();
+
+    // Assert clinic
+    clinicActions.isClinicNameNotVisible(clinicName); 
+
+    //Invalid email 
+    clinicActions.enterClinicEmail('@');
+    clinicActions.clickSaveClinic();
+
+    // Assert clinic
+    clinicActions.isClinicNameNotVisible(clinicName); 
+
+    //Invalid email 
+    clinicActions.enterClinicEmail('a@');
+    clinicActions.clickSaveClinic();
+
+    // Assert clinic
+    clinicActions.isClinicNameNotVisible(clinicName); 
+
+    //Invalid email 
+    clinicActions.enterClinicEmail('@a');
+    clinicActions.clickSaveClinic();
+
+    // Assert clinic
+    clinicActions.isClinicNameNotVisible(clinicName); 
+
+    //Invalid email 
+    clinicActions.enterClinicEmail('@a.a');
+    clinicActions.clickSaveClinic();
+
+    // Assert clinic
+    clinicActions.isClinicNameNotVisible(clinicName); 
+
+    //Invalid email 
+    clinicActions.enterClinicEmail('a@.a');
+    clinicActions.clickSaveClinic();
+
+    // Assert clinic
+    clinicActions.isClinicNameNotVisible(clinicName); 
+
+    //Invalid email 
+    clinicActions.enterClinicEmail('@.');
+    clinicActions.clickSaveClinic();
+
+    // Assert clinic
+    clinicActions.isClinicNameNotVisible(clinicName); 
+
+    //Invalid email 
+    clinicActions.enterClinicEmail('a.a');
+    clinicActions.clickSaveClinic();
+
+    // Assert clinic
+    clinicActions.isClinicNameNotVisible(clinicName); 
+  })
+
+  it("6. Valid check all input fields", () => 
+  {
+    const clinicName = `Automation-${homeActions.randomAlpha(10)}`;
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Clinic
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickHrefByText('Setup');
+    clinicActions.clickHrefByText('Add new clinic');
+
+    // Clinic modal
+    clinicActions.isModal('Add new clinic');
+    clinicActions.clickSaveClinic();
+    // Assert message
+    clinicActions.assertPlaceholder('Please enter a clinic name.');
+    clinicActions.assertPlaceholder('Please enter a provider number. Allowed characters:A-Z,0-9.');
+    clinicActions.assertPlaceholder('Please enter a clinic number. Allowed characters:A-Z,0-9.');
+    clinicActions.assertPlaceholder('Please enter an address.');
+    clinicActions.assertPlaceholder('Please enter a suburb.');
+    clinicActions.assertPlaceholder('Please enter a post code.');
+    clinicActions.assertPlaceholder('Invalid email format.');
+    clinicActions.assertPlaceholder('Please enter a phone.');
+    clinicActions.assertPlaceholder('Please enter a phone.');
+
+    clinicActions.enterClinicName(clinicName);
+    clinicActions.enterClinicProvidernumber();
+    clinicActions.enterClinicNumber();
+    clinicActions.enterClinicAddress();
+    clinicActions.enterClinicSubhub();
+    clinicActions.enterClinicPostcode();
+    clinicActions.selectClinicLab();
+    clinicActions.selectClinicState();
+    clinicActions.enterClinicPhone();
+    clinicActions.enterClinicMobilePhone();
+    clinicActions.enterClinicEmail();
+    clinicActions.clickSaveClinic();
+
+    // Assert clinic
+    clinicActions.reloadClinicPage();
+    clinicActions.isClinicTable();
+    clinicActions.isClinicName(clinicName); 
+  });
 });
   

@@ -81,4 +81,9 @@ export class CommonActions {
     return Cypress._.map($options, ($option) => $option.innerText)
   })   
  }
+
+ assertPlaceholder(text) {
+  cy.get(`[placeholder='${text}']`)
+  .should('be.visible')
+ }
 }

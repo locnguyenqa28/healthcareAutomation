@@ -109,6 +109,13 @@ export class ClinicActions extends CommonActions
     .should('be.visible')
   }
 
+  isClinicNameNotVisible(name){
+    cy.wait(500)
+    cy.get('.hasdata')
+    .last()
+    .should('not.contain.text',name)
+  }
+
   isClinicNameNotExist(name){
     cy.wait(500)
     cy.get('.hasdata')
@@ -135,6 +142,34 @@ export class ClinicActions extends CommonActions
 
   reloadClinicPage() {
     cy.reload()
+  }
+
+  createMultiClinic(number = 1){
+    while(number > 0){
+    const clinicName = `Automation-${this.randomAlphanumeric(10)}`;
+    this.clickHrefByText('Add new clinic');
+
+    // Clinic modal
+    this.isModal('Add new clinic');
+    this.enterClinicName(clinicName);
+    this.enterClinicProvidernumber();
+    this.enterClinicNumber();
+    this.enterClinicAddress();
+    this.enterClinicSubhub();
+    this.enterClinicPostcode();
+    this.selectClinicLab();
+    this.selectClinicState();
+    this.enterClinicPhone();
+    this.enterClinicMobilePhone();
+    this.enterClinicEmail();
+    this.clickSaveClinic();
+
+    // Assert clinic
+    this.reloadClinicPage();
+    this.isClinicTable();
+    // this.isClinicName(clinicName); 
+    number--;
+    }
   }
 }
 
