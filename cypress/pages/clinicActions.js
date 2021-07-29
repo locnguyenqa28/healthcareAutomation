@@ -49,7 +49,7 @@ export class ClinicActions extends CommonActions
     .type(text)
   }
   
-  enterClinicAddress(address = user.address){
+  enterClinicAddress(address = `${this.randomAlphanumeric(10)}`){
     cy.get('#clinic_address')
       .clear()
       .type(address)
@@ -101,10 +101,10 @@ export class ClinicActions extends CommonActions
     .click()
   }
 
-  isClinicName(name){
-    cy.wait(500)
+  isClinicName(name, timeOut = 500){
+    cy.wait(timeOut)
     cy.get('.hasdata')
-    .last()
+    .first()
     .contains(name)
     .should('be.visible')
   }
@@ -134,10 +134,24 @@ export class ClinicActions extends CommonActions
     .click()
   }
 
-  clickLastDeleteClinicButton() {
+  clickFirstInactiveClinicButton() {
     cy.get('[onclick*=deleteclinic]')
-    .last()
+    .first()
+    .contains('Inactive')
     .click()
+  }
+
+  clickFirstActiveClinicButton() {
+    cy.get('[onclick*=deleteclinic]')
+    .first()
+    .contains('Active')
+    .click()
+  }
+
+  assertClinicStatusByIndex(isAactive, index = 0){
+    cy.get('[id*="data_clinic"] td>span')
+    .eq(index)
+    .should('have.text', isAactive)
   }
 
   reloadClinicPage() {

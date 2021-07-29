@@ -74,7 +74,7 @@ describe("Clinic", () => {
     clinicActions.isClinicName(clinicName); 
   });
 
-  it("3. Create a clinic then Delete it", () => 
+  it("3. Create a clinic then inactive it", () => 
   {
     const clinicName = `Automation-${homeActions.randomAlpha(10)}`;
     loginActions.visitPage();
@@ -107,15 +107,16 @@ describe("Clinic", () => {
     // Assert clinic
     clinicActions.reloadClinicPage();
     clinicActions.isClinicTable();
-    clinicActions.isClinicName(clinicName); 
+    clinicActions.isClinicName(clinicName, 2000); 
   
     //Delete last Clinic
     clinicActions.assertText('Add new clinic');
-    clinicActions.clickLastDeleteClinicButton();
+    clinicActions.clickFirstInactiveClinicButton();
 
-    // Assert clinic not exist
+    // Assert clinic inactive
+    clinicActions.reloadClinicPage();
     clinicActions.isClinicTable();
-    clinicActions.isClinicNameNotExist(clinicName); 
+    clinicActions.assertClinicStatusByIndex('Inactive'); 
   });
 
   it("4. Create multi clinic", () => {

@@ -407,8 +407,8 @@ export class DashboardActions extends CommonActions
     cy.get('a[href*="/cases/dashboard"]')
       .click()
   }
-  isUploadSuccesfully(index){
-    cy.wait(10000);
+  isUploadSuccesfully(index, timeOut = 10000){
+    cy.wait(timeOut);
     cy.reload();
     this.isReviewCase('Review Case')
     cy.get(".x-grid3-cell-last[tabindex='0']")
@@ -773,5 +773,106 @@ export class DashboardActions extends CommonActions
     cy.get('[onclick="setdefaultclinic()"]')
     .click();
   }
+
+  selectTitleCopy1ByIndex(index = 1, isTrue) {
+      const titleLocator = '#case_doctor1title'
+      cy.get(`${titleLocator} > option`)
+        .eq(index)
+        .then(element => cy.get(`${titleLocator}`).select(element.val(), {force: isTrue}))
+  }
+
+  selectTitleCopy2ByIndex(index = 1, isTrue) {
+      const titleLocator = '#case_doctor2title'
+      cy.get(`${titleLocator} > option`)
+        .eq(index)
+        .then(element => cy.get(`${titleLocator}`).select(element.val(), {force: isTrue}))
+  }
+
+  selectTitleCopy3ByIndex(index = 1, isTrue) {
+      const titleLocator = '#case_doctor3title'
+      cy.get(`${titleLocator} > option`)
+        .eq(index)
+        .then(element => cy.get(`${titleLocator}`).select(element.val(), {force: isTrue}))
+  }
+
+  selectTitleCopy4ByIndex(index = 1, isTrue) {
+      const titleLocator = '#case_doctor4title'
+      cy.get(`${titleLocator} > option`)
+        .eq(index)
+        .then(element => cy.get(`${titleLocator}`).select(element.val(), {force: isTrue}))
+  }
+
+  enterFirstNameCopy1(text){
+    cy.get('#case_doctor1firstname')
+    .clear()
+    .type(text)
+  }
+
+  enterFirstNameCopy2(text){
+    cy.get('#case_doctor2firstname')
+    .clear()
+    .type(text)
+  }
+
+  enterFirstNameCopy3(text){
+    cy.get('#case_doctor3firstname')
+    .clear()
+    .type(text)
+  }
+
+  enterFirstNameCopy4(text){
+    cy.get('#case_doctor4firstname')
+    .clear()
+    .type(text)
+  }
+
+  enterLastNameCopy1(text){
+    cy.get('#case_doctor1fullname')
+    .clear()
+    .type(text)
+  }
+
+  enterLastNameCopy2(text){
+    cy.get('#case_doctor2fullname')
+    .clear()
+    .type(text)
+  }
+
+  enterLastNameCopy3(text){
+    cy.get('#case_doctor3fullname')
+    .clear()
+    .type(text)
+  }
+
+  enterLastNameCopy4(text){
+    cy.get('#case_doctor4fullname')
+    .clear()
+    .type(text)
+  }
+
+  enterSuburbCopy1(text){
+    cy.get('#case_doctor1suburb')
+    .clear()
+    .type(text)
+  }
+
+  enterSuburbCopy2(text){
+    cy.get('#case_doctor2suburb')
+    .clear()
+    .type(text)
+  }
+
+  enterSuburbCopy3(text){
+    cy.get('#case_doctor3suburb')
+    .clear()
+    .type(text)
+  }
+
+  enterSuburbCopy4(text){
+    cy.get('#case_doctor4suburb')
+    .clear()
+    .type(text)
+  }
+
 }
 
