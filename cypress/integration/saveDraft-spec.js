@@ -411,5 +411,63 @@ describe("Save Draft", () => {
       dashboardActions.clickPathologyRequestByFirstName(firstname);
       dashboardActions.assertGender(user.gender.unknown);
     });
+    
+    it("10. Save one lesion - 4 images - 4 copies", () => 
+    {
+      loginActions.visitPage();
+      loginActions.inputUserName(user.username);
+      loginActions.inputPassword(user.password);
+      loginActions.clickLoginButton();
+      homeActions.isDashBoardButtonDisplayed();
+
+      const firstname = `Draft-${homeActions.randomAlpha(10)}`;
+      const lastname = `one lesion - four images- four copies`;
+      dashboardActions.selectClinicOptionByName();
+      dashboardActions.clickOkSelectClinic();
+      dashboardActions.clickAddNewLesion();
+      dashboardActions.selectTitle('Mrs');
+      dashboardActions.enterFirstName(firstname);
+      dashboardActions.enterLastName(lastname);
+      dashboardActions.selectGender(user.gender.male);
+      dashboardActions.enterDOB(user.DOB);
+      dashboardActions.enterHomeAdd(user.address);
+      dashboardActions.enterCity(user.city);
+      dashboardActions.selectState();
+      dashboardActions.enterPostcode(user.postcode);
+      dashboardActions.enterContact(user.contact);
+      dashboardActions.enterMedicare(user.medicare);
+
+      // Copies report
+      dashboardActions.selectTitleCopy1ByIndex(1)
+      dashboardActions.enterFirstNameCopy1('Copy A')
+      dashboardActions.enterLastNameCopy1('last name A')
+      dashboardActions.enterSuburbCopy1('suburb A')
+  
+      dashboardActions.selectTitleCopy2ByIndex(2)
+      dashboardActions.enterFirstNameCopy2('Copy B')
+      dashboardActions.enterLastNameCopy2('last name B')
+      dashboardActions.enterSuburbCopy2('suburb B')
+  
+      dashboardActions.selectTitleCopy3ByIndex(3)
+      dashboardActions.enterFirstNameCopy3('Copy C')
+      dashboardActions.enterLastNameCopy3('last name C')
+      dashboardActions.enterSuburbCopy3('suburb C')
+  
+      dashboardActions.selectTitleCopy4ByIndex(3)
+      dashboardActions.enterFirstNameCopy4('Copy D')
+      dashboardActions.enterLastNameCopy4('last name D')
+      dashboardActions.enterSuburbCopy4('suburb D')
+
+      dashboardActions.nextButton();
+
+      //Add first lesion
+      dashboardActions.addALesionMoreThan4Images(1);
+
+      //Case Summary
+      dashboardActions.caseSummary();
+      dashboardActions.saveDraft();
+      dashboardActions.isReviewCase('Draft')
+    
+    });
   });
   
