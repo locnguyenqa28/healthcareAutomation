@@ -40,7 +40,7 @@ const user = {
       "Please select a gender.",
       "Please enter a valid date of birth.",
       "Please enter an address. Allowed characters: a-z, A-Z, 0-9, /, #, -, (,).",
-      "Please enter a city/town. Allowed characters: a-z, A-Z, 0-9, /, #, -, (,).",
+      "Please enter a suburb / town. Allowed characters: a-z, A-Z, 0-9, /, #, -, (,).",
       "Please select a state.",
       "Please enter a postcode. Allowed characters: 0-9.",
       "Please enter a contact number. Allowed characters: 0-9,+,-, (,).",
