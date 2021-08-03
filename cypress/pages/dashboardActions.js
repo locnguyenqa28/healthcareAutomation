@@ -209,9 +209,11 @@ export class DashboardActions extends CommonActions
         .dblclick()
         .wait(1000)
   }
-  nextButton(){
-      cy.get('a[class="docnavright"]')
-        .contains('Next »').click()
+  nextButton(isForce = false){
+      cy.get('.docnav telederm .docnavright')
+        .contains('Next »')
+        .should('be.visible')
+        .click({force:isForce});
   }
   backButton(isForce = false){
       cy.wait(500);
