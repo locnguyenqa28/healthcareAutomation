@@ -211,8 +211,7 @@ export class DashboardActions extends CommonActions
   }
   nextButton(isForce = false){
       cy.get('.docnav telederm .docnavright')
-        .contains('Next »')
-        .should('be.visible')
+        .scrollIntoView()
         .click({force:isForce});
   }
   backButton(isForce = false){
@@ -387,9 +386,10 @@ export class DashboardActions extends CommonActions
       .should('be.visible')
   }
 
-  nextButtonUploadImg(timeOut = 60000){
+  nextButtonUploadImg(timeOut = 60000, isForce = true){
     cy.get('a[id="showlinkshownextv2"]', { timeout: timeOut })
-      .click()
+      .scrollIntoView()
+      .click({force: isForce})
   }
  
   //Case Summary
@@ -405,9 +405,10 @@ export class DashboardActions extends CommonActions
     cy.get('[class="docnavright submit1"]')
       .contains('Submit request & print » ').click()
   }
-  returnToDashboard(){
+  returnToDashboard(isForce = true){
     cy.get('a[href*="/cases/dashboard"]')
-      .click()
+      .scrollIntoView()
+      .click({force:isForce})
   }
   isUploadSuccesfully(index, timeOut = 10000){
     cy.wait(timeOut);
@@ -443,7 +444,7 @@ export class DashboardActions extends CommonActions
     this.startUpload();
     this.isImageUploadedSuccessfully();
     this.assertFile('1.jpg')
-    this.nextButtonUploadImg();
+    this.nextButtonUploadImg(30000, true);
   }
 
   addALesionMoreThan4Images(number = 4) {
@@ -469,7 +470,7 @@ export class DashboardActions extends CommonActions
     this.startUpload();
     this.isProgressBarDisappear();
     this.isImageUploadedSuccessfully();
-    this.nextButtonUploadImg();
+    this.nextButtonUploadImg(30000, true);
   }
 
   addALesionLargeImages(number = 1) {
@@ -498,7 +499,7 @@ export class DashboardActions extends CommonActions
       this.isProgressBarDisappear(90000);
       this.isImageUploadedSuccessfully(90000);
     }
-    this.nextButtonUploadImg(90000);
+    this.nextButtonUploadImg(90000, true);
   }
 
   addALesionCombineImages() {
@@ -547,7 +548,7 @@ export class DashboardActions extends CommonActions
 
     this.isProgressBarDisappear(90000);
     this.isImageUploadedSuccessfully(90000);
-    this.nextButtonUploadImg(90000);
+    this.nextButtonUploadImg(90000, true);
   }
 
   assertAllLabNextAndBack() {
