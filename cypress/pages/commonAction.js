@@ -26,7 +26,7 @@ export class CommonActions {
     .contains(text)
     .click()
   }
-  clickHrefByText(text, isForce){
+  clickHrefByText(text, isForce = false){
     cy.get('[href]')
     .contains(text)
     .click({ force: isForce });

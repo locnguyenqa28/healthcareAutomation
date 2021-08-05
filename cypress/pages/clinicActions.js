@@ -134,18 +134,24 @@ export class ClinicActions extends CommonActions
     .click()
   }
 
-  clickFirstInactiveClinicButton() {
-    cy.get('[onclick*=deleteclinic]')
+  clickFirstEditClinicButton(){
+    cy.get('[onclick*=getclinnicbyid]')
     .first()
-    .contains('Inactive')
     .click()
   }
 
-  clickFirstActiveClinicButton() {
+  clickFirstInactiveClinicButton(isForce = false) {
     cy.get('[onclick*=deleteclinic]')
     .first()
-    .contains('Active')
-    .click()
+    .contains('Disable')
+    .click({force:isForce});
+  }
+
+  clickFirstActiveClinicButton({force:isForce}) {
+    cy.get('[onclick*=deleteclinic]')
+    .first()
+    .contains('Enable')
+    .click(isForce = false)
   }
 
   assertClinicStatusByIndex(isAactive, index = 0){
@@ -167,7 +173,6 @@ export class ClinicActions extends CommonActions
     this.isModal('Add new clinic');
     this.enterClinicName(clinicName);
     this.enterClinicProvidernumber();
-    this.enterClinicNumber();
     this.enterClinicAddress();
     this.enterClinicSubhub();
     this.enterClinicPostcode();

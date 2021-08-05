@@ -1,6 +1,7 @@
 import { LoginActions } from "../pages/loginAction";
 import { HomeActions } from "../pages/homeAction";
 import { DashboardActions } from "../pages/dashboardActions";
+import { ClinicActions } from "../pages/clinicActions";
 import user from "../support/constants"
 
 
@@ -8,6 +9,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const loginActions = new LoginActions();
     const homeActions = new HomeActions();
     const dashboardActions = new DashboardActions();
+    const clinicActions = new ClinicActions();
     const validOtherText = "abdzABCZ--.";
   
   it("EDERMPATH-62. The delete button is not presented after adding a new lesion", () => 
@@ -1667,6 +1669,60 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.saveDraft()
     dashboardActions.assertFirstName(firstname)
     dashboardActions.isReviewCase('Draft')
+  });
+  
+  it.skip("EDERMPATH-224. Provider Number must be Unique across the entire eDerm System (Active/Enabled)", () => 
+  {
+    const clinicName = `Unique testing-${homeActions.randomAlpha(10)}`;
+    const providerNumber = clinicActions.randomAlphanumeric(10)
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Clinic
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickHrefByText('Setup');
+    clinicActions.clickHrefByText('Add new clinic');
+
+    // Clinic modal
+    clinicActions.isModal('Add new clinic');
+    clinicActions.enterClinicName(clinicName);
+    clinicActions.enterClinicProvidernumber(providerNumber);
+    clinicActions.enterClinicAddress();
+    clinicActions.enterClinicSubhub();
+    clinicActions.enterClinicPostcode();
+    clinicActions.selectClinicLab();
+    clinicActions.selectClinicState();
+    clinicActions.enterClinicPhone();
+    clinicActions.enterClinicMobilePhone();
+    clinicActions.enterClinicEmail();
+    clinicActions.clickSaveClinic();
+
+    //Inactive last Clinic
+    clinicActions.reloadClinicPage();
+    clinicActions.assertText('Add new clinic');
+    clinicActions.clickFirstInactiveClinicButton(true);
+
+    // Clinic modal
+    clinicActions.clickHrefByText('Add new clinic');
+    clinicActions.isModal('Add new clinic');
+    clinicActions.enterClinicName(`${clinicName} copy`);
+    clinicActions.enterClinicProvidernumber(providerNumber);
+    clinicActions.enterClinicAddress();
+    clinicActions.enterClinicSubhub();
+    clinicActions.enterClinicPostcode();
+    clinicActions.selectClinicLab();
+    clinicActions.selectClinicState();
+    clinicActions.enterClinicPhone();
+    clinicActions.enterClinicMobilePhone();
+    clinicActions.enterClinicEmail();
+    clinicActions.clickSaveClinic();
+
+    // Assert clinic
+    clinicActions.isClinicNameNotExist(`${clinicName} copy`); 
   });
 });
   

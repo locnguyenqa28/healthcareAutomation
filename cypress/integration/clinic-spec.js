@@ -30,7 +30,6 @@ describe("Clinic", () => {
     clinicActions.isModal('Add new clinic');
     clinicActions.enterClinicName(clinicName);
     clinicActions.enterClinicProvidernumber();
-    clinicActions.enterClinicNumber();
     clinicActions.enterClinicAddress();
     clinicActions.enterClinicSubhub();
     clinicActions.enterClinicPostcode();
@@ -60,11 +59,11 @@ describe("Clinic", () => {
    
     dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickHrefByText('Setup');
+    dashboardActions.clickHrefByText('Setup', true);
 
     // Clinic modal
     clinicActions.assertText('Add new clinic');
-    clinicActions.clickLastEditClinicButton();
+    clinicActions.clickFirstEditClinicButton();
     clinicActions.isModal('Edit a clinic');
     clinicActions.enterClinicEditName(clinicName);
     clinicActions.clickSaveEditClinic();
@@ -93,7 +92,6 @@ describe("Clinic", () => {
     clinicActions.isModal('Add new clinic');
     clinicActions.enterClinicName(clinicName);
     clinicActions.enterClinicProvidernumber();
-    clinicActions.enterClinicNumber();
     clinicActions.enterClinicAddress();
     clinicActions.enterClinicSubhub();
     clinicActions.enterClinicPostcode();
@@ -109,14 +107,14 @@ describe("Clinic", () => {
     clinicActions.isClinicTable();
     clinicActions.isClinicName(clinicName, 2000); 
   
-    //Delete last Clinic
+    //Inactive last Clinic
     clinicActions.assertText('Add new clinic');
-    clinicActions.clickFirstInactiveClinicButton();
+    clinicActions.clickFirstInactiveClinicButton(true);
 
     // Assert clinic inactive
     clinicActions.reloadClinicPage();
     clinicActions.isClinicTable();
-    clinicActions.assertClinicStatusByIndex('Inactive'); 
+    clinicActions.assertClinicStatusByIndex('Disable'); 
   });
 
   it("4. Create multi clinic", () => {
@@ -126,9 +124,6 @@ describe("Clinic", () => {
     loginActions.clickLoginButton();
     homeActions.isDashBoardButtonDisplayed();
     
-    //Add New Clinic
-    // dashboardActions.selectClinicOptionByName();
-    // dashboardActions.clickOkSelectClinic();
     dashboardActions.clickHrefByText('Setup', true);
     clinicActions.createMultiClinic(2);
   })
@@ -151,7 +146,6 @@ describe("Clinic", () => {
     clinicActions.isModal('Add new clinic');
     clinicActions.enterClinicName(clinicName);
     clinicActions.enterClinicProvidernumber();
-    clinicActions.enterClinicNumber();
     clinicActions.enterClinicAddress();
     clinicActions.enterClinicSubhub();
     clinicActions.enterClinicPostcode();
@@ -238,7 +232,6 @@ describe("Clinic", () => {
     // Assert message
     clinicActions.assertPlaceholder('Please enter a clinic name.');
     clinicActions.assertPlaceholder('Please enter a provider number. Allowed characters:A-Z,0-9.');
-    clinicActions.assertPlaceholder('Please enter a clinic number. Allowed characters:A-Z,0-9.');
     clinicActions.assertPlaceholder('Please enter an address.');
     clinicActions.assertPlaceholder('Please enter a suburb.');
     clinicActions.assertPlaceholder('Please enter a post code.');
@@ -248,7 +241,6 @@ describe("Clinic", () => {
 
     clinicActions.enterClinicName(clinicName);
     clinicActions.enterClinicProvidernumber();
-    clinicActions.enterClinicNumber();
     clinicActions.enterClinicAddress();
     clinicActions.enterClinicSubhub();
     clinicActions.enterClinicPostcode();
