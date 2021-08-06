@@ -946,7 +946,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
 
     //Case Images
     dashboardActions.addBodyMap();
-    dashboardActions.assertText("Please enter a clinical notes. Allowed characters: a-z, A-Z, 0-9, /, #, -, (,).")
+    dashboardActions.assertText("Please enter a clinical notes. Allowed characters: a-z, A-Z, 0-9, /, #, -,?, (,).")
 
     dashboardActions.enterClinicalNote(quoteText);
     dashboardActions.addBodyMap();
@@ -1337,7 +1337,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.isReviewCase('Draft')
   });
    
-  it("EDERMPATH-155. Gender Other, updated 582", () => 
+  it.only("EDERMPATH-155. Gender Other, updated 582", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -1413,7 +1413,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.assertMaxLengthOtherTitle('10')
   });
 
-  it("EDERMPATH-157. Make all the page headings in Arial and not the Images.", () => 
+  it.only("EDERMPATH-157. Make all the page headings in Arial and not the Images.", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -1495,7 +1495,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.isReviewCase('Draft')
   });
 
-  it("EDERMPATH-158. The order is multiplied after multi clicking the save draft button", () => 
+  it.only("EDERMPATH-158. The order is multiplied after multi clicking the save draft button", () => 
   {
     const firstname = `E - one five eight ${homeActions.randomAlpha(10)}`;
     const lastname = `The order is multiplied ${homeActions.randomAlpha(10)}`;
@@ -1535,7 +1535,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.isReviewCase('Draft')
   });
     
-  it("EDERMPATH-160. Submit one Lesion more than 4 images", () => 
+  it.only("EDERMPATH-160. Submit one Lesion more than 4 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -1623,7 +1623,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.isReviewCase('Draft')
   });
   
-  it("EDERMPATH-166. The page crash after deleting the lesion then double click on back button of the browser", () => 
+  it.only("EDERMPATH-166. The page crash after deleting the lesion then double click on back button of the browser", () => 
   {
     const firstname = `E-one six six -${homeActions.randomAlpha(10)}`;
     const lastname = `The page crash after deleting the lesion`;
@@ -1671,7 +1671,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.isReviewCase('Draft')
   });
   
-  it.skip("EDERMPATH-224. Provider Number must be Unique across the entire eDerm System (Active/Enabled)", () => 
+  it.only("EDERMPATH-224. Provider Number must be Unique across the entire eDerm System (Active/Enabled)", () => 
   {
     const clinicName = `Unique testing-${homeActions.randomAlpha(10)}`;
     const providerNumber = clinicActions.randomAlphanumeric(10)
@@ -1685,7 +1685,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickHrefByText('Setup');
-    clinicActions.clickHrefByText('Add new clinic');
+    clinicActions.clickAddNewClinic();
 
     // Clinic modal
     clinicActions.isModal('Add new clinic');
@@ -1701,13 +1701,11 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     clinicActions.enterClinicEmail();
     clinicActions.clickSaveClinic();
 
-    //Inactive last Clinic
     clinicActions.reloadClinicPage();
-    clinicActions.assertText('Add new clinic');
-    clinicActions.clickFirstInactiveClinicButton(true);
 
     // Clinic modal
-    clinicActions.clickHrefByText('Add new clinic');
+    clinicActions.assertText('Add new clinic');
+    clinicActions.clickAddNewClinic(true);
     clinicActions.isModal('Add new clinic');
     clinicActions.enterClinicName(`${clinicName} copy`);
     clinicActions.enterClinicProvidernumber(providerNumber);
@@ -1722,7 +1720,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     clinicActions.clickSaveClinic();
 
     // Assert clinic
-    clinicActions.isClinicNameNotExist(`${clinicName} copy`); 
+    clinicActions.isFirstClinicNameNotExist(`${clinicName} copy`); 
   });
 });
   

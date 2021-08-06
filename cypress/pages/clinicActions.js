@@ -123,6 +123,13 @@ export class ClinicActions extends CommonActions
     .should('not.contain.text',name)
   }
 
+  isFirstClinicNameNotExist(name){
+    cy.wait(500)
+    cy.get('.hasdata')
+    .first()
+    .should('not.contain.text',name)
+  }
+
   isClinicTable(){
     cy.get('#shodataclinicuser')
     .should('be.visible')
@@ -162,6 +169,12 @@ export class ClinicActions extends CommonActions
 
   reloadClinicPage() {
     cy.reload()
+  }
+
+  clickAddNewClinic(isForce=false) {
+    cy.get('[href="#ex1"]')
+    .should('be.visible')
+    .click({force:isForce})
   }
 
   createMultiClinic(number = 1){
