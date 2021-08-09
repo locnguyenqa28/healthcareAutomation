@@ -563,7 +563,7 @@ export class DashboardActions extends CommonActions
 
   isPatientDetails(txt = 'Patient details') {
     cy.get('.bgbox-left .txt-header')
-    .last()
+    .eq(1)
     .contains(txt)
     .should('be.visible')
   }
