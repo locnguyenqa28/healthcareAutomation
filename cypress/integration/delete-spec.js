@@ -65,7 +65,7 @@ describe("Delete lesion on eDerm", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
     
-  it("02. 3 lesions, 1 image delete the first and second lesion", () => 
+  it.skip("02. 3 lesions, 1 image delete the first and second lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -130,7 +130,7 @@ describe("Delete lesion on eDerm", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
     
-  it("03. 3 lesions, 1 image delete the 2 and 3 lesion", () => 
+  it.skip("03. 3 lesions, 1 image delete the 2 and 3 lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -195,7 +195,7 @@ describe("Delete lesion on eDerm", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
     
-  it("04. 3 lesions, 1 image delete the 1 and 3 lesion", () => 
+  it.skip("04. 3 lesions, 1 image delete the 1 and 3 lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
