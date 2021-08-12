@@ -114,7 +114,7 @@ describe("Clinic", () => {
     // Assert clinic inactive
     clinicActions.reloadClinicPage();
     clinicActions.isClinicTable();
-    clinicActions.assertClinicStatusByIndex('Disable'); 
+    clinicActions.assertClinicStatusByIndex('Disabled'); 
   });
 
   it("4. Create multi clinic", () => {
