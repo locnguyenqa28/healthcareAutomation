@@ -23,11 +23,17 @@ export class DashboardActions extends CommonActions
       cy.wait(1000);
   }
 
-  clickPathologyRequestByFirstName(name){
+  clickPathologyRequestByFirstName(name, isForce = false){
       cy.get('.x-grid3-col')
         .contains(name)
         .parent()
-        .nextUntil('td.x-grid3-col.x-grid3-td-4').next().contains('Draft').click();
+        .first()
+        .nextUntil('td.x-grid3-col.x-grid3-td-4')
+        .next()
+        .contains('Draft')
+        .first()
+        .should('be.visible')
+        .click({force:isForce});
   }
 
   clickReviewCaseByFirstName(name){
@@ -54,6 +60,7 @@ export class DashboardActions extends CommonActions
   
   enterFirstName(firstname){
       cy.get('input[id="case_FirstName"]')
+        .clear()
         .type(firstname)
   }
 
@@ -875,6 +882,15 @@ export class DashboardActions extends CommonActions
     cy.get('#case_doctor4suburb')
     .clear()
     .type(text)
+  }
+
+  checkOrderIsAddedToClinicDefault(orderName){
+    cy.get('#clinic_search option[selected]').invoke('text').then((clinicName) => {
+      this.assertText('Accession No.');
+      this.assertText(orderName);
+      this.clickPathologyRequestByFirstName(orderName, true);
+      this.assertText(clinicName);
+    })
   }
 
 }

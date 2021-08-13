@@ -12,7 +12,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const clinicActions = new ClinicActions();
     const validOtherText = "abdzABCZ--.";
   
-  it.only("EDERMPATH-62. The delete button is not presented after adding a new lesion", () => 
+  it("EDERMPATH-62. The delete button is not presented after adding a new lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -61,7 +61,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.isReviewCase('Draft');
   });
   
-  it.only("EDERMPATH-64. Back button is not functional after backing from the Body Map", () => 
+  it("EDERMPATH-64. Back button is not functional after backing from the Body Map", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -173,7 +173,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.isUploadSuccesfully(0);
   }); 
   
-  it.only("EDERMPATH-75. The state is always back to ACT after adding a new conditions", () => 
+  it("EDERMPATH-75. The state is always back to ACT after adding a new conditions", () => 
   {
     const firstname = `EDERMPATH seven five ${homeActions.randomAlpha(10)}`;
     const lastname = `The state is always back to ACT`;
@@ -214,7 +214,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.isReviewCase('Draft')
   });
 
-  it.only("EDERMPATH-78. The state is not saved", () => 
+  it("EDERMPATH-78. The state is not saved", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -244,7 +244,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.assertAllStateSaveAndDraft(firstname); 
   });
 
-  it.only("EDERMPATH-79. Unable to add new conditions from the draft", () => 
+  it("EDERMPATH-79. Unable to add new conditions from the draft", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -293,7 +293,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.isReviewCase('Draft')
   });
     
-  it.only("EDERMPATH-80. Unable to save the new lesion although the last name changing to a valid value", () => 
+  it("EDERMPATH-80. Unable to save the new lesion although the last name changing to a valid value", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -330,7 +330,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.isReviewCase('Draft')
   });
   
-  it.only("EDERMPATH-81. The 5th condition will be generated after editing twice", () => 
+  it("EDERMPATH-81. The 5th condition will be generated after editing twice", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -403,7 +403,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
   
-  it.only("EDERMPATH-83. After adding two conditions the DOB is missing", () => 
+  it("EDERMPATH-83. After adding two conditions the DOB is missing", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
