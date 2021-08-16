@@ -12,6 +12,7 @@ export class CommonActions {
     .contains(text)
     .should('be.visible')
   }
+  
   assertNoText(text){
     cy.get('body')
     .should('not.contain.text',text)

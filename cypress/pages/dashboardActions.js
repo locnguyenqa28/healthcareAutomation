@@ -23,17 +23,22 @@ export class DashboardActions extends CommonActions
       cy.wait(1000);
   }
 
+  assertValueVisible(value){
+    cy.get(`body [value = '${value}']`)
+    .should('be.visible')
+  }
   clickPathologyRequestByFirstName(name, isForce = false){
-      cy.get('.x-grid3-col')
-        .contains(name)
-        .parent()
-        .first()
-        .nextUntil('td.x-grid3-col.x-grid3-td-4')
-        .next()
-        .contains('Draft')
-        .first()
-        .should('be.visible')
-        .click({force:isForce});
+    cy.wait(1000);
+    cy.get('.x-grid3-col')
+      .contains(name)
+      .parent()
+      .first()
+      .nextUntil('td.x-grid3-col.x-grid3-td-4')
+      .next()
+      .contains('Draft')
+      .first()
+      .should('be.visible')
+      .click({force:isForce});
   }
 
   clickReviewCaseByFirstName(name){
@@ -816,6 +821,12 @@ export class DashboardActions extends CommonActions
     cy.get('#case_doctor1firstname')
     .clear()
     .type(text)
+  }
+
+  assertFirstNameCopy1(text){
+    cy.get('#case_doctor1firstname')
+    .invoke('attr','value')
+    .should('have.text',text)
   }
 
   enterFirstNameCopy2(text){
