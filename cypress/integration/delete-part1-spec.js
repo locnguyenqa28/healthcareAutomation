@@ -19,7 +19,7 @@ describe("Delete lesion on eDerm part 1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `three lesion one image ${homeActions.randomAlpha(20)}`;
+    const firstname = `three lesion one image ${homeActions.randomAlpha(5)}`;
     const lastname = `the second lesion`;
     const lesion = 'Lesion 3';
     dashboardActions.selectClinicOptionByName();
@@ -65,7 +65,7 @@ describe("Delete lesion on eDerm part 1", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
     
-  it.skip("02. 3 lesions, 1 image delete the first and second lesion", () => 
+  it("02. 3 lesions, 1 image delete the first and second lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -74,7 +74,7 @@ describe("Delete lesion on eDerm part 1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `three lesion one image ${homeActions.randomAlpha(20)}`;
+    const firstname = `delete ${homeActions.randomAlpha(5)}`;
     const lastname = `the first and second lesion`;
     const lesion1 = 'Lesion 1';
     // const lesion2= 'Lesion 2';
@@ -130,7 +130,7 @@ describe("Delete lesion on eDerm part 1", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
     
-  it.skip("03. 3 lesions, 1 image delete the 2 and 3 lesion", () => 
+  it("03. 3 lesions, 1 image delete the 2 and 3 lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -139,7 +139,7 @@ describe("Delete lesion on eDerm part 1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `three lesion one image ${homeActions.randomAlpha(20)}`;
+    const firstname = `delete ${homeActions.randomAlpha(5)}`;
     const lastname = `the second and third lesion`;
     const lesion1 = 'Lesion 2';
     // const lesion2= 'Lesion 2';
@@ -195,7 +195,7 @@ describe("Delete lesion on eDerm part 1", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
     
-  it.skip("04. 3 lesions, 1 image delete the 1 and 3 lesion", () => 
+  it("04. 3 lesions, 1 image delete the 1 and 3 lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -204,7 +204,7 @@ describe("Delete lesion on eDerm part 1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `three lesion one image ${homeActions.randomAlpha(20)}`;
+    const firstname = `delete ${homeActions.randomAlpha(5)}`;
     const lastname = `the second and third lesion`;
     const lesion1 = 'Lesion 1';
     const lesion2= 'Lesion 2';
@@ -269,7 +269,7 @@ describe("Delete lesion on eDerm part 1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `four lesion one image ${homeActions.randomAlpha(20)}`;
+    const firstname = `four lesion one image ${homeActions.randomAlpha(5)}`;
     const lastname = `the first lesion`;
     const lesion = 'Lesion 1';
    dashboardActions.selectClinicOptionByName();
@@ -328,7 +328,7 @@ describe("Delete lesion on eDerm part 1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `four lesion one image ${homeActions.randomAlpha(20)}`;
+    const firstname = `four lesion one image ${homeActions.randomAlpha(5)}`;
     const lastname = `the second lesion`;
     const lesion = 'Lesion 2';
    dashboardActions.selectClinicOptionByName();
@@ -387,7 +387,7 @@ describe("Delete lesion on eDerm part 1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `four lesion one image ${homeActions.randomAlpha(20)}`;
+    const firstname = `four lesion one image ${homeActions.randomAlpha(5)}`;
     const lastname = `the third lesion`;
     const lesion = 'Lesion 3';
    dashboardActions.selectClinicOptionByName();
@@ -446,7 +446,7 @@ describe("Delete lesion on eDerm part 1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `four lesion one image ${homeActions.randomAlpha(20)}`;
+    const firstname = `four lesion one image ${homeActions.randomAlpha(5)}`;
     const lastname = `the fourth lesion`;
     const lesion = 'Lesion 4';
    dashboardActions.selectClinicOptionByName();
@@ -505,7 +505,7 @@ describe("Delete lesion on eDerm part 1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `four lesion one image ${homeActions.randomAlpha(20)}`;
+    const firstname = `four lesion one image ${homeActions.randomAlpha(5)}`;
     const lastname = `first second third lesion`;
     const lesion = 'Lesion 1';
    dashboardActions.selectClinicOptionByName();
@@ -580,7 +580,7 @@ describe("Delete lesion on eDerm part 1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `four lesion one image ${homeActions.randomAlpha(20)}`;
+    const firstname = `four lesion one image ${homeActions.randomAlpha(5)}`;
     const lastname = `second third fourth lesion`;
     const lesion = 'Lesion 2';
    dashboardActions.selectClinicOptionByName();
@@ -655,7 +655,7 @@ describe("Delete lesion on eDerm part 1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `four lesion one image ${homeActions.randomAlpha(20)}`;
+    const firstname = `four lesion one image ${homeActions.randomAlpha(5)}`;
     const lastname = `four third two lesion`;
     let num = 4;
     let lesion = `Lesion ${num}`;
@@ -733,7 +733,7 @@ describe("Delete lesion on eDerm part 1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `four lesion one image ${homeActions.randomAlpha(20)}`;
+    const firstname = `four lesion one image ${homeActions.randomAlpha(5)}`;
     const lastname = `first second lesion`;
     const lesion = 'Lesion 1';
    dashboardActions.selectClinicOptionByName();
@@ -801,7 +801,7 @@ describe("Delete lesion on eDerm part 1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `four lesion one image ${homeActions.randomAlpha(20)}`;
+    const firstname = `four lesion one image ${homeActions.randomAlpha(5)}`;
     const lastname = `third fourth lesion`;
     const lesion = 'Lesion 3';
    dashboardActions.selectClinicOptionByName();
@@ -869,7 +869,7 @@ describe("Delete lesion on eDerm part 1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `four lesion one image ${homeActions.randomAlpha(20)}`;
+    const firstname = `four lesion one image ${homeActions.randomAlpha(5)}`;
     const lastname = `second third lesion`;
     const lesion = 'Lesion 2';
    dashboardActions.selectClinicOptionByName();
@@ -937,7 +937,7 @@ describe("Delete lesion on eDerm part 1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `four lesion one image ${homeActions.randomAlpha(20)}`;
+    const firstname = `four lesion one image ${homeActions.randomAlpha(5)}`;
     const lastname = `one fourth lesion`;
     let num = 1
     let lesion = `Lesion ${num}`;
@@ -1007,7 +1007,7 @@ describe("Delete lesion on eDerm part 1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `four lesion one image ${homeActions.randomAlpha(20)}`;
+    const firstname = `four lesion one image ${homeActions.randomAlpha(5)}`;
     const lastname = `second third lesion`;
     let num = 2
     let lesion = `Lesion ${num}`;
@@ -1077,7 +1077,7 @@ describe("Delete lesion on eDerm part 1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `four lesion one image ${homeActions.randomAlpha(20)}`;
+    const firstname = `four lesion one image ${homeActions.randomAlpha(5)}`;
     const lastname = `second third lesion`;
     let num = 1
     let lesion = `Lesion ${num}`;
@@ -1147,7 +1147,7 @@ describe("Delete lesion on eDerm part 1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `four lesion one image ${homeActions.randomAlpha(20)}`;
+    const firstname = `four lesion one image ${homeActions.randomAlpha(5)}`;
     const lastname = `delete all lesions`;
     const lesion = 'Lesion 1';
    dashboardActions.selectClinicOptionByName();
