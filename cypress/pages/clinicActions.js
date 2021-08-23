@@ -9,12 +9,6 @@ export class ClinicActions extends CommonActions
     .should('be.visible');
   }
 
-  isModal(text = 'Add new clinic') {
-    cy.get('.modal')
-    .contains(text)
-    .should('be.visible');
-  }
-
   enterClinicName(name) {
     cy.get('#clinic_clinicname')
     .clear()
@@ -25,6 +19,30 @@ export class ClinicActions extends CommonActions
     cy.get('#edit_clinic_clinicname')
     .clear()
     .type(name)
+  }
+
+  enterClinicEditProviderNumber(text) {
+    cy.get('#edit_clinic_providernumber')
+    .clear()
+    .type(text)
+  }
+
+  isProviderNumberRed() {
+    cy.get('#edit_text_clinic_providernumber')
+    .invoke('attr', 'style')
+    .should('eq','color:red !important')
+  }
+
+  enterClinicEditEmail(text) {
+    cy.get('#edit_clinic_email')
+    .clear()
+    .type(text)
+  }
+
+  isEmailRed() {
+    cy.get('#edit_text_clinic_email')
+    .invoke('attr', 'style')
+    .should('eq','color:red !important')
   }
 
   selectClinicLab(option = 'Barratt and Smith Pathology'){
@@ -101,10 +119,10 @@ export class ClinicActions extends CommonActions
     .click()
   }
 
-  isClinicName(name, timeOut = 500){
+  isClinicName(name, index = 0, timeOut = 500){
     cy.wait(timeOut)
     cy.get('.hasdata')
-    .first()
+    .eq(index)
     .contains(name)
     .should('be.visible')
   }
@@ -116,10 +134,10 @@ export class ClinicActions extends CommonActions
     .should('not.contain.text',name)
   }
 
-  isClinicNameNotExist(name){
+  isClinicNameNotExist(name, index = 0){
     cy.wait(500)
     cy.get('.hasdata')
-    .last()
+    .eq(index)
     .should('not.contain.text',name)
   }
 
@@ -144,6 +162,12 @@ export class ClinicActions extends CommonActions
   clickFirstEditClinicButton(){
     cy.get('[onclick*=getclinnicbyid]')
     .first()
+    .click()
+  }
+
+  clickEditClinicButtonByIndex(index = 0){
+    cy.get('[onclick*=getclinnicbyid]')
+    .eq(index)
     .click()
   }
 
@@ -173,6 +197,12 @@ export class ClinicActions extends CommonActions
 
   clickAddNewClinic(isForce=false) {
     cy.get('[href="#ex1"]')
+    .should('be.visible')
+    .click({force:isForce})
+  }
+
+  clickCloseModal(isForce=false) {
+    cy.get('.close-modal')
     .should('be.visible')
     .click({force:isForce})
   }

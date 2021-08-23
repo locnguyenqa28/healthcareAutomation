@@ -256,5 +256,135 @@ describe("Clinic", () => {
     clinicActions.isClinicTable();
     clinicActions.isClinicName(clinicName); 
   });
+
+  it("7. Muptiple edit a clinic name ", () => 
+  {
+    const clinicName = `Automation-${homeActions.randomAlpha(10)}`;
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Clinic
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickHrefByText('Setup', true);
+
+    // Clinic modal
+    clinicActions.assertText('Add new clinic');
+    clinicActions.clickFirstEditClinicButton();
+    clinicActions.isModal('Edit a clinic');
+    clinicActions.enterClinicEditName(clinicName);
+    clinicActions.clickSaveEditClinic();
+
+    // Assert clinic
+    clinicActions.isClinicTable();
+    clinicActions.isClinicName(clinicName); 
+
+    // Clinic modal
+    clinicActions.assertText('Add new clinic');
+    clinicActions.clickFirstEditClinicButton();
+    clinicActions.isModal('Edit a clinic');
+    clinicActions.enterClinicEditName(`${clinicName} edit`);
+    clinicActions.clickSaveEditClinic();
+
+    // Assert clinic
+    clinicActions.isClinicTable();
+    clinicActions.isClinicName(`${clinicName} edit`); 
+  });
+
+  it("8. Edit multiple clinic name ", () => 
+  {
+    const clinicName = `Automation-${homeActions.randomAlpha(10)}`;
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Clinic
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickHrefByText('Setup', true);
+
+    // Clinic modal
+    clinicActions.assertText('Add new clinic');
+    clinicActions.clickEditClinicButtonByIndex();
+    clinicActions.isModal('Edit a clinic');
+    clinicActions.enterClinicEditName(clinicName);
+    clinicActions.clickSaveEditClinic();
+
+    // Assert clinic
+    clinicActions.isClinicTable();
+    clinicActions.isClinicName(clinicName); 
+
+    // Clinic modal
+    clinicActions.assertText('Add new clinic');
+    clinicActions.clickEditClinicButtonByIndex(1);
+    clinicActions.isModal('Edit a clinic');
+    clinicActions.enterClinicEditName(`${clinicName} edit`);
+    clinicActions.clickSaveEditClinic();
+
+    // Assert clinic
+    clinicActions.isClinicTable();
+    clinicActions.isClinicName(`${clinicName} edit`, 1); 
+  });
+  
+  it("9. Edit clinic with an invalid provider number", () => 
+  {
+    const invalid = `$$$$-${homeActions.randomAlpha(10)}`;
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Clinic
+   
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickHrefByText('Setup', true);
+
+    // Clinic modal
+    clinicActions.assertText('Add new clinic');
+    clinicActions.clickFirstEditClinicButton();
+    clinicActions.isModal('Edit a clinic');
+    clinicActions.enterClinicEditProviderNumber(invalid);
+    clinicActions.clickSaveEditClinic();
+
+    // Assert clinic
+    clinicActions.isProviderNumberRed(); 
+    clinicActions.clickCloseModal()
+    clinicActions.isClinicNameNotExist(invalid)
+  });
+  
+  it("10. Edit clinic with an invalid Email", () => 
+  {
+    const invalid = `$$$$-${homeActions.randomAlpha(10)}`;
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Clinic
+   
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickHrefByText('Setup', true);
+
+    // Clinic modal
+    clinicActions.assertText('Add new clinic');
+    clinicActions.clickFirstEditClinicButton();
+    clinicActions.isModal('Edit a clinic');
+    clinicActions.enterClinicEditEmail(invalid);
+    clinicActions.clickSaveEditClinic();
+
+    // Assert clinic
+    clinicActions.isEmailRed(); 
+    clinicActions.clickCloseModal()
+    clinicActions.isClinicNameNotExist(invalid)
+  });
 });
   
