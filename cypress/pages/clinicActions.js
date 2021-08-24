@@ -50,8 +50,23 @@ export class ClinicActions extends CommonActions
       .select(option)
   }
 
+  getEditLabOption(){
+    return cy.get('#edit_clinic_laboratory option')
+      .then((options) => {return [...options].map(o => o.text);})
+  }
+
+ selectEditLabOption(option){
+    cy.get('#edit_clinic_laboratory')
+      .select(option)
+  }
+
   selectClinicState(option = user.state[0]){
     cy.get('#clinic_state')
+      .select(option)
+  }
+
+  selectEditClinicState(option = user.state[0]){
+    cy.get('#edit_clinic_state')
       .select(option)
   }
 
@@ -69,6 +84,12 @@ export class ClinicActions extends CommonActions
   
   enterClinicAddress(address = `${this.randomAlphanumeric(10)}`){
     cy.get('#clinic_address')
+      .clear()
+      .type(address)
+  }
+  
+  enterEditClinicAddress(address = `${this.randomAlphanumeric(10)}`){
+    cy.get('#edit_clinic_address')
       .clear()
       .type(address)
   }
@@ -91,14 +112,33 @@ export class ClinicActions extends CommonActions
     .type(phone)
   }
  
-  enterClinicPhone(phone = `${this.randomAlpha(10)}`){
-    cy.get('#clinic_phone')
+  enterClinicMobilePhone(phone = `${this.randomAlpha(10)}`){
+    cy.get('#clinic_mobilephone')
     .clear()
     .type(phone)
   }
  
-  enterClinicMobilePhone(phone = `${this.randomAlpha(10)}`){
-    cy.get('#clinic_mobilephone')
+  
+  enterEditClinicSubhub(sub = user.city){
+    cy.get('#edit_clinic_suburb')
+      .clear()
+      .type(sub)
+  }
+  
+  enterEditClinicPostcode(postcode = user.postcode){
+    cy.get('#edit_clinic_postcode')
+      .clear()
+      .type(postcode)
+  }
+ 
+  enterEditClinicPhone(phone = `${this.randomAlpha(10)}`){
+    cy.get('#edit_clinic_phone')
+    .clear()
+    .type(phone)
+  }
+ 
+  enterEditClinicMobilePhone(phone = `${this.randomAlpha(10)}`){
+    cy.get('#edit_clinic_mobilephone')
     .clear()
     .type(phone)
   }
@@ -232,6 +272,37 @@ export class ClinicActions extends CommonActions
     // this.isClinicName(clinicName); 
     number--;
     }
+  }
+
+  editAndVerifyClinicLabByIndex(index = 0) {
+    this.getEditLabOption().then((list) => {
+      const randomIndex = Math.floor(Math.random() * list.length)
+      this.selectEditLabOption(list[randomIndex]);
+      this.clickSaveEditClinic();
+      this.clickCloseModal();
+      this.isClinicName(list[randomIndex], index);
+    })
+  }
+
+  editAllValueAndVerifyClinicByIndex(name, providerNumber, address, email,  index = 0) {
+    this.getEditLabOption().then((list) => {
+      const randomIndex = Math.floor(Math.random() * list.length)
+      this.selectEditLabOption(list[randomIndex]);
+      this.enterClinicEditName(name);
+      this.enterClinicEditProviderNumber(providerNumber);
+      this.enterEditClinicAddress(address);
+      this.enterClinicEditEmail(email);
+      this.enterEditClinicSubhub();
+      this.enterEditClinicPostcode();
+      this.enterEditClinicPhone();
+      this.enterEditClinicMobilePhone();
+      this.clickSaveEditClinic();
+      this.clickCloseModal();
+      this.isClinicName(list[randomIndex], index);
+      this.isClinicName(name, index);
+      this.isClinicName(address, index);
+      this.isClinicName(providerNumber, index);
+    })
   }
 }
 
