@@ -181,6 +181,13 @@ export class ClinicActions extends CommonActions
     .should('not.contain.text',name)
   }
 
+  isFirstClinicNameExist(name){
+    cy.wait(2000)
+    cy.get('.hasdata')
+    .first()
+    .should('contain.text',name)
+  }
+
   isFirstClinicNameNotExist(name){
     cy.wait(500)
     cy.get('.hasdata')
@@ -226,9 +233,10 @@ export class ClinicActions extends CommonActions
   }
 
   assertClinicStatusByIndex(isAactive, index = 0){
-    cy.get('[id*="data_clinic"] td>span')
+    cy.wait(2000)
+    cy.get('.hasdata')
     .eq(index)
-    .should('have.text', isAactive)
+    .should('contain.text', isAactive)
   }
 
   reloadClinicPage() {
@@ -303,6 +311,12 @@ export class ClinicActions extends CommonActions
       this.isClinicName(address, index);
       this.isClinicName(providerNumber, index);
     })
+  }
+
+  assertTextClinicOptionByIndex(text, index=0){
+    cy.get('#clinic_search option')
+    .eq(index)
+    .should('contain.text',text);
   }
 }
 

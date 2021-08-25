@@ -1528,5 +1528,62 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     // Assert clinic
     clinicActions.isFirstClinicNameNotExist(`${clinicName} copy`); 
   });
+  
+  it("EDERMPATH-232. Clinic status Disabled", () => 
+  {
+    const clinicName = `Unique testing-${homeActions.randomAlpha(10)}`;
+    const providerNumber = clinicActions.randomAlphanumeric(10)
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Clinic
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickHrefByText('Setup');
+    clinicActions.clickAddNewClinic();
+
+    // Clinic modal
+    clinicActions.isModal('Add new clinic');
+    clinicActions.enterClinicName(clinicName);
+    clinicActions.enterClinicProvidernumber(providerNumber);
+    clinicActions.enterClinicAddress();
+    clinicActions.enterClinicSubhub();
+    clinicActions.enterClinicPostcode();
+    clinicActions.selectClinicLab();
+    clinicActions.selectClinicState();
+    clinicActions.enterClinicPhone();
+    clinicActions.enterClinicMobilePhone();
+    clinicActions.enterClinicEmail();
+    clinicActions.clickSaveClinic();
+
+    // Assert clinic
+    clinicActions.isFirstClinicNameExist(clinicName); 
+    clinicActions.reloadClinicPage();
+
+    clinicActions.clickFirstInactiveClinicButton();
+    clinicActions.assertClinicStatusByIndex('Disabled')
+
+    clinicActions.clickHrefByText('Dashboard');
+    clinicActions.assertTextClinicOptionByIndex(`${clinicName} (Disabled)`,1)
+
+  });
+  
+  it("EDERMPATH-241. The reset password link does not present after logining with an invalid value", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword('00');
+    loginActions.clickLoginButton();
+    loginActions.assertText('If you need to reset your password go to www.sonicdx.com.au')
+    loginActions.assertText('Ensure that Image Transfer request form stationery is loaded into the printer.')
+    loginActions.assertText('Contact us 1300 754 639 ')
+    loginActions.assertText('Privacy Policy')
+    loginActions.assertUrl('/login/user_login')
+    loginActions.clickHrefByText('Privacy Policy')
+    loginActions.assertUrl('/media/Multisite1434/shl_privacypolicy.pdf')
+  });
 });
   

@@ -14,5 +14,9 @@ export class LoginActions extends CommonActions{
     cy.get('button[name="commit"]')
       .click()
   }
+  assertUrl(text) {
+    cy.url()
+      .should('contain',text)
+  }
 
 }
