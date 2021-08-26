@@ -459,6 +459,26 @@ export class DashboardActions extends CommonActions
     this.nextButtonUploadImg(30000, true);
   }
 
+  addALesionNoImage() {
+    //Clinical Condition
+    this.noPreviousHistory();
+    this.provisionalDiagnosis();
+    this.excludeMelasma();
+    this.excludeNmsc();
+    this.selectBiopsyType();
+
+    //Case Images
+    this.addBodyMap();
+    this.clickImage();
+    this.selectBodyRegion();
+    this.enterSpecimenLocation();
+    this.saveBodyMap();
+
+    //Upload Dermascopic Images
+    this.assertHeader('Upload ');
+    this.clickHrefByText('Continue with no images');
+  }
+
   addALesionMoreThan4Images(number = 4) {
     //Clinical Condition
     this.noPreviousHistory();
