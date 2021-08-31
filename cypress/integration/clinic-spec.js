@@ -105,7 +105,7 @@ describe("Clinic", () => {
     // Assert clinic
     clinicActions.reloadClinicPage();
     clinicActions.isClinicTable();
-    clinicActions.isClinicName(clinicName, 2000); 
+    clinicActions.isClinicName(clinicName, 0, 2000); 
   
     //Inactive last Clinic
     clinicActions.assertText('Add new clinic');

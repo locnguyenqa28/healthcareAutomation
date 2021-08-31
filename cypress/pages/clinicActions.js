@@ -249,7 +249,7 @@ export class ClinicActions extends CommonActions
     .click({force:isForce})
   }
 
-  clickCloseModal(isForce=false) {
+  clickCloseModal(isForce=true) {
     cy.get('.close-modal')
     .should('be.visible')
     .click({force:isForce})
