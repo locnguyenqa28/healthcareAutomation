@@ -63,6 +63,21 @@ export class DashboardActions extends CommonActions
         .type(text)
   }
   
+  clickEditPatientDetails(isForce = false){
+      cy.get('a#editpatientdetails')
+        .click({force: isForce})
+  }
+  
+  clickSavePatientDetails(isForce = false){
+      cy.get('a#saveeditpatientdetails')
+        .click({force: isForce})
+  }
+  
+  clickOkPatientDetails(isForce = false){
+      cy.get('a[onclick*="sendupdatepatientdeatils"]')
+        .click({force: isForce})
+  }
+
   enterFirstName(firstname){
       cy.get('input[id="case_FirstName"]')
         .clear()
@@ -795,7 +810,7 @@ export class DashboardActions extends CommonActions
   selectClinicOptionByName(name, isTrue = false) {
     if(typeof(name)!= 'string' || name === null)
     {
-      cy.get('#id_set_default > option')
+      cy.get('.jquery-modal #id_set_default > option')
         .eq(1)
         .then(element => cy.get('#id_set_default').select(element.val(), {force: isTrue}))
     } else {
@@ -804,9 +819,16 @@ export class DashboardActions extends CommonActions
     }
   }
 
-  clickOkSelectClinic() {
-    cy.get('[onclick="setdefaultclinic()"]')
-    .click();
+  clickOkSelectClinic(isForce = false, timeOut = 1000) {
+    cy.wait(timeOut);
+    cy.get('body').then(($body) => {
+      if($body.find('[onclick="setdefaultclinic()"]').length > 0){
+        cy.get('[onclick="setdefaultclinic()"]')
+        .click({force: isForce});
+      }else {
+        cy.log('Clinic modal does not appears');
+      }
+    }); 
   }
 
   selectTitleCopy1ByIndex(index = 1, isTrue) {

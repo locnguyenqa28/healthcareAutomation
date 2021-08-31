@@ -313,8 +313,16 @@ export class ClinicActions extends CommonActions
     })
   }
 
+  selectSearchClinicByText(text){
+    cy.get('#clinic_search')
+    .select(text)
+    cy.get('[onclick=" reload();"]')
+    .contains('Search')
+    .click();
+  }
+
   assertTextClinicOptionByIndex(text, index=0){
-    cy.get('#clinic_search option')
+    cy.get('select#clinic_search option')
     .eq(index)
     .should('contain.text',text);
   }

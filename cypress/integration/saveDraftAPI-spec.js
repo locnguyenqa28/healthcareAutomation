@@ -2,11 +2,13 @@ import user from "../support/constants";
 import { LoginActions } from "../pages/loginAction";
 import { DashboardActions } from "../pages/dashboardActions";
 import { HomeActions } from "../pages/homeAction";
+import { ClinicActions } from "../pages/clinicActions";
 
 describe("Save Draft by API", () => {
   const homeActions = new HomeActions();
   const loginActions = new LoginActions();
   const dashboardActions = new DashboardActions();
+  const clinicActions = new ClinicActions();
 
   it("01. saveDraft by API is successfull", () => 
   {
@@ -18,8 +20,8 @@ describe("Save Draft by API", () => {
     loginActions.clickLoginButton();
     homeActions.isDashBoardButtonDisplayed();
 
-    dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
 
     //Case Summary
     dashboardActions.assertText(firstname)
@@ -36,15 +38,18 @@ describe("Save Draft by API", () => {
     loginActions.clickLoginButton();
     homeActions.isDashBoardButtonDisplayed();
 
-    dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
 
     //Case Summary
     dashboardActions.assertText(firstname);
     dashboardActions.assertText('Create New Pathology Request');
 
     dashboardActions.clickPathologyRequestByFirstName(firstname);
+    dashboardActions.clickEditPatientDetails();
     dashboardActions.enterFirstName(editname);
+    dashboardActions.clickSavePatientDetails();
+    dashboardActions.clickOkPatientDetails();
 
     dashboardActions.clickHrefByText('Save update');
     dashboardActions.assertText(editname);
@@ -60,8 +65,8 @@ describe("Save Draft by API", () => {
     loginActions.clickLoginButton();
     homeActions.isDashBoardButtonDisplayed();
 
-    dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
 
     dashboardActions.checkOrderIsAddedToClinicDefault(firstname);
   });
@@ -77,8 +82,8 @@ describe("Save Draft by API", () => {
     loginActions.clickLoginButton();
     homeActions.isDashBoardButtonDisplayed();
 
-    dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
 
     dashboardActions.assertText(subname);
     dashboardActions.assertText('Create New Pathology Request');
@@ -110,9 +115,9 @@ describe("Save Draft by API", () => {
     loginActions.clickLoginButton();
     homeActions.isDashBoardButtonDisplayed();
 
-    dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+    
     dashboardActions.assertText(subname);
     dashboardActions.assertText('Create New Pathology Request');
 
@@ -152,8 +157,8 @@ describe("Save Draft by API", () => {
     loginActions.clickLoginButton();
     homeActions.isDashBoardButtonDisplayed();
 
-    dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
 
     dashboardActions.assertText(subname);
     dashboardActions.assertText('Create New Pathology Request');
@@ -202,8 +207,8 @@ describe("Save Draft by API", () => {
     loginActions.clickLoginButton();
     homeActions.isDashBoardButtonDisplayed();
 
-    dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
 
     dashboardActions.assertText(subname);
     dashboardActions.assertText('Create New Pathology Request');
@@ -235,8 +240,8 @@ describe("Save Draft by API", () => {
     loginActions.clickLoginButton();
     homeActions.isDashBoardButtonDisplayed();
 
-    dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
 
     dashboardActions.assertText(subname);
     dashboardActions.assertText('Create New Pathology Request');
@@ -295,8 +300,8 @@ describe("Save Draft by API", () => {
     loginActions.clickLoginButton();
     homeActions.isDashBoardButtonDisplayed();
 
-    dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
 
     dashboardActions.assertText(subname);
     dashboardActions.assertText('Create New Pathology Request');
@@ -360,8 +365,8 @@ describe("Save Draft by API", () => {
     loginActions.clickLoginButton();
     homeActions.isDashBoardButtonDisplayed();
 
-    dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
 
     dashboardActions.assertText(subname);
     dashboardActions.assertText('Create New Pathology Request');
@@ -429,8 +434,8 @@ describe("Save Draft by API", () => {
     loginActions.clickLoginButton();
     homeActions.isDashBoardButtonDisplayed();
 
-    dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
 
     dashboardActions.assertText(subname);
     dashboardActions.assertText('Create New Pathology Request');
@@ -502,8 +507,8 @@ describe("Save Draft by API", () => {
     loginActions.clickLoginButton();
     homeActions.isDashBoardButtonDisplayed();
 
-    dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
 
     dashboardActions.assertText(subname);
     dashboardActions.assertText('Create New Pathology Request');
