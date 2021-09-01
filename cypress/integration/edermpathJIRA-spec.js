@@ -240,6 +240,10 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
     dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.selectState(user.state[0]);
+    dashboardActions.clickButtonByText('Save');
+    dashboardActions.clickPathologyRequestByFirstName(firstname);
+    dashboardActions.isState(user.state[0]);
 
     dashboardActions.assertAllStateSaveAndDraft(firstname); 
   });

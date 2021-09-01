@@ -626,7 +626,10 @@ export class DashboardActions extends CommonActions
 
   assertAllStateSaveAndDraft(name) {
     for(const index in user.state){
-      this.selectState(user.state[index])
+      this.clickEditPatientDetails();
+      this.selectState(user.state[index]);
+      this.clickSavePatientDetails();
+      this.clickOkPatientDetails();
       this.clickButtonByText('Save');
       this.clickPathologyRequestByFirstName(name);
       this.isState(user.state[index]);
