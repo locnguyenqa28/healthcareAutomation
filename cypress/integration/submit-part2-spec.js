@@ -1,6 +1,7 @@
 import { LoginActions } from "../pages/loginAction";
 import { HomeActions } from "../pages/homeAction";
 import { DashboardActions } from "../pages/dashboardActions";
+import { ClinicActions } from "../pages/clinicActions";
 import user from "../support/constants"
 
 
@@ -8,6 +9,7 @@ describe("Add New Lesion on eDerm", () => {
     const loginActions = new LoginActions();
     const homeActions = new HomeActions();
     const dashboardActions = new DashboardActions();
+    const clinicActions = new ClinicActions();
     const validDVANumber = 'Abc12345678'
 
   it("23.DVA to Private", () => 
@@ -44,8 +46,13 @@ describe("Add New Lesion on eDerm", () => {
 
     //Case Summary
     dashboardActions.caseSummary();
+
+    dashboardActions.clickEditPatientDetails();
     dashboardActions.selectBilling(user.billing.private)
     dashboardActions.checkPrivate();
+    dashboardActions.clickSavePatientDetails();
+    dashboardActions.clickOkPatientDetails();
+  
     dashboardActions.submitCasePrint();
     dashboardActions.returnToDashboard();
     homeActions.isDashboardDisplayed();
@@ -84,8 +91,13 @@ describe("Add New Lesion on eDerm", () => {
 
     //Case Summary
     dashboardActions.caseSummary();
+
+    dashboardActions.clickEditPatientDetails();
     dashboardActions.selectBilling(user.billing.private)
     dashboardActions.checkPrivate();
+    dashboardActions.clickSavePatientDetails();
+    dashboardActions.clickOkPatientDetails();
+  
     dashboardActions.submitCasePrint();
     dashboardActions.returnToDashboard();
     homeActions.isDashboardDisplayed();
@@ -126,9 +138,12 @@ describe("Add New Lesion on eDerm", () => {
 
     //Case Summary
     dashboardActions.caseSummary();
-   
+
+    dashboardActions.clickEditPatientDetails();
     dashboardActions.selectBilling(user.billing.DVA)
     dashboardActions.enterDVANumber(validDVANumber);
+    dashboardActions.clickSavePatientDetails();
+    dashboardActions.clickOkPatientDetails();
    
     dashboardActions.submitCasePrint();
     dashboardActions.returnToDashboard();
@@ -169,8 +184,13 @@ describe("Add New Lesion on eDerm", () => {
 
     //Case Summary
     dashboardActions.caseSummary();
+
+    dashboardActions.clickEditPatientDetails();
     dashboardActions.selectBilling(user.billing.bulkBill)
     dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.clickSavePatientDetails();
+    dashboardActions.clickOkPatientDetails();
+  
     dashboardActions.submitCasePrint();
     dashboardActions.returnToDashboard();
     homeActions.isDashboardDisplayed();

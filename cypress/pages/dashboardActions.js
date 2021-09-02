@@ -107,8 +107,18 @@ export class DashboardActions extends CommonActions
   }
 
   selectGender(option){
-    cy.get('select[id="case_Gender"]')
-      .select(option)
+    cy.get('body').then(($body) => {
+      if($body.find('a#editpatientdetails').length > 0) {
+        this.clickEditPatientDetails();
+        cy.get('select[id="case_Gender"]')
+          .select(option);
+        this.clickSavePatientDetails();
+        this.clickOkPatientDetails();
+      } else {
+        cy.get('select[id="case_Gender"]')
+        .select(option)
+      }
+    });
   }
 
   assertGender(option){
@@ -205,9 +215,13 @@ export class DashboardActions extends CommonActions
     .should('be.visible')
   }
 
-  checkPrivate(){
-    cy.get('#shownhsprivate #case_patientinformedfinancial')
-      .click()
+  checkPrivate(isForce = false){
+    cy.get('body').then(($body)=>{
+      if($body.find('#shownhsprivate #case_patientinformedfinancial[checked="checked"]').length !== 1){
+        cy.get('#shownhsprivate #case_patientinformedfinancial')
+        .click({force: isForce})
+      }
+    })
   }
 
   isPrivateChecked(){
