@@ -50,9 +50,9 @@ describe("Save Draft", () => {
       homeActions.isDashBoardButtonDisplayed();
       
       //Add New Lesion - Patient Details
-    dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickAddNewLesion();
+      dashboardActions.selectClinicOptionByName();
+      dashboardActions.clickOkSelectClinic();
+      dashboardActions.clickAddNewLesion();
       dashboardActions.selectTitle('Mrs');
       dashboardActions.enterFirstName(firstname);
       dashboardActions.enterLastName(lastname);
@@ -67,7 +67,7 @@ describe("Save Draft", () => {
       dashboardActions.nextButton();
 
       //Add first lesion
-      dashboardActions.addALesion();
+      dashboardActions.addALesionByNumberImages();
 
       //Case Summary
       dashboardActions.caseSummary();
@@ -104,11 +104,11 @@ describe("Save Draft", () => {
       dashboardActions.nextButton();
 
       //Add first lesion
-      dashboardActions.addALesion();
+      dashboardActions.addALesionByNumberImages();
 
       //Add another lesion
       dashboardActions.addAnotherLesion();
-      dashboardActions.addALesion();
+      dashboardActions.addALesionByNumberImages();
 
       //Case Summary
       dashboardActions.caseSummary();
@@ -145,15 +145,15 @@ describe("Save Draft", () => {
       dashboardActions.nextButton();
 
       //Add first lesion
-      dashboardActions.addALesion();
+      dashboardActions.addALesionByNumberImages();
 
       //Add another lesion
       dashboardActions.addAnotherLesion();
-      dashboardActions.addALesion();
+      dashboardActions.addALesionByNumberImages();
 
       //Add another lesion
       dashboardActions.addAnotherLesion();
-      dashboardActions.addALesion();
+      dashboardActions.addALesionByNumberImages();
 
       //Case Summary
       dashboardActions.caseSummary();
@@ -190,19 +190,19 @@ describe("Save Draft", () => {
       dashboardActions.nextButton();
 
       //Add first lesion
-      dashboardActions.addALesion();
+      dashboardActions.addALesionByNumberImages();
 
       //Add another lesion
       dashboardActions.addAnotherLesion();
-      dashboardActions.addALesion();
+      dashboardActions.addALesionByNumberImages();
 
       //Add another lesion
       dashboardActions.addAnotherLesion();
-      dashboardActions.addALesion();
+      dashboardActions.addALesionByNumberImages();
 
       //Add another lesion
       dashboardActions.addAnotherLesion();
-      dashboardActions.addALesion();
+      dashboardActions.addALesionByNumberImages();
   
       //Case Summary
       dashboardActions.caseSummary();
@@ -213,7 +213,7 @@ describe("Save Draft", () => {
     
     it("06. Check all body regions", () => 
     {
-      const firstname = `Draft-${homeActions.randomAlpha(10)}`;
+      const firstname = `Draft-${homeActions.randomAlpha(8)}`;
       const lastname = `Check all body region`;
       loginActions.visitPage();
       loginActions.inputUserName(user.username);
@@ -239,7 +239,7 @@ describe("Save Draft", () => {
       dashboardActions.nextButton();
 
       //Add first lesion
-      dashboardActions.addALesion();
+      dashboardActions.addALesionByNumberImages();
 
       //Case Summary
       dashboardActions.caseSummary();
@@ -253,7 +253,7 @@ describe("Save Draft", () => {
     
     it("07. Check all ProvisionalDiagnosis", () => 
     {
-      const firstname = `Draft-${homeActions.randomAlpha(10)}`;
+      const firstname = `Draft-${homeActions.randomAlpha(8)}`;
       const lastname = `Check all Provisional Diagnosis`;
       loginActions.visitPage();
       loginActions.inputUserName(user.username);
@@ -279,7 +279,7 @@ describe("Save Draft", () => {
       dashboardActions.nextButton();
 
       //Add first lesion
-      dashboardActions.addALesion();
+      dashboardActions.addALesionByNumberImages();
 
       //Case Summary
       dashboardActions.caseSummary();
@@ -301,9 +301,9 @@ describe("Save Draft", () => {
 
       const firstname = `Draft-${homeActions.randomAlpha(10)}`;
       const lastname = `Check all Billing`;
-    dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickAddNewLesion();
+      dashboardActions.selectClinicOptionByName();
+      dashboardActions.clickOkSelectClinic();
+      dashboardActions.clickAddNewLesion();
       dashboardActions.selectTitle('Mrs');
       dashboardActions.enterFirstName(firstname);
       dashboardActions.enterLastName(lastname);
@@ -318,7 +318,7 @@ describe("Save Draft", () => {
       dashboardActions.nextButton();
 
       //Add first lesion
-      dashboardActions.addALesionMoreThan4Images(1);
+      dashboardActions.addALesionByNumberImagesByNumberImages(1);
 
       //Case Summary
       dashboardActions.caseSummary();
@@ -365,9 +365,9 @@ describe("Save Draft", () => {
 
       const firstname = `Draft-${homeActions.randomAlpha(10)}`;
       const lastname = `Check all gender`;
-    dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickAddNewLesion();
+      dashboardActions.selectClinicOptionByName();
+      dashboardActions.clickOkSelectClinic();
+      dashboardActions.clickAddNewLesion();
       dashboardActions.selectTitle('Mrs');
       dashboardActions.enterFirstName(firstname);
       dashboardActions.enterLastName(lastname);
@@ -382,12 +382,16 @@ describe("Save Draft", () => {
       dashboardActions.nextButton();
 
       //Add first lesion
-      dashboardActions.addALesionMoreThan4Images(1);
+      dashboardActions.addALesionByNumberImagesByNumberImages(1);
 
       //Case Summary
       dashboardActions.caseSummary();
       dashboardActions.assertGender(user.gender.male);
+      dashboardActions.clickEditPatientDetails();
       dashboardActions.selectGender(user.gender.female);
+      dashboardActions.clickSavePatientDetails();
+      dashboardActions.clickOkPatientDetails();
+     
       dashboardActions.saveDraft();
       dashboardActions.assertTitleTop('Dashboard');
       dashboardActions.assertFirstName(firstname);
@@ -395,7 +399,13 @@ describe("Save Draft", () => {
       dashboardActions.clickPathologyRequestByFirstName(firstname);
       
       dashboardActions.assertGender(user.gender.female);
+
+      dashboardActions.clickEditPatientDetails();
       dashboardActions.selectGender(user.gender.other);
+      dashboardActions.clickSavePatientDetails();
+      dashboardActions.clickOkPatientDetails();
+
+
       dashboardActions.clickHrefByText('Save update');
       dashboardActions.assertTitleTop('Dashboard')
       dashboardActions.assertFirstName(firstname)
@@ -403,7 +413,11 @@ describe("Save Draft", () => {
       dashboardActions.clickPathologyRequestByFirstName(firstname);
       dashboardActions.assertGender(user.gender.other)
 
+      dashboardActions.clickEditPatientDetails()
       dashboardActions.selectGender(user.gender.unknown)
+      dashboardActions.clickSavePatientDetails();
+      dashboardActions.clickOkPatientDetails();
+
       dashboardActions.clickHrefByText('Save update');
       dashboardActions.assertTitleTop('Dashboard')
       dashboardActions.assertFirstName(firstname)
@@ -461,7 +475,7 @@ describe("Save Draft", () => {
       dashboardActions.nextButton();
 
       //Add first lesion
-      dashboardActions.addALesionMoreThan4Images(1);
+      dashboardActions.addALesionByNumberImagesByNumberImages(1);
 
       //Case Summary
       dashboardActions.caseSummary();

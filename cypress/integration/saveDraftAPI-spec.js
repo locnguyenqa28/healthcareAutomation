@@ -280,7 +280,7 @@ describe("Save Draft by API", () => {
 
     dashboardActions.addAnotherLesion();
      //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(4);
+    dashboardActions.addALesionByNumberImages(4);
     //Case Summary
     dashboardActions.caseSummary();
     dashboardActions.submitCasePrint();
@@ -340,11 +340,11 @@ describe("Save Draft by API", () => {
 
     dashboardActions.addAnotherLesion();
      //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(4);
+    dashboardActions.addALesionByNumberImages(4);
 
     //Add another lesion
     dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionMoreThan4Images(4);
+    dashboardActions.addALesionByNumberImages(4);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -405,15 +405,15 @@ describe("Save Draft by API", () => {
 
     dashboardActions.addAnotherLesion();
      //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(4);
+    dashboardActions.addALesionByNumberImages(4);
 
     //Add another lesion
     dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionMoreThan4Images(4);
+    dashboardActions.addALesionByNumberImages(4);
 
     //Add another lesion
     dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionMoreThan4Images(4);
+    dashboardActions.addALesionByNumberImages(4);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -474,19 +474,19 @@ describe("Save Draft by API", () => {
 
     dashboardActions.addAnotherLesion();
      //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(4);
+    dashboardActions.addALesionByNumberImages(4);
 
     //Add another lesion
     dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionMoreThan4Images(4);
+    dashboardActions.addALesionByNumberImages(4);
 
     //Add another lesion
     dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionMoreThan4Images(4);
+    dashboardActions.addALesionByNumberImages(4);
 
     //Add another lesion
     dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionMoreThan4Images(4);
+    dashboardActions.addALesionByNumberImages(4);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -531,19 +531,19 @@ describe("Save Draft by API", () => {
 
     dashboardActions.addAnotherLesion();
      //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(4);
+    dashboardActions.addALesionByNumberImages(4);
 
     //Add another lesion
     dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionMoreThan4Images(4);
+    dashboardActions.addALesionByNumberImages(4);
 
     //Add another lesion
     dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionMoreThan4Images(4);
+    dashboardActions.addALesionByNumberImages(4);
 
     //Add another lesion
     dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionMoreThan4Images(4);
+    dashboardActions.addALesionByNumberImages(4);
 
     //Case Summary
     dashboardActions.caseSummary();

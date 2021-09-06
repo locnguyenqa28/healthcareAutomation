@@ -42,7 +42,7 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(1);
+    dashboardActions.addALesionByNumberImages(1);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -87,7 +87,7 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(1);
+    dashboardActions.addALesionByNumberImages(1);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -134,7 +134,7 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(1);
+    dashboardActions.addALesionByNumberImages(1);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -180,7 +180,7 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(1);
+    dashboardActions.addALesionByNumberImages(1);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -225,7 +225,7 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(1);
+    dashboardActions.addALesionByNumberImages(1);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -266,7 +266,7 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(1);
+    dashboardActions.addALesionByNumberImages(1);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -307,7 +307,7 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(1);
+    dashboardActions.addALesionByNumberImages(1);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -348,7 +348,7 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(1);
+    dashboardActions.addALesionByNumberImages(1);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -389,7 +389,7 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(1);
+    dashboardActions.addALesionByNumberImages(1);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -430,7 +430,7 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(1);
+    dashboardActions.addALesionByNumberImages(1);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -471,7 +471,7 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(1);
+    dashboardActions.addALesionByNumberImages(1);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -512,7 +512,7 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(1);
+    dashboardActions.addALesionByNumberImages(1);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -553,7 +553,7 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(1);
+    dashboardActions.addALesionByNumberImages(1);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -594,7 +594,7 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(1);
+    dashboardActions.addALesionByNumberImages(1);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -635,7 +635,7 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(1);
+    dashboardActions.addALesionByNumberImages(1);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -676,7 +676,7 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(1);
+    dashboardActions.addALesionByNumberImages(1);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -722,7 +722,7 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(4);
+    dashboardActions.addALesionByNumberImages(4);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -765,7 +765,7 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(4);
+    dashboardActions.addALesionByNumberImages(4);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -807,7 +807,7 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(4);
+    dashboardActions.addALesionByNumberImages(4);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -856,7 +856,7 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(4);
+    dashboardActions.addALesionByNumberImages(4);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -909,7 +909,7 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(4);
+    dashboardActions.addALesionByNumberImages(4);
 
     //Case Summary
     dashboardActions.caseSummary();

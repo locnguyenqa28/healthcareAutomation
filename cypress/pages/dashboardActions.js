@@ -508,7 +508,7 @@ export class DashboardActions extends CommonActions
     this.clickHrefByText('Continue with no images');
   }
 
-  addALesionMoreThan4Images(number = 4) {
+  addALesionByNumberImages(number = 4) {
     //Clinical Condition
     this.noPreviousHistory();
     this.provisionalDiagnosis();

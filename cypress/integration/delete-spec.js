@@ -1307,7 +1307,7 @@ describe("Delete lesion on eDerm part 1", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(4);
+    dashboardActions.addALesionByNumberImages(4);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -1364,7 +1364,7 @@ describe("Delete lesion on eDerm part 1", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(4);
+    dashboardActions.addALesionByNumberImages(4);
 
       //Case Summary
       dashboardActions.caseSummary();
@@ -1425,7 +1425,7 @@ describe("Delete lesion on eDerm part 1", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(4);
+    dashboardActions.addALesionByNumberImages(4);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -1476,11 +1476,11 @@ describe("Delete lesion on eDerm part 1", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(4);
+    dashboardActions.addALesionByNumberImages(4);
 
     //Add another lesion
     dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionMoreThan4Images(4);
+    dashboardActions.addALesionByNumberImages(4);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -1543,11 +1543,11 @@ describe("Delete lesion on eDerm part 1", () => {
     dashboardActions.nextButton();
 
     //Add lesion
-    dashboardActions.addALesionMoreThan4Images(4);
+    dashboardActions.addALesionByNumberImages(4);
 
     //Add another lesion
     dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionMoreThan4Images(4);
+    dashboardActions.addALesionByNumberImages(4);
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -1613,10 +1613,10 @@ describe("Delete lesion on eDerm part 1", () => {
     dashboardActions.assertText('Save draft » ')
     dashboardActions.nextButton();
    //Add lesion
-   dashboardActions.addALesionMoreThan4Images(4);
+   dashboardActions.addALesionByNumberImages(4);
     //Add another lesion
     dashboardActions.addAnotherLesion();
-   dashboardActions.addALesionMoreThan4Images(4);
+   dashboardActions.addALesionByNumberImages(4);
 
    //Case Summary
    dashboardActions.caseSummary();

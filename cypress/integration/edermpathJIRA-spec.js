@@ -364,19 +364,19 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(1);
+    dashboardActions.addALesionByNumberImages(1);
 
     //Add another lesion
     dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionMoreThan4Images(1);
+    dashboardActions.addALesionByNumberImages(1);
 
     //Add another lesion
     dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionMoreThan4Images(1);
+    dashboardActions.addALesionByNumberImages(1);
 
     //Add another lesion
     dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionMoreThan4Images(1);
+    dashboardActions.addALesionByNumberImages(1);
 
     //Edit body map
     dashboardActions.clickHrefByText('Edit body map and location');
@@ -486,15 +486,15 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(1);
+    dashboardActions.addALesionByNumberImages(1);
 
     //Add another lesion
     dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionMoreThan4Images(1);
+    dashboardActions.addALesionByNumberImages(1);
 
     //Add another lesion
     dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionMoreThan4Images(1);
+    dashboardActions.addALesionByNumberImages(1);
 
     //Add another lesion
     dashboardActions.addAnotherLesion();
@@ -1375,7 +1375,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionMoreThan4Images(5)
+    dashboardActions.addALesionByNumberImages(5)
 
     //Case Summary
     dashboardActions.caseSummary();
