@@ -211,7 +211,7 @@ describe("Save Draft", () => {
       dashboardActions.isReviewCase('Draft')
     });
     
-    it("06. Check all body regions", () => 
+    it("06. Check random body regions", () => 
     {
       const firstname = `Draft-${homeActions.randomAlpha(8)}`;
       const lastname = `Check all body region`;
@@ -251,7 +251,7 @@ describe("Save Draft", () => {
       dashboardActions.selectAndAssertEditedRegion();
     });
     
-    it("07. Check all ProvisionalDiagnosis", () => 
+    it("07. Check random ProvisionalDiagnosis", () => 
     {
       const firstname = `Draft-${homeActions.randomAlpha(8)}`;
       const lastname = `Check all Provisional Diagnosis`;
@@ -291,7 +291,7 @@ describe("Save Draft", () => {
       dashboardActions.selectAndAssertEditedProvisionalDiagnosis(firstname);
     });
     
-    it("08. Check all Billing", () => 
+    it.skip("08. Check all Billing", () => 
     {
       loginActions.visitPage();
       loginActions.inputUserName(user.username);
@@ -318,7 +318,7 @@ describe("Save Draft", () => {
       dashboardActions.nextButton();
 
       //Add first lesion
-      dashboardActions.addALesionByNumberImagesByNumberImages(1);
+      dashboardActions.addALesionByNumberImages(1);
 
       //Case Summary
       dashboardActions.caseSummary();
@@ -355,7 +355,7 @@ describe("Save Draft", () => {
       dashboardActions.isPrivateChecked();
     });
     
-    it("09. Check all Gender", () => 
+    it.skip("09. Check all Gender", () => 
     {
       loginActions.visitPage();
       loginActions.inputUserName(user.username);
@@ -382,7 +382,7 @@ describe("Save Draft", () => {
       dashboardActions.nextButton();
 
       //Add first lesion
-      dashboardActions.addALesionByNumberImagesByNumberImages(1);
+      dashboardActions.addALesionByNumberImages(1);
 
       //Case Summary
       dashboardActions.caseSummary();
@@ -475,7 +475,7 @@ describe("Save Draft", () => {
       dashboardActions.nextButton();
 
       //Add first lesion
-      dashboardActions.addALesionByNumberImagesByNumberImages(1);
+      dashboardActions.addALesionByNumberImages(1);
 
       //Case Summary
       dashboardActions.caseSummary();

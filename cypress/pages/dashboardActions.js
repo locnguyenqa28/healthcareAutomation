@@ -780,17 +780,23 @@ export class DashboardActions extends CommonActions
       // get the text of each option
       const regions =  Cypress._.map($options, ($option) => $option.innerText)
       for(let i=1; i<regions.length; i++){
-        this.selectBodyRegion(regions[i], false)
+        const randomID = Math.floor(Math.random() * (regions.length - 1)) + 1
+        if(regions[randomID].indexOf('(') > 0){
+          const temp = regions[randomID].split('(');
+          regions[randomID] = temp[0].trim();
+        }
+        this.selectBodyRegion(regions[randomID], false)
         this.saveBodyMap();
         this.assertText('Body map is updating, please wait.')
         this.assertNoText('Body map is updating, please wait.')
         this.assertTitleTop('Confirm request details')
         cy.get('a[href]').contains('Edit body map and location').scrollIntoView();
-        this.assertText(regions[i])
+        this.assertText(regions[randomID])
         if(i<regions.length - 1) {
           this.clickEditBodyMap(true);
           this.assertHeader('Body map');
         }
+        break;
       }  
     })
      
@@ -801,27 +807,26 @@ export class DashboardActions extends CommonActions
     .then(($options) => {
       // get the text of each option
       const pds =  Cypress._.map($options, ($option) => $option.innerText)
-      for(let i=1; i<pds.length; i++){
-        const tmpText = pds[i].trim();
-        this.assertTitleTop('Confirm request details');
-        this.assertText('Lesion 1');
-        cy.get('.txt-header').contains('Clinical indication').scrollIntoView();
-        this.assertText('Provisional diagnosis:')
-        this.provisionalDiagnosis(tmpText, false)
-        this.assertText(tmpText)
-        this.clickHrefByText('Save update')
-        this.assertTitleTop('Dashboard')
-        this.assertFirstName(firstname)
-        this.isReviewCase('Draft')
-        this.clickPathologyRequestByFirstName(firstname);
-        this.assertTitleTop('Confirm request details');
-        this.assertText('Lesion 1');
-        cy.get('.txt-header').contains('Clinical indication').scrollIntoView();
-        this.assertText('Provisional diagnosis:')
-        this.assertText(tmpText)
-      }  
-    })
+      const randomID = Math.floor(Math.random() * (pds.length - 1)) + 1
      
+      const tmpText = pds[randomID].trim();
+      this.assertTitleTop('Confirm request details');
+      this.assertText('Lesion 1');
+      cy.get('.txt-header').contains('Clinical indication').scrollIntoView();
+      this.assertText('Provisional diagnosis:')
+      this.provisionalDiagnosis(tmpText, false)
+      this.assertText(tmpText)
+      this.clickHrefByText('Save update')
+      this.assertTitleTop('Dashboard')
+      this.assertFirstName(firstname)
+      this.isReviewCase('Draft')
+      this.clickPathologyRequestByFirstName(firstname);
+      this.assertTitleTop('Confirm request details');
+      this.assertText('Lesion 1');
+      cy.get('.txt-header').contains('Clinical indication').scrollIntoView();
+      this.assertText('Provisional diagnosis:');
+      this.assertText(tmpText);
+    });      
   }
 
   selectClinicOptionByName(name, isTrue = false) {

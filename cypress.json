@@ -1,6 +1,7 @@
 {
   "projectId": "6k3yms",
   "defaultCommandTimeout": 60000,
+  "pageLoadTimeout":120000,
   "baseUrl": "https://sonic.ederm.com.au",
   "chromeWebSecurity": false,
   "viewportWidth": 1366,
