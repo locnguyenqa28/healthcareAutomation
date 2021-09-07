@@ -291,7 +291,7 @@ describe("Save Draft", () => {
       dashboardActions.selectAndAssertEditedProvisionalDiagnosis(firstname);
     });
     
-    it.skip("08. Check all Billing", () => 
+    it("08. Check all Billing", () => 
     {
       loginActions.visitPage();
       loginActions.inputUserName(user.username);
@@ -322,30 +322,38 @@ describe("Save Draft", () => {
 
       //Case Summary
       dashboardActions.caseSummary();
+      dashboardActions.clickEditPatientDetails();
       dashboardActions.assertSelectedBilling(user.billing.bulkBill)
-      // dashboardActions.assertMedicare(user.medicare)
       dashboardActions.selectBilling(user.billing.DVA)
       dashboardActions.enterDVANumber(validDVANumber);
+      dashboardActions.clickSavePatientDetails();
+      dashboardActions.clickOkPatientDetails();
       dashboardActions.saveDraft();
       dashboardActions.assertTitleTop('Dashboard');
       dashboardActions.assertFirstName(firstname);
       dashboardActions.isReviewCase('Draft');
       dashboardActions.clickPathologyRequestByFirstName(firstname);
       
+      dashboardActions.clickEditPatientDetails();
       dashboardActions.assertSelectedBilling(user.billing.DVA);
-      // dashboardActions.assertDVANumber(validDVANumber)
       dashboardActions.selectBilling(user.billing.bulkBill);
       dashboardActions.enterMedicare(user.medicare);
+      dashboardActions.clickSavePatientDetails();
+      dashboardActions.clickOkPatientDetails();
+    
       dashboardActions.clickHrefByText('Save update');
       dashboardActions.assertTitleTop('Dashboard')
       dashboardActions.assertFirstName(firstname)
       dashboardActions.isReviewCase('Draft')
       dashboardActions.clickPathologyRequestByFirstName(firstname);
       dashboardActions.assertSelectedBilling(user.billing.bulkBill)
-      // dashboardActions.assertMedicare(user.medicare)
 
+      dashboardActions.clickEditPatientDetails();
       dashboardActions.selectBilling(user.billing.private)
       dashboardActions.checkPrivate();
+      dashboardActions.clickSavePatientDetails();
+      dashboardActions.clickOkPatientDetails();
+    
       dashboardActions.clickHrefByText('Save update');
       dashboardActions.assertTitleTop('Dashboard')
       dashboardActions.assertFirstName(firstname)
@@ -426,7 +434,7 @@ describe("Save Draft", () => {
       dashboardActions.assertGender(user.gender.unknown);
     });
     
-    it("10. Save one lesion - 4 images - 4 copies", () => 
+    it("10. Save one lesion - 4 images - 2 copies", () => 
     {
       loginActions.visitPage();
       loginActions.inputUserName(user.username);
@@ -461,16 +469,6 @@ describe("Save Draft", () => {
       dashboardActions.enterFirstNameCopy2('Copy B')
       dashboardActions.enterLastNameCopy2('last name B')
       dashboardActions.enterSuburbCopy2('suburb B')
-  
-      dashboardActions.selectTitleCopy3ByIndex(3)
-      dashboardActions.enterFirstNameCopy3('Copy C')
-      dashboardActions.enterLastNameCopy3('last name C')
-      dashboardActions.enterSuburbCopy3('suburb C')
-  
-      dashboardActions.selectTitleCopy4ByIndex(3)
-      dashboardActions.enterFirstNameCopy4('Copy D')
-      dashboardActions.enterLastNameCopy4('last name D')
-      dashboardActions.enterSuburbCopy4('suburb D')
 
       dashboardActions.nextButton();
 
