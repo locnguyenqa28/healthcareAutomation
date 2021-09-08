@@ -967,6 +967,16 @@ export class DashboardActions extends CommonActions
       this.assertText(clinicName);
     })
   }
+  isEditPatientDetailsVisible(){
+    cy.get('a#editpatientdetails')
+    .should('be.visible')
+  }
+  checkAllPatientDetailsISDisabled(elementObj = user.patientDetailsElement){
+    const elements = Object.values(elementObj)
+    for(const item of elements){
+      cy.get(item).should('be.disabled');
+    }
+  }
 
 }
 

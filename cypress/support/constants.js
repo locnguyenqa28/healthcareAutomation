@@ -82,7 +82,22 @@ const user = {
       'Foot plantar',
       'Forearm (elbow and below)',
       'Genitalia'
-   ]
+   ],
+
+   patientDetailsElement: {
+      title: "select#temptitle",
+      firstname: "input#case_FirstName",
+      lastname: "input#case_LastName",
+      gender: "select#case_Gender",
+      DOB: "input#case_DOB",
+      address: "input#case_Address",
+      suburb: "input#case_suburb",
+      state: "select#case_patientstate",
+      postcode: "input#case_PostCode",
+      postcode: "input#case_NotificationPhone",
+      billing: "select#case_patientfinancial",
+      doNotSendCheckbox: "input#temp_obtained",
+   }
 };
 
 export default user

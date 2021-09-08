@@ -8,7 +8,8 @@ describe("Save Draft", () => {
     const loginActions = new LoginActions();
     const homeActions = new HomeActions();
     const dashboardActions = new DashboardActions();
-    const validDVANumber = 'Abc12345678'
+    const validDVANumber = 'Abc12345678';
+
     it("01. Patient Details saving", () => 
     {
       loginActions.visitPage();
@@ -20,9 +21,9 @@ describe("Save Draft", () => {
       //Add New Lesion - Patient Details
       const firstname = `Draft-${homeActions.randomAlpha(10)}`;
       const lastname = `save ${homeActions.randomAlpha(10)}`;
-    dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickAddNewLesion();
+      dashboardActions.selectClinicOptionByName();
+      dashboardActions.clickOkSelectClinic();
+      dashboardActions.clickAddNewLesion();
       dashboardActions.selectTitle('Mrs');
       dashboardActions.enterFirstName(firstname);
       dashboardActions.enterLastName(lastname);
@@ -87,9 +88,9 @@ describe("Save Draft", () => {
       homeActions.isDashBoardButtonDisplayed();
       
       //Add New Lesion - Patient Details
-    dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickAddNewLesion();
+      dashboardActions.selectClinicOptionByName();
+      dashboardActions.clickOkSelectClinic();
+      dashboardActions.clickAddNewLesion();
       dashboardActions.selectTitle('Mrs');
       dashboardActions.enterFirstName(firstname);
       dashboardActions.enterLastName(lastname);
@@ -128,9 +129,9 @@ describe("Save Draft", () => {
       homeActions.isDashBoardButtonDisplayed();
       
       //Add New Lesion - Patient Details
-    dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickAddNewLesion();
+      dashboardActions.selectClinicOptionByName();
+      dashboardActions.clickOkSelectClinic();
+      dashboardActions.clickAddNewLesion();
       dashboardActions.selectTitle('Mrs');
       dashboardActions.enterFirstName(firstname);
       dashboardActions.enterLastName(lastname);
@@ -173,9 +174,9 @@ describe("Save Draft", () => {
       homeActions.isDashBoardButtonDisplayed();
       
       //Add New Lesion - Patient Details
-    dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickAddNewLesion();
+      dashboardActions.selectClinicOptionByName();
+      dashboardActions.clickOkSelectClinic();
+      dashboardActions.clickAddNewLesion();
       dashboardActions.selectTitle('Mrs');
       dashboardActions.enterFirstName(firstname);
       dashboardActions.enterLastName(lastname);
@@ -222,9 +223,9 @@ describe("Save Draft", () => {
       homeActions.isDashBoardButtonDisplayed();
       
       //Add New Lesion - Patient Details
-    dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickAddNewLesion();
+      dashboardActions.selectClinicOptionByName();
+      dashboardActions.clickOkSelectClinic();
+      dashboardActions.clickAddNewLesion();
       dashboardActions.selectTitle('Mrs');
       dashboardActions.enterFirstName(firstname);
       dashboardActions.enterLastName(lastname);
@@ -262,9 +263,9 @@ describe("Save Draft", () => {
       homeActions.isDashBoardButtonDisplayed();
       
       //Add New Lesion - Patient Details
-    dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickAddNewLesion();
+      dashboardActions.selectClinicOptionByName();
+      dashboardActions.clickOkSelectClinic();
+      dashboardActions.clickAddNewLesion();
       dashboardActions.selectTitle('Mrs');
       dashboardActions.enterFirstName(firstname);
       dashboardActions.enterLastName(lastname);
@@ -363,7 +364,7 @@ describe("Save Draft", () => {
       dashboardActions.isPrivateChecked();
     });
     
-    it.skip("09. Check all Gender", () => 
+    it("09. Check all Gender", () => 
     {
       loginActions.visitPage();
       loginActions.inputUserName(user.username);
@@ -395,10 +396,7 @@ describe("Save Draft", () => {
       //Case Summary
       dashboardActions.caseSummary();
       dashboardActions.assertGender(user.gender.male);
-      dashboardActions.clickEditPatientDetails();
       dashboardActions.selectGender(user.gender.female);
-      dashboardActions.clickSavePatientDetails();
-      dashboardActions.clickOkPatientDetails();
      
       dashboardActions.saveDraft();
       dashboardActions.assertTitleTop('Dashboard');
@@ -408,11 +406,7 @@ describe("Save Draft", () => {
       
       dashboardActions.assertGender(user.gender.female);
 
-      dashboardActions.clickEditPatientDetails();
       dashboardActions.selectGender(user.gender.other);
-      dashboardActions.clickSavePatientDetails();
-      dashboardActions.clickOkPatientDetails();
-
 
       dashboardActions.clickHrefByText('Save update');
       dashboardActions.assertTitleTop('Dashboard')
@@ -421,10 +415,7 @@ describe("Save Draft", () => {
       dashboardActions.clickPathologyRequestByFirstName(firstname);
       dashboardActions.assertGender(user.gender.other)
 
-      dashboardActions.clickEditPatientDetails()
       dashboardActions.selectGender(user.gender.unknown)
-      dashboardActions.clickSavePatientDetails();
-      dashboardActions.clickOkPatientDetails();
 
       dashboardActions.clickHrefByText('Save update');
       dashboardActions.assertTitleTop('Dashboard')
@@ -478,8 +469,7 @@ describe("Save Draft", () => {
       //Case Summary
       dashboardActions.caseSummary();
       dashboardActions.saveDraft();
-      dashboardActions.isReviewCase('Draft')
-    
+      dashboardActions.isReviewCase('Draft');
     });
   });
   
