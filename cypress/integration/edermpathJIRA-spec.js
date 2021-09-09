@@ -1671,6 +1671,62 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.checkAllPatientDetailsISDisabled();
     dashboardActions.isEditPatientDetailsVisible();
   });
+  
+  it("EDERMPATH-251. After editing patient details display a confirm details window.", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
 
+    const firstname = `EDERMPATH-${homeActions.randomAlpha(5)}`;
+    const lastname = `confirm details window`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionByNumberImages(1);
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.checkAllPatientDetailsISDisabled();
+    dashboardActions.isEditPatientDetailsVisible();
+    dashboardActions.saveDraft();
+    dashboardActions.assertTitleTop('Dashboard');
+    dashboardActions.assertFirstName(firstname);
+    dashboardActions.isReviewCase('Draft');
+    dashboardActions.clickPathologyRequestByFirstName(firstname);
+    
+    dashboardActions.checkAllPatientDetailsISDisabled();
+    dashboardActions.isEditPatientDetailsVisible();
+    dashboardActions.clickEditPatientDetails();
+    dashboardActions.selectBilling(user.billing.bulkBill);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.clickSavePatientDetails();
+    dashboardActions.clickOkPatientDetails();
+  
+    dashboardActions.clickHrefByText('Save update');
+    dashboardActions.assertTitleTop('Dashboard')
+    dashboardActions.assertFirstName(firstname)
+    dashboardActions.isReviewCase('Draft')
+    dashboardActions.clickPathologyRequestByFirstName(firstname);
+    dashboardActions.assertSelectedBilling(user.billing.bulkBill)
+
+  });
+  
 });
   
