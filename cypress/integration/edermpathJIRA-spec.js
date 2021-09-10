@@ -1622,14 +1622,6 @@ describe("Verify bug on EDERMPATH JIRA", () => {
 
     //Case Summary
     dashboardActions.caseSummary();
-  
-    dashboardActions.clickEditPatientDetails();
-    dashboardActions.assertSelectedBilling(user.billing.DVA);
-    dashboardActions.selectBilling(user.billing.bulkBill);
-    dashboardActions.enterMedicare(user.medicare);
-    dashboardActions.clickSavePatientDetails();
-    dashboardActions.clickOkPatientDetails();
-
     dashboardActions.submitCasePrint();
     dashboardActions.returnToDashboard();
     homeActions.isDashboardDisplayed();
