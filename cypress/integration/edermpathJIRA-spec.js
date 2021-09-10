@@ -1636,6 +1636,43 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
 
+  it("EDERMPATH-244. \"Continue with no image button\" appears at the Body map after backing from the add image screen", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `Edermpath-${homeActions.randomAlpha(10)}`;
+    const lastname = `Continue with no image button`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionNoImage()
+
+    //Case Summary
+    dashboardActions.isBackButtonOfUploadImageInLessionDetails()
+    dashboardActions.clickBackButtonOfUploadImageInLessionDetails()
+    dashboardActions.clickBackToBody()
+    dashboardActions.assertTextIsNotVisible('Continue with no images');
+  });
+
   it("EDERMPATH-245. Lock the Patient Details fields on the summary page and add an edit button", () => 
   {
     loginActions.visitPage();
@@ -1670,6 +1707,42 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.caseSummary();
     dashboardActions.checkAllPatientDetailsISDisabled();
     dashboardActions.isEditPatientDetailsVisible();
+  });
+
+  it("EDERMPATH-246. Upload a photo with an invalid format, the next button is not available", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    const firstname = `EDERMPATH-${homeActions.randomAlpha(5)}`;
+    const lastname = `invalid format image`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionByInvalidImages();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
   });
   
   it("EDERMPATH-251. After editing patient details display a confirm details window.", () => 
@@ -1728,5 +1801,6 @@ describe("Verify bug on EDERMPATH JIRA", () => {
 
   });
   
+
 });
   

@@ -385,6 +385,17 @@ export class DashboardActions extends CommonActions
     .wait(500)
     this.startUpload();  
   }
+
+  uploadMultiInvalidImages(number){
+    const imageArr = []
+    for(let i = 1; i< number+1; i++){
+     imageArr.push(`${i}.png`)
+    }
+    cy.get('input[type="file"]')
+    .attachFile(imageArr)
+    .wait(500)
+    this.startUpload();  
+  }
   
 
   uploadAdditionalImages(number=1){
@@ -506,6 +517,35 @@ export class DashboardActions extends CommonActions
     //Upload Dermascopic Images
     this.assertHeader('Upload ');
     this.clickHrefByText('Continue with no images');
+  }
+
+  addALesionByInvalidImages(number = 2, invalidImageNumber = 4) {
+    //Clinical Condition
+    this.noPreviousHistory();
+    this.provisionalDiagnosis();
+    this.excludeMelasma();
+    this.excludeNmsc();
+    this.selectBiopsyType();
+
+    //Case Images
+    this.addBodyMap();
+    this.clickImage();
+    this.selectBodyRegion();
+    this.enterSpecimenLocation();
+    this.saveBodyMap();
+
+    //Upload Dermascopic Images
+    this.assertHeader('Upload ');
+    this.uploadMultiImages(number);
+    cy.wait(500);
+    this.assertText('Remove');
+    this.startUpload();
+    this.isProgressBarDisappear();
+    this.isImageUploadedSuccessfully();
+    this.uploadMultiInvalidImages(invalidImageNumber)
+    cy.wait(500);
+    this.assertText('Remove');
+    this.nextButtonUploadImg(30000, true);
   }
 
   addALesionByNumberImages(number = 4) {
@@ -698,6 +738,12 @@ export class DashboardActions extends CommonActions
     .should('have.length',1);
   }
 
+  clickBackToBody() {
+    cy.get('telederm#showlinkuploadback')
+    .should('be.visible')
+    .click()
+  }
+
   clickBackToUploadImage() {
     cy.get('#backtoupload')
     .should('be.visible')
@@ -709,6 +755,16 @@ export class DashboardActions extends CommonActions
     .eq(--number)
     .should('be.visible')
     .click()
+  }
+
+  clickBackButtonOfUploadImageInLessionDetails() {
+    cy.get('div#menu_bottom_lession a#backtoupload')
+    .click()
+  }
+
+  isBackButtonOfUploadImageInLessionDetails() {
+    cy.get('div#menu_bottom_lession')
+    .should('be.visible')
   }
 
   isBackButtonOfUploadImage() {
