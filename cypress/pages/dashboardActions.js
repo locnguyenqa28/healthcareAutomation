@@ -1015,6 +1015,17 @@ export class DashboardActions extends CommonActions
     .type(text)
   }
 
+  clickOnTheDoNotSendCheckBox(){
+    cy.get(user.patientDetailsElement.doNotSendCheckbox)
+    .should('be.visible')
+    .click()
+  }
+
+  isDoNotSendChecked(){
+    cy.get(user.patientDetailsElement.doNotSendCheckbox)
+    .should('be.checked')
+  }
+
   checkOrderIsAddedToClinicDefault(orderName){
     cy.get('#clinic_search option[selected]').invoke('text').then((clinicName) => {
       this.assertText('Accession No.');

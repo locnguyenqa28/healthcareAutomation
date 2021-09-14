@@ -1793,6 +1793,64 @@ describe("Verify bug on EDERMPATH JIRA", () => {
 
   });
   
+  it("EDERMPATH-260. Change dashboard page screen layout", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
 
+    dashboardActions.assertText('Create New Pathology Request');
+    dashboardActions.assertText('Sonic Dx account:');
+    dashboardActions.assertText('Site ID:');
+    dashboardActions.assertText('Default clinic:');
+    dashboardActions.assertText('Filter cases by clinic:');
+    dashboardActions.assertText('Search');
+    dashboardActions.assertElement('[href="/cases?urgent=1"]');
+    dashboardActions.assertButton('Search');
+  });
+  
+  it("EDERMPATH-263. Enable the edit of the \"Do not send reports ...\" check box (128)", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `Ederm-${homeActions.randomAlpha(10)}`;
+    const lastname = "the Do not send reports";
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionNoImage(0)
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.checkAllPatientDetailsISDisabled();
+    dashboardActions.isEditPatientDetailsVisible();
+
+    dashboardActions.clickEditPatientDetails();
+    dashboardActions.clickOnTheDoNotSendCheckBox();
+    dashboardActions.isDoNotSendChecked;
+    dashboardActions.clickSavePatientDetails();
+    dashboardActions.clickOkPatientDetails();
+  });
 });
   
