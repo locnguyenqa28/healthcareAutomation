@@ -1045,5 +1045,15 @@ export class DashboardActions extends CommonActions
     }
   }
 
+  deleteLesionByName(lesion1, times = 1){
+    for(let index = 0; index<times; index+=1)
+    {
+      this.assertButton('Dashboard')
+      this.scrollToLesion(lesion1)
+      this.assertText(lesion1)
+      this.clickDeleteLesion(lesion1)
+    }
+  }
+
 }
 
