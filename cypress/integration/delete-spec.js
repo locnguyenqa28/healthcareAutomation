@@ -2011,7 +2011,7 @@ describe("Delete lesion on eDerm part 1", () => {
     dashboardActions.isReviewCase('Draft')
   });
   
-  it.only("32. Delete 1 Lesion - combine images + 2 copies and 1 hospital", () => 
+  it("32. Delete 1 Lesion - combine images + 2 copies and 1 hospital", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -2068,7 +2068,7 @@ describe("Delete lesion on eDerm part 1", () => {
     dashboardActions.isReviewCase('Draft')
   });
   
-  it.only("33. Delete 2 Lesion - combine images + 2 copies and 1 hospital", () => 
+  it("33. Delete 2 Lesion - combine images + 2 copies and 1 hospital", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -2128,7 +2128,7 @@ describe("Delete lesion on eDerm part 1", () => {
     dashboardActions.isReviewCase('Draft')
   });
   
-  it.only("34. Delete 3 Lesions - combine images + 2 copies and 1 hospital", () => 
+  it("34. Delete 3 Lesions - combine images + 2 copies and 1 hospital", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -2190,7 +2190,7 @@ describe("Delete lesion on eDerm part 1", () => {
     dashboardActions.isReviewCase('Draft')
   });
   
-  it.only("35. Delete 4 Lesions - combine images + 2 copies and 1 hospital", () => 
+  it("35. Delete 4 Lesions - combine images + 2 copies and 1 hospital", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
