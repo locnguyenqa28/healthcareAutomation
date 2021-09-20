@@ -877,7 +877,7 @@ describe("Delete lesion on eDerm part 1", () => {
     dashboardActions.isReviewCase('Draft')
   });
   
-  it.only("35. Delete 4 Lesions - combine images + 2 copies and 1 hospital", () => 
+  it("35. Delete 4 Lesions - combine images + 2 copies and 1 hospital", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
