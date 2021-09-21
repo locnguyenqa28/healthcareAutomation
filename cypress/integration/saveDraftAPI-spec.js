@@ -751,7 +751,7 @@ describe("Save Draft by API", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it.only("17.The SaveDraftAPI can be submitted with 4 lesions combine image: 1 valid and 4 invalid", () => 
+  it("17.The SaveDraftAPI can be submitted with 4 lesions combine image: 1 valid and 4 invalid", () => 
   {
     const subname = dashboardActions.randomAlpha(10)
     const firstname = `API-${subname}`;
