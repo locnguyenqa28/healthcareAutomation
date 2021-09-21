@@ -553,4 +553,255 @@ describe("Save Draft by API", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
 
+  it("13.The SaveDraftAPI can be submitted with 4 lesion no image", () => 
+  {
+    const subname = dashboardActions.randomAlpha(10)
+    const firstname = `API-${subname}`;
+    cy.saveDraft(user.username, user.password, firstname);
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+
+    dashboardActions.assertText(subname);
+    dashboardActions.assertText('Create New Pathology Request');
+
+    dashboardActions.clickPathologyRequestByFirstName(subname);
+
+    // Copies report
+
+    dashboardActions.enterFirstNameCopy3('Hospital')
+    dashboardActions.enterLastNameCopy3('Ward ')
+    dashboardActions.enterSuburbCopy3('suburb C')
+
+    dashboardActions.clickHrefByText('Save update');
+
+    dashboardActions.clickPathologyRequestByFirstName(subname);
+    
+    dashboardActions.assertValueVisible('Hospital')
+    dashboardActions.assertValueVisible('Ward ')
+    dashboardActions.assertValueVisible('suburb C')
+
+    dashboardActions.addAnotherLesion();
+     //Add first lesion
+    dashboardActions.addALesionNoImage();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionNoImage();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionNoImage();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionNoImage();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+
+  it("14.The SaveDraftAPI can be submitted with 1 lesion combine image: 2 valid and 4 invalid", () => 
+  {
+    const subname = dashboardActions.randomAlpha(10)
+    const firstname = `API-${subname}`;
+    cy.saveDraft(user.username, user.password, firstname);
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+
+    dashboardActions.assertText(subname);
+    dashboardActions.assertText('Create New Pathology Request');
+
+    dashboardActions.clickPathologyRequestByFirstName(subname);
+
+    // Copies report
+
+    dashboardActions.enterFirstNameCopy3('Hospital')
+    dashboardActions.enterLastNameCopy3('Ward ')
+    dashboardActions.enterSuburbCopy3('suburb C')
+
+    dashboardActions.clickHrefByText('Save update');
+
+    dashboardActions.clickPathologyRequestByFirstName(subname);
+    
+    dashboardActions.assertValueVisible('Hospital')
+    dashboardActions.assertValueVisible('Ward ')
+    dashboardActions.assertValueVisible('suburb C')
+
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByInvalidImages();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+
+  it("15.The SaveDraftAPI can be submitted with 2 lesions combine image: 1 valid and 4 invalid", () => 
+  {
+    const subname = dashboardActions.randomAlpha(10)
+    const firstname = `API-${subname}`;
+    cy.saveDraft(user.username, user.password, firstname);
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+
+    dashboardActions.assertText(subname);
+    dashboardActions.assertText('Create New Pathology Request');
+
+    dashboardActions.clickPathologyRequestByFirstName(subname);
+
+    // Copies report
+
+    dashboardActions.enterFirstNameCopy3('Hospital')
+    dashboardActions.enterLastNameCopy3('Ward ')
+    dashboardActions.enterSuburbCopy3('suburb C')
+
+    dashboardActions.clickHrefByText('Save update');
+
+    dashboardActions.clickPathologyRequestByFirstName(subname);
+    
+    dashboardActions.assertValueVisible('Hospital')
+    dashboardActions.assertValueVisible('Ward ')
+    dashboardActions.assertValueVisible('suburb C')
+
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByInvalidImages();
+
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByInvalidImages();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+
+  it("16.The SaveDraftAPI can be submitted with 3 lesions combine image: 1 valid and 4 invalid", () => 
+  {
+    const subname = dashboardActions.randomAlpha(10)
+    const firstname = `API-${subname}`;
+    cy.saveDraft(user.username, user.password, firstname);
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+
+    dashboardActions.assertText(subname);
+    dashboardActions.assertText('Create New Pathology Request');
+
+    dashboardActions.clickPathologyRequestByFirstName(subname);
+
+    // Copies report
+
+    dashboardActions.enterFirstNameCopy3('Hospital')
+    dashboardActions.enterLastNameCopy3('Ward ')
+    dashboardActions.enterSuburbCopy3('suburb C')
+
+    dashboardActions.clickHrefByText('Save update');
+
+    dashboardActions.clickPathologyRequestByFirstName(subname);
+    
+    dashboardActions.assertValueVisible('Hospital')
+    dashboardActions.assertValueVisible('Ward ')
+    dashboardActions.assertValueVisible('suburb C')
+
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByInvalidImages(1, 4);
+
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByInvalidImages(1, 4);
+
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByInvalidImages(1, 4);
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+
+  it.only("17.The SaveDraftAPI can be submitted with 4 lesions combine image: 1 valid and 4 invalid", () => 
+  {
+    const subname = dashboardActions.randomAlpha(10)
+    const firstname = `API-${subname}`;
+    cy.saveDraft(user.username, user.password, firstname);
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+
+    dashboardActions.assertText(subname);
+    dashboardActions.assertText('Create New Pathology Request');
+
+    dashboardActions.clickPathologyRequestByFirstName(subname);
+
+    // Copies report
+
+    dashboardActions.enterFirstNameCopy3('Hospital')
+    dashboardActions.enterLastNameCopy3('Ward ')
+    dashboardActions.enterSuburbCopy3('suburb C')
+
+    dashboardActions.clickHrefByText('Save update');
+
+    dashboardActions.clickPathologyRequestByFirstName(subname);
+    
+    dashboardActions.assertValueVisible('Hospital')
+    dashboardActions.assertValueVisible('Ward ')
+    dashboardActions.assertValueVisible('suburb C')
+
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByInvalidImages(1, 4);
+
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByInvalidImages(1, 4);
+
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByInvalidImages(1, 4);
+
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByInvalidImages(1, 4);
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+
 });
