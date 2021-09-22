@@ -1083,5 +1083,27 @@ export class DashboardActions extends CommonActions
     }
   }
 
+ isDefaultClinic(clinicName){
+   cy.get('#setdefaultclinic > b')
+   .invoke('text')
+   .should('be.equal', clinicName);
+ }
+
+ logOut() {
+  cy.get('.logout[href="/logout"]')
+    .click();
+ }
+ selectAndCheckDefaultClinic(option = 1, isForce = false)
+  {
+    cy.get('#id_set_default > option')
+      .eq(option)
+      .invoke('text').then((text) => {
+        cy.get('#id_set_default')
+        .select(text, {force: isForce});
+        this.clickOkSelectClinic();
+        cy.wait(1000);
+        this.isDefaultClinic(text);
+      })
+  }
 }
 

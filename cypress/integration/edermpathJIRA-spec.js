@@ -1852,5 +1852,24 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.clickSavePatientDetails();
     dashboardActions.clickOkPatientDetails();
   });
+    
+  it("EDERMPATH-272. Default clinic not being set correctly on login", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    // Check default clinic
+    dashboardActions.selectAndCheckDefaultClinic(2);
+
+    dashboardActions.logOut();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+        // Check default clinic
+    dashboardActions.selectAndCheckDefaultClinic(3);
+  });
 });
   
