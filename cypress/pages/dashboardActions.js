@@ -535,17 +535,45 @@ export class DashboardActions extends CommonActions
     this.saveBodyMap();
 
     //Upload Dermascopic Images
-    this.assertHeader('Upload ');
-    this.uploadMultiImages(number);
-    cy.wait(500);
-    this.assertText('Remove');
-    this.startUpload();
-    this.isProgressBarDisappear();
-    this.isImageUploadedSuccessfully();
-    this.uploadMultiInvalidImages(invalidImageNumber)
-    cy.wait(500);
-    this.assertText('Remove');
-    this.nextButtonUploadImg(30000, true);
+    if(number === 0){
+      this.assertHeader('Upload');
+      cy.wait(500);
+      this.uploadMultiInvalidImages(invalidImageNumber);
+      this.assertText('Remove');
+      this.clickHrefByText('Continue with no images');
+    } else if(number !== 4){
+      this.assertHeader('Upload ');
+      this.uploadMultiImages(number);
+      cy.wait(500);
+      this.assertText('Remove');
+      this.startUpload();
+      this.isProgressBarDisappear();
+      this.isImageUploadedSuccessfully();
+      this.uploadMultiInvalidImages(invalidImageNumber);
+      cy.wait(500);
+      this.assertText('Remove');
+      this.nextButtonUploadImg(30000, true);
+     } else {
+        this.assertHeader('Upload ');
+        this.uploadMultiImages(number-1);
+        cy.wait(500);
+        this.assertText('Remove');
+        this.startUpload();
+        this.isProgressBarDisappear();
+        this.isImageUploadedSuccessfully();
+        this.uploadMultiInvalidImages(invalidImageNumber);
+        cy.wait(500);
+        // upload 1 image
+        this.assertText('Remove');
+        this.assertHeader('Upload ');
+        this.uploadMultiImages(1);
+        cy.wait(500);
+        this.assertText('Remove');
+        this.startUpload();
+        this.isProgressBarDisappear();
+        this.isImageUploadedSuccessfully();
+        this.nextButtonUploadImg(30000, true);
+      }
   }
 
   addALesionByNumberImages(number = 4) {
