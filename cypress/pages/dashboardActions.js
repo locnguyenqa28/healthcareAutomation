@@ -197,6 +197,7 @@ export class DashboardActions extends CommonActions
 
   enterMedicare(medicare){
     cy.get('input[id="case_NHS"]')
+      .clear()
       .type(medicare)
   }
 
@@ -1083,6 +1084,12 @@ export class DashboardActions extends CommonActions
     }
   }
 
+ isPatientClinic(clinicName){
+   cy.get('#clinicnname option[selected]')
+   .invoke('text')
+   .should('be.equal', clinicName);
+ }
+
  isDefaultClinic(clinicName){
    cy.get('#setdefaultclinic > b')
    .invoke('text')
@@ -1103,6 +1110,19 @@ export class DashboardActions extends CommonActions
         this.clickOkSelectClinic();
         cy.wait(1000);
         this.isDefaultClinic(text);
+      })
+  }
+ selectAndCheckPatientClinic(option = 1, isForce = false)
+  {
+    cy.get('#clinicnname > option')
+      .eq(option)
+      .invoke('text').then((text) => {
+        cy.get('#clinicnname')
+        .select(text, {force: isForce});
+        this.nextButton();
+        this.backButton();
+        cy.wait(1000);
+        this.isPatientClinic(text);
       })
   }
 }

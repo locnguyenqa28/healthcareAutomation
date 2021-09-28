@@ -8,7 +8,8 @@ const user = {
    city : "Angeles",
    postcode : "2525",
    contact : "5507891",
-   medicare : "0000052545",
+   medicare : "2123456701",
+   medicareChecked : "2123-45670-1",
    lab : [
       'BSP - Barratt And Smith Pathology',
       'CAP - Capital Pathology',
@@ -50,7 +51,8 @@ const user = {
    billing:{
       DVA: "S",
       bulkBill: "D",
-      private: "P"
+      private: "P",
+      scheduleFee: "SF"
    },
    
    titleTop: {

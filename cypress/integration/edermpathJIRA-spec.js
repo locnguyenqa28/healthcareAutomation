@@ -1871,5 +1871,98 @@ describe("Verify bug on EDERMPATH JIRA", () => {
         // Check default clinic
     dashboardActions.selectAndCheckDefaultClinic(3);
   });
+    
+  it.only("EDERMPATH-274. Add Schedule Fee to Billing Options", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    const firstname = `EDERMPATH-${homeActions.randomAlpha(5)}`;
+    const lastname = `Add Schedule Fee`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling(user.billing.scheduleFee);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.checkPrivate();
+    dashboardActions.saveDraft();
+  });
+    
+  it.only("EDERMPATH-276. [Schedule fee]: The Medicare Number textbox is disappeared after backing from the lesion screen", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    const firstname = `EDERMPATH-${homeActions.randomAlpha(5)}`;
+    const lastname = `Medicare Number check`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling(user.billing.scheduleFee);
+    dashboardActions.checkPrivate();
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+    dashboardActions.backButton();
+    dashboardActions.assertText('Add patient details');
+    dashboardActions.assertText('Copy reports to');
+    dashboardActions.assertText('Save draft »');
+    dashboardActions.assertMedicare(user.medicareChecked);
+    dashboardActions.isPrivateChecked();
+  });
+    
+  it.only("EDERMPATH-277. The clinic selector not be saved after backing from the lesion screen", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    const firstname = `EDERMPATH-${homeActions.randomAlpha(5)}`;
+    const lastname = `clinic selector`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling(user.billing.scheduleFee);
+    dashboardActions.checkPrivate();
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.selectAndCheckPatientClinic(1);
+  });
 });
   
