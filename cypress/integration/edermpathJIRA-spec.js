@@ -1872,7 +1872,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectAndCheckDefaultClinic(3);
   });
     
-  it.only("EDERMPATH-274. Add Schedule Fee to Billing Options", () => 
+  it("EDERMPATH-274. Add Schedule Fee to Billing Options", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -1901,7 +1901,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.saveDraft();
   });
     
-  it.only("EDERMPATH-276. [Schedule fee]: The Medicare Number textbox is disappeared after backing from the lesion screen", () => 
+  it("EDERMPATH-276. [Schedule fee]: The Medicare Number textbox is disappeared after backing from the lesion screen", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -1936,7 +1936,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.isPrivateChecked();
   });
     
-  it.only("EDERMPATH-277. The clinic selector not be saved after backing from the lesion screen", () => 
+  it("EDERMPATH-277. The clinic selector not be saved after backing from the lesion screen", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
