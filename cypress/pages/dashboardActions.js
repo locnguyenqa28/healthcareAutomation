@@ -216,6 +216,10 @@ export class DashboardActions extends CommonActions
     .should('be.visible')
   }
 
+  isPatientInformedFinancialUncheck() {
+    cy.get('#shownhsprivate #case_patientinformedfinancial')
+    .should('not.checked')
+  }
   checkPrivate(isForce = false){
     cy.get('body').then(($body)=>{
       if($body.find('#shownhsprivate #case_patientinformedfinancial[checked="checked"]').length !== 1){
@@ -1124,6 +1128,25 @@ export class DashboardActions extends CommonActions
         cy.wait(1000);
         this.isPatientClinic(text);
       })
+  }
+  
+ editToScheduleFee()
+  {
+    this.clickEditPatientDetails();
+    // scheduleFee
+    this.selectBilling(user.billing.scheduleFee);
+    this.isPatientInformedFinancialUncheck();
+    this.enterMedicare(user.medicare);
+    this.checkPrivate();
+    this.clickSavePatientDetails();
+    this.clickOkPatientDetails();
+  }
+
+ fillScheduleFeeInPatientDetails()
+  {
+    this.selectBilling(user.billing.scheduleFee);
+    this.enterMedicare(user.medicare);
+    this.checkPrivate();
   }
 }
 
