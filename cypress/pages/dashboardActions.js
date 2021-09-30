@@ -524,6 +524,77 @@ export class DashboardActions extends CommonActions
     this.clickHrefByText('Continue with no images');
   }
 
+  addALesionNoImageSelectBodyMap(text = 'Neck') {
+    //Clinical Condition
+    this.noPreviousHistory();
+    this.provisionalDiagnosis();
+    this.excludeMelasma();
+    this.excludeNmsc();
+    this.selectBiopsyType();
+
+    //Case Images
+    this.addBodyMap();
+    this.clickImage();
+    this.selectBodyRegion();
+    this.enterSpecimenLocation();
+    this.saveBodyMap();
+
+    //Upload Dermascopic Images
+    this.assertHeader('Upload ');
+    this.clickHrefByText('Continue with no images');
+  }
+
+  addMuiltiPathologyRequestNoImagesBySelectRegion() {
+    this.selectClinicOptionByName();
+    this.clickOkSelectClinic();
+    const regions = user.regionsBodyMap;
+    for(let i=20; i<regions.length; i++){
+      let name = regions[i];
+      if(regions[i].indexOf('(') > 0){
+        const temp = regions[i].split('(');
+        name= temp[0].trim();
+      }
+      const firstname = `Submit-${this.randomAlpha(5)}`;
+      const lastname = `${name}`;
+      this.clickAddNewLesion();
+      this.selectTitle('Mrs');
+      this.enterFirstName(firstname);
+      this.enterLastName(lastname);
+      this.selectGender('Unknown');
+      this.enterDOB(user.DOB);
+      this.enterHomeAdd(user.address);
+      this.enterCity(user.city);
+      this.selectState();
+      this.enterPostcode(user.postcode);
+      this.enterContact(user.contact);
+      this.enterMedicare(user.medicare);
+      this.nextButton();
+
+      this.noPreviousHistory();
+      this.provisionalDiagnosis();
+      this.excludeMelasma();
+      this.excludeNmsc();
+      this.selectBiopsyType();
+
+      //Case Images
+      this.addBodyMap();
+      this.clickImage();
+      this.selectBodyRegion();
+      this.enterSpecimenLocation(name)
+      this.assertHeader('Body map');    
+   
+      this.selectBodyRegion(regions[i], false)
+      this.saveBodyMap();
+      //Upload Dermascopic Images
+      this.assertHeader('Upload ');
+      this.clickHrefByText('Continue with no images');
+        //Case Summary
+      this.caseSummary();
+      this.submitCasePrint();
+      this.returnToDashboard();
+    } 
+  }
+
   addALesionByInvalidImages(number = 2, invalidImageNumber = 4) {
     //Clinical Condition
     this.noPreviousHistory();
@@ -868,6 +939,7 @@ export class DashboardActions extends CommonActions
     .then(($options) => {
       // get the text of each option
       const regions =  Cypress._.map($options, ($option) => $option.innerText)
+      cy.log(regions.toLocaleString())
       for(let i=1; i<regions.length; i++){
         const randomID = Math.floor(Math.random() * (regions.length - 1)) + 1
         if(regions[randomID].indexOf('(') > 0){
