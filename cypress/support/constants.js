@@ -99,7 +99,10 @@ const user = {
       postcode: "input#case_NotificationPhone",
       billing: "select#case_patientfinancial",
       doNotSendCheckbox: "input#temp_obtained",
-   }
+   },
+   regionsBodyMap: ["Abdomen","Arm","Back","Buttock","Chest","Ear","Eyelid","Finger","Finger palmar","Foot","Foot plantar",
+   "Forearm (elbow and below)","Genitalia","Hand","Hand palmar (after hand)","Leg (knee and below)","Lip","Neck","Nose","Other face","Scalp","Shoulder","Thigh","Toe","Toe plantar"
+   ]
 };
 
 export default user

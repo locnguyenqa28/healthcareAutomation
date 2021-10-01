@@ -553,7 +553,7 @@ describe("Save Draft by API", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("13.The SaveDraftAPI can be submitted with 4 lesion no image", () => 
+  it("13-1.The SaveDraftAPI can be submitted with 4 lesion no image", () => 
   {
     const subname = dashboardActions.randomAlpha(10)
     const firstname = `API-${subname}`;
@@ -600,6 +600,153 @@ describe("Save Draft by API", () => {
 
     //Add another lesion
     dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionNoImage();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+
+  it("13-2.The SaveDraftAPI can be submitted with 3 lesion no image", () => 
+  {
+    const subname = dashboardActions.randomAlpha(10)
+    const firstname = `API-${subname}`;
+    cy.saveDraft(user.username, user.password, firstname);
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+
+    dashboardActions.assertText(subname);
+    dashboardActions.assertText('Create New Pathology Request');
+
+    dashboardActions.clickPathologyRequestByFirstName(subname);
+
+    // Copies report
+
+    dashboardActions.enterFirstNameCopy3('Hospital')
+    dashboardActions.enterLastNameCopy3('Ward ')
+    dashboardActions.enterSuburbCopy3('suburb C')
+
+    dashboardActions.clickHrefByText('Save update');
+
+    dashboardActions.clickPathologyRequestByFirstName(subname);
+    
+    dashboardActions.assertValueVisible('Hospital')
+    dashboardActions.assertValueVisible('Ward ')
+    dashboardActions.assertValueVisible('suburb C')
+
+    dashboardActions.addAnotherLesion();
+     //Add first lesion
+    dashboardActions.addALesionNoImage();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionNoImage();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionNoImage();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+
+  it("13-3.The SaveDraftAPI can be submitted with 2 lesion no image", () => 
+  {
+    const subname = dashboardActions.randomAlpha(10)
+    const firstname = `API-${subname}`;
+    cy.saveDraft(user.username, user.password, firstname);
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+
+    dashboardActions.assertText(subname);
+    dashboardActions.assertText('Create New Pathology Request');
+
+    dashboardActions.clickPathologyRequestByFirstName(subname);
+
+    // Copies report
+
+    dashboardActions.enterFirstNameCopy3('Hospital')
+    dashboardActions.enterLastNameCopy3('Ward ')
+    dashboardActions.enterSuburbCopy3('suburb C')
+
+    dashboardActions.clickHrefByText('Save update');
+
+    dashboardActions.clickPathologyRequestByFirstName(subname);
+    
+    dashboardActions.assertValueVisible('Hospital')
+    dashboardActions.assertValueVisible('Ward ')
+    dashboardActions.assertValueVisible('suburb C')
+
+    dashboardActions.addAnotherLesion();
+     //Add first lesion
+    dashboardActions.addALesionNoImage();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionNoImage();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+
+  it("13-4.The SaveDraftAPI can be submitted with 1 lesion no image", () => 
+  {
+    const subname = dashboardActions.randomAlpha(10)
+    const firstname = `API-${subname}`;
+    cy.saveDraft(user.username, user.password, firstname);
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+
+    dashboardActions.assertText(subname);
+    dashboardActions.assertText('Create New Pathology Request');
+
+    dashboardActions.clickPathologyRequestByFirstName(subname);
+
+    // Copies report
+
+    dashboardActions.enterFirstNameCopy3('Hospital')
+    dashboardActions.enterLastNameCopy3('Ward ')
+    dashboardActions.enterSuburbCopy3('suburb C')
+
+    dashboardActions.clickHrefByText('Save update');
+
+    dashboardActions.clickPathologyRequestByFirstName(subname);
+    
+    dashboardActions.assertValueVisible('Hospital')
+    dashboardActions.assertValueVisible('Ward ')
+    dashboardActions.assertValueVisible('suburb C')
+
+    dashboardActions.addAnotherLesion();
+     //Add first lesion
     dashboardActions.addALesionNoImage();
 
     //Case Summary

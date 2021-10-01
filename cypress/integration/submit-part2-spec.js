@@ -1461,5 +1461,16 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashboardDisplayed();
     dashboardActions.isUploadSuccesfully(0);
   });
+
+  it.skip("57. Check all region", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    dashboardActions.addMuiltiPathologyRequestNoImagesBySelectRegion()
+  });
 });
   
