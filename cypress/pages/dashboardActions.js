@@ -1220,5 +1220,54 @@ export class DashboardActions extends CommonActions
     this.enterMedicare(user.medicare);
     this.checkPrivate();
   }
+
+  addMultiSubmit() 
+{
+  this.selectClinicOptionByName();
+  this.clickOkSelectClinic();
+  for(let i=0; i<50; i++){
+    const subname = this.randomAlpha(10)
+    const firstname = `API-${subname}`;
+    cy.saveDraft(user.username, user.password, firstname);
+    cy.reload()
+    this.clickOkSelectClinic();
+    this.assertText(subname);
+    this.assertText('Create New Pathology Request');
+    this.clickPathologyRequestByFirstName(subname);
+
+    // Copies report
+
+    this.enterFirstNameCopy3('Hospital')
+    this.enterLastNameCopy3('Ward ')
+    this.enterSuburbCopy3('suburb C')
+
+    this.clickHrefByText('Save update');
+
+    this.clickPathologyRequestByFirstName(subname);
+    
+    this.assertValueVisible('Hospital')
+    this.assertValueVisible('Ward ')
+    this.assertValueVisible('suburb C')
+
+    this.addAnotherLesion();
+    this.addALesionByInvalidImages(1, 4);
+
+    this.addAnotherLesion();
+    this.addALesionByInvalidImages(1, 4);
+
+    this.addAnotherLesion();
+    this.addALesionByInvalidImages(1, 4);
+
+    this.addAnotherLesion();
+    this.addALesionByInvalidImages(1, 4);
+
+    //Case Summary
+    this.caseSummary();
+    this.submitCasePrint();
+    this.returnToDashboard();
+  } 
 }
+}
+
+
 
