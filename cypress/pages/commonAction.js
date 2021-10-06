@@ -32,6 +32,10 @@ export class CommonActions {
     cy.get(element)
     .should('be.visible')
   }
+  assertElementNotExist(element){
+    cy.get(element)
+    .should('not.be.exist')
+  }
   clickButtonByText(text){
     cy.get('[onclick]')
     .contains(text)
