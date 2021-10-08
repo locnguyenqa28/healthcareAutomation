@@ -242,7 +242,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.selectState(user.state[0]);
     dashboardActions.clickButtonByText('Save');
+    cy.wait(2000)
     dashboardActions.clickPathologyRequestByFirstName(firstname);
+    cy.wait(2000)
     dashboardActions.isState(user.state[0]);
 
     dashboardActions.assertAllStateSaveAndDraft(firstname); 
@@ -280,9 +282,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
 
     homeActions.isDashboardDisplayed();
     dashboardActions.isReviewCase('Draft')
-
+    cy.wait(2000)
     dashboardActions.clickPathologyRequestByFirstName(firstname);
-
+    cy.wait(2000)
     //Add another lesion
     dashboardActions.addAnotherLesion();
     dashboardActions.addALesion();
