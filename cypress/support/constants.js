@@ -1,6 +1,8 @@
 const user = {
-   username : "apidoc",
-   password : "!3Derm2021",
+   username1 : "apidoc",
+   password1 : "!3Derm2021",
+   username : "sfihealthcertdev",
+   password : "myX2rz59",
    firstname : "Automation",
    lastname : "Tester",
    DOB : "23/01/1969",
