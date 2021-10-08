@@ -214,7 +214,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.isReviewCase('Draft')
   });
 
-  it("EDERMPATH-78. The state is not saved", () => 
+  it.only("EDERMPATH-78. The state is not saved", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -248,7 +248,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.assertAllStateSaveAndDraft(firstname); 
   });
 
-  it("EDERMPATH-79. Unable to add new conditions from the draft", () => 
+  it.only("EDERMPATH-79. Unable to add new conditions from the draft", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
