@@ -213,6 +213,87 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.assertTitleTop(user.titleTop.dashboard)
     dashboardActions.isReviewCase('Draft')
   });
+
+  it("EDERMPATH-78. The state is not saved", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `EDERMPATH seven eight ${homeActions.randomAlpha(10)}`;
+    const lastname = `The state is not saved`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText)
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.selectState(user.state[0]);
+    dashboardActions.clickButtonByText('Save');
+    dashboardActions.clickPathologyRequestByFirstName(firstname);
+    dashboardActions.isState(user.state[0]);
+
+    dashboardActions.assertAllStateSaveAndDraft(firstname); 
+  });
+
+  it("EDERMPATH-79. Unable to add new conditions from the draft", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `EDERMPATH seven nine ${homeActions.randomAlpha(10)}`;
+    const lastname = `Unable to add new conditions from the draft`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText)
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.saveDraft();
+    dashboardActions.assertFirstName(firstname)
+
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isReviewCase('Draft')
+    dashboardActions.clickPathologyRequestByFirstName(firstname);
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.assertButton('Dashboard');
+    dashboardActions.saveDraft();
+    dashboardActions.assertFirstName(firstname)
+
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isReviewCase('Draft')
+  });
     
   it("EDERMPATH-80. Unable to save the new lesion although the last name changing to a valid value", () => 
   {
@@ -249,6 +330,79 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.saveDraft();
     dashboardActions.assertFirstName(firstname)
     dashboardActions.isReviewCase('Draft')
+  });
+  
+  it("EDERMPATH-81. The 5th condition will be generated after editing twice", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `EDERMPATH eight one ${homeActions.randomAlpha(10)}`;
+    const lastname = `The five condition will be generated after editing twice`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText);
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionByNumberImages(1);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByNumberImages(1);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByNumberImages(1);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByNumberImages(1);
+
+    //Edit body map
+    dashboardActions.clickHrefByText('Edit body map and location');
+    dashboardActions.selectBodyRegion('Arm');
+    dashboardActions.enterSpecimenLocation(homeActions.randomAlpha(40));
+    dashboardActions.saveBodyMap();
+    dashboardActions.assertNoText('Save body map');
+
+    //Edit body map
+    dashboardActions.assertNoText('Save body map');
+    dashboardActions.clickHrefByText('Edit body map and location');
+    dashboardActions.selectBodyRegion('Arm');
+    dashboardActions.enterSpecimenLocation(homeActions.randomAlpha(40));
+    dashboardActions.saveBodyMap();
+    dashboardActions.assertNoText('Save body map');
+
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.assertText('Lesion 1')
+    dashboardActions.assertText('Lesion 2')
+    dashboardActions.assertText('Lesion 3')
+    dashboardActions.assertText('Lesion 4')
+    dashboardActions.assertNoText('Lesion 5')
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
   });
   
   it("EDERMPATH-83. After adding two conditions the DOB is missing", () => 
@@ -298,6 +452,85 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     homeActions.isDashboardDisplayed();
     dashboardActions.assertFirstName(firstname)
     dashboardActions.isReviewCase('Draft');
+  });
+    
+  it("EDERMPATH-85. Able to add more than 4 conditions by multi clicking on Save body map", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `EDERMPATH eight five ${homeActions.randomAlpha(10)}`;
+    const lastname = `Able to add more than four conditions`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText);
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionByNumberImages(1);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByNumberImages(1);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByNumberImages(1);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+
+    //Clinical Condition
+    dashboardActions.noPreviousHistory();
+    dashboardActions.provisionalDiagnosis();
+    dashboardActions.excludeMelasma();
+    dashboardActions.excludeNmsc();
+    dashboardActions.selectBiopsyType();
+
+    //Case Images
+    dashboardActions.addBodyMap();
+    dashboardActions.clickImage();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation();
+    dashboardActions.dblclickSaveBodyMap();
+
+    //Upload Dermascopic Images
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.uploadMultiImages(1);
+    dashboardActions.startUpload();
+    dashboardActions.isProgressBarDisappear();
+    dashboardActions.isImageUploadedSuccessfully();
+    dashboardActions.nextButtonUploadImg();
+
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.assertText('Lesion 1')
+    dashboardActions.assertText('Lesion 2')
+    dashboardActions.assertText('Lesion 3')
+    dashboardActions.assertText('Lesion 4')
+    dashboardActions.assertNoText('Lesion 5')
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
   });
 
   it("EDERMPATH-87. The Save body map button is not functional", () => 
@@ -557,6 +790,77 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     homeActions.isDashboardDisplayed();
     dashboardActions.isUploadSuccesfully(0);
   });
+    
+  it("EDERMPATH-137. The Clinical note is not be saved after inputting the quote symbol", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = user.firstname + homeActions.randomAlpha(10);
+    const lastname = `EDERMPATH one three seven`;
+    const invalidQuoteText = '"""""""""""""""""""""""""""""';
+    const quoteText = "(((((((((((())))))))))))";
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText)
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Clinical Condition
+    dashboardActions.noPreviousHistory();
+    dashboardActions.provisionalDiagnosis();
+    dashboardActions.excludeMelasma();
+    dashboardActions.excludeNmsc();
+    dashboardActions.enterClinicalNote(invalidQuoteText);
+    dashboardActions.selectBiopsyType();
+
+    //Case Images
+    dashboardActions.addBodyMap();
+    dashboardActions.assertText("Please enter a clinical notes. Allowed characters: a-z, A-Z, 0-9, /, #, -,?, (,).")
+
+    dashboardActions.enterClinicalNote(quoteText);
+    dashboardActions.addBodyMap();
+    dashboardActions.clickImage();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation();
+    dashboardActions.saveBodyMap();
+
+    //Upload Dermascopic Images
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.uploadMultiImages(2);
+    dashboardActions.startUpload();
+    dashboardActions.isImageUploadedSuccessfully();
+    dashboardActions.assertFile('1.jpg')
+    dashboardActions.assertFile('2.jpg')
+    dashboardActions.nextButtonUploadImg();
+    dashboardActions.assertTextArea(quoteText);
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.assertButton('Dashboard')
+
+    //Submit
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
 
   it("EDERMPATH-140. Unknown added", () => 
   {
@@ -594,6 +898,73 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.saveDraft();
     dashboardActions.assertFirstName(firstname)
     dashboardActions.isReviewCase('Draft')
+  });
+
+  it("EDERMPATH-145. eOrder did not upload", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = user.firstname + homeActions.randomAlpha(10);
+    const lastname = `EDERMPATH one four five`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText)
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Clinical Condition
+    dashboardActions.noPreviousHistory();
+    dashboardActions.provisionalDiagnosis();
+    dashboardActions.excludeMelasma();
+    dashboardActions.excludeNmsc();
+    dashboardActions.selectBiopsyType();
+
+    //Case Images
+    dashboardActions.addBodyMap();
+    dashboardActions.clickImage();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation();
+    dashboardActions.saveBodyMap();
+
+    //Upload Dermascopic Images
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.uploadMultiImages(2);
+    dashboardActions.startUpload();
+    dashboardActions.isImageUploadedSuccessfully();
+    dashboardActions.assertFile('1.jpg')
+    dashboardActions.assertFile('2.jpg')
+    dashboardActions.nextButtonUploadImg();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.assertButton('Dashboard')
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.assertHeader('Clinical indication');
+    dashboardActions.backButton();
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
   });
 
   it("EDERMPATH-146. eOrder no uploading - deleting lesion 1 when there were 3 lesions", () => 
@@ -696,6 +1067,82 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.returnToDashboard();
     homeActions.isDashboardDisplayed();
     dashboardActions.isUploadSuccesfully(0);
+  });
+         
+  it("EDERMPATH-154. Update field validation and details", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `EDERMPATH one five four ${homeActions.randomAlpha(5)}`;
+    const lastname = `Update field validation`;
+    const validText = "abcdzABCDZ()--";
+    const validDVANumber = "abcdzABCDZ()--/#,1234567890";
+    const validNote = "abcdzABCDZ()--/#,1234567890.";
+    const invalidNote = "!@@@@@@@$$$$$";
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectBilling(user.billing.DVA);
+    dashboardActions.saveDraft();
+    dashboardActions.assertAllValidMessage()
+    dashboardActions.nextButton();
+    dashboardActions.assertAllValidMessage()
+
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validText)
+    dashboardActions.assertMaxLengthOtherTitle('10')
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(validText);
+    dashboardActions.enterCity(validText);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterDVANumber(validDVANumber);
+    dashboardActions.nextButton();
+
+    //Clinical Condition
+    dashboardActions.noPreviousHistory();
+    dashboardActions.provisionalDiagnosis();
+    dashboardActions.excludeMelasma();
+    dashboardActions.excludeNmsc();
+    dashboardActions.selectBiopsyType();
+    dashboardActions.enterClinicalNote(invalidNote);
+    dashboardActions.addBodyMap();
+    dashboardActions.assertText(user.validNoteMessage);
+    dashboardActions.enterClinicalNote(validNote);
+
+    //Case Images
+    dashboardActions.addBodyMap();
+    dashboardActions.clickImage();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation(invalidNote);
+    dashboardActions.saveBodyMap();
+    dashboardActions.assertText(user.validNoteMessage);
+    dashboardActions.enterSpecimenLocation(validNote);
+    dashboardActions.saveBodyMap();
+
+     //Upload Dermascopic Images
+     dashboardActions.assertHeader('Upload ');
+     dashboardActions.uploadImage();
+     dashboardActions.startUpload();
+     dashboardActions.isImageUploadedSuccessfully();
+     dashboardActions.assertFile('1.jpg')
+     dashboardActions.nextButtonUploadImg();
+
+      //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.saveDraft();
+    dashboardActions.assertFirstName(firstname)
+    dashboardActions.isReviewCase('Draft')
   });
    
   it("EDERMPATH-155. Gender Other, updated 582", () => 
@@ -1032,6 +1479,100 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.isReviewCase('Draft')
   });
   
+  it("EDERMPATH-224. Provider Number must be Unique across the entire eDerm System (Active/Enabled)", () => 
+  {
+    const clinicName = `Unique testing-${homeActions.randomAlpha(10)}`;
+    const providerNumber = clinicActions.randomAlphanumeric(10)
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Clinic
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickHrefByText('Setup');
+    clinicActions.clickAddNewClinic();
+
+    // Clinic modal
+    clinicActions.isModal('Add new clinic');
+    clinicActions.enterClinicName(clinicName);
+    clinicActions.enterClinicProvidernumber(providerNumber);
+    clinicActions.enterClinicAddress();
+    clinicActions.enterClinicSubhub();
+    clinicActions.enterClinicPostcode();
+    clinicActions.selectClinicLab();
+    clinicActions.selectClinicState();
+    clinicActions.enterClinicPhone();
+    clinicActions.enterClinicMobilePhone();
+    clinicActions.enterClinicEmail();
+    clinicActions.clickSaveClinic();
+
+    clinicActions.reloadClinicPage();
+
+    // Clinic modal
+    clinicActions.assertText('Add new clinic');
+    clinicActions.clickAddNewClinic(true);
+    clinicActions.isModal('Add new clinic');
+    clinicActions.enterClinicName(`${clinicName} copy`);
+    clinicActions.enterClinicProvidernumber(providerNumber);
+    clinicActions.enterClinicAddress();
+    clinicActions.enterClinicSubhub();
+    clinicActions.enterClinicPostcode();
+    clinicActions.selectClinicLab();
+    clinicActions.selectClinicState();
+    clinicActions.enterClinicPhone();
+    clinicActions.enterClinicMobilePhone();
+    clinicActions.enterClinicEmail();
+    clinicActions.clickSaveClinic();
+
+    // Assert clinic
+    clinicActions.isFirstClinicNameNotExist(`${clinicName} copy`); 
+  });
+  
+  it("EDERMPATH-232. Clinic status Disabled", () => 
+  {
+    const clinicName = `Unique testing-${homeActions.randomAlpha(10)}`;
+    const providerNumber = clinicActions.randomAlphanumeric(10)
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Clinic
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickHrefByText('Setup');
+    clinicActions.clickAddNewClinic();
+
+    // Clinic modal
+    clinicActions.isModal('Add new clinic');
+    clinicActions.enterClinicName(clinicName);
+    clinicActions.enterClinicProvidernumber(providerNumber);
+    clinicActions.enterClinicAddress();
+    clinicActions.enterClinicSubhub();
+    clinicActions.enterClinicPostcode();
+    clinicActions.selectClinicLab();
+    clinicActions.selectClinicState();
+    clinicActions.enterClinicPhone();
+    clinicActions.enterClinicMobilePhone();
+    clinicActions.enterClinicEmail();
+    clinicActions.clickSaveClinic();
+
+    // Assert clinic
+    clinicActions.isFirstClinicNameExist(clinicName); 
+    clinicActions.reloadClinicPage();
+
+    clinicActions.clickFirstInactiveClinicButton();
+    clinicActions.assertClinicStatusByIndex('Disabled')
+
+    clinicActions.clickHrefByText('Dashboard');
+    clinicActions.assertTextClinicOptionByIndex(`${clinicName} (Disabled)`,1)
+
+  });
+  
   it("EDERMPATH-241. The reset password link does not present after logining with an invalid value", () => 
   {
     loginActions.visitPage();
@@ -1194,6 +1735,62 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     homeActions.isDashboardDisplayed();
   });
   
+  it("EDERMPATH-251. After editing patient details display a confirm details window.", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    const firstname = `EDERMPATH-${homeActions.randomAlpha(5)}`;
+    const lastname = `confirm details window`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionByNumberImages(1);
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.checkAllPatientDetailsISDisabled();
+    dashboardActions.isEditPatientDetailsVisible();
+    dashboardActions.saveDraft();
+    dashboardActions.assertTitleTop('Dashboard');
+    dashboardActions.assertFirstName(firstname);
+    dashboardActions.isReviewCase('Draft');
+    dashboardActions.clickPathologyRequestByFirstName(firstname);
+    
+    dashboardActions.checkAllPatientDetailsISDisabled();
+    dashboardActions.isEditPatientDetailsVisible();
+    dashboardActions.clickEditPatientDetails();
+    dashboardActions.selectBilling(user.billing.bulkBill);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.clickSavePatientDetails();
+    dashboardActions.clickOkPatientDetails();
+  
+    dashboardActions.clickHrefByText('Save update');
+    dashboardActions.assertTitleTop('Dashboard')
+    dashboardActions.assertFirstName(firstname)
+    dashboardActions.isReviewCase('Draft')
+    dashboardActions.clickPathologyRequestByFirstName(firstname);
+    dashboardActions.assertSelectedBilling(user.billing.bulkBill)
+
+  });
+  
   it("EDERMPATH-260. Change dashboard page screen layout", () => 
   {
     loginActions.visitPage();
@@ -1252,6 +1849,25 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.isDoNotSendChecked;
     dashboardActions.clickSavePatientDetails();
     dashboardActions.clickOkPatientDetails();
+  });
+    
+  it("EDERMPATH-272. Default clinic not being set correctly on login", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    // Check default clinic
+    dashboardActions.selectAndCheckDefaultClinic(2);
+
+    dashboardActions.logOut();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+        // Check default clinic
+    dashboardActions.selectAndCheckDefaultClinic(3);
   });
     
   it("EDERMPATH-274. Add Schedule Fee to Billing Options", () => 
