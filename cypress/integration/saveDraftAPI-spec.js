@@ -10,7 +10,7 @@ describe("Save Draft by API", () => {
   const dashboardActions = new DashboardActions();
   const clinicActions = new ClinicActions();
 
-  it.only("saveDraft by API is successfull", () => 
+  it("saveDraft by API is successfull", () => 
   {
     const firstname = `API-${dashboardActions.randomAlpha(10)}`;
     cy.saveDraft(user.username, user.password, firstname);
@@ -22,15 +22,11 @@ describe("Save Draft by API", () => {
 
     dashboardActions.clickOkSelectClinic(true);
     clinicActions.selectSearchClinicByText('All');
-    loginActions.visitPage();
-    loginActions.inputUserName(user.username);
-    loginActions.inputPassword(user.password);
-
     //Case Summary
     dashboardActions.assertText(firstname)
   });
 
-  it("Edit saveDraftAPI successfull", () => 
+  it.only("Edit saveDraftAPI successfull", () => 
   {
     const firstname = `API-${dashboardActions.randomAlpha(10)}`;
     const editname = `Edit-API-${dashboardActions.randomAlpha(10)}`
@@ -55,6 +51,11 @@ describe("Save Draft by API", () => {
     dashboardActions.clickOkPatientDetails();
 
     dashboardActions.clickHrefByText('Save update');
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
     dashboardActions.assertText(editname);
   });
 
