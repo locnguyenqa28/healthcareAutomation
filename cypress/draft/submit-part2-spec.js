@@ -503,6 +503,49 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.assertGender(user.gender.other)
   });
   
+  it("36. Submit one Lesion - 4 images + only copy 1st report", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `submit-${homeActions.randomAlpha(20)}`;
+    const lastname = `One Lesion - four images - only the first copy`;
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+
+    dashboardActions.selectTitleCopy1ByIndex()
+    dashboardActions.enterFirstNameCopy1('Copy A')
+    dashboardActions.enterLastNameCopy1('last name A')
+    dashboardActions.enterSuburbCopy1('suburb A')
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionByNumberImages(4);
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0, 2000);
+  });
+  
   it("37. Submit one Lesion - 4 images + only copy 2nd report", () => 
   {
     loginActions.visitPage();
@@ -588,6 +631,55 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.isUploadSuccesfully(0, 3000);
   });
   
+  it("39. Submit one Lesion - 4 images + 2 copies 1st 2nd report", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `submit-${homeActions.randomAlpha(20)}`;
+    const lastname = `One Lesion - four images -two copies first second`;
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+
+    dashboardActions.selectTitleCopy1ByIndex(1)
+    dashboardActions.enterFirstNameCopy1('Copy A')
+    dashboardActions.enterLastNameCopy1('last name A')
+    dashboardActions.enterSuburbCopy1('suburb A')
+
+    dashboardActions.selectTitleCopy1ByIndex(2)
+    dashboardActions.enterFirstNameCopy2('Copy B')
+    dashboardActions.enterLastNameCopy2('last name B')
+    dashboardActions.enterSuburbCopy2('suburb B')
+
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionByNumberImages(4);
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0, 3000);
+  });
+  
   it("40. Submit one Lesion - 4 images + 3 copies 1st 2nd Hospital report", () => 
   {
     loginActions.visitPage();
@@ -639,6 +731,56 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.returnToDashboard();
     homeActions.isDashboardDisplayed();
     dashboardActions.isUploadSuccesfully(0, 3000);
+  });
+  
+  it("41. Submit four Lesion No image", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `submit-${homeActions.randomAlpha(10)}`;
+    const lastname = `four lesions no image`;
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionNoImage()
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion()
+    dashboardActions.addALesionNoImage()
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion()
+    dashboardActions.addALesionNoImage()
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion()
+    dashboardActions.addALesionNoImage()
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
   });
   
   it("42. Submit three Lesion No image", () => 
@@ -1225,6 +1367,154 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.clickSavePatientDetails();
     dashboardActions.clickOkPatientDetails();
    
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+  
+  it("55. Private to Schedule Fee", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `submit ${homeActions.randomAlpha(10)}`;
+    const lastname = `private to Schedule Fee`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling(user.billing.private)
+    dashboardActions.checkPrivate();
+   
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionByNumberImages(1);
+
+    // Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.editToScheduleFee();
+   
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+
+  it("56. Schedule Fee to Private", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `submit ${homeActions.randomAlpha(10)}`;
+    const lastname = `Schedule Fee to private`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.fillScheduleFeeInPatientDetails();
+   
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionByNumberImages(1);
+
+    //Case Summary
+    dashboardActions.caseSummary();
+
+    dashboardActions.clickEditPatientDetails();
+    dashboardActions.selectBilling(user.billing.private)
+    dashboardActions.isPatientInformedFinancialUncheck();
+    dashboardActions.checkPrivate();
+    dashboardActions.clickSavePatientDetails();
+    dashboardActions.clickOkPatientDetails();
+  
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+
+  it("57. Submit four Lesion edit bodymap No image", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `submit-${homeActions.randomAlpha(10)}`;
+    const lastname = `four lesions bodymap no image`;
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionNoImage()
+
+    //Edit body map
+    dashboardActions.editBodyMap();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion()
+    dashboardActions.addALesionNoImage()
+    //Edit body map
+    dashboardActions.editBodyMap();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion()
+    dashboardActions.addALesionNoImage()
+    //Edit body map
+    dashboardActions.editBodyMap();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion()
+    dashboardActions.addALesionNoImage()
+    //Edit body map
+    dashboardActions.editBodyMap();
+
+    //Case Summary
+    dashboardActions.caseSummary();
     dashboardActions.submitCasePrint();
     dashboardActions.returnToDashboard();
     homeActions.isDashboardDisplayed();
