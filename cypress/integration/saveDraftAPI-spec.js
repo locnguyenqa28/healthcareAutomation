@@ -26,7 +26,7 @@ describe("Save Draft by API", () => {
     dashboardActions.assertText(firstname)
   });
 
-  it.only("Edit saveDraftAPI successfull", () => 
+  it("Edit saveDraftAPI successfull", () => 
   {
     const firstname = `API-${dashboardActions.randomAlpha(10)}`;
     const editname = `Edit-API-${dashboardActions.randomAlpha(10)}`
@@ -101,6 +101,10 @@ describe("Save Draft by API", () => {
     dashboardActions.enterSuburbCopy1('suburb A')
 
     dashboardActions.clickHrefByText('Save update');
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
 
     dashboardActions.clickPathologyRequestByFirstName(subname);
     dashboardActions.assertValueVisible('Copy A')
@@ -139,6 +143,10 @@ describe("Save Draft by API", () => {
     dashboardActions.enterSuburbCopy2('suburb B')
 
     dashboardActions.clickHrefByText('Save update');
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
 
     dashboardActions.clickPathologyRequestByFirstName(subname);
     dashboardActions.assertValueVisible('Copy A')
@@ -185,6 +193,10 @@ describe("Save Draft by API", () => {
     dashboardActions.enterSuburbCopy3('suburb C')
 
     dashboardActions.clickHrefByText('Save update');
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
 
     dashboardActions.clickPathologyRequestByFirstName(subname);
     dashboardActions.assertValueVisible('Copy A')
@@ -225,6 +237,10 @@ describe("Save Draft by API", () => {
     dashboardActions.enterSuburbCopy3('suburb C')
 
     dashboardActions.clickHrefByText('Save update');
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
 
     dashboardActions.clickPathologyRequestByFirstName(subname);
     
@@ -268,6 +284,10 @@ describe("Save Draft by API", () => {
     dashboardActions.enterSuburbCopy3('suburb C')
 
     dashboardActions.clickHrefByText('Save update');
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
 
     dashboardActions.clickPathologyRequestByFirstName(subname);
     dashboardActions.assertValueVisible('Copy A')
@@ -328,6 +348,10 @@ describe("Save Draft by API", () => {
     dashboardActions.enterSuburbCopy3('suburb C')
 
     dashboardActions.clickHrefByText('Save update');
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
 
     dashboardActions.clickPathologyRequestByFirstName(subname);
     dashboardActions.assertValueVisible('Copy A')
@@ -393,6 +417,10 @@ describe("Save Draft by API", () => {
     dashboardActions.enterSuburbCopy3('suburb C')
 
     dashboardActions.clickHrefByText('Save update');
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
 
     dashboardActions.clickPathologyRequestByFirstName(subname);
     dashboardActions.assertValueVisible('Copy A')
@@ -453,6 +481,10 @@ describe("Save Draft by API", () => {
     dashboardActions.enterSuburbCopy3('suburb C')
 
     dashboardActions.clickHrefByText('Save update');
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
 
     dashboardActions.clickPathologyRequestByFirstName(subname);
     
@@ -506,6 +538,11 @@ describe("Save Draft by API", () => {
     dashboardActions.enterSuburbCopy3('suburb C')
 
     dashboardActions.clickHrefByText('Save update');
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
 
     dashboardActions.clickPathologyRequestByFirstName(subname);
     
@@ -555,6 +592,11 @@ describe("Save Draft by API", () => {
     dashboardActions.enterSuburbCopy3('suburb C')
 
     dashboardActions.clickHrefByText('Save update');
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
 
     dashboardActions.clickPathologyRequestByFirstName(subname);
     
@@ -600,6 +642,11 @@ describe("Save Draft by API", () => {
     dashboardActions.enterSuburbCopy3('suburb C')
 
     dashboardActions.clickHrefByText('Save update');
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
 
     dashboardActions.clickPathologyRequestByFirstName(subname);
     
@@ -644,6 +691,11 @@ describe("Save Draft by API", () => {
     dashboardActions.enterSuburbCopy3('suburb C')
 
     dashboardActions.clickHrefByText('Save update');
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
 
     dashboardActions.clickPathologyRequestByFirstName(subname);
     
@@ -691,6 +743,11 @@ describe("Save Draft by API", () => {
     dashboardActions.enterSuburbCopy3('suburb C')
 
     dashboardActions.clickHrefByText('Save update');
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
 
     dashboardActions.clickPathologyRequestByFirstName(subname);
     
