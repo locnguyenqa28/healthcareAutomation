@@ -10,7 +10,7 @@ describe("Save Draft by API", () => {
   const dashboardActions = new DashboardActions();
   const clinicActions = new ClinicActions();
 
-  it("saveDraft by API is successfull", () => 
+  it.only("saveDraft by API is successfull", () => 
   {
     const firstname = `API-${dashboardActions.randomAlpha(10)}`;
     cy.saveDraft(user.username, user.password, firstname);
@@ -22,6 +22,7 @@ describe("Save Draft by API", () => {
 
     dashboardActions.clickOkSelectClinic(true);
     clinicActions.selectSearchClinicByText('All');
+    loginActions.visitPage();
 
     //Case Summary
     dashboardActions.assertText(firstname)
