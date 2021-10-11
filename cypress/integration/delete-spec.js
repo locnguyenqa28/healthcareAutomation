@@ -4,7 +4,7 @@ import { DashboardActions } from "../pages/dashboardActions";
 import user from "../support/constants"
 
 
-describe("Delete lesion on eDerm part 1", () => {
+describe("Delete lesion", () => {
     const loginActions = new LoginActions();
     const homeActions = new HomeActions();
     const dashboardActions = new DashboardActions();
@@ -728,9 +728,6 @@ describe("Delete lesion on eDerm part 1", () => {
      //Add another lesion
      dashboardActions.addAnotherLesion();
     dashboardActions.addALesionNoImage();
-     //Add another lesion
-     dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionNoImage();
  
     //Case Summary
     dashboardActions.caseSummary();
@@ -787,9 +784,6 @@ describe("Delete lesion on eDerm part 1", () => {
     dashboardActions.assertText('Save draft » ')
     dashboardActions.nextButton();
     //Add lesion
-    dashboardActions.addALesionNoImage();
-     //Add another lesion
-     dashboardActions.addAnotherLesion();
     dashboardActions.addALesionNoImage();
      //Add another lesion
      dashboardActions.addAnotherLesion();
