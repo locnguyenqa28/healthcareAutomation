@@ -23,6 +23,8 @@ describe("Save Draft by API", () => {
     dashboardActions.clickOkSelectClinic(true);
     clinicActions.selectSearchClinicByText('All');
     loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
 
     //Case Summary
     dashboardActions.assertText(firstname)
