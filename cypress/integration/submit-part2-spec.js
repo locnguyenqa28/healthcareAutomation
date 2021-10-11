@@ -546,48 +546,6 @@ describe("Add New Lesion on eDerm", () => {
     dashboardActions.isUploadSuccesfully(0, 3000);
   });
   
-  it("38. Submit one Lesion - 4 images + only Hospital report", () => 
-  {
-    loginActions.visitPage();
-    loginActions.inputUserName(user.username);
-    loginActions.inputPassword(user.password);
-    loginActions.clickLoginButton();
-    homeActions.isDashBoardButtonDisplayed();
-    
-    //Add New Lesion - Patient Details
-    const firstname = `submit-${homeActions.randomAlpha(20)}`;
-    const lastname = `One Lesion - four images - only the third copy`;
-    dashboardActions.clickOkSelectClinic(true);
-    clinicActions.selectSearchClinicByText('All');
-    dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Mrs');
-    dashboardActions.enterFirstName(firstname);
-    dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
-    dashboardActions.enterDOB(user.DOB);
-    dashboardActions.enterHomeAdd(user.address);
-    dashboardActions.enterCity(user.city);
-    dashboardActions.selectState();
-    dashboardActions.enterPostcode(user.postcode);
-    dashboardActions.enterContact(user.contact);
-    dashboardActions.enterMedicare(user.medicare);
-
-    dashboardActions.enterFirstNameCopy3('Hospital')
-    dashboardActions.enterLastNameCopy3('Ward ')
-    dashboardActions.enterSuburbCopy3('suburb C')
-    dashboardActions.nextButton();
-
-    //Add first lesion
-    dashboardActions.addALesionByNumberImages(4);
-
-    //Case Summary
-    dashboardActions.caseSummary();
-    dashboardActions.submitCasePrint();
-    dashboardActions.returnToDashboard();
-    homeActions.isDashboardDisplayed();
-    dashboardActions.isUploadSuccesfully(0, 3000);
-  });
-  
   it("40. Submit one Lesion - 4 images + 3 copies 1st 2nd Hospital report", () => 
   {
     loginActions.visitPage();
