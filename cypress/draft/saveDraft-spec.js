@@ -10,7 +10,7 @@ describe("Save Draft", () => {
     const dashboardActions = new DashboardActions();
     const validDVANumber = 'Abc12345678';
 
-    it("Patient Details saving", () => 
+    it("01. Patient Details saving", () => 
     {
       loginActions.visitPage();
       loginActions.inputUserName(user.username);
@@ -40,7 +40,7 @@ describe("Save Draft", () => {
       dashboardActions.isReviewCase('Draft')
     });
   
-    it("One Lesion saving", () => 
+    it("02. One Lesion saving", () => 
     {
       const firstname = `Draft-${homeActions.randomAlpha(10)}`;
       const lastname = `save one lesion ${homeActions.randomAlpha(10)}`;
@@ -77,7 +77,7 @@ describe("Save Draft", () => {
       dashboardActions.isReviewCase('Draft')
     });
   
-    it("Two Lesion saving", () => 
+    it("03. Two Lesion saving", () => 
     {
       const firstname = `Draft-${homeActions.randomAlpha(10)}`;
       const lastname = `save two lesion ${homeActions.randomAlpha(10)}`;
@@ -118,7 +118,7 @@ describe("Save Draft", () => {
       dashboardActions.isReviewCase('Draft')
     });
   
-    it("Three Lesion saving", () => 
+    it("04. Three Lesion saving", () => 
     {
       const firstname = `Draft-${homeActions.randomAlpha(10)}`;
       const lastname = `save three lesion ${homeActions.randomAlpha(10)}`;
@@ -162,8 +162,57 @@ describe("Save Draft", () => {
       dashboardActions.assertFirstName(firstname)
       dashboardActions.isReviewCase('Draft')
     });
+  
+    it("05. Four Lesion saving", () => 
+    {
+      const firstname = `Draft-${homeActions.randomAlpha(10)}`;
+      const lastname = `save four lesion ${homeActions.randomAlpha(10)}`;
+      loginActions.visitPage();
+      loginActions.inputUserName(user.username);
+      loginActions.inputPassword(user.password);
+      loginActions.clickLoginButton();
+      homeActions.isDashBoardButtonDisplayed();
+      
+      //Add New Lesion - Patient Details
+      dashboardActions.selectClinicOptionByName();
+      dashboardActions.clickOkSelectClinic();
+      dashboardActions.clickAddNewLesion();
+      dashboardActions.selectTitle('Mrs');
+      dashboardActions.enterFirstName(firstname);
+      dashboardActions.enterLastName(lastname);
+      dashboardActions.selectGender('Unknown');
+      dashboardActions.enterDOB(user.DOB);
+      dashboardActions.enterHomeAdd(user.address);
+      dashboardActions.enterCity(user.city);
+      dashboardActions.selectState();
+      dashboardActions.enterPostcode(user.postcode);
+      dashboardActions.enterContact(user.contact);
+      dashboardActions.enterMedicare(user.medicare);
+      dashboardActions.nextButton();
+
+      //Add first lesion
+      dashboardActions.addALesionByNumberImages();
+
+      //Add another lesion
+      dashboardActions.addAnotherLesion();
+      dashboardActions.addALesionByNumberImages();
+
+      //Add another lesion
+      dashboardActions.addAnotherLesion();
+      dashboardActions.addALesionByNumberImages();
+
+      //Add another lesion
+      dashboardActions.addAnotherLesion();
+      dashboardActions.addALesionByNumberImages();
+  
+      //Case Summary
+      dashboardActions.caseSummary();
+      dashboardActions.saveDraft();
+      dashboardActions.assertFirstName(firstname)
+      dashboardActions.isReviewCase('Draft')
+    });
     
-    it("Check random body regions", () => 
+    it("06. Check random body regions", () => 
     {
       const firstname = `Draft-${homeActions.randomAlpha(8)}`;
       const lastname = `Check all body region`;
@@ -203,7 +252,7 @@ describe("Save Draft", () => {
       dashboardActions.selectAndAssertEditedRegion();
     });
     
-    it("Check random ProvisionalDiagnosis", () => 
+    it("07. Check random ProvisionalDiagnosis", () => 
     {
       const firstname = `Draft-${homeActions.randomAlpha(8)}`;
       const lastname = `Check all Provisional Diagnosis`;
@@ -243,7 +292,7 @@ describe("Save Draft", () => {
       dashboardActions.selectAndAssertEditedProvisionalDiagnosis(firstname);
     });
     
-    it("Check all Billing", () => 
+    it("08. Check all Billing", () => 
     {
       loginActions.visitPage();
       loginActions.inputUserName(user.username);
@@ -315,7 +364,7 @@ describe("Save Draft", () => {
       dashboardActions.isPrivateChecked();
     });
     
-    it("Check all Gender", () => 
+    it("09. Check all Gender", () => 
     {
       loginActions.visitPage();
       loginActions.inputUserName(user.username);
@@ -376,7 +425,7 @@ describe("Save Draft", () => {
       dashboardActions.assertGender(user.gender.unknown);
     });
     
-    it("Save one lesion - 4 images - 2 copies", () => 
+    it("10. Save one lesion - 4 images - 2 copies", () => 
     {
       loginActions.visitPage();
       loginActions.inputUserName(user.username);
@@ -423,7 +472,7 @@ describe("Save Draft", () => {
       dashboardActions.isReviewCase('Draft');
     });
     
-    it("Save A Draft - combine image 1 valid, 4 invalid - 2 copies", () => 
+    it("11. Save A Draft - combine image 1 valid, 4 invalid - 2 copies", () => 
     {
       loginActions.visitPage();
       loginActions.inputUserName(user.username);
@@ -470,7 +519,7 @@ describe("Save Draft", () => {
       dashboardActions.isReviewCase('Draft');
     });
     
-    it("Save A Draft - combine image 2 valid, 4 invalid - 2 copies", () => 
+    it("12. Save A Draft - combine image 2 valid, 4 invalid - 2 copies", () => 
     {
       loginActions.visitPage();
       loginActions.inputUserName(user.username);
@@ -517,7 +566,7 @@ describe("Save Draft", () => {
       dashboardActions.isReviewCase('Draft');
     });
     
-    it("Save A Draft - combine image 3 valid, 4 invalid - 2 copies", () => 
+    it("13. Save A Draft - combine image 3 valid, 4 invalid - 2 copies", () => 
     {
       loginActions.visitPage();
       loginActions.inputUserName(user.username);
@@ -564,7 +613,7 @@ describe("Save Draft", () => {
       dashboardActions.isReviewCase('Draft');
     });
     
-    it("Save A Draft - combine image 4 valid, 4 invalid - 2 copies", () => 
+    it("14. Save A Draft - combine image 4 valid, 4 invalid - 2 copies", () => 
     {
       loginActions.visitPage();
       loginActions.inputUserName(user.username);
@@ -611,7 +660,7 @@ describe("Save Draft", () => {
       dashboardActions.isReviewCase('Draft');
     });
     
-    it("Save A Draft - no valid image", () => 
+    it("15. Save A Draft - no valid image", () => 
     {
       loginActions.visitPage();
       loginActions.inputUserName(user.username);

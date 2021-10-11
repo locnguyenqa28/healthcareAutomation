@@ -10,7 +10,7 @@ describe("Save Draft by API", () => {
   const dashboardActions = new DashboardActions();
   const clinicActions = new ClinicActions();
 
-  it("01. saveDraft by API is successfull", () => 
+  it("saveDraft by API is successfull", () => 
   {
     const firstname = `API-${dashboardActions.randomAlpha(10)}`;
     cy.saveDraft(user.username, user.password, firstname);
@@ -27,7 +27,7 @@ describe("Save Draft by API", () => {
     dashboardActions.assertText(firstname)
   });
 
-  it("02. Edit saveDraftAPI successfull", () => 
+  it("Edit saveDraftAPI successfull", () => 
   {
     const firstname = `API-${dashboardActions.randomAlpha(10)}`;
     const editname = `Edit-API-${dashboardActions.randomAlpha(10)}`
@@ -55,7 +55,7 @@ describe("Save Draft by API", () => {
     dashboardActions.assertText(editname);
   });
 
-  it("03.EDERMPATH-220 - Check the API will add the Draft to the Default Clinics/Laboratory", () => 
+  it("EDERMPATH-220 - Check the API will add the Draft to the Default Clinics/Laboratory", () => 
   {
     const firstname = `API-${dashboardActions.randomAlpha(10)}`;
     cy.saveDraft(user.username, user.password, firstname);
@@ -71,7 +71,7 @@ describe("Save Draft by API", () => {
     dashboardActions.checkOrderIsAddedToClinicDefault(firstname);
   });
 
-  it("04.The SaveDraftAPI can be save one copy", () => 
+  it("The SaveDraftAPI can be save one copy", () => 
   {
     const subname = dashboardActions.randomAlpha(10)
     const firstname = `API-${subname}`;
@@ -104,7 +104,7 @@ describe("Save Draft by API", () => {
     dashboardActions.assertValueVisible('suburb A')
   });
 
-  it("05.The SaveDraftAPI can be save two copy", () => 
+  it("The SaveDraftAPI can be save two copy", () => 
   {
     const subname = dashboardActions.randomAlpha(10)
     const firstname = `API-${subname}`;
@@ -146,7 +146,7 @@ describe("Save Draft by API", () => {
     dashboardActions.assertValueVisible('suburb B')
   });
 
-  it("06.The SaveDraftAPI can be save two copy and Hospital", () => 
+  it("The SaveDraftAPI can be save two copy and Hospital", () => 
   {
     const subname = dashboardActions.randomAlpha(10)
     const firstname = `API-${subname}`;
@@ -196,7 +196,7 @@ describe("Save Draft by API", () => {
     dashboardActions.assertValueVisible('suburb C')
   });
 
-  it("07.The SaveDraftAPI can be save only Hospital", () => 
+  it("The SaveDraftAPI can be save only Hospital", () => 
   {
     const subname = dashboardActions.randomAlpha(10)
     const firstname = `API-${subname}`;
@@ -229,7 +229,7 @@ describe("Save Draft by API", () => {
     dashboardActions.assertValueVisible('suburb C')
   });
 
-  it("08.The SaveDraftAPI can be submitted with one lesion + two copy and Hospital", () => 
+  it("The SaveDraftAPI can be submitted with one lesion + two copy and Hospital", () => 
   {
     const subname = dashboardActions.randomAlpha(10)
     const firstname = `API-${subname}`;
@@ -289,7 +289,7 @@ describe("Save Draft by API", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("09.The SaveDraftAPI can be submitted with 2 lesion + two copy and Hospital", () => 
+  it("The SaveDraftAPI can be submitted with 2 lesion + two copy and Hospital", () => 
   {
     const subname = dashboardActions.randomAlpha(10)
     const firstname = `API-${subname}`;
@@ -354,76 +354,7 @@ describe("Save Draft by API", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("10.The SaveDraftAPI can be submitted with 3 lesion + two copy and Hospital", () => 
-  {
-    const subname = dashboardActions.randomAlpha(10)
-    const firstname = `API-${subname}`;
-    cy.saveDraft(user.username, user.password, firstname);
-    loginActions.visitPage();
-    loginActions.inputUserName(user.username);
-    loginActions.inputPassword(user.password);
-    loginActions.clickLoginButton();
-    homeActions.isDashBoardButtonDisplayed();
-
-    dashboardActions.clickOkSelectClinic(true);
-    clinicActions.selectSearchClinicByText('All');
-
-    dashboardActions.assertText(subname);
-    dashboardActions.assertText('Create New Pathology Request');
-
-    dashboardActions.clickPathologyRequestByFirstName(subname);
-
-    // Copies report
-    dashboardActions.selectTitleCopy1ByIndex(1)
-    dashboardActions.enterFirstNameCopy1('Copy A')
-    dashboardActions.enterLastNameCopy1('last name A')
-    dashboardActions.enterSuburbCopy1('suburb A')
-
-    dashboardActions.selectTitleCopy2ByIndex(2)
-    dashboardActions.enterFirstNameCopy2('Copy B')
-    dashboardActions.enterLastNameCopy2('last name B')
-    dashboardActions.enterSuburbCopy2('suburb B')
-
-    dashboardActions.enterFirstNameCopy3('Hospital')
-    dashboardActions.enterLastNameCopy3('Ward ')
-    dashboardActions.enterSuburbCopy3('suburb C')
-
-    dashboardActions.clickHrefByText('Save update');
-
-    dashboardActions.clickPathologyRequestByFirstName(subname);
-    dashboardActions.assertValueVisible('Copy A')
-    dashboardActions.assertValueVisible('last name A')
-    dashboardActions.assertValueVisible('suburb A')
-
-    dashboardActions.assertValueVisible('Copy B')
-    dashboardActions.assertValueVisible('last name B')
-    dashboardActions.assertValueVisible('suburb B')
-    
-    dashboardActions.assertValueVisible('Hospital')
-    dashboardActions.assertValueVisible('Ward ')
-    dashboardActions.assertValueVisible('suburb C')
-
-    dashboardActions.addAnotherLesion();
-     //Add first lesion
-    dashboardActions.addALesionByNumberImages(4);
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(4);
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(4);
-
-    //Case Summary
-    dashboardActions.caseSummary();
-    dashboardActions.submitCasePrint();
-    dashboardActions.returnToDashboard();
-    homeActions.isDashboardDisplayed();
-    dashboardActions.isUploadSuccesfully(0);
-  });
-
-  it("11.The SaveDraftAPI can be submitted with 4 lesion + two copy and Hospital", () => 
+  it("The SaveDraftAPI can be submitted with 3 lesion + two copy and Hospital", () => 
   {
     const subname = dashboardActions.randomAlpha(10)
     const firstname = `API-${subname}`;
@@ -484,10 +415,6 @@ describe("Save Draft by API", () => {
     dashboardActions.addAnotherLesion();
     dashboardActions.addALesionByNumberImages(4);
 
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(4);
-
     //Case Summary
     dashboardActions.caseSummary();
     dashboardActions.submitCasePrint();
@@ -496,121 +423,7 @@ describe("Save Draft by API", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("12.The SaveDraftAPI can be submitted with 4 lesion + only Hospital", () => 
-  {
-    const subname = dashboardActions.randomAlpha(10)
-    const firstname = `API-${subname}`;
-    cy.saveDraft(user.username, user.password, firstname);
-    loginActions.visitPage();
-    loginActions.inputUserName(user.username);
-    loginActions.inputPassword(user.password);
-    loginActions.clickLoginButton();
-    homeActions.isDashBoardButtonDisplayed();
-
-    dashboardActions.clickOkSelectClinic(true);
-    clinicActions.selectSearchClinicByText('All');
-
-    dashboardActions.assertText(subname);
-    dashboardActions.assertText('Create New Pathology Request');
-
-    dashboardActions.clickPathologyRequestByFirstName(subname);
-
-    // Copies report
-
-    dashboardActions.enterFirstNameCopy3('Hospital')
-    dashboardActions.enterLastNameCopy3('Ward ')
-    dashboardActions.enterSuburbCopy3('suburb C')
-
-    dashboardActions.clickHrefByText('Save update');
-
-    dashboardActions.clickPathologyRequestByFirstName(subname);
-    
-    dashboardActions.assertValueVisible('Hospital')
-    dashboardActions.assertValueVisible('Ward ')
-    dashboardActions.assertValueVisible('suburb C')
-
-    dashboardActions.addAnotherLesion();
-     //Add first lesion
-    dashboardActions.addALesionByNumberImages(4);
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(4);
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(4);
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(4);
-
-    //Case Summary
-    dashboardActions.caseSummary();
-    dashboardActions.submitCasePrint();
-    dashboardActions.returnToDashboard();
-    homeActions.isDashboardDisplayed();
-    dashboardActions.isUploadSuccesfully(0);
-  });
-
-  it("13-1.The SaveDraftAPI can be submitted with 4 lesion no image", () => 
-  {
-    const subname = dashboardActions.randomAlpha(10)
-    const firstname = `API-${subname}`;
-    cy.saveDraft(user.username, user.password, firstname);
-    loginActions.visitPage();
-    loginActions.inputUserName(user.username);
-    loginActions.inputPassword(user.password);
-    loginActions.clickLoginButton();
-    homeActions.isDashBoardButtonDisplayed();
-
-    dashboardActions.clickOkSelectClinic(true);
-    clinicActions.selectSearchClinicByText('All');
-
-    dashboardActions.assertText(subname);
-    dashboardActions.assertText('Create New Pathology Request');
-
-    dashboardActions.clickPathologyRequestByFirstName(subname);
-
-    // Copies report
-
-    dashboardActions.enterFirstNameCopy3('Hospital')
-    dashboardActions.enterLastNameCopy3('Ward ')
-    dashboardActions.enterSuburbCopy3('suburb C')
-
-    dashboardActions.clickHrefByText('Save update');
-
-    dashboardActions.clickPathologyRequestByFirstName(subname);
-    
-    dashboardActions.assertValueVisible('Hospital')
-    dashboardActions.assertValueVisible('Ward ')
-    dashboardActions.assertValueVisible('suburb C')
-
-    dashboardActions.addAnotherLesion();
-     //Add first lesion
-    dashboardActions.addALesionNoImage();
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionNoImage();
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionNoImage();
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionNoImage();
-
-    //Case Summary
-    dashboardActions.caseSummary();
-    dashboardActions.submitCasePrint();
-    dashboardActions.returnToDashboard();
-    homeActions.isDashboardDisplayed();
-    dashboardActions.isUploadSuccesfully(0);
-  });
-
-  it("13-2.The SaveDraftAPI can be submitted with 3 lesion no image", () => 
+  it("The SaveDraftAPI can be submitted with 3 lesion no image", () => 
   {
     const subname = dashboardActions.randomAlpha(10)
     const firstname = `API-${subname}`;
@@ -663,7 +476,7 @@ describe("Save Draft by API", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("13-3.The SaveDraftAPI can be submitted with 2 lesion no image", () => 
+  it("The SaveDraftAPI can be submitted with 2 lesion no image", () => 
   {
     const subname = dashboardActions.randomAlpha(10)
     const firstname = `API-${subname}`;
@@ -712,7 +525,7 @@ describe("Save Draft by API", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("13-4.The SaveDraftAPI can be submitted with 1 lesion no image", () => 
+  it("The SaveDraftAPI can be submitted with 1 lesion no image", () => 
   {
     const subname = dashboardActions.randomAlpha(10)
     const firstname = `API-${subname}`;
@@ -757,7 +570,7 @@ describe("Save Draft by API", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("14.The SaveDraftAPI can be submitted with 1 lesion combine image: 2 valid and 4 invalid", () => 
+  it("The SaveDraftAPI can be submitted with 1 lesion combine image: 2 valid and 4 invalid", () => 
   {
     const subname = dashboardActions.randomAlpha(10)
     const firstname = `API-${subname}`;
@@ -801,7 +614,7 @@ describe("Save Draft by API", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("15.The SaveDraftAPI can be submitted with 2 lesions combine image: 1 valid and 4 invalid", () => 
+  it("The SaveDraftAPI can be submitted with 2 lesions combine image: 1 valid and 4 invalid", () => 
   {
     const subname = dashboardActions.randomAlpha(10)
     const firstname = `API-${subname}`;
@@ -848,7 +661,7 @@ describe("Save Draft by API", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("16.The SaveDraftAPI can be submitted with 3 lesions combine image: 1 valid and 4 invalid", () => 
+  it("The SaveDraftAPI can be submitted with 3 lesions combine image: 1 valid and 4 invalid", () => 
   {
     const subname = dashboardActions.randomAlpha(10)
     const firstname = `API-${subname}`;
@@ -880,59 +693,6 @@ describe("Save Draft by API", () => {
     dashboardActions.assertValueVisible('Hospital')
     dashboardActions.assertValueVisible('Ward ')
     dashboardActions.assertValueVisible('suburb C')
-
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByInvalidImages(1, 4);
-
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByInvalidImages(1, 4);
-
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByInvalidImages(1, 4);
-
-    //Case Summary
-    dashboardActions.caseSummary();
-    dashboardActions.submitCasePrint();
-    dashboardActions.returnToDashboard();
-    homeActions.isDashboardDisplayed();
-    dashboardActions.isUploadSuccesfully(0);
-  });
-
-  it("17.The SaveDraftAPI can be submitted with 4 lesions combine image: 1 valid and 4 invalid", () => 
-  {
-    const subname = dashboardActions.randomAlpha(10)
-    const firstname = `API-${subname}`;
-    cy.saveDraft(user.username, user.password, firstname);
-    loginActions.visitPage();
-    loginActions.inputUserName(user.username);
-    loginActions.inputPassword(user.password);
-    loginActions.clickLoginButton();
-    homeActions.isDashBoardButtonDisplayed();
-
-    dashboardActions.clickOkSelectClinic(true);
-    clinicActions.selectSearchClinicByText('All');
-
-    dashboardActions.assertText(subname);
-    dashboardActions.assertText('Create New Pathology Request');
-
-    dashboardActions.clickPathologyRequestByFirstName(subname);
-
-    // Copies report
-
-    dashboardActions.enterFirstNameCopy3('Hospital')
-    dashboardActions.enterLastNameCopy3('Ward ')
-    dashboardActions.enterSuburbCopy3('suburb C')
-
-    dashboardActions.clickHrefByText('Save update');
-
-    dashboardActions.clickPathologyRequestByFirstName(subname);
-    
-    dashboardActions.assertValueVisible('Hospital')
-    dashboardActions.assertValueVisible('Ward ')
-    dashboardActions.assertValueVisible('suburb C')
-
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByInvalidImages(1, 4);
 
     dashboardActions.addAnotherLesion();
     dashboardActions.addALesionByInvalidImages(1, 4);
