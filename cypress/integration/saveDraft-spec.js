@@ -36,8 +36,11 @@ describe("Save Draft", () => {
       dashboardActions.enterContact(user.contact);
       dashboardActions.enterMedicare(user.medicare);
       dashboardActions.saveDraft();
-      dashboardActions.assertFirstName(firstname)
-      dashboardActions.isReviewCase('Draft')
+
+      loginActions.visitPageAndLogin(user.username, user.password);
+      homeActions.isDashBoardButtonDisplayed();
+      dashboardActions.assertFirstName(firstname);
+      dashboardActions.isReviewCase('Draft');
     });
   
     it("One Lesion saving", () => 
@@ -73,6 +76,9 @@ describe("Save Draft", () => {
       //Case Summary
       dashboardActions.caseSummary();
       dashboardActions.saveDraft();
+    
+      loginActions.visitPageAndLogin(user.username, user.password);
+      homeActions.isDashBoardButtonDisplayed();
       dashboardActions.assertFirstName(firstname)
       dashboardActions.isReviewCase('Draft')
     });
@@ -114,6 +120,9 @@ describe("Save Draft", () => {
       //Case Summary
       dashboardActions.caseSummary();
       dashboardActions.saveDraft();
+      
+      loginActions.visitPageAndLogin(user.username, user.password);
+      homeActions.isDashBoardButtonDisplayed();
       dashboardActions.assertFirstName(firstname)
       dashboardActions.isReviewCase('Draft')
     });
@@ -159,6 +168,9 @@ describe("Save Draft", () => {
       //Case Summary
       dashboardActions.caseSummary();
       dashboardActions.saveDraft();
+      
+      loginActions.visitPageAndLogin(user.username, user.password);
+      homeActions.isDashBoardButtonDisplayed();
       dashboardActions.assertFirstName(firstname)
       dashboardActions.isReviewCase('Draft')
     });
@@ -196,6 +208,9 @@ describe("Save Draft", () => {
       //Case Summary
       dashboardActions.caseSummary();
       dashboardActions.saveDraft();
+
+      loginActions.visitPageAndLogin(user.username, user.password);
+      homeActions.isDashBoardButtonDisplayed();
       dashboardActions.assertTitleTop('Dashboard')
       dashboardActions.assertFirstName(firstname)
       dashboardActions.isReviewCase('Draft')
@@ -236,6 +251,9 @@ describe("Save Draft", () => {
       //Case Summary
       dashboardActions.caseSummary();
       dashboardActions.saveDraft();
+      
+      loginActions.visitPageAndLogin(user.username, user.password);
+      homeActions.isDashBoardButtonDisplayed();
       dashboardActions.assertTitleTop('Dashboard')
       dashboardActions.assertFirstName(firstname)
       dashboardActions.isReviewCase('Draft')
@@ -281,6 +299,9 @@ describe("Save Draft", () => {
       dashboardActions.clickSavePatientDetails();
       dashboardActions.clickOkPatientDetails();
       dashboardActions.saveDraft();
+      
+      loginActions.visitPageAndLogin(user.username, user.password);
+      homeActions.isDashBoardButtonDisplayed();
       dashboardActions.assertTitleTop('Dashboard');
       dashboardActions.assertFirstName(firstname);
       dashboardActions.isReviewCase('Draft');
@@ -294,6 +315,9 @@ describe("Save Draft", () => {
       dashboardActions.clickOkPatientDetails();
     
       dashboardActions.clickHrefByText('Save update');
+      
+      loginActions.visitPageAndLogin(user.username, user.password);
+      homeActions.isDashBoardButtonDisplayed();
       dashboardActions.assertTitleTop('Dashboard')
       dashboardActions.assertFirstName(firstname)
       dashboardActions.isReviewCase('Draft')
@@ -307,6 +331,9 @@ describe("Save Draft", () => {
       dashboardActions.clickOkPatientDetails();
     
       dashboardActions.clickHrefByText('Save update');
+      
+      loginActions.visitPageAndLogin(user.username, user.password);
+      homeActions.isDashBoardButtonDisplayed();
       dashboardActions.assertTitleTop('Dashboard')
       dashboardActions.assertFirstName(firstname)
       dashboardActions.isReviewCase('Draft')
@@ -350,6 +377,9 @@ describe("Save Draft", () => {
       dashboardActions.selectGender(user.gender.female);
      
       dashboardActions.saveDraft();
+      
+      loginActions.visitPageAndLogin(user.username, user.password);
+      homeActions.isDashBoardButtonDisplayed();
       dashboardActions.assertTitleTop('Dashboard');
       dashboardActions.assertFirstName(firstname);
       dashboardActions.isReviewCase('Draft');
@@ -360,6 +390,9 @@ describe("Save Draft", () => {
       dashboardActions.selectGender(user.gender.other);
 
       dashboardActions.clickHrefByText('Save update');
+      
+      loginActions.visitPageAndLogin(user.username, user.password);
+      homeActions.isDashBoardButtonDisplayed();
       dashboardActions.assertTitleTop('Dashboard')
       dashboardActions.assertFirstName(firstname)
       dashboardActions.isReviewCase('Draft')
@@ -369,6 +402,9 @@ describe("Save Draft", () => {
       dashboardActions.selectGender(user.gender.unknown)
 
       dashboardActions.clickHrefByText('Save update');
+      
+      loginActions.visitPageAndLogin(user.username, user.password);
+      homeActions.isDashBoardButtonDisplayed();
       dashboardActions.assertTitleTop('Dashboard')
       dashboardActions.assertFirstName(firstname)
       dashboardActions.isReviewCase('Draft')
@@ -420,6 +456,9 @@ describe("Save Draft", () => {
       //Case Summary
       dashboardActions.caseSummary();
       dashboardActions.saveDraft();
+      
+      loginActions.visitPageAndLogin(user.username, user.password);
+      homeActions.isDashBoardButtonDisplayed();
       dashboardActions.isReviewCase('Draft');
     });
     
@@ -467,6 +506,9 @@ describe("Save Draft", () => {
       //Case Summary
       dashboardActions.caseSummary();
       dashboardActions.saveDraft();
+      
+      loginActions.visitPageAndLogin(user.username, user.password);
+      homeActions.isDashBoardButtonDisplayed();
       dashboardActions.isReviewCase('Draft');
     });
     
@@ -514,6 +556,9 @@ describe("Save Draft", () => {
       //Case Summary
       dashboardActions.caseSummary();
       dashboardActions.saveDraft();
+      
+      loginActions.visitPageAndLogin(user.username, user.password);
+      homeActions.isDashBoardButtonDisplayed();
       dashboardActions.isReviewCase('Draft');
     });
     
@@ -561,6 +606,9 @@ describe("Save Draft", () => {
       //Case Summary
       dashboardActions.caseSummary();
       dashboardActions.saveDraft();
+      
+      loginActions.visitPageAndLogin(user.username, user.password);
+      homeActions.isDashBoardButtonDisplayed();
       dashboardActions.isReviewCase('Draft');
     });
     
@@ -608,6 +656,9 @@ describe("Save Draft", () => {
       //Case Summary
       dashboardActions.caseSummary();
       dashboardActions.saveDraft();
+      
+      loginActions.visitPageAndLogin(user.username, user.password);
+      homeActions.isDashBoardButtonDisplayed();
       dashboardActions.isReviewCase('Draft');
     });
     
@@ -655,6 +706,9 @@ describe("Save Draft", () => {
       //Case Summary
       dashboardActions.caseSummary();
       dashboardActions.saveDraft();
+      
+      loginActions.visitPageAndLogin(user.username, user.password);
+      homeActions.isDashBoardButtonDisplayed();
       dashboardActions.isReviewCase('Draft');
     });
   });
