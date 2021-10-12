@@ -242,6 +242,10 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.selectState(user.state[0]);
     dashboardActions.clickButtonByText('Save');
+
+    loginActions.visitPageAndLogin(user.username, user.password);
+    homeActions.isDashBoardButtonDisplayed();
+
     dashboardActions.clickPathologyRequestByFirstName(firstname);
     dashboardActions.isState(user.state[0]);
 
@@ -260,7 +264,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const firstname = `EDERMPATH seven nine ${homeActions.randomAlpha(10)}`;
     const lastname = `Unable to add new conditions from the draft`;
    
-  dashboardActions.selectClinicOptionByName();
+    dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
@@ -276,9 +280,11 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.enterContact(user.contact);
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.saveDraft();
+    
+    loginActions.visitPageAndLogin(user.username, user.password);
+    homeActions.isDashBoardButtonDisplayed();
     dashboardActions.assertFirstName(firstname)
 
-    homeActions.isDashboardDisplayed();
     dashboardActions.isReviewCase('Draft')
     dashboardActions.clickPathologyRequestByFirstName(firstname);
     //Add another lesion
@@ -289,6 +295,9 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.caseSummary();
     dashboardActions.assertButton('Dashboard');
     dashboardActions.saveDraft();
+
+    loginActions.visitPageAndLogin(user.username, user.password);
+    homeActions.isDashBoardButtonDisplayed();
     dashboardActions.assertFirstName(firstname)
 
     homeActions.isDashboardDisplayed();
@@ -344,7 +353,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const firstname = `EDERMPATH eight one ${homeActions.randomAlpha(10)}`;
     const lastname = `The five condition will be generated after editing twice`;
    
-  dashboardActions.selectClinicOptionByName();
+    dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Other');
@@ -453,7 +462,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.assertFirstName(firstname)
     dashboardActions.isReviewCase('Draft');
   });
-    
+  //4 lesions
   it("EDERMPATH-85. Able to add more than 4 conditions by multi clicking on Save body map", () => 
   {
     loginActions.visitPage();

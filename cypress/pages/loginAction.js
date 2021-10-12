@@ -18,5 +18,11 @@ export class LoginActions extends CommonActions{
     cy.url()
       .should('contain',text)
   }
+  visitPageAndLogin(userName, password){
+    this.visitPage();
+    this.inputUserName(userName);
+    this.inputPassword(password);
+    this.clickLoginButton();
+  }
 
 }
