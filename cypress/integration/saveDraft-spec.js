@@ -208,7 +208,7 @@ describe("Save Draft", () => {
       dashboardActions.selectAndAssertEditedRegion();
     });
     
-    it("Check random ProvisionalDiagnosis", () => 
+    it.only("Check random ProvisionalDiagnosis", () => 
     {
       const firstname = `Draft-${homeActions.randomAlpha(8)}`;
       const lastname = `Check all Provisional Diagnosis`;
