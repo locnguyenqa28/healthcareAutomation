@@ -278,56 +278,5 @@ describe("Large image testing", () => {
     homeActions.isDashboardDisplayed();
     // dashboardActions.isUploadSuccesfully(0);
   });
-
-  it("7.Large images 4 lesions + 4 images", () => 
-  {
-    loginActions.visitPage();
-    loginActions.inputUserName(user.username);
-    loginActions.inputPassword(user.password);
-    loginActions.clickLoginButton();
-    homeActions.isDashBoardButtonDisplayed();
-    
-    //Add New Lesion - Patient Details
-    const firstname = `parallel-${homeActions.randomAlpha(10)}`;
-    const lastname = `four lesions-four large images`;
-    dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Mrs');
-    dashboardActions.enterFirstName(firstname);
-    dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender(user.gender.unknown);
-    dashboardActions.enterDOB(user.DOB);
-    dashboardActions.enterHomeAdd(user.address);
-    dashboardActions.enterCity(user.city);
-    dashboardActions.selectState();
-    dashboardActions.enterPostcode(user.postcode);
-    dashboardActions.enterContact(user.contact);
-    dashboardActions.enterMedicare(user.medicare);
-    dashboardActions.nextButton();
-
-    //Add lesion
-    dashboardActions.addALesionLargeImages(4);
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion()
-    dashboardActions.addALesionLargeImages(4)
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion()
-    dashboardActions.addALesionLargeImages(4)
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion()
-    dashboardActions.addALesionLargeImages(4)
-
-    //Case Summary
-    dashboardActions.caseSummary();
-    dashboardActions.selectGender(user.gender.other);
-    dashboardActions.submitCasePrint();
-    dashboardActions.returnToDashboard();
-    homeActions.isDashboardDisplayed();
-    // dashboardActions.isUploadSuccesfully(0);
-  });
 });
   
