@@ -387,7 +387,7 @@ describe("Clinic", () => {
     clinicActions.isClinicNameNotExist(invalid)
   });
   
-  it("11. Edit clinic Laboratory", () => 
+  it.only("11. Edit clinic Laboratory", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -408,7 +408,7 @@ describe("Clinic", () => {
     clinicActions.editAndVerifyClinicLabByIndex()
   });
   
-  it("12. Multiple Edit clinic Laboratory", () => 
+  it.only("12. Multiple Edit clinic Laboratory", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
