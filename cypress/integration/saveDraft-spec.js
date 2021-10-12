@@ -242,6 +242,11 @@ describe("Save Draft", () => {
       dashboardActions.caseSummary();
       dashboardActions.saveDraft();
       
+      loginActions.visitPageAndLogin(user.username, user.password);
+      homeActions.isDashBoardButtonDisplayed();
+      dashboardActions.selectClinicOptionByName();
+      dashboardActions.clickOkSelectClinic();
+
       dashboardActions.assertTitleTop('Dashboard')
       dashboardActions.assertFirstName(firstname)
       dashboardActions.isReviewCase('Draft')
@@ -306,7 +311,7 @@ describe("Save Draft", () => {
       homeActions.isDashBoardButtonDisplayed();
       dashboardActions.selectClinicOptionByName();
       dashboardActions.clickOkSelectClinic();
-      
+
       dashboardActions.assertTitleTop('Dashboard')
       dashboardActions.assertFirstName(firstname)
       dashboardActions.isReviewCase('Draft')
