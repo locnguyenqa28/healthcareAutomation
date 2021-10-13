@@ -434,7 +434,7 @@ describe("Clinic", () => {
     clinicActions.editAndVerifyClinicLabByIndex()
   });
   
-  it.only("13. Edit Multiple clinics Laboratory", () => 
+  it("13. Edit Multiple clinics Laboratory", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -460,7 +460,7 @@ describe("Clinic", () => {
     clinicActions.editAndVerifyClinicLabByIndex(1)
   });
   
-  it.only("14. Edit clinic all values", () => 
+  it("14. Edit clinic all values", () => 
   {
     const name = `Automation-${homeActions.randomAlpha(10)}`;
     const providerNumber = `${homeActions.randomAlphanumeric(7)}`;
