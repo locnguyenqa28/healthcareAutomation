@@ -245,6 +245,8 @@ describe("Verify bug on EDERMPATH JIRA", () => {
 
     loginActions.visitPageAndLogin(user.username, user.password);
     homeActions.isDashBoardButtonDisplayed();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
     
     dashboardActions.clickPathologyRequestByFirstName(firstname);
     dashboardActions.isState(user.state[0]);
@@ -283,6 +285,8 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     
     loginActions.visitPageAndLogin(user.username, user.password);
     homeActions.isDashBoardButtonDisplayed();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
     dashboardActions.assertFirstName(firstname)
 
     dashboardActions.isReviewCase('Draft')
