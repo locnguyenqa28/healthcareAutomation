@@ -287,7 +287,9 @@ export class ClinicActions extends CommonActions
       const randomIndex = Math.floor(Math.random() * list.length)
       this.selectEditLabOption(list[randomIndex]);
       this.clickSaveEditClinic();
+      cy.wait(1000);
       this.clickCloseModal();
+      cy.wait(1000);
       this.isClinicName(list[randomIndex], index);
     })
   }
