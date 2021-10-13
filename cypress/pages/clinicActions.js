@@ -250,9 +250,13 @@ export class ClinicActions extends CommonActions
   }
 
   clickCloseModal(isForce=true) {
-    cy.get('.close-modal')
-    .should('be.visible')
-    .click({force:isForce})
+    cy.get('body').then(($body) => {
+      if($body.find('.close-modal').length > 0) {
+        cy.get('.close-modal')
+        .should('be.visible')
+        .click({force:isForce})
+      }
+    });
   }
 
   createMultiClinic(number = 1){
