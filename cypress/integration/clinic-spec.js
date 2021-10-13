@@ -486,7 +486,7 @@ describe("Clinic", () => {
    
   });
   
-  it.only("15. Edit Multiple clinics all values", () => 
+  it("15. Edit Multiple clinics all values", () => 
   {
     let name = `Automation-${homeActions.randomAlpha(10)}`;
     let providerNumber = `${homeActions.randomAlphanumeric(7)}`;
