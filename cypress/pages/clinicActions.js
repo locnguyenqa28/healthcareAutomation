@@ -311,6 +311,7 @@ export class ClinicActions extends CommonActions
       this.enterEditClinicPhone();
       this.enterEditClinicMobilePhone();
       this.clickSaveEditClinic();
+      cy.wait(1000);
       this.clickCloseModal();
       this.isClinicName(list[randomIndex], index);
       this.isClinicName(name, index);
