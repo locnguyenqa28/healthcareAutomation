@@ -1334,11 +1334,13 @@ export class DashboardActions extends CommonActions
       this.uploadImage(imageName);
       this.assertHeader('Upload ');
       this.assertText('Remove');
-      cy.wait(500);
+      cy.wait(1000);
       this.startUpload();
     }
     this.isProgressBarDisappear(90000);
+    cy.wait(1000);
     this.isImageUploadedSuccessfully(90000);
+    cy.wait(1000);
     this.nextButtonUploadImg(90000, true);
   }
   
@@ -1366,29 +1368,34 @@ export class DashboardActions extends CommonActions
       this.enterMedicare(user.medicare);
       this.nextButton();
 
-      this.noPreviousHistory();
-      this.provisionalDiagnosis();
-      this.excludeMelasma();
-      this.excludeNmsc();
-      this.selectBiopsyType();
+      for(let index =0; index<3; index ++){
+        this.noPreviousHistory();
+        this.provisionalDiagnosis();
+        this.excludeMelasma();
+        this.excludeNmsc();
+        this.selectBiopsyType();
 
-      //Case Images
-      this.addBodyMap();
-      this.clickImage();
-      this.selectBodyRegion();
-      this.enterSpecimenLocation(name)
-      this.assertHeader('Body map');    
-   
-      this.selectBodyRegion(regions[i], false)
-      this.saveBodyMap();
-      //Upload Dermascopic Images
-      this.addLargeImagesByName(imageName, numberLesion)
+        //Case Images
+        this.addBodyMap();
+        this.clickImage();
+        this.selectBodyRegion();
+        this.enterSpecimenLocation(name)
+        this.assertHeader('Body map');    
+    
+        this.selectBodyRegion(regions[i], false)
+        this.saveBodyMap();
+        //Upload Dermascopic Images
+        this.addLargeImagesByName(imageName, numberLesion)
+        if(index <= 2){
+          this.addAnotherLesion();
+        }
+      }
+    }
         //Case Summary
       this.caseSummary();
       this.submitCasePrint();
       this.returnToDashboard();
       this.isUploadSuccesfully(0, 15000);
-    } 
   }
 
 }
