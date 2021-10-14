@@ -1386,7 +1386,7 @@ export class DashboardActions extends CommonActions
         this.saveBodyMap();
         //Upload Dermascopic Images
         this.addLargeImagesByName(imageName, numberLesion)
-        if(index <= 2){
+        if(index < 2){
           this.addAnotherLesion();
         }
       }
