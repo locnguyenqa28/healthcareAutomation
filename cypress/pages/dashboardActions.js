@@ -477,6 +477,18 @@ export class DashboardActions extends CommonActions
         cy.reload();
       }
     })
+    cy.get(".x-grid3-cell-last[tabindex='0']").first().then(($col) => {
+      if($col.find('[href *="/cases/tdgp_viewdetails_submit/"]').length < 1) {
+        cy.wait(10000);
+        cy.reload();
+      }
+    })
+    cy.get(".x-grid3-cell-last[tabindex='0']").first().then(($col) => {
+      if($col.find('[href *="/cases/tdgp_viewdetails_submit/"]').length < 1) {
+        cy.wait(10000);
+        cy.reload();
+      }
+    })
     cy.get(".x-grid3-cell-last[tabindex='0']")
     .eq(index)
     .contains('Successful')
