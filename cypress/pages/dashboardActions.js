@@ -1252,6 +1252,43 @@ export class DashboardActions extends CommonActions
       this.addAnotherLesion();
       this.addALesionByInvalidImages(1, 4);
 
+      //Case Summary
+      this.caseSummary();
+      this.submitCasePrint();
+      this.returnToDashboard();
+    } 
+  }
+  addMultiSubmitByImageName(imageName, times) 
+  {
+    this.selectClinicOptionByName();
+    this.clickOkSelectClinic();
+    for(let i=0; i<times; i++){
+      const subname = this.randomAlpha(10)
+      const firstname = `API-${subname}`;
+      cy.saveDraft(user.username, user.password, firstname);
+      cy.reload()
+      this.clickOkSelectClinic();
+      this.assertText(subname);
+      this.assertText('Create New Pathology Request');
+      this.clickPathologyRequestByFirstName(subname);
+
+      // Copies report
+
+      this.enterFirstNameCopy3('Hospital')
+      this.enterLastNameCopy3('Ward ')
+      this.enterSuburbCopy3('suburb C')
+
+      this.clickHrefByText('Save update');
+
+      this.clickPathologyRequestByFirstName(subname);
+      
+      this.assertValueVisible('Hospital')
+      this.assertValueVisible('Ward ')
+      this.assertValueVisible('suburb C')
+
+      this.addAnotherLesion();
+      this.addALesionByInvalidImages(1, 4);
+
       this.addAnotherLesion();
       this.addALesionByInvalidImages(1, 4);
 
@@ -1278,6 +1315,70 @@ export class DashboardActions extends CommonActions
       this.assertElementNotExist('img#bdm_uploading');
       this.assertText('Edit body map and location')
   }
+
+  addLargeImagesByName(imageName = '5mb.jpg',number) {
+    //Upload Dermascopic Images
+    for(let i = 1; i<=number; i++){
+      this.assertHeader('Upload ');
+      this.uploadImage(imageName);
+      this.assertHeader('Upload ');
+      this.assertText('Remove');
+      cy.wait(500);
+    }
+    this.startUpload();
+    this.isProgressBarDisappear(90000);
+    this.isImageUploadedSuccessfully(90000);
+    this.nextButtonUploadImg(90000, true);
+  }
+  
+  addMuiltiPathologyRequestLargeImagesBySelectRegion(imageName,numberLesion, roundTest = user.regionsBodyMap.length) {
+    const regions = user.regionsBodyMap;
+    for(let i=1; i<= roundTest; i++){
+      let name = regions[i];
+      if(regions[i].indexOf('(') > 0){
+        const temp = regions[i].split('(');
+        name= temp[0].trim();
+      }
+      const firstname = `Submit-${this.randomAlpha(5)}`;
+      const lastname = `${name}`;
+      this.clickAddNewLesion();
+      this.selectTitle('Mrs');
+      this.enterFirstName(firstname);
+      this.enterLastName(lastname);
+      this.selectGender('Unknown');
+      this.enterDOB(user.DOB);
+      this.enterHomeAdd(user.address);
+      this.enterCity(user.city);
+      this.selectState();
+      this.enterPostcode(user.postcode);
+      this.enterContact(user.contact);
+      this.enterMedicare(user.medicare);
+      this.nextButton();
+
+      this.noPreviousHistory();
+      this.provisionalDiagnosis();
+      this.excludeMelasma();
+      this.excludeNmsc();
+      this.selectBiopsyType();
+
+      //Case Images
+      this.addBodyMap();
+      this.clickImage();
+      this.selectBodyRegion();
+      this.enterSpecimenLocation(name)
+      this.assertHeader('Body map');    
+   
+      this.selectBodyRegion(regions[i], false)
+      this.saveBodyMap();
+      //Upload Dermascopic Images
+      this.addLargeImagesByName(imageName, numberLesion)
+        //Case Summary
+      this.caseSummary();
+      this.submitCasePrint();
+      this.returnToDashboard();
+    } 
+  }
+
 }
 
 
