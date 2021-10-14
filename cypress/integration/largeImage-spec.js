@@ -291,7 +291,7 @@ describe("Large image testing", () => {
     dashboardActions.clickOkSelectClinic();
 
     //Add multiple
-    dashboardActions.addMuiltiPathologyRequestLargeImagesBySelectRegion('5mb.jpg', 3, 24);
+    dashboardActions.addMuiltiPathologyRequestLargeImagesBySelectRegion('5mb.jpg', 3, 5);
   });
 });
   
