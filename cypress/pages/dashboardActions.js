@@ -1390,14 +1390,12 @@ export class DashboardActions extends CommonActions
           this.addAnotherLesion();
         }
       }
-    }
-        //Case Summary
       this.caseSummary();
       this.submitCasePrint();
       this.returnToDashboard();
       this.isUploadSuccesfully(0, 15000);
+    } 
   }
-
 }
 
 
