@@ -467,8 +467,8 @@ export class DashboardActions extends CommonActions
       .scrollIntoView()
       .click({force:isForce})
   }
-  waitToReviewCase(round = 1) {
-    for(const i =0; i<round; i++){
+  waitForReviewCase(round = 1) {
+    for(let i =0; i<round; i++){
       cy.get(".x-grid3-cell-last[tabindex='0']").first().then(($col) => {
         if($col.find('[href *="/cases/tdgp_viewdetails_submit/"]').length < 1) {
           cy.wait(10000);
