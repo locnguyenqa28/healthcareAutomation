@@ -481,7 +481,7 @@ export class DashboardActions extends CommonActions
     cy.wait(timeOut);
     cy.reload();
     // this.isReviewCase('Review Case')
-    this.waitToReviewCase(10)
+    this.waitForReviewCase(10)
     cy.get(".x-grid3-cell-last[tabindex='0']")
     .eq(index)
     .contains('Successful')
