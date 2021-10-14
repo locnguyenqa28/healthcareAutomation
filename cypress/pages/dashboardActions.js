@@ -1376,6 +1376,7 @@ export class DashboardActions extends CommonActions
       this.caseSummary();
       this.submitCasePrint();
       this.returnToDashboard();
+      this.isUploadSuccesfully(0);
     } 
   }
 
