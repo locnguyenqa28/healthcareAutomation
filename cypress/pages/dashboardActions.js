@@ -430,7 +430,7 @@ export class DashboardActions extends CommonActions
   }
 
   isProgressBarDisappear(timeOut = 60000){
-    cy.get('body').find('.fileupload-progress', { timeout: timeOut }).should('not.be.visible')
+    cy.get('body').find('.fileupload-progress', { timeout: timeOut }).last().should('not.be.visible')
   }
 
   startUpload(isForce=true){
@@ -1324,8 +1324,8 @@ export class DashboardActions extends CommonActions
       this.assertHeader('Upload ');
       this.assertText('Remove');
       cy.wait(500);
+      this.startUpload();
     }
-    this.startUpload();
     this.isProgressBarDisappear(90000);
     this.isImageUploadedSuccessfully(90000);
     this.nextButtonUploadImg(90000, true);
