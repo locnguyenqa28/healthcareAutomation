@@ -1327,6 +1327,16 @@ export class DashboardActions extends CommonActions
       this.assertText('Edit body map and location')
   }
 
+  waitForDeleteButtonVisible(number, round){
+    for(let i = 1; i<= round; i++){
+      cy.get('body').then(($body) => {
+        if($body.find('button[data-type="DELETE"]').length < number) {
+          cy.wait(2000);
+        }
+      })
+    }
+  }
+
   addLargeImagesByName(imageName = '5mb.jpg',number) {
     //Upload Dermascopic Images
     for(let i = 1; i<=number; i++){
@@ -1334,13 +1344,12 @@ export class DashboardActions extends CommonActions
       this.uploadImage(imageName);
       this.assertHeader('Upload ');
       this.assertText('Remove');
-      this.startUpload();
       cy.wait(1000);
     }
-    cy.wait(5000);
+    this.startUpload();
+    this.waitForDeleteButtonVisible(number, 30);
     this.isProgressBarDisappear(90000);
     this.isImageUploadedSuccessfully(90000);
-    this.startUpload();
     this.nextButtonUploadImg(90000, true);
   }
   
@@ -1368,7 +1377,7 @@ export class DashboardActions extends CommonActions
       this.enterMedicare(user.medicare);
       this.nextButton();
 
-      for(let index =0; index<3; index ++){
+      for(let index =1; index<= numberLesion; index ++){
         this.noPreviousHistory();
         this.provisionalDiagnosis();
         this.excludeMelasma();
@@ -1386,7 +1395,7 @@ export class DashboardActions extends CommonActions
         this.saveBodyMap();
         //Upload Dermascopic Images
         this.addLargeImagesByName(imageName, numberLesion)
-        if(index < 2){
+        if(index < numberLesion){
           this.addAnotherLesion();
         }
       }
