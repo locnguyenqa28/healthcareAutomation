@@ -471,6 +471,14 @@ export class DashboardActions extends CommonActions
     cy.wait(timeOut);
     cy.reload();
     // this.isReviewCase('Review Case')
+    cy.get(".x-grid3-cell-last[tabindex='0']").first().then(($col) => {
+      if($col.find('[href *="/cases/tdgp_viewdetails_submit/"]').length < 1) {
+        cy.wait(10000);
+        cy.reload();
+      } else {
+        this.isReviewCase('Review Case');
+      }
+    })
     cy.get(".x-grid3-cell-last[tabindex='0']")
     .eq(index)
     .contains('Successful')
