@@ -1334,13 +1334,13 @@ export class DashboardActions extends CommonActions
       this.uploadImage(imageName);
       this.assertHeader('Upload ');
       this.assertText('Remove');
-      cy.wait(1000);
       this.startUpload();
+      cy.wait(1000);
     }
+    cy.wait(5000);
     this.isProgressBarDisappear(90000);
-    cy.wait(1000);
     this.isImageUploadedSuccessfully(90000);
-    cy.wait(1000);
+    this.startUpload();
     this.nextButtonUploadImg(90000, true);
   }
   
