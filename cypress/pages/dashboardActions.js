@@ -429,8 +429,8 @@ export class DashboardActions extends CommonActions
     });
   }
 
-  isProgressBarDisappear(timeOut = 60000){
-    cy.get('body').find('.fileupload-progress', { timeout: timeOut }).last().should('not.be.visible')
+  isProgressBarDisappear(time = 90000){
+    cy.get('body').find('.fileupload-progress', { timeout: time }).last().should('not.be.visible')
   }
 
   startUpload(isForce=true){
@@ -438,13 +438,13 @@ export class DashboardActions extends CommonActions
       .click({force:isForce})
   }
 
-  isImageUploadedSuccessfully(timeOut = 60000){
-    cy.get('td[class="preview"]', { timeout: timeOut })
+  isImageUploadedSuccessfully(time = 90000){
+    cy.get('td[class="preview"]', { timeout: time })
       .should('be.visible')
   }
 
-  nextButtonUploadImg(timeOut = 60000, isForce = true){
-    cy.get('a[id="showlinkshownextv2"]', { timeout: timeOut })
+  nextButtonUploadImg(time = 60000, isForce = true){
+    cy.get('a[id="showlinkshownextv2"]', { timeout: time })
       .scrollIntoView()
       .click({force: isForce})
   }

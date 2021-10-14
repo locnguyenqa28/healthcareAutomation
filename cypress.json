@@ -1,6 +1,6 @@
 {
   "projectId": "6k3yms",
-  "defaultCommandTimeout": 20000,
+  "defaultCommandTimeout": 60000,
   "pageLoadTimeout":120000,
   "baseUrl": "https://sonic.ederm.com.au",
   "chromeWebSecurity": false,
@@ -9,6 +9,7 @@
   "failOnStatusCode": false,
   "env": {
     "base": "https://sonic.ederm.com.au",
-    "beta": "http://localhost:3000"
+    "beta": "http://localhost:3000",
+    "allureResultsPath": "report/results"
   }
 }
