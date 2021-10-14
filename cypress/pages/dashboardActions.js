@@ -467,28 +467,21 @@ export class DashboardActions extends CommonActions
       .scrollIntoView()
       .click({force:isForce})
   }
+  waitToReviewCase(round = 1) {
+    for(const i =0; i<round; i++){
+      cy.get(".x-grid3-cell-last[tabindex='0']").first().then(($col) => {
+        if($col.find('[href *="/cases/tdgp_viewdetails_submit/"]').length < 1) {
+          cy.wait(10000);
+          cy.reload();
+        }
+      })
+    }
+  }
   isUploadSuccesfully(index, timeOut = 10000){
     cy.wait(timeOut);
     cy.reload();
     // this.isReviewCase('Review Case')
-    cy.get(".x-grid3-cell-last[tabindex='0']").first().then(($col) => {
-      if($col.find('[href *="/cases/tdgp_viewdetails_submit/"]').length < 1) {
-        cy.wait(10000);
-        cy.reload();
-      }
-    })
-    cy.get(".x-grid3-cell-last[tabindex='0']").first().then(($col) => {
-      if($col.find('[href *="/cases/tdgp_viewdetails_submit/"]').length < 1) {
-        cy.wait(10000);
-        cy.reload();
-      }
-    })
-    cy.get(".x-grid3-cell-last[tabindex='0']").first().then(($col) => {
-      if($col.find('[href *="/cases/tdgp_viewdetails_submit/"]').length < 1) {
-        cy.wait(10000);
-        cy.reload();
-      }
-    })
+    this.waitToReviewCase(10)
     cy.get(".x-grid3-cell-last[tabindex='0']")
     .eq(index)
     .contains('Successful')
