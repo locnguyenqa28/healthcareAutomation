@@ -282,25 +282,6 @@ describe("Save Draft by API", () => {
     dashboardActions.enterLastNameCopy3('Ward ')
     dashboardActions.enterSuburbCopy3('suburb C')
 
-    dashboardActions.clickHrefByText('Save update');
-    loginActions.visitPageAndLogin(user.username, user.password)
-    homeActions.isDashBoardButtonDisplayed();
-    dashboardActions.clickOkSelectClinic(true);
-    clinicActions.selectSearchClinicByText('All');
-
-    dashboardActions.clickPathologyRequestByFirstName(subname);
-    dashboardActions.assertValueVisible('Copy A')
-    dashboardActions.assertValueVisible('last name A')
-    dashboardActions.assertValueVisible('suburb A')
-
-    dashboardActions.assertValueVisible('Copy B')
-    dashboardActions.assertValueVisible('last name B')
-    dashboardActions.assertValueVisible('suburb B')
-    
-    dashboardActions.assertValueVisible('Hospital')
-    dashboardActions.assertValueVisible('Ward ')
-    dashboardActions.assertValueVisible('suburb C')
-
     dashboardActions.addAnotherLesion();
      //Add first lesion
     dashboardActions.addALesionByNumberImages(4);
@@ -345,25 +326,6 @@ describe("Save Draft by API", () => {
     dashboardActions.enterFirstNameCopy3('Hospital')
     dashboardActions.enterLastNameCopy3('Ward ')
     dashboardActions.enterSuburbCopy3('suburb C')
-
-    dashboardActions.clickHrefByText('Save update');
-    loginActions.visitPageAndLogin(user.username, user.password)
-    homeActions.isDashBoardButtonDisplayed();
-    dashboardActions.clickOkSelectClinic(true);
-    clinicActions.selectSearchClinicByText('All');
-
-    dashboardActions.clickPathologyRequestByFirstName(subname);
-    dashboardActions.assertValueVisible('Copy A')
-    dashboardActions.assertValueVisible('last name A')
-    dashboardActions.assertValueVisible('suburb A')
-
-    dashboardActions.assertValueVisible('Copy B')
-    dashboardActions.assertValueVisible('last name B')
-    dashboardActions.assertValueVisible('suburb B')
-    
-    dashboardActions.assertValueVisible('Hospital')
-    dashboardActions.assertValueVisible('Ward ')
-    dashboardActions.assertValueVisible('suburb C')
 
     dashboardActions.addAnotherLesion();
      //Add first lesion
@@ -415,24 +377,6 @@ describe("Save Draft by API", () => {
     dashboardActions.enterLastNameCopy3('Ward ')
     dashboardActions.enterSuburbCopy3('suburb C')
 
-    dashboardActions.clickHrefByText('Save update');
-    loginActions.visitPageAndLogin(user.username, user.password)
-    homeActions.isDashBoardButtonDisplayed();
-    dashboardActions.clickOkSelectClinic(true);
-    clinicActions.selectSearchClinicByText('All');
-
-    dashboardActions.clickPathologyRequestByFirstName(subname);
-    dashboardActions.assertValueVisible('Copy A')
-    dashboardActions.assertValueVisible('last name A')
-    dashboardActions.assertValueVisible('suburb A')
-
-    dashboardActions.assertValueVisible('Copy B')
-    dashboardActions.assertValueVisible('last name B')
-    dashboardActions.assertValueVisible('suburb B')
-    
-    dashboardActions.assertValueVisible('Hospital')
-    dashboardActions.assertValueVisible('Ward ')
-    dashboardActions.assertValueVisible('suburb C')
 
     dashboardActions.addAnotherLesion();
      //Add first lesion
@@ -479,18 +423,6 @@ describe("Save Draft by API", () => {
     dashboardActions.enterLastNameCopy3('Ward ')
     dashboardActions.enterSuburbCopy3('suburb C')
 
-    dashboardActions.clickHrefByText('Save update');
-    loginActions.visitPageAndLogin(user.username, user.password)
-    homeActions.isDashBoardButtonDisplayed();
-    dashboardActions.clickOkSelectClinic(true);
-    clinicActions.selectSearchClinicByText('All');
-
-    dashboardActions.clickPathologyRequestByFirstName(subname);
-    
-    dashboardActions.assertValueVisible('Hospital')
-    dashboardActions.assertValueVisible('Ward ')
-    dashboardActions.assertValueVisible('suburb C')
-
     dashboardActions.addAnotherLesion();
      //Add first lesion
     dashboardActions.addALesionNoImage();
@@ -536,18 +468,6 @@ describe("Save Draft by API", () => {
     dashboardActions.enterLastNameCopy3('Ward ')
     dashboardActions.enterSuburbCopy3('suburb C')
 
-    dashboardActions.clickHrefByText('Save update');
-    loginActions.visitPageAndLogin(user.username, user.password)
-    homeActions.isDashBoardButtonDisplayed();
-    dashboardActions.clickOkSelectClinic(true);
-    clinicActions.selectSearchClinicByText('All');
-
-    dashboardActions.clickPathologyRequestByFirstName(subname);
-    
-    dashboardActions.assertValueVisible('Hospital')
-    dashboardActions.assertValueVisible('Ward ')
-    dashboardActions.assertValueVisible('suburb C')
-
     dashboardActions.addAnotherLesion();
      //Add first lesion
     dashboardActions.addALesionNoImage();
@@ -588,18 +508,6 @@ describe("Save Draft by API", () => {
     dashboardActions.enterFirstNameCopy3('Hospital')
     dashboardActions.enterLastNameCopy3('Ward ')
     dashboardActions.enterSuburbCopy3('suburb C')
-
-    dashboardActions.clickHrefByText('Save update');
-    loginActions.visitPageAndLogin(user.username, user.password)
-    homeActions.isDashBoardButtonDisplayed();
-    dashboardActions.clickOkSelectClinic(true);
-    clinicActions.selectSearchClinicByText('All');
-
-    dashboardActions.clickPathologyRequestByFirstName(subname);
-    
-    dashboardActions.assertValueVisible('Hospital')
-    dashboardActions.assertValueVisible('Ward ')
-    dashboardActions.assertValueVisible('suburb C')
 
     dashboardActions.addAnotherLesion();
      //Add first lesion
