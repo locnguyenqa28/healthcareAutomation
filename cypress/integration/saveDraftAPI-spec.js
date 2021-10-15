@@ -248,7 +248,7 @@ describe("Save Draft by API", () => {
     dashboardActions.assertValueVisible('suburb C')
   });
 
-  it("The SaveDraftAPI can be submitted with one lesion + two copy and Hospital", () => 
+  it.skip("The SaveDraftAPI can be submitted with one lesion + two copy and Hospital", () => 
   {
     const subname = dashboardActions.randomAlpha(10)
     const firstname = `API-${subname}`;
@@ -293,7 +293,7 @@ describe("Save Draft by API", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("The SaveDraftAPI can be submitted with 2 lesion + two copy and Hospital", () => 
+  it.skip("The SaveDraftAPI can be submitted with 2 lesion + two copy and Hospital", () => 
   {
     const subname = dashboardActions.randomAlpha(10)
     const firstname = `API-${subname}`;
@@ -343,7 +343,7 @@ describe("Save Draft by API", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("The SaveDraftAPI can be submitted with 3 lesion + two copy and Hospital", () => 
+  it.skip("The SaveDraftAPI can be submitted with 3 lesion + two copy and Hospital", () => 
   {
     const subname = dashboardActions.randomAlpha(10)
     const firstname = `API-${subname}`;
@@ -398,7 +398,7 @@ describe("Save Draft by API", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("The SaveDraftAPI can be submitted with 3 lesion no image", () => 
+  it.skip("The SaveDraftAPI can be submitted with 3 lesion no image", () => 
   {
     const subname = dashboardActions.randomAlpha(10)
     const firstname = `API-${subname}`;
@@ -443,7 +443,7 @@ describe("Save Draft by API", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("The SaveDraftAPI can be submitted with 2 lesion no image", () => 
+  it.skip("The SaveDraftAPI can be submitted with 2 lesion no image", () => 
   {
     const subname = dashboardActions.randomAlpha(10)
     const firstname = `API-${subname}`;
@@ -484,7 +484,7 @@ describe("Save Draft by API", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("The SaveDraftAPI can be submitted with 1 lesion no image", () => 
+  it.skip("The SaveDraftAPI can be submitted with 1 lesion no image", () => 
   {
     const subname = dashboardActions.randomAlpha(10)
     const firstname = `API-${subname}`;
