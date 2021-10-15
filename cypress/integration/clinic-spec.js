@@ -387,7 +387,7 @@ describe("Clinic", () => {
     clinicActions.isClinicNameNotExist(invalid)
   });
   
-  it("11. Edit clinic Laboratory", () => 
+  it.skip("11. Edit clinic Laboratory", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -408,7 +408,7 @@ describe("Clinic", () => {
     clinicActions.editAndVerifyClinicLabByIndex()
   });
   
-  it("12. Multiple Edit clinic Laboratory", () => 
+  it.skip("12. Multiple Edit clinic Laboratory", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -434,7 +434,7 @@ describe("Clinic", () => {
     clinicActions.editAndVerifyClinicLabByIndex()
   });
   
-  it("13. Edit Multiple clinics Laboratory", () => 
+  it.skip("13. Edit Multiple clinics Laboratory", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -460,7 +460,7 @@ describe("Clinic", () => {
     clinicActions.editAndVerifyClinicLabByIndex(1)
   });
   
-  it("14. Edit clinic all values", () => 
+  it.skip("14. Edit clinic all values", () => 
   {
     const name = `Automation-${homeActions.randomAlpha(10)}`;
     const providerNumber = `${homeActions.randomAlphanumeric(7)}`;
@@ -486,7 +486,7 @@ describe("Clinic", () => {
    
   });
   
-  it("15. Edit Multiple clinics all values", () => 
+  it.skip("15. Edit Multiple clinics all values", () => 
   {
     let name = `Automation-${homeActions.randomAlpha(10)}`;
     let providerNumber = `${homeActions.randomAlphanumeric(7)}`;
