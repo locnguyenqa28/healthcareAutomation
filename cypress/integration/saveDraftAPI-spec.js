@@ -50,7 +50,7 @@ describe("Save Draft by API", () => {
     dashboardActions.clickSavePatientDetails();
     dashboardActions.clickOkPatientDetails();
 
-    dashboardActions.clickHrefByText('Save update');
+    dashboardActions.clickSaveUpdateForBeta();
     loginActions.visitPageAndLogin(user.username, user.password)
     homeActions.isDashBoardButtonDisplayed();
     dashboardActions.clickOkSelectClinic(true);
@@ -99,7 +99,7 @@ describe("Save Draft by API", () => {
     dashboardActions.enterLastNameCopy1('last name A')
     dashboardActions.enterSuburbCopy1('suburb A')
 
-    dashboardActions.clickHrefByText('Save update');
+    dashboardActions.clickSaveUpdateForBeta();
     loginActions.visitPageAndLogin(user.username, user.password)
     homeActions.isDashBoardButtonDisplayed();
     dashboardActions.clickOkSelectClinic(true);
@@ -141,7 +141,7 @@ describe("Save Draft by API", () => {
     dashboardActions.enterLastNameCopy2('last name B')
     dashboardActions.enterSuburbCopy2('suburb B')
 
-    dashboardActions.clickHrefByText('Save update');
+    dashboardActions.clickSaveUpdateForBeta();
     loginActions.visitPageAndLogin(user.username, user.password)
     homeActions.isDashBoardButtonDisplayed();
     dashboardActions.clickOkSelectClinic(true);
@@ -191,7 +191,7 @@ describe("Save Draft by API", () => {
     dashboardActions.enterLastNameCopy3('Ward ')
     dashboardActions.enterSuburbCopy3('suburb C')
 
-    dashboardActions.clickHrefByText('Save update');
+    dashboardActions.clickSaveUpdateForBeta();
     loginActions.visitPageAndLogin(user.username, user.password)
     homeActions.isDashBoardButtonDisplayed();
     dashboardActions.clickOkSelectClinic(true);
@@ -235,7 +235,7 @@ describe("Save Draft by API", () => {
     dashboardActions.enterLastNameCopy3('Ward ')
     dashboardActions.enterSuburbCopy3('suburb C')
 
-    dashboardActions.clickHrefByText('Save update');
+    dashboardActions.clickSaveUpdateForBeta();
     loginActions.visitPageAndLogin(user.username, user.password)
     homeActions.isDashBoardButtonDisplayed();
     dashboardActions.clickOkSelectClinic(true);

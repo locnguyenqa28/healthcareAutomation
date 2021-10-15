@@ -1405,6 +1405,10 @@ export class DashboardActions extends CommonActions
       this.isUploadSuccesfully(0, 15000);
     } 
   }
+  clickSaveUpdateForBeta() {
+    this.clickHrefByText('Save update');
+    cy.wait(1000);
+  }
 }
 
 
