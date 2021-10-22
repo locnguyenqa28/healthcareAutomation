@@ -9,7 +9,7 @@ describe("Four lesion testing - Only AWS", () => {
   const loginActions = new LoginActions();
   const dashboardActions = new DashboardActions();
   const clinicActions = new ClinicActions();
-
+  const validOtherText = "abdzABCZ--.";
   it("Submit four Lesion more than 4 images", () => 
   {
     loginActions.visitPage();
@@ -409,6 +409,181 @@ describe("Four lesion testing - Only AWS", () => {
     //Add another lesion
     dashboardActions.addAnotherLesion();
     dashboardActions.addALesionNoImage();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+
+  it("EDERMPATH-85. Able to add more than 4 conditions by multi clicking on Save body map", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `EDERMPATH eight five ${homeActions.randomAlpha(10)}`;
+    const lastname = `Able to add more than four conditions`;
+   
+  dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Other');
+    dashboardActions.enterOtherTitle(validOtherText);
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionByNumberImages(1);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByNumberImages(1);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByNumberImages(1);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+
+    //Clinical Condition
+    dashboardActions.noPreviousHistory();
+    dashboardActions.provisionalDiagnosis();
+    dashboardActions.excludeMelasma();
+    dashboardActions.excludeNmsc();
+    dashboardActions.selectBiopsyType();
+
+    //Case Images
+    dashboardActions.addBodyMap();
+    dashboardActions.clickImage();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation();
+    dashboardActions.dblclickSaveBodyMap();
+
+    //Upload Dermascopic Images
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.uploadMultiImages(1);
+    dashboardActions.startUpload();
+    dashboardActions.isProgressBarDisappear();
+    dashboardActions.isImageUploadedSuccessfully();
+    dashboardActions.nextButtonUploadImg();
+
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.assertText('Lesion 1')
+    dashboardActions.assertText('Lesion 2')
+    dashboardActions.assertText('Lesion 3')
+    dashboardActions.assertText('Lesion 4')
+    dashboardActions.assertNoText('Lesion 5')
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+    
+  it("Four Lesion saving", () => 
+  {
+    const firstname = `Draft-${homeActions.randomAlpha(10)}`;
+    const lastname = `save four lesion ${homeActions.randomAlpha(10)}`;
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionByNumberImages();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByNumberImages();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByNumberImages();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByNumberImages();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.saveDraft();
+    dashboardActions.assertFirstName(firstname)
+    dashboardActions.isReviewCase('Draft')
+  });
+    
+  it("Submit four Lesion invalid image", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `submit-${homeActions.randomAlpha(10)}`;
+    const lastname = `four lesion invalid image`;
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionByInvalidImages();
+
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByInvalidImages();
+
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByInvalidImages();
+
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByInvalidImages();
 
     //Case Summary
     dashboardActions.caseSummary();
