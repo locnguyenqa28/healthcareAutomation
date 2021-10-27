@@ -459,8 +459,11 @@ export class DashboardActions extends CommonActions
       .contains('Request summary >>').click()
   }
   submitCasePrint(){
-    cy.get('[class="docnavright submit1"]')
-      .contains('Submit request & print » ').click()
+    this.assertText('Submit request & print »');
+    cy
+      .get('a.submit1')
+      .contains('Submit request & print »').click()
+      .get('#ex1review2 [onclick="continuemodelreviews()"]').click();
   }
   returnToDashboard(isForce = true){
     cy.get('a[href*="/cases/dashboard"]')

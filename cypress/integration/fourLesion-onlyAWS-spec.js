@@ -592,5 +592,573 @@ describe("Four lesion testing - Only AWS", () => {
     homeActions.isDashboardDisplayed();
     dashboardActions.isUploadSuccesfully(0);
   });
+
+  it("4 lesions - 1 image: delete the first and second lesion", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `delete ${homeActions.randomAlpha(5)}`;
+    const lastname = `the first and second lesion`;
+    const lesion1 = 'Lesion 1';
+    // const lesion2= 'Lesion 2';
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.assertText('Next »')
+    dashboardActions.assertText('Save draft » ')
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    
+    //Delete lesion
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.scrollToLesion(lesion1)
+    dashboardActions.assertText(lesion1)
+    dashboardActions.clickDeleteLesion(lesion1)
+    dashboardActions.assertText('Submit request & print');
+
+    //Delete lesion
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.scrollToLesion(lesion1)
+    dashboardActions.assertText(lesion1)
+    dashboardActions.clickDeleteLesion(lesion1)
+    dashboardActions.assertText('Submit request & print');
+
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+    
+  it("4 lesions - 1 image: delete the 2 and 3 lesion", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `delete ${homeActions.randomAlpha(5)}`;
+    const lastname = `the second and third lesion`;
+    const lesion1 = 'Lesion 2';
+    // const lesion2= 'Lesion 2';
+   dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+     dashboardActions.assertText('Next »')
+    dashboardActions.assertText('Save draft » ')
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    
+    //Delete lesion
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.scrollToLesion(lesion1)
+    dashboardActions.assertText(lesion1)
+    dashboardActions.clickDeleteLesion(lesion1)
+    dashboardActions.assertText('Submit request & print');
+
+    //Delete lesion
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.scrollToLesion(lesion1)
+    dashboardActions.assertText(lesion1)
+    dashboardActions.clickDeleteLesion(lesion1)
+    dashboardActions.assertText('Submit request & print');
+
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+    
+  it("4 lesions - 1 image: delete the 1 and 3 lesion", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `delete ${homeActions.randomAlpha(5)}`;
+    const lastname = `the second and third lesion`;
+    const lesion1 = 'Lesion 1';
+    const lesion2= 'Lesion 2';
+   dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+     dashboardActions.assertText('Next »')
+    dashboardActions.assertText('Save draft » ')
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    
+    //Delete lesion
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.scrollToLesion(lesion1)
+    dashboardActions.assertText(lesion1)
+    dashboardActions.clickDeleteLesion(lesion1)
+    dashboardActions.assertText('Submit request & print');
+
+    //Delete lesion
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.scrollToLesion(lesion2)
+    dashboardActions.assertText(lesion2)
+    dashboardActions.clickDeleteLesion(lesion2)
+    dashboardActions.assertText('Submit request & print');
+
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+    
+  it("4 lesions - 1 image: delete the 1 and 4 lesion", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `delete ${homeActions.randomAlpha(5)}`;
+    const lastname = `the one and fourth lesion`;
+    const lesion1 = 'Lesion 1';
+    const lesion2= 'Lesion 3';
+   dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+     dashboardActions.assertText('Next »')
+    dashboardActions.assertText('Save draft » ')
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    
+    //Delete lesion
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.scrollToLesion(lesion1)
+    dashboardActions.assertText(lesion1)
+    dashboardActions.clickDeleteLesion(lesion1)
+    dashboardActions.assertText('Submit request & print');
+
+    //Delete lesion
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.scrollToLesion(lesion2)
+    dashboardActions.assertText(lesion2)
+    dashboardActions.clickDeleteLesion(lesion2)
+    dashboardActions.assertText('Submit request & print');
+
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+     
+  it("4 lesions - 1 image: delete the 4th then 3rd lesion", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `delete ${homeActions.randomAlpha(5)}`;
+    const lastname = `the fouth and third`;
+    const lesion1 = 'Lesion 4';
+    const lesion2 = 'Lesion 3';
+    // const lesion2= 'Lesion 2';
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.assertText('Next »')
+    dashboardActions.assertText('Save draft » ')
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    
+    //Delete lesion
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.scrollToLesion(lesion1)
+    dashboardActions.assertText(lesion1)
+    dashboardActions.clickDeleteLesion(lesion1)
+    dashboardActions.assertText('Submit request & print');
+
+    //Delete lesion
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.scrollToLesion(lesion2)
+    dashboardActions.assertText(lesion2)
+    dashboardActions.clickDeleteLesion(lesion2)
+    dashboardActions.assertText('Submit request & print');
+
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+     
+  it("4 lesions - 1 image: delete the 4th lesion", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `delete ${homeActions.randomAlpha(5)}`;
+    const lastname = `the fouth lesion`;
+    const lesion1 = 'Lesion 4';
+    // const lesion2= 'Lesion 2';
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+     dashboardActions.assertText('Next »')
+    dashboardActions.assertText('Save draft » ')
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesion();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    
+    //Delete lesion
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.scrollToLesion(lesion1)
+    dashboardActions.assertText(lesion1)
+    dashboardActions.clickDeleteLesion(lesion1)
+    dashboardActions.assertText('Submit request & print');
+
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+     
+  it("4 lesions - 4 images - copies report: delete the 4th lesion", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `delete ${homeActions.randomAlpha(5)}`;
+    const lastname = `the fouth lesion four images`;
+    const lesion1 = 'Lesion 4';
+    // const lesion2= 'Lesion 2';
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+     dashboardActions.assertText('Next »')
+    dashboardActions.assertText('Save draft » ')
+
+    dashboardActions.selectTitleCopy1ByIndex(1)
+    dashboardActions.enterFirstNameCopy1('Copy A')
+    dashboardActions.enterLastNameCopy1('last name A')
+    dashboardActions.enterSuburbCopy1('suburb A')
+
+    dashboardActions.selectTitleCopy2ByIndex(2)
+    dashboardActions.enterFirstNameCopy2('Copy B')
+    dashboardActions.enterLastNameCopy2('last name B')
+    dashboardActions.enterSuburbCopy2('suburb B')
+
+    dashboardActions.enterFirstNameCopy3('Hospital')
+    dashboardActions.enterLastNameCopy3('Ward ')
+    dashboardActions.enterSuburbCopy3('suburb C')
+
+    dashboardActions.assertText('Next »')
+    dashboardActions.assertText('Save draft » ')
+
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionByNumberImages(4);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByNumberImages(4);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByNumberImages(4);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByNumberImages(4);
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    
+    //Delete lesion
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.scrollToLesion(lesion1)
+    dashboardActions.assertText(lesion1)
+    dashboardActions.clickDeleteLesion(lesion1)
+    dashboardActions.assertText('Submit request & print');
+
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+     
+  it("4 lesions - no images - copies report: delete the 4th lesion", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `delete ${homeActions.randomAlpha(5)}`;
+    const lastname = `the fouth lesion no images`;
+    const lesion1 = 'Lesion 4';
+    // const lesion2= 'Lesion 2';
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+     dashboardActions.assertText('Next »')
+    dashboardActions.assertText('Save draft » ')
+
+    dashboardActions.selectTitleCopy1ByIndex(1)
+    dashboardActions.enterFirstNameCopy1('Copy A')
+    dashboardActions.enterLastNameCopy1('last name A')
+    dashboardActions.enterSuburbCopy1('suburb A')
+
+    dashboardActions.selectTitleCopy2ByIndex(2)
+    dashboardActions.enterFirstNameCopy2('Copy B')
+    dashboardActions.enterLastNameCopy2('last name B')
+    dashboardActions.enterSuburbCopy2('suburb B')
+
+    dashboardActions.enterFirstNameCopy3('Hospital')
+    dashboardActions.enterLastNameCopy3('Ward ')
+    dashboardActions.enterSuburbCopy3('suburb C')
+
+    dashboardActions.assertText('Next »')
+    dashboardActions.assertText('Save draft » ')
+
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionNoImage();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionNoImage();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionNoImage();
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionNoImage();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    
+    //Delete lesion
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.scrollToLesion(lesion1)
+    dashboardActions.assertText(lesion1)
+    dashboardActions.clickDeleteLesion(lesion1)
+    dashboardActions.assertText('Submit request & print');
+
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
 });
   
