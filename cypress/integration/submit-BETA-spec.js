@@ -1,11 +1,11 @@
-import { LoginActions } from "../../pages/loginAction";
-import { HomeActions } from "../../pages/homeAction";
-import { DashboardActions } from "../../pages/dashboardActions";
-import { ClinicActions } from "../../pages/clinicActions";
-import user from "../../support/constants"
+import { LoginActions } from "../pages/loginAction";
+import { HomeActions } from "../pages/homeAction";
+import { DashboardActions } from "../pages/dashboardActions";
+import { ClinicActions } from "../pages/clinicActions";
+import user from "../support/constants"
 
 
-describe("Add New Lesion on eDerm", () => {
+describe("Submit - BETA", () => {
     const loginActions = new LoginActions();
     const homeActions = new HomeActions();
     const dashboardActions = new DashboardActions();
@@ -21,8 +21,8 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `one Lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `more than four images ${homeActions.randomAlpha(20)}`;
+    const firstname = `one Lesion ${homeActions.randomAlpha(10)}`;
+    const lastname = `more than four images ${homeActions.randomAlpha(10)}`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
@@ -59,8 +59,8 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `two Lesions ${homeActions.randomAlpha(20)}`;
-    const lastname = `more than four images ${homeActions.randomAlpha(20)}`;
+    const firstname = `two Lesions ${homeActions.randomAlpha(10)}`;
+    const lastname = `more than four images ${homeActions.randomAlpha(10)}`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
@@ -101,8 +101,8 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `three Lesions ${homeActions.randomAlpha(20)}`;
-    const lastname = `more than four images ${homeActions.randomAlpha(20)}`;
+    const firstname = `three Lesions ${homeActions.randomAlpha(10)}`;
+    const lastname = `more than four images ${homeActions.randomAlpha(10)}`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
@@ -147,8 +147,8 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `three Lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `four images ${homeActions.randomAlpha(20)}`;
+    const firstname = `three Lesion ${homeActions.randomAlpha(10)}`;
+    const lastname = `four images ${homeActions.randomAlpha(10)}`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
@@ -193,8 +193,8 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `three Lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `three images ${homeActions.randomAlpha(20)}`;
+    const firstname = `three Lesion ${homeActions.randomAlpha(10)}`;
+    const lastname = `three images ${homeActions.randomAlpha(10)}`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
@@ -239,7 +239,7 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `three Lesion ${homeActions.randomAlpha(20)}`;
+    const firstname = `three Lesion ${homeActions.randomAlpha(10)}`;
     const lastname = `two images ${homeActions.randomAlpha(10)}`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -285,8 +285,8 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `three Lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `one images ${homeActions.randomAlpha(20)}`;
+    const firstname = `three Lesion ${homeActions.randomAlpha(10)}`;
+    const lastname = `one images ${homeActions.randomAlpha(10)}`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
@@ -331,8 +331,8 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `two Lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `four images ${homeActions.randomAlpha(20)}`;
+    const firstname = `two Lesion ${homeActions.randomAlpha(10)}`;
+    const lastname = `four images ${homeActions.randomAlpha(10)}`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
@@ -373,8 +373,8 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `two Lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `three images ${homeActions.randomAlpha(20)}`;
+    const firstname = `two Lesion ${homeActions.randomAlpha(10)}`;
+    const lastname = `three images ${homeActions.randomAlpha(10)}`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
@@ -415,7 +415,7 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `two Lesion ${homeActions.randomAlpha(20)}`;
+    const firstname = `two Lesion ${homeActions.randomAlpha(10)}`;
     const lastname = `two images ${homeActions.randomAlpha(10)}`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -457,8 +457,8 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `three Lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `one images ${homeActions.randomAlpha(20)}`;
+    const firstname = `three Lesion ${homeActions.randomAlpha(10)}`;
+    const lastname = `one images ${homeActions.randomAlpha(10)}`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
@@ -499,8 +499,8 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `one Lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `four images ${homeActions.randomAlpha(20)}`;
+    const firstname = `one Lesion ${homeActions.randomAlpha(10)}`;
+    const lastname = `four images ${homeActions.randomAlpha(10)}`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
@@ -537,8 +537,8 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `one Lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `three images ${homeActions.randomAlpha(20)}`;
+    const firstname = `one Lesion ${homeActions.randomAlpha(10)}`;
+    const lastname = `three images ${homeActions.randomAlpha(10)}`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
@@ -575,7 +575,7 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `one Lesion ${homeActions.randomAlpha(20)}`;
+    const firstname = `one Lesion ${homeActions.randomAlpha(10)}`;
     const lastname = `two images ${homeActions.randomAlpha(10)}`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -613,8 +613,8 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `three Lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `one images ${homeActions.randomAlpha(20)}`;
+    const firstname = `three Lesion ${homeActions.randomAlpha(10)}`;
+    const lastname = `one images ${homeActions.randomAlpha(10)}`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
@@ -651,7 +651,7 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `submit ${homeActions.randomAlpha(20)}`;
+    const firstname = `submit ${homeActions.randomAlpha(10)}`;
     const lastname = `Bulk bill to DVA`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -696,7 +696,7 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `submit ${homeActions.randomAlpha(20)}`;
+    const firstname = `submit ${homeActions.randomAlpha(10)}`;
     const lastname = `DVA to Bulk bill`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -790,7 +790,7 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `submit ${homeActions.randomAlpha(20)}`;
+    const firstname = `submit ${homeActions.randomAlpha(10)}`;
     const lastname = `Bulk bill to Private`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -882,7 +882,7 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `submit ${homeActions.randomAlpha(20)}`;
+    const firstname = `submit ${homeActions.randomAlpha(10)}`;
     const lastname = `Private to Bulk bill`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -928,7 +928,7 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `submit ${homeActions.randomAlpha(20)}`;
+    const firstname = `submit ${homeActions.randomAlpha(10)}`;
     const lastname = `Gender Female - Male`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -969,7 +969,7 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `submit ${homeActions.randomAlpha(20)}`;
+    const firstname = `submit ${homeActions.randomAlpha(10)}`;
     const lastname = `Gender Female - Other`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -1010,7 +1010,7 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `submit ${homeActions.randomAlpha(20)}`;
+    const firstname = `submit ${homeActions.randomAlpha(10)}`;
     const lastname = `Gender Female - Unknown`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -1051,7 +1051,7 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `submit ${homeActions.randomAlpha(20)}`;
+    const firstname = `submit ${homeActions.randomAlpha(10)}`;
     const lastname = `Gender Male - Female`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -1092,7 +1092,7 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `submit ${homeActions.randomAlpha(20)}`;
+    const firstname = `submit ${homeActions.randomAlpha(10)}`;
     const lastname = `Gender Male - Other`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -1133,7 +1133,7 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `submit ${homeActions.randomAlpha(20)}`;
+    const firstname = `submit ${homeActions.randomAlpha(10)}`;
     const lastname = `Gender Male - Unknown`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -1174,7 +1174,7 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `submit ${homeActions.randomAlpha(20)}`;
+    const firstname = `submit ${homeActions.randomAlpha(10)}`;
     const lastname = `Gender Other - Male`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -1215,7 +1215,7 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `submit ${homeActions.randomAlpha(20)}`;
+    const firstname = `submit ${homeActions.randomAlpha(10)}`;
     const lastname = `Gender Other - Female`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -1256,7 +1256,7 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `submit ${homeActions.randomAlpha(20)}`;
+    const firstname = `submit ${homeActions.randomAlpha(10)}`;
     const lastname = `Gender Other - Unknown`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -1297,7 +1297,7 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `submit ${homeActions.randomAlpha(20)}`;
+    const firstname = `submit ${homeActions.randomAlpha(10)}`;
     const lastname = `Gender Unknown - Male`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -1338,7 +1338,7 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `submit ${homeActions.randomAlpha(20)}`;
+    const firstname = `submit ${homeActions.randomAlpha(10)}`;
     const lastname = `Gender Unknown - Female`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -1379,7 +1379,7 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `submit ${homeActions.randomAlpha(20)}`;
+    const firstname = `submit ${homeActions.randomAlpha(10)}`;
     const lastname = `Gender Unknown - other`;
   dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -1420,7 +1420,7 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `submit-${homeActions.randomAlpha(20)}`;
+    const firstname = `submit-${homeActions.randomAlpha(10)}`;
     const lastname = `One Lesion - four images - only the second copy`;
     dashboardActions.clickOkSelectClinic(true);
     clinicActions.selectSearchClinicByText('All');
@@ -1463,7 +1463,7 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `submit-${homeActions.randomAlpha(20)}`;
+    const firstname = `submit-${homeActions.randomAlpha(10)}`;
     const lastname = `One Lesion - four images - only the third copy`;
     dashboardActions.clickOkSelectClinic(true);
     clinicActions.selectSearchClinicByText('All');
@@ -1505,7 +1505,7 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `submit-${homeActions.randomAlpha(20)}`;
+    const firstname = `submit-${homeActions.randomAlpha(10)}`;
     const lastname = `One Lesion - four images -three copies`;
     dashboardActions.clickOkSelectClinic(true);
     clinicActions.selectSearchClinicByText('All');
@@ -1975,7 +1975,7 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `submit ${homeActions.randomAlpha(20)}`;
+    const firstname = `submit ${homeActions.randomAlpha(10)}`;
     const lastname = `Bulk bill to Schedule Fee`;
     dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -2015,7 +2015,7 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `submit ${homeActions.randomAlpha(20)}`;
+    const firstname = `submit ${homeActions.randomAlpha(10)}`;
     const lastname = `DVA to Schedule Fee`;
     dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -2057,7 +2057,7 @@ describe("Add New Lesion on eDerm", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `submit ${homeActions.randomAlpha(20)}`;
+    const firstname = `submit ${homeActions.randomAlpha(10)}`;
     const lastname = `Schedule Fee to Bulk bill`;
     dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();

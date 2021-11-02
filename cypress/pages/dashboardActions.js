@@ -73,8 +73,10 @@ export class DashboardActions extends CommonActions
         .click({force: isForce})
   }
   
-  clickOkPatientDetails(isForce = false){
-      cy.get('a[onclick*="sendupdatepatientdeatils"]')
+  clickOkPatientDetails(isForce = true){
+      this.assertText('Please confirm the following details are correct:');
+      cy.wait(1000);
+      cy.get('.jquery-modal a[onclick*="sendupdatepatientdeatils"]')
         .click({force: isForce})
   }
 
