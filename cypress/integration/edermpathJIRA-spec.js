@@ -1264,5 +1264,111 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.selectAndCheckPatientClinic(1);
   });
+    
+  it("EDERMPATH-280. Set default state for new clinic to Blank", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Clinic
+   
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickHrefByText('Setup', true);
+
+    // Clinic modal
+    clinicActions.assertText('Add new clinic');
+    clinicActions.clickHrefByText('Add new clinic');
+
+    // Clinic modal
+    clinicActions.isModal('Add new clinic');
+    clinicActions.assertTextClinicStateByIndex('',0)
+  });
+    
+  it("EDERMPATH-284. Update the data entry field lengths", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `submit-${homeActions.randomAlpha(10)}`;
+    const lastname = `EDERMPATH two eight four`;
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.assertLengthFirstName(40);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.assertLengthLastName(40);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.assertLengthAddress(40);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.assertLengthsuburb(40);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+
+    dashboardActions.selectTitleCopy1ByIndex(1)
+    dashboardActions.enterFirstNameCopy1('Copy A')
+    dashboardActions.assertLengthFirstNameCopy1(40)
+    dashboardActions.enterLastNameCopy1('last name A')
+    dashboardActions.assertLengthLastNameCopy2(40)
+    dashboardActions.enterSuburbCopy1('suburb A')
+    dashboardActions.assertLengthSuburbCopy1(40)
+
+    dashboardActions.selectTitleCopy2ByIndex(2)
+    dashboardActions.enterFirstNameCopy2('Copy B')
+    dashboardActions.assertLengthFirstNameCopy2(40)
+    dashboardActions.enterLastNameCopy2('last name B')
+    dashboardActions.assertLengthLastNameCopy2(40)
+    dashboardActions.enterSuburbCopy2('suburb B')
+    dashboardActions.assertLengthSuburbCopy2(40)
+   
+    dashboardActions.enterFirstNameCopy3('Hospital')
+    dashboardActions.assertLengthFirstNameCopy3(40)
+    dashboardActions.enterLastNameCopy3('Ward ')
+    dashboardActions.assertLengthLastNameCopy2(40)
+    dashboardActions.enterSuburbCopy3('suburb C')
+    dashboardActions.assertLengthSuburbCopy3(40)
+
+    dashboardActions.nextButton();
+
+    //Add first lesion
+   //Clinical Condition
+   dashboardActions.noPreviousHistory();
+   dashboardActions.provisionalDiagnosis();
+   dashboardActions.excludeMelasma();
+   dashboardActions.excludeNmsc();
+   dashboardActions.selectBiopsyType();
+
+    //Case Images
+    dashboardActions.addBodyMap();
+    dashboardActions.clickImage();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation();
+    dashboardActions.assertLengthSpecimenLocation(25)
+    dashboardActions.saveBodyMap();
+
+   //Upload Dermascopic Images
+   dashboardActions.assertHeader('Upload ');
+   dashboardActions.clickHrefByText('Continue with no images');
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
 });
   

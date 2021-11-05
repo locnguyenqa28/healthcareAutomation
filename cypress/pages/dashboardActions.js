@@ -86,11 +86,24 @@ export class DashboardActions extends CommonActions
         .type(firstname)
   }
 
+  assertLengthFirstName(number){
+      cy.get('input[id="case_FirstName"]')
+        .invoke('attr', 'size')
+        .should('eq', number.toString())
+  }
+
   enterLastName(lastname){
       cy.get('input[id="case_LastName"]')
         .clear()
         .type(lastname)
   }
+
+  
+  assertLengthLastName(number){
+    cy.get('input[id="case_LastName"]')
+      .invoke('attr', 'size')
+      .should('eq', number.toString())
+}
 
   clickGender(){
     cy.get('select[id="case_Gender"]')
@@ -171,9 +184,22 @@ export class DashboardActions extends CommonActions
         .type(address)
   }
 
+  assertLengthAddress(number){
+    cy.get('input[id="case_Address"]')
+      .invoke('attr', 'size')
+      .should('eq', number.toString())
+  }
+
   enterCity(city){
       cy.get('input[id="case_suburb"]')
         .type(city)
+  }
+
+  
+  assertLengthsuburb(number){
+    cy.get('input[id="case_suburb"]')
+      .invoke('attr', 'size')
+      .should('eq', number.toString())
   }
 
   selectState(state = 'NSW'){
@@ -352,6 +378,12 @@ export class DashboardActions extends CommonActions
       cy.get('textarea[id="specimenLocation"]')
         .clear()
         .type(text)
+  }
+
+  assertLengthSpecimenLocation(number){
+    cy.get('textarea[id="specimenLocation"]')
+      .invoke('attr', 'maxlength')
+      .should('eq', number.toString())
   }
 
   enterOtherTitle(text){
@@ -1058,6 +1090,43 @@ export class DashboardActions extends CommonActions
         .then(element => cy.get(`${titleLocator}`).select(element.val(), {force: isTrue}))
   }
 
+  assertLengthFirstNameCopy1(number){
+    cy.get('#case_doctor1firstname')
+      .invoke('attr', 'size')
+      .should('eq', number.toString())
+  }
+
+  assertLengthLastNameCopy1(number){
+    cy.get('#case_doctor1fullname')
+      .invoke('attr', 'size')
+      .should('eq', number.toString())
+  }
+
+  assertLengthFirstNameCopy2(number){
+    cy.get('#case_doctor2firstname')
+      .invoke('attr', 'size')
+      .should('eq', number.toString())
+  }
+
+  
+  assertLengthLastNameCopy2(number){
+    cy.get('#case_doctor2fullname')
+      .invoke('attr', 'size')
+      .should('eq', number.toString())
+  }
+
+  assertLengthFirstNameCopy3(number){
+    cy.get('#case_doctor3firstname')
+      .invoke('attr', 'size')
+      .should('eq', number.toString())
+  }
+  
+  assertLengthLastNameCopy3(number){
+    cy.get('#case_doctor3fullname')
+      .invoke('attr', 'size')
+      .should('eq', number.toString())
+  }
+
   enterFirstNameCopy1(text){
     cy.get('#case_doctor1firstname')
     .clear()
@@ -1110,6 +1179,24 @@ export class DashboardActions extends CommonActions
     cy.get('#case_doctor4fullname')
     .clear()
     .type(text)
+  }
+
+  assertLengthSuburbCopy1(number){
+    cy.get('#case_doctor1suburb')
+      .invoke('attr', 'size')
+      .should('eq', number.toString())
+  }
+
+  assertLengthSuburbCopy2(number){
+    cy.get('#case_doctor2suburb')
+      .invoke('attr', 'size')
+      .should('eq', number.toString())
+  }
+
+  assertLengthSuburbCopy3(number){
+    cy.get('#case_doctor3suburb')
+      .invoke('attr', 'size')
+      .should('eq', number.toString())
   }
 
   enterSuburbCopy1(text){

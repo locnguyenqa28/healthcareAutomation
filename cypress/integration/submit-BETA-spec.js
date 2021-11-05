@@ -1667,14 +1667,6 @@ describe("Submit - BETA", () => {
     //Add first lesion
     dashboardActions.addALesionNoImage()
 
-    //Add another lesion
-    dashboardActions.addAnotherLesion()
-    dashboardActions.addALesionNoImage()
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion()
-    dashboardActions.addALesionNoImage()
-
     //Case Summary
     dashboardActions.caseSummary();
     dashboardActions.submitCasePrint();

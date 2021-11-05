@@ -333,5 +333,11 @@ export class ClinicActions extends CommonActions
     .eq(index)
     .should('contain.text',text);
   }
+
+  assertTextClinicStateByIndex(text, index=0){
+    cy.get('select#clinic_state option')
+    .eq(index)
+    .should('contain.text',text);
+  }
 }
 

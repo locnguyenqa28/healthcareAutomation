@@ -1971,5 +1971,28 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.selectAndCheckPatientClinic(1);
   });
+      
+  it("EDERMPATH-280. Set default state for new clinic to Blank", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Clinic
+   
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickHrefByText('Setup', true);
+
+    // Clinic modal
+    clinicActions.assertText('Add new clinic');
+    clinicActions.clickHrefByText('Add new clinic');
+
+    // Clinic modal
+    clinicActions.isModal('Add new clinic');
+    clinicActions.assertTextClinicStateByIndex()
+  });
 });
   
