@@ -1265,7 +1265,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectAndCheckPatientClinic(1);
   });
     
-  it("EDERMPATH-280. Set default state for new clinic to Blank", () => 
+  it.only("EDERMPATH-280. Set default state for new clinic to Blank", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -1288,7 +1288,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     clinicActions.assertTextClinicStateByIndex('',0)
   });
     
-  it("EDERMPATH-284. Update the data entry field lengths", () => 
+  it.only("EDERMPATH-284. Update the data entry field lengths", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -1366,6 +1366,52 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     //Case Summary
     dashboardActions.caseSummary();
     dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+   
+  it.only("EDERMPATH-285. Confirmation Pop-up after Submit Request ", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `submit-${homeActions.randomAlpha(10)}`;
+    const lastname = `EDERMPATH two eight five`;
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionNoImage()
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.clickSubmitOnly();
+    dashboardActions.assertText('By selecting submit request and print, this request will be sent electronically to the lab and no further changes to the electronic order will be possible.')
+
+    dashboardActions.clickCancelSubmit();
+    loginActions.assertUrl('/images/review2?');
+
+    dashboardActions.clickSubmitOnly();
+    dashboardActions.clickContinueSubmit();
+
     dashboardActions.returnToDashboard();
     homeActions.isDashboardDisplayed();
     dashboardActions.isUploadSuccesfully(0);

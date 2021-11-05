@@ -492,6 +492,22 @@ export class DashboardActions extends CommonActions
     cy.get('a[class="addlesion"]')
       .contains('Request summary >>').click()
   }
+  
+  clickSubmitOnly(){
+    this.assertText('Submit request & print »');
+    cy
+      .get('a.submit1')
+      .contains('Submit request & print »').click()
+  }
+
+  clickCancelSubmit(){
+    cy.get('[onclick="cloeasemodelreviews()"]').click();
+  }
+
+  clickContinueSubmit(){
+    cy.get('[onclick="continuemodelreviews()"]').click();
+  }
+
   submitCasePrint(){
     this.assertText('Submit request & print »');
     cy
