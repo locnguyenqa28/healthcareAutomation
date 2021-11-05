@@ -1265,7 +1265,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectAndCheckPatientClinic(1);
   });
     
-  it.only("EDERMPATH-280. Set default state for new clinic to Blank", () => 
+  it("EDERMPATH-280. Set default state for new clinic to Blank", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -1288,7 +1288,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     clinicActions.assertTextClinicStateByIndex('',0)
   });
     
-  it.only("EDERMPATH-284. Update the data entry field lengths", () => 
+  it("EDERMPATH-284. Update the data entry field lengths", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -1371,7 +1371,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
    
-  it.only("EDERMPATH-285. Confirmation Pop-up after Submit Request ", () => 
+  it("EDERMPATH-285. Confirmation Pop-up after Submit Request ", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
