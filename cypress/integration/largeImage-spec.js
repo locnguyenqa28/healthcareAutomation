@@ -279,7 +279,7 @@ describe("Large image testing", () => {
     // dashboardActions.isUploadSuccesfully(0);
   });
 
-  it.only("7.Multiple Large images - 5Mb 3 lesions + 3 images", () => 
+  it("7.Multiple Large images - 5Mb 3 lesions + 3 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -291,7 +291,22 @@ describe("Large image testing", () => {
     dashboardActions.clickOkSelectClinic();
 
     //Add multiple
-    dashboardActions.addMuiltiPathologyRequestLargeImagesBySelectRegion('4.5Mb.jpg', 3, 5);
+    dashboardActions.addMuiltiPathologyRequestLargeImagesBySelectRegion('4.7Mb.jpg', 3, 5);
+  });
+
+  it.only("8.Multiple Large images - 5Mb 10 lesions + 3 images", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+
+    //Add multiple
+    dashboardActions.addMuiltiPathologyRequestLargeImagesBySelectRegion('4.7Mb.jpg', 10, 5);
   });
 });
   
