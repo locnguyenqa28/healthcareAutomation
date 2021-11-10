@@ -1510,8 +1510,9 @@ export class DashboardActions extends CommonActions
       this.caseSummary();
       this.submitCasePrint();
       this.returnToDashboard();
-      this.isUploadSuccesfully(0, 15000);
+      cy.wait(2000);
     } 
+    this.isUploadSuccesfully(0, 15000);
   }
   clickSaveUpdateForBeta() {
     this.clickHrefByText('Save update');
