@@ -21,7 +21,7 @@ describe("Large image testing - BETA", () => {
     dashboardActions.clickOkSelectClinic();
 
     //Add multiple
-    dashboardActions.addMuiltiPathologyRequestLargeImagesBySelectRegionV2('4.7Mb.jpg', 10, 5, 1);
+    dashboardActions.addMuiltiPathologyRequestLargeImagesBySelectRegionV2('4.7Mb.jpg', 10, 1, 1);
   });
 
   it("2. Multiple Large images - 10 lesions 4.7Mb x 3 images - 2", () => 
@@ -36,7 +36,7 @@ describe("Large image testing - BETA", () => {
     dashboardActions.clickOkSelectClinic();
 
     //Add multiple
-    dashboardActions.addMuiltiPathologyRequestLargeImagesBySelectRegionV2('4.7Mb.jpg', 10, 5, 2);
+    dashboardActions.addMuiltiPathologyRequestLargeImagesBySelectRegionV2('4.7Mb.jpg', 10, 1, 2);
   });
 
   it("3. Multiple Large images - 10 lesions 4.7Mb x 3 images - 3", () => 
@@ -51,7 +51,7 @@ describe("Large image testing - BETA", () => {
     dashboardActions.clickOkSelectClinic();
 
     //Add multiple
-    dashboardActions.addMuiltiPathologyRequestLargeImagesBySelectRegionV2('4.7Mb.jpg', 10, 5, 3);
+    dashboardActions.addMuiltiPathologyRequestLargeImagesBySelectRegionV2('4.7Mb.jpg', 10, 1, 3);
   });
 
   it("4. Multiple Large images - 10 lesions 4.7Mb x 3 images - 4", () => 
@@ -66,7 +66,7 @@ describe("Large image testing - BETA", () => {
     dashboardActions.clickOkSelectClinic();
 
     //Add multiple
-    dashboardActions.addMuiltiPathologyRequestLargeImagesBySelectRegionV2('4.7Mb.jpg', 10, 5, 4);
+    dashboardActions.addMuiltiPathologyRequestLargeImagesBySelectRegionV2('4.7Mb.jpg', 10, 1, 4);
   });
 
   it("5. Multiple Large images - 10 lesions 4.7Mb x 3 images - 5", () => 
@@ -81,7 +81,7 @@ describe("Large image testing - BETA", () => {
     dashboardActions.clickOkSelectClinic();
 
     //Add multiple
-    dashboardActions.addMuiltiPathologyRequestLargeImagesBySelectRegionV2('4.7Mb.jpg', 10, 5, 5);
+    dashboardActions.addMuiltiPathologyRequestLargeImagesBySelectRegionV2('4.7Mb.jpg', 10, 1, 5);
   });
 });
   
