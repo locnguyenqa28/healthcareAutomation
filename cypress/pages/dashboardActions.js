@@ -1517,6 +1517,62 @@ export class DashboardActions extends CommonActions
     } 
     this.isUploadSuccesfully(0, 15000);
   }
+  
+  addMuiltiPathologyRequestLargeImagesBySelectRegionV2(imageName,numberLesion, roundTest = user.regionsBodyMap.length, startRegion = 1) {
+    const regions = user.regionsBodyMap;
+    for(let i=1; i<= roundTest; i++){
+      let regionNum = startRegion + (i-1)
+      let name = regions[regionNum];
+      if(regions[regionNum].indexOf('(') > 0){
+        const temp = regions[regionNum].split('(');
+        name= temp[0].trim();
+      }
+      const firstname = `Submit-${this.randomAlpha(5)}`;
+      const lastname = `${name}`;
+      this.clickAddNewLesion();
+      this.selectTitle('Mrs');
+      this.enterFirstName(firstname);
+      this.enterLastName(lastname);
+      this.selectGender('Unknown');
+      this.enterDOB(user.DOB);
+      this.enterHomeAdd(user.address);
+      this.enterCity(user.city);
+      this.selectState();
+      this.enterPostcode(user.postcode);
+      this.enterContact(user.contact);
+      this.enterMedicare(user.medicare);
+      this.nextButton();
+
+      for(let index =1; index<= numberLesion; index ++){
+        this.noPreviousHistory();
+        this.provisionalDiagnosis();
+        this.excludeMelasma();
+        this.excludeNmsc();
+        this.selectBiopsyType();
+
+        //Case Images
+        this.addBodyMap();
+        this.clickImage();
+        this.selectBodyRegion();
+        this.enterSpecimenLocation(name)
+        this.assertHeader('Body map');    
+    
+        this.selectBodyRegion(regions[regionNum], false)
+        this.saveBodyMap();
+        //Upload Dermascopic Images
+        this.addLargeImagesByName(imageName, 3)
+        if(index < numberLesion){
+          this.addAnotherLesion();
+        }
+      }
+      this.caseSummary();
+      this.submitCasePrint();
+      this.returnToDashboard();
+      cy.wait(2000);
+    } 
+    this.isUploadSuccesfully(0, 15000);
+  }
+
   clickSaveUpdateForBeta() {
     this.clickHrefByText('Save update');
     cy.wait(1000);
