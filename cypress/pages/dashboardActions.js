@@ -1440,6 +1440,9 @@ export class DashboardActions extends CommonActions
       cy.get('body').then(($body) => {
         if($body.find('button[data-type="DELETE"]').length < number) {
           cy.wait(2000);
+          if(i=== round/2){
+            this.startUpload();
+          }
         }
       })
     }
