@@ -1,8 +1,8 @@
-import user from "../support/constants";
-import { LoginActions } from "../pages/loginAction";
-import { DashboardActions } from "../pages/dashboardActions";
-import { HomeActions } from "../pages/homeAction";
-import { ClinicActions } from "../pages/clinicActions";
+import user from "../../support/constants";
+import { LoginActions } from "../../pages/loginAction";
+import { DashboardActions } from "../../pages/dashboardActions";
+import { HomeActions } from "../../pages/homeAction";
+import { ClinicActions } from "../../pages/clinicActions";
 
 describe("Four lesion testing - Only AWS", () => {
   const homeActions = new HomeActions();
