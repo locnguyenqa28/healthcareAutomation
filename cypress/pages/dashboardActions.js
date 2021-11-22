@@ -288,9 +288,18 @@ export class DashboardActions extends CommonActions
         .scrollIntoView()
         .click({force:isForce});
   }
+  nextButtonNoScroll(isForce = false){
+      cy.get('#showlinkshownext')
+        .click({force:isForce});
+  }
   backButton(isForce = false){
-      cy.wait(500);
+      cy.wait(1500);
       cy.get('a.clss-back')
+        .contains('Back').first().click({ force: isForce});
+  }
+  backFromUpload(isForce = false){
+      cy.wait(500);
+      cy.get('[onclick="backupload()"]')
         .contains('Back').first().click({ force: isForce});
   }
 

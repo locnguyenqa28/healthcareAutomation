@@ -483,14 +483,13 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.assertHeader('Upload');
     dashboardActions.assertHeader('Lesion');
     dashboardActions.assertHeader('Images');
-    dashboardActions.backButton(true);
-    dashboardActions.assertHeader('Clinical indication');
-    dashboardActions.backButton(true);
-    dashboardActions.isPatientDetails();
-    dashboardActions.nextButton(true);
-    dashboardActions.assertText(quoteText);
-    dashboardActions.assertText('BCC (Basal Cell Carcinoma)');
-    dashboardActions.assertNoPreviousHistologyChecked()
+    dashboardActions.backFromUpload(true);
+    dashboardActions.assertHeader('Body map');
+    dashboardActions.nextButtonNoScroll(true);
+    dashboardActions.assertHeader('Upload');
+    dashboardActions.assertHeader('Lesion');
+    dashboardActions.assertHeader('Images');
+    dashboardActions.clickHrefByText('Continue with no images');
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -961,8 +960,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     loginActions.assertText('Contact us 1300 754 639 ')
     loginActions.assertText('Privacy Policy')
     loginActions.assertUrl('/login/user_login')
-    loginActions.clickHrefByText('Privacy Policy')
-    loginActions.assertUrl('/media/Multisite1434/shl_privacypolicy.pdf')
+    loginActions.assertPrivacyPolicy()
   });
 
   it("EDERMPATH-243. Allow a case to be added with no images added", () => 
