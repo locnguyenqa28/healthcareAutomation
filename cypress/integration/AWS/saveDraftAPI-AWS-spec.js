@@ -1,8 +1,8 @@
-import user from "../support/constants";
-import { LoginActions } from "../pages/loginAction";
-import { DashboardActions } from "../pages/dashboardActions";
-import { HomeActions } from "../pages/homeAction";
-import { ClinicActions } from "../pages/clinicActions";
+import user from "../../support/constants";
+import { LoginActions } from "../../pages/loginAction";
+import { DashboardActions } from "../../pages/dashboardActions";
+import { HomeActions } from "../../pages/homeAction";
+import { ClinicActions } from "../../pages/clinicActions";
 
 describe("Save Draft by API", () => {
   const homeActions = new HomeActions();
@@ -512,6 +512,123 @@ describe("Save Draft by API", () => {
     dashboardActions.addAnotherLesion();
      //Add first lesion
     dashboardActions.addALesionNoImage();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+
+  it("The SaveDraftAPI can be submitted with 1 lesion invalid image", () => 
+  {
+    const subname = dashboardActions.randomAlpha(10)
+    const firstname = `API-${subname}`;
+    cy.saveDraft(user.username, user.password, firstname);
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+
+    dashboardActions.assertText(subname);
+    dashboardActions.assertText('Create New Pathology Request');
+
+    dashboardActions.clickPathologyRequestByFirstName(subname);
+
+    // Copies report
+
+    dashboardActions.enterFirstNameCopy3('Hospital')
+    dashboardActions.enterLastNameCopy3('Ward ')
+    dashboardActions.enterSuburbCopy3('suburb C')
+
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByInvalidImages()
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+
+  it("The SaveDraftAPI can be submitted with 2 lesion invalid image", () => 
+  {
+    const subname = dashboardActions.randomAlpha(10)
+    const firstname = `API-${subname}`;
+    cy.saveDraft(user.username, user.password, firstname);
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+
+    dashboardActions.assertText(subname);
+    dashboardActions.assertText('Create New Pathology Request');
+
+    dashboardActions.clickPathologyRequestByFirstName(subname);
+
+    // Copies report
+
+    dashboardActions.enterFirstNameCopy3('Hospital')
+    dashboardActions.enterLastNameCopy3('Ward ')
+    dashboardActions.enterSuburbCopy3('suburb C')
+
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByInvalidImages();
+
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByInvalidImages();
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+
+  it("The SaveDraftAPI can be submitted with 3 lesion invalid image", () => 
+  {
+    const subname = dashboardActions.randomAlpha(10)
+    const firstname = `API-${subname}`;
+    cy.saveDraft(user.username, user.password, firstname);
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+
+    dashboardActions.assertText(subname);
+    dashboardActions.assertText('Create New Pathology Request');
+
+    dashboardActions.clickPathologyRequestByFirstName(subname);
+
+    // Copies report
+
+    dashboardActions.enterFirstNameCopy3('Hospital')
+    dashboardActions.enterLastNameCopy3('Ward ')
+    dashboardActions.enterSuburbCopy3('suburb C')
+
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByInvalidImages();
+
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByInvalidImages();
+
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByInvalidImages();
 
     //Case Summary
     dashboardActions.caseSummary();
