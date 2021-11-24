@@ -520,5 +520,38 @@ describe("Clinic", () => {
     clinicActions.isModal('Edit a clinic');
     clinicActions.editAllValueAndVerifyClinicByIndex(name, providerNumber, address, email, 1);
   });
+   
+  it("16. Edit clinic with multiple invalid values", () => 
+  {
+    const invalid = `$$$$-${homeActions.randomAlpha(10)}`;
+    const invalidProviderNumber = `///${homeActions.randomAlphanumeric(7)}`;
+  
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Clinic
+   
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickHrefByText('Setup', true);
+
+    // Clinic modal
+    clinicActions.assertText('Add new clinic');
+    clinicActions.clickFirstEditClinicButton();
+    clinicActions.isModal('Edit a clinic');
+    clinicActions.enterClinicEditEmail(invalid);
+    clinicActions.enterClinicEditProviderNumber(invalidProviderNumber);
+    clinicActions.clickSaveEditClinic();
+
+    // Assert clinic
+    clinicActions.isEmailRed(); 
+    clinicActions.isProviderNumberRed();
+
+    clinicActions.clickCloseModal()
+    clinicActions.isClinicNameNotExist(invalid)
+  });
 });
   

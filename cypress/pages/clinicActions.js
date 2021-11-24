@@ -44,7 +44,7 @@ export class ClinicActions extends CommonActions
     .invoke('attr', 'style')
     .should('eq','color:red !important')
   }
-
+  
   selectClinicLab(option = 'Barratt and Smith Pathology'){
     cy.get('#clinic_laboratory')
       .select(option)
