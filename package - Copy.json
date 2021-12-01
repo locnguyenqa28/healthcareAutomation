@@ -1,0 +1,26 @@
+{
+  "name": "cypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:beta": "npx cypress run --config baseUrl=\"http://sonic-beta.ederm.com.au\"",
+    "cypress:betaLogin": "npx cypress run --config baseUrl=\"http://sonic-beta.ederm.com.au\" --spec \"cypress/integration/loginTest-spec.js\"",
+    "cypress:dashboard": "npx cypress run -b chrome --record --spec --key 9fe0806d-98ae-483e-9337-7deb2d08dfdc",
+    "cypress:login": "npx cypress run -b chrome --record --spec \"cypress/integration/loginTest-spec.js\" --key 9fe0806d-98ae-483e-9337-7deb2d08dfdc"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.19.1",
+    "cypress": "^8.5.0",
+    "cypress-file-upload": "^5.0.8",
+    "faker": "^4.1.0"
+  },
+  "dependencies": {
+    "cypress-parallel": "^0.5.0"
+  }
+}
