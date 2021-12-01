@@ -58,7 +58,7 @@ export class TimeoutActions extends CommonActions{
         cy.get('div#sessiontime').should('be.visible')
         cy.get('input#password_extend').should('be.visible')
         cy.get('[onclick="checkloignsession();"]').should('be.visible')
-        cy.get('[onclick="logoggofextend()""]').should('be.visible')
+        cy.get('[onclick="logoggofextend()"]').should('be.visible')
     }
 
     clickLogOffInTimeout(){
