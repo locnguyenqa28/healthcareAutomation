@@ -101,4 +101,7 @@ export class CommonActions {
   cy.get(`[placeholder='${text}']`)
   .should('be.visible')
  }
+ wait(number) {
+  cy.wait(number);
+ }
 }
