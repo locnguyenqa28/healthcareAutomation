@@ -5,6 +5,8 @@ import { HomeActions } from "../../pages/homeAction";
 import { ClinicActions } from "../../pages/clinicActions";
 
 describe("Four lesion testing - Only AWS", () => {
+  user.username = user.username1
+  user.password = user.password1
   const homeActions = new HomeActions();
   const loginActions = new LoginActions();
   const dashboardActions = new DashboardActions();

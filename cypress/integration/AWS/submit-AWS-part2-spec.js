@@ -6,6 +6,8 @@ import user from "../../support/constants"
 
 
 describe("Submit - AWS - part2", () => {
+    user.username = user.username1
+    user.password = user.password1
     const loginActions = new LoginActions();
     const homeActions = new HomeActions();
     const dashboardActions = new DashboardActions();
