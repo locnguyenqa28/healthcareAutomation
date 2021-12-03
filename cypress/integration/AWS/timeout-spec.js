@@ -6,7 +6,7 @@ import { TimeoutActions } from "../../pages/timeoutActions";
 import user from "../../support/constants"
 
 
-describe("Timeout - AWS - part2", () => {
+describe.skip("Timeout - AWS", () => {
     const loginActions = new LoginActions();
     const homeActions = new HomeActions();
     const dashboardActions = new DashboardActions();
