@@ -756,7 +756,7 @@ describe("Save Draft by API", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it.only("The SaveDraftAPI can be submitted full copy - 4 lesions invalid image", () => 
+  it("The SaveDraftAPI can be submitted full copy - 4 lesions invalid image", () => 
   {
     const subname = dashboardActions.randomAlpha(10)
     const firstname = `API-${subname}`;
