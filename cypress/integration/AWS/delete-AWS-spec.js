@@ -4,7 +4,7 @@ import { DashboardActions } from "../../pages/dashboardActions";
 import user from "../../support/constants"
 
 
-describe("Delete lesion feature", () => {
+describe("Delete lesion AWS", () => {
     const loginActions = new LoginActions();
     const homeActions = new HomeActions();
     const dashboardActions = new DashboardActions();
