@@ -9,6 +9,9 @@ describe("Delete lesion AWS", () => {
     const homeActions = new HomeActions();
     const dashboardActions = new DashboardActions();
     const lesion1 = 'Lesion 1';
+    const lesion2 = 'Lesion 2';
+    const lesion3 = 'Lesion 3';
+    const lesion4 = 'Lesion 4';
 
   it("3 lesions, 1 image delete the second lesion", () => 
   {
@@ -602,6 +605,231 @@ describe("Delete lesion AWS", () => {
     dashboardActions.scrollToLesion(lesion1)
     dashboardActions.assertText(lesion1)
     dashboardActions.clickDeleteLesion(lesion1)
+
+    //Case Summary
+    dashboardActions.saveDraft();
+    dashboardActions.isReviewCase('Draft')
+  });
+
+  it("Delete two Lesions 1st 4th - 4 images + 2 copies", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `delete-${homeActions.randomAlpha(20)}`;
+    const lastname = `four Lesion - four images`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+
+    dashboardActions.selectTitleCopy1ByIndex(1)
+    dashboardActions.enterFirstNameCopy1('Copy A')
+    dashboardActions.enterLastNameCopy1('last name A')
+    dashboardActions.enterSuburbCopy1('suburb A')
+
+    dashboardActions.selectTitleCopy1ByIndex(2)
+    dashboardActions.enterFirstNameCopy2('Copy B')
+    dashboardActions.enterLastNameCopy2('last name B')
+    dashboardActions.enterSuburbCopy2('suburb B')
+
+    dashboardActions.assertText('Next »')
+    dashboardActions.assertText('Save draft » ')
+    dashboardActions.nextButton();
+
+    //Add lesion
+    dashboardActions.addALesionByNumberImages(4);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByNumberImages(4);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByNumberImages(4);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByNumberImages(4);
+
+    //Case Summary
+    dashboardActions.caseSummary();
+      
+    //Delete lesion
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.scrollToLesion(lesion4)
+    dashboardActions.assertText(lesion4)
+    dashboardActions.clickDeleteLesion(lesion4)
+      
+    //Delete lesion
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.scrollToLesion(lesion1)
+    dashboardActions.assertText(lesion1)
+    dashboardActions.clickDeleteLesion(lesion1)
+
+    //Case Summary
+    dashboardActions.saveDraft();
+    dashboardActions.isReviewCase('Draft')
+  });
+
+  it("Delete two Lesions 2nd 4th - 4 images + 2 copies", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `delete-${homeActions.randomAlpha(20)}`;
+    const lastname = `two Lesion - four images -two copies first second`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+
+    dashboardActions.selectTitleCopy1ByIndex(1)
+    dashboardActions.enterFirstNameCopy1('Copy A')
+    dashboardActions.enterLastNameCopy1('last name A')
+    dashboardActions.enterSuburbCopy1('suburb A')
+
+    dashboardActions.selectTitleCopy1ByIndex(2)
+    dashboardActions.enterFirstNameCopy2('Copy B')
+    dashboardActions.enterLastNameCopy2('last name B')
+    dashboardActions.enterSuburbCopy2('suburb B')
+
+    dashboardActions.assertText('Next »')
+    dashboardActions.assertText('Save draft » ')
+    dashboardActions.nextButton();
+
+    //Add lesion
+    dashboardActions.addALesionByNumberImages(4);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByNumberImages(4);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByNumberImages(4);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByNumberImages(4);
+
+    //Case Summary
+    dashboardActions.caseSummary();
+      
+    //Delete lesion
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.scrollToLesion(lesion4)
+    dashboardActions.assertText(lesion4)
+    dashboardActions.clickDeleteLesion(lesion4)
+      
+    //Delete lesion
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.scrollToLesion(lesion2)
+    dashboardActions.assertText(lesion2)
+    dashboardActions.clickDeleteLesion(lesion2)
+
+    //Case Summary
+    dashboardActions.saveDraft();
+    dashboardActions.isReviewCase('Draft')
+  });
+
+  it("Delete two Lesion 3rd 4th - 4 images + 2 copies", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `delete-${homeActions.randomAlpha(20)}`;
+    const lastname = `two Lesion - four images -two copies first second`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+
+    dashboardActions.selectTitleCopy1ByIndex(1)
+    dashboardActions.enterFirstNameCopy1('Copy A')
+    dashboardActions.enterLastNameCopy1('last name A')
+    dashboardActions.enterSuburbCopy1('suburb A')
+
+    dashboardActions.selectTitleCopy1ByIndex(2)
+    dashboardActions.enterFirstNameCopy2('Copy B')
+    dashboardActions.enterLastNameCopy2('last name B')
+    dashboardActions.enterSuburbCopy2('suburb B')
+
+    dashboardActions.assertText('Next »')
+    dashboardActions.assertText('Save draft » ')
+    dashboardActions.nextButton();
+
+    //Add lesion
+    dashboardActions.addALesionByNumberImages(4);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByNumberImages(4);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByNumberImages(4);
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion();
+    dashboardActions.addALesionByNumberImages(4);
+
+    //Case Summary
+    dashboardActions.caseSummary();
+      
+    //Delete lesion
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.scrollToLesion(lesion4)
+    dashboardActions.assertText(lesion4)
+    dashboardActions.clickDeleteLesion(lesion4)
+      
+    //Delete lesion
+    dashboardActions.assertButton('Dashboard')
+    dashboardActions.scrollToLesion(lesion3)
+    dashboardActions.assertText(lesion3)
+    dashboardActions.clickDeleteLesion(lesion3)
 
     //Case Summary
     dashboardActions.saveDraft();
