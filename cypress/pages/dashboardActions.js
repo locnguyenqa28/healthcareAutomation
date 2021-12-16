@@ -1457,7 +1457,7 @@ export class DashboardActions extends CommonActions
     }
   }
 
-  addLargeImagesByName(imageName = '5mb.jpg', number=4) {
+  addLargeImagesByName(imageName = '5mb.jpg', number=3) {
     //Upload Dermascopic Images
     for(let i = 1; i<=number; i++){
       this.assertHeader('Upload ');
