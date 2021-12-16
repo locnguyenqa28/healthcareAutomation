@@ -1457,7 +1457,7 @@ export class DashboardActions extends CommonActions
     }
   }
 
-  addLargeImagesByName(imageName = '5mb.jpg',number) {
+  addLargeImagesByName(imageName = '5mb.jpg', number=4) {
     //Upload Dermascopic Images
     for(let i = 1; i<=number; i++){
       this.assertHeader('Upload ');
@@ -1468,6 +1468,7 @@ export class DashboardActions extends CommonActions
     }
     this.startUpload();
     this.waitForDeleteButtonVisible(number, 30);
+    cy.wait(1000);
     this.isProgressBarDisappear(90000);
     this.isImageUploadedSuccessfully(90000);
     this.nextButtonUploadImg(90000, true);
