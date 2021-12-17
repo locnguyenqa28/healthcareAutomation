@@ -1468,7 +1468,9 @@ export class DashboardActions extends CommonActions
     }
     this.startUpload();
     this.waitForDeleteButtonVisible(number, 30);
-    cy.wait(1000);
+    cy.wait(2000);
+    this.startUpload();
+    cy.wait(2000);
     this.isProgressBarDisappear(90000);
     this.isImageUploadedSuccessfully(90000);
     this.nextButtonUploadImg(90000, true);
