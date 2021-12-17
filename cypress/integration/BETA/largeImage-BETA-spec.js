@@ -9,7 +9,7 @@ describe("Large image testing - BETA", () => {
     const homeActions = new HomeActions();
     const dashboardActions = new DashboardActions();
 
-  it("1. Multiple Large images - 10 lesions 4.7Mb x 3 images - 1", () => 
+  it.only("1. Multiple Large images - 10 lesions 4.7Mb x 3 images - 1", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
