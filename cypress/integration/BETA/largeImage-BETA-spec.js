@@ -21,7 +21,7 @@ describe("Large image testing - BETA", () => {
     dashboardActions.clickOkSelectClinic();
 
     //Add multiple
-    dashboardActions.addMuiltiPathologyRequestLargeImagesBySelectRegionV2('4.9_2.jpg', 10, 1, 1);
+    dashboardActions.addMuiltiPathologyRequestLargeImagesBySelectRegionV2('4.9_2.jpg', 7, 1, 1);
   });
 
   it("2. Multiple Large images - 10 lesions 4.7Mb x 3 images - 2", () => 
