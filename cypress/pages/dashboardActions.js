@@ -430,19 +430,20 @@ export class DashboardActions extends CommonActions
     }
     cy.get('input[type="file"]')
     .attachFile(imageArr)
-    .wait(500)
+    .wait(2000)
     this.startUpload();  
   }
 
   
-  uploadMultiImagesV2(name, number = 3){
+  uploadMultiImagesV2(name, number = 4){
     const imageArr = []
     for(let i = 1; i< number+1; i++){
      imageArr.push(name)
+     cy.wait(200)
     }
     cy.get('input[type="file"]')
     .attachFile(imageArr)
-    .wait(500)
+    .wait(2000)
     this.startUpload();  
   }
 
