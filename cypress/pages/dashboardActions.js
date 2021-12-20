@@ -434,6 +434,18 @@ export class DashboardActions extends CommonActions
     this.startUpload();  
   }
 
+  
+  uploadMultiImagesV2(name, number = 3){
+    const imageArr = []
+    for(let i = 1; i< number+1; i++){
+     imageArr.push(name)
+    }
+    cy.get('input[type="file"]')
+    .attachFile(imageArr)
+    .wait(500)
+    this.startUpload();  
+  }
+
   uploadMultiInvalidImages(number){
     const imageArr = []
     for(let i = 1; i< number+1; i++){
@@ -539,7 +551,7 @@ export class DashboardActions extends CommonActions
       })
     }
   }
-  isUploadSuccesfully(index, timeOut = 10000){
+  isUploadSuccesfully(index, timeOut = 20000){
     cy.wait(timeOut);
     cy.reload();
     // this.isReviewCase('Review Case')
@@ -1459,13 +1471,13 @@ export class DashboardActions extends CommonActions
 
   addLargeImagesByName(imageName = '5mb.jpg', number=3) {
     //Upload Dermascopic Images
-    for(let i = 1; i<=number; i++){
+    // for(let i = 1; i<=number; i++){
       this.assertHeader('Upload ');
-      this.uploadImage(imageName);
+      this.uploadMultiImagesV2(imageName);
       this.assertHeader('Upload ');
       this.assertText('Remove');
-      cy.wait(1000);
-    }
+      cy.wait(2000);
+    // }
     this.startUpload();
     this.waitForDeleteButtonVisible(number, 30);
     cy.wait(2000);
@@ -1582,7 +1594,7 @@ export class DashboardActions extends CommonActions
       this.returnToDashboard();
       cy.wait(2000);
     } 
-    this.isUploadSuccesfully(0, 15000);
+    this.isUploadSuccesfully(0, 20000);
   }
 
   clickSaveUpdateForBeta() {
