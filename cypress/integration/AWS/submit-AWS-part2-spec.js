@@ -1,11 +1,11 @@
-import { LoginActions } from "../pages/loginAction";
-import { HomeActions } from "../pages/homeAction";
-import { DashboardActions } from "../pages/dashboardActions";
-import { ClinicActions } from "../pages/clinicActions";
-import user from "../support/constants"
+import { LoginActions } from "../../pages/loginAction";
+import { HomeActions } from "../../pages/homeAction";
+import { DashboardActions } from "../../pages/dashboardActions";
+import { ClinicActions } from "../../pages/clinicActions";
+import user from "../../support/constants"
 
 
-describe("Submit - AWS - part2", () => {
+describe.only("Submit - AWS - part2", () => {
     user.username = user.username1
     user.password = user.password1
     const loginActions = new LoginActions();
