@@ -5,7 +5,7 @@ import { ClinicActions } from "../../pages/clinicActions";
 import user from "../../support/constants"
 
 
-describe.only("Submit - AWS - part2", () => {
+describe("Submit - AWS - part2", () => {
     user.username = user.username1
     user.password = user.password1
     const loginActions = new LoginActions();
