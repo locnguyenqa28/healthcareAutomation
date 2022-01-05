@@ -69,7 +69,7 @@ describe("Large image testing - AWS", () => {
     dashboardActions.addMuiltiPathologyRequestLargeImagesBySelectRegionV2('4.9_2.jpg', 4, 1, 4);
   });
 
-  it.only("5. Submit the large images after Deleting a Lesion - 2 lesions 4.9Mb x 3 images", () => 
+  it("5. Submit the large images after Deleting a Lesion - 2 lesions 4.9Mb x 3 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -84,7 +84,7 @@ describe("Large image testing - AWS", () => {
    dashboardActions.addMuiltiPathologyRequestLargeImagesAndDeleteLesion('4.9_2.jpg', 2, 1, 2);
   });
 
-  it.only("6. Submit the large images after Deleting a Lesion - 3 lesions 4.9Mb x 3 images", () => 
+  it("6. Submit the large images after Deleting a Lesion - 3 lesions 4.9Mb x 3 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -99,7 +99,7 @@ describe("Large image testing - AWS", () => {
    dashboardActions.addMuiltiPathologyRequestLargeImagesAndDeleteLesion('4.9_2.jpg', 3, 1, 3);
   });
 
-  it.only("7. Submit the large images after Deleting a Lesion - 4 lesions 4.9Mb x 3 images", () => 
+  it("7. Submit the large images after Deleting a Lesion - 4 lesions 4.9Mb x 3 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -112,6 +112,66 @@ describe("Large image testing - AWS", () => {
 
    //Add multiple
    dashboardActions.addMuiltiPathologyRequestLargeImagesAndDeleteLesion('4.9_2.jpg', 4, 1, 4);
+  });
+
+  it.only("8. save draft - 1 lesions 4.9Mb x 3 images", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+
+   //Add multiple
+   dashboardActions.addMuiltiPathologyRequestLargeImagesAndSaveDraft('4.9_2.jpg', 1, 1, 2);
+  });
+
+  it.only("10. save draft - 2 lesions 4.9Mb x 3 images", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+
+   //Add multiple
+   dashboardActions.addMuiltiPathologyRequestLargeImagesAndSaveDraft('4.9_2.jpg', 2, 1, 2);
+  });
+
+  it.only("11. save draft - 3 lesions 4.9Mb x 3 images", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+
+   //Add multiple
+   dashboardActions.addMuiltiPathologyRequestLargeImagesAndSaveDraft('4.9_2.jpg', 3, 1, 3);
+  });
+
+  it.only("12. save draft- 4 lesions 4.9Mb x 3 images", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+
+   //Add multiple
+   dashboardActions.addMuiltiPathologyRequestLargeImagesAndSaveDraft('4.9_2.jpg', 4, 1, 4);
   });
 });
   
