@@ -114,7 +114,7 @@ describe("Large image testing - AWS", () => {
    dashboardActions.addMuiltiPathologyRequestLargeImagesAndDeleteLesion('4.9_2.jpg', 4, 1, 4);
   });
 
-  it.only("8. save draft - 1 lesions 4.9Mb x 3 images", () => 
+  it("8. save draft - 1 lesions 4.9Mb x 3 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -129,7 +129,7 @@ describe("Large image testing - AWS", () => {
    dashboardActions.addMuiltiPathologyRequestLargeImagesAndSaveDraft('4.9_2.jpg', 1, 1, 2);
   });
 
-  it.only("10. save draft - 2 lesions 4.9Mb x 3 images", () => 
+  it("9. save draft - 2 lesions 4.9Mb x 3 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -144,7 +144,7 @@ describe("Large image testing - AWS", () => {
    dashboardActions.addMuiltiPathologyRequestLargeImagesAndSaveDraft('4.9_2.jpg', 2, 1, 2);
   });
 
-  it.only("11. save draft - 3 lesions 4.9Mb x 3 images", () => 
+  it("10. save draft - 3 lesions 4.9Mb x 3 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -159,7 +159,7 @@ describe("Large image testing - AWS", () => {
    dashboardActions.addMuiltiPathologyRequestLargeImagesAndSaveDraft('4.9_2.jpg', 3, 1, 3);
   });
 
-  it.only("12. save draft- 4 lesions 4.9Mb x 3 images", () => 
+  it("11. save draft- 4 lesions 4.9Mb x 3 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -172,6 +172,97 @@ describe("Large image testing - AWS", () => {
 
    //Add multiple
    dashboardActions.addMuiltiPathologyRequestLargeImagesAndSaveDraft('4.9_2.jpg', 4, 1, 4);
+  });
+
+  it.only("12. saveDraft by API- 1 lesions 4.9Mb x 3 images", () => 
+  {
+    const subname = dashboardActions.randomAlpha(10)
+    const firstname = `API-${subname}`;
+    cy.saveDraft(user.username, user.password, firstname);
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+    
+    dashboardActions.assertText(subname);
+    dashboardActions.assertText('Create New Pathology Request');
+
+    dashboardActions.clickPathologyRequestByFirstName(subname);
+
+   //Add multiple
+   dashboardActions.saveDraftMuiltiMultilLesionsLargeImages('4.9_2.jpg', 1, 1, 2);
+  });
+
+  it.only("13. saveDraft by API - 2 lesions 4.9Mb x 3 images", () => 
+  {
+    const subname = dashboardActions.randomAlpha(10)
+    const firstname = `API-${subname}`;
+    cy.saveDraft(user.username, user.password, firstname);
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+    
+    dashboardActions.assertText(subname);
+    dashboardActions.assertText('Create New Pathology Request');
+
+    dashboardActions.clickPathologyRequestByFirstName(subname);
+
+   //Add multiple
+   dashboardActions.saveDraftMuiltiMultilLesionsLargeImages('4.9_2.jpg', 2, 1, 2);
+  });
+
+  it.only("14. saveDraft by API - 3 lesions 4.9Mb x 3 images", () => 
+  {
+    const subname = dashboardActions.randomAlpha(10)
+    const firstname = `API-${subname}`;
+    cy.saveDraft(user.username, user.password, firstname);
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+    
+    dashboardActions.assertText(subname);
+    dashboardActions.assertText('Create New Pathology Request');
+
+    dashboardActions.clickPathologyRequestByFirstName(subname);
+
+   //Add multiple
+   dashboardActions.saveDraftMuiltiMultilLesionsLargeImages('4.9_2.jpg', 3, 1, 3);
+  });
+
+  it.only("15. saveDraft by API- 4 lesions 4.9Mb x 3 images", () => 
+  {
+    const subname = dashboardActions.randomAlpha(10)
+    const firstname = `API-${subname}`;
+    cy.saveDraft(user.username, user.password, firstname);
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+    
+    dashboardActions.assertText(subname);
+    dashboardActions.assertText('Create New Pathology Request');
+
+    dashboardActions.clickPathologyRequestByFirstName(subname);
+   //Add multiple
+   dashboardActions.saveDraftMuiltiMultilLesionsLargeImages('4.9_2.jpg', 4, 1, 4);
   });
 });
   
