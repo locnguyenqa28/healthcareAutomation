@@ -1713,7 +1713,7 @@ export class DashboardActions extends CommonActions
     }  
   }
 
-  saveDraftMuiltiMultilLesionsLargeImages(imageName,numberLesion, roundTest = user.regionsBodyMap.length, startRegion = 1) {
+  saveDraftMuiltiMultilLesionsLargeImages(firstname, imageName,numberLesion, roundTest = user.regionsBodyMap.length, startRegion = 1) {
     const regions = user.regionsBodyMap;
     for(let i=1; i<= roundTest; i++){
       let regionNum = startRegion + (i-1)

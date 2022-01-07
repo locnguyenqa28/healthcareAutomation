@@ -1,13 +1,17 @@
+import user from "../../support/constants";
 import { LoginActions } from "../../pages/loginAction";
-import { HomeActions } from "../../pages/homeAction";
 import { DashboardActions } from "../../pages/dashboardActions";
-import user from "../../support/constants"
+import { HomeActions } from "../../pages/homeAction";
+import { ClinicActions } from "../../pages/clinicActions";
 
 
 describe("Large image testing - AWS", () => {
-    const loginActions = new LoginActions();
-    const homeActions = new HomeActions();
-    const dashboardActions = new DashboardActions();
+  user.username = user.username1
+  user.password = user.password1
+  const homeActions = new HomeActions();
+  const loginActions = new LoginActions();
+  const dashboardActions = new DashboardActions();
+  const clinicActions = new ClinicActions();
 
   it("1. Multiple Large images - 1 lesions 4.9Mb x 3 images - 1", () => 
   {
@@ -194,7 +198,7 @@ describe("Large image testing - AWS", () => {
     dashboardActions.clickPathologyRequestByFirstName(subname);
 
    //Add multiple
-   dashboardActions.saveDraftMuiltiMultilLesionsLargeImages('4.9_2.jpg', 1, 1, 2);
+   dashboardActions.saveDraftMuiltiMultilLesionsLargeImages(firstname,'4.9_2.jpg', 1, 1, 2);
   });
 
   it.only("13. saveDraft by API - 2 lesions 4.9Mb x 3 images", () => 
@@ -217,7 +221,7 @@ describe("Large image testing - AWS", () => {
     dashboardActions.clickPathologyRequestByFirstName(subname);
 
    //Add multiple
-   dashboardActions.saveDraftMuiltiMultilLesionsLargeImages('4.9_2.jpg', 2, 1, 2);
+   dashboardActions.saveDraftMuiltiMultilLesionsLargeImages(firstname,'4.9_2.jpg', 2, 1, 2);
   });
 
   it.only("14. saveDraft by API - 3 lesions 4.9Mb x 3 images", () => 
@@ -240,7 +244,7 @@ describe("Large image testing - AWS", () => {
     dashboardActions.clickPathologyRequestByFirstName(subname);
 
    //Add multiple
-   dashboardActions.saveDraftMuiltiMultilLesionsLargeImages('4.9_2.jpg', 3, 1, 3);
+   dashboardActions.saveDraftMuiltiMultilLesionsLargeImages(firstname, '4.9_2.jpg', 3, 1, 3);
   });
 
   it.only("15. saveDraft by API- 4 lesions 4.9Mb x 3 images", () => 
@@ -262,7 +266,7 @@ describe("Large image testing - AWS", () => {
 
     dashboardActions.clickPathologyRequestByFirstName(subname);
    //Add multiple
-   dashboardActions.saveDraftMuiltiMultilLesionsLargeImages('4.9_2.jpg', 4, 1, 4);
+   dashboardActions.saveDraftMuiltiMultilLesionsLargeImages(firstname, '4.9_2.jpg', 4, 1, 4);
   });
 });
   
