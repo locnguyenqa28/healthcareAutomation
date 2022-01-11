@@ -178,7 +178,7 @@ describe("Large image testing - AWS", () => {
    dashboardActions.addMuiltiPathologyRequestLargeImagesAndSaveDraft('4.9_2.jpg', 4, 1, 4);
   });
 
-  it.only("12. saveDraft by API- 1 lesions 4.9Mb x 3 images", () => 
+  it("12. saveDraft by API- 1 lesions 4.9Mb x 3 images", () => 
   {
     const subname = dashboardActions.randomAlpha(10)
     const firstname = `API-${subname}`;
@@ -201,7 +201,7 @@ describe("Large image testing - AWS", () => {
    dashboardActions.saveDraftMuiltiMultilLesionsLargeImages(firstname,'4.9_2.jpg', 1, 1, 2);
   });
 
-  it.only("13. saveDraft by API - 2 lesions 4.9Mb x 3 images", () => 
+  it("13. saveDraft by API - 2 lesions 4.9Mb x 3 images", () => 
   {
     const subname = dashboardActions.randomAlpha(10)
     const firstname = `API-${subname}`;
@@ -224,7 +224,7 @@ describe("Large image testing - AWS", () => {
    dashboardActions.saveDraftMuiltiMultilLesionsLargeImages(firstname,'4.9_2.jpg', 2, 1, 2);
   });
 
-  it.only("14. saveDraft by API - 3 lesions 4.9Mb x 3 images", () => 
+  it("14. saveDraft by API - 3 lesions 4.9Mb x 3 images", () => 
   {
     const subname = dashboardActions.randomAlpha(10)
     const firstname = `API-${subname}`;
@@ -247,7 +247,7 @@ describe("Large image testing - AWS", () => {
    dashboardActions.saveDraftMuiltiMultilLesionsLargeImages(firstname, '4.9_2.jpg', 3, 1, 3);
   });
 
-  it.only("15. saveDraft by API- 4 lesions 4.9Mb x 3 images", () => 
+  it("15. saveDraft by API- 4 lesions 4.9Mb x 3 images", () => 
   {
     const subname = dashboardActions.randomAlpha(10)
     const firstname = `API-${subname}`;
@@ -267,6 +267,66 @@ describe("Large image testing - AWS", () => {
     dashboardActions.clickPathologyRequestByFirstName(subname);
    //Add multiple
    dashboardActions.saveDraftMuiltiMultilLesionsLargeImages(firstname, '4.9_2.jpg', 4, 1, 4);
+  });
+
+  it("16. Combinine Large images & invalid image - 1 lesions 4.9Mb x 3 images - 1", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+
+    //Add multiple
+    dashboardActions.addMuiltiLesionLargeAndInvalidImages('4.9_2.jpg', 1, 1, 1);
+  });
+
+  it("17. Combinine Large images & invalid image - 2 lesions 4.9Mb x 3 images - 2", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+
+    //Add multiple
+    dashboardActions.addMuiltiLesionLargeAndInvalidImages('4.9_2.jpg', 2, 1, 2);
+  });
+
+  it("18. Combinine Large images & invalid image - 3 lesions 4.9Mb x 3 images - 3", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+
+    //Add multiple
+    dashboardActions.addMuiltiLesionLargeAndInvalidImages('4.9_2.jpg', 3, 1, 3);
+  });
+
+  it("19. Combinine Large images & invalid image - 4 lesions 4.9Mb x 3 images - 4", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+
+    //Add multiple
+    dashboardActions.addMuiltiLesionLargeAndInvalidImages('4.9_2.jpg', 4, 1, 4);
   });
 });
   

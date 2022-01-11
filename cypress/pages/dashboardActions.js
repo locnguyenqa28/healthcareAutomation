@@ -1488,6 +1488,23 @@ export class DashboardActions extends CommonActions
     this.isImageUploadedSuccessfully(90000);
     this.nextButtonUploadImg(90000, true);
   }
+
+  addCombineLargeAndInvalidImagesByName(imageName = '5mb.jpg', number=3) {
+    this.assertHeader('Upload ');
+    this.uploadMultiInvalidImages(1)
+    this.uploadMultiImagesV2(imageName);
+    this.assertHeader('Upload ');
+    this.assertText('Remove');
+    cy.wait(2000);
+    this.startUpload();
+    this.waitForDeleteButtonVisible(number, 30);
+    cy.wait(2000);
+    this.startUpload();
+    cy.wait(2000);
+    this.isProgressBarDisappear(90000);
+    this.isImageUploadedSuccessfully(90000);
+    this.nextButtonUploadImg(90000, true);
+  }
   
   addMuiltiPathologyRequestLargeImagesBySelectRegion(imageName,numberLesion, roundTest = user.regionsBodyMap.length) {
     const regions = user.regionsBodyMap;
@@ -1752,6 +1769,63 @@ export class DashboardActions extends CommonActions
      this.assertFirstName(firstname)
      this.isReviewCase('Draft'); 
     }  
+  }
+
+  
+  addMuiltiLesionLargeAndInvalidImages(imageName,numberLesion, roundTest = user.regionsBodyMap.length, startRegion = 1) {
+    const regions = user.regionsBodyMap;
+    for(let i=1; i<= roundTest; i++){
+      let regionNum = startRegion + (i-1)
+      let name = regions[regionNum];
+      if(regions[regionNum].indexOf('(') > 0){
+        const temp = regions[regionNum].split('(');
+        name= temp[0].trim();
+      }
+      const firstname = `Submit-${this.randomAlpha(5)}`;
+      const lastname = `${name}`;
+      this.clickAddNewLesion();
+      this.selectTitle('Mrs');
+      this.enterFirstName(firstname);
+      this.enterLastName(lastname);
+      this.selectGender('Unknown');
+      this.enterDOB(user.DOB);
+      this.enterHomeAdd(user.address);
+      this.enterCity(user.city);
+      this.selectState();
+      this.enterPostcode(user.postcode);
+      this.enterContact(user.contact);
+      this.enterMedicare(user.medicare);
+      this.nextButton();
+
+      for(let index =1; index<= numberLesion; index ++){
+        this.noPreviousHistory();
+        this.provisionalDiagnosis();
+        this.excludeMelasma();
+        this.excludeNmsc();
+        this.selectBiopsyType();
+
+        //Case Images
+        this.addBodyMap();
+        this.clickImage();
+        this.selectBodyRegion();
+        this.enterSpecimenLocation(name)
+        this.assertHeader('Body map');    
+    
+        this.selectBodyRegion(regions[regionNum], false)
+        this.saveBodyMap();
+        //Upload Dermascopic Images
+        this.addCombineLargeAndInvalidImagesByName(imageName, 3)
+        if(index < numberLesion){
+          this.addAnotherLesion();
+        }
+      } 
+      this.caseSummary();
+      this.assertButton('Dashboard')
+      this.assertText('Submit request & print');
+      this.submitCasePrint();
+      this.returnToDashboard();
+      this.isUploadSuccesfully(0); 
+    } 
   }
 
   clickSaveUpdateForBeta() {
