@@ -38,6 +38,7 @@ const user = {
       'WA',
    ],
    validMessage:[
+      "Please select a title.",
       "Please enter a first name. Allowed characters: a-z,A-Z,-,',`.",
       "Please enter a last name. Allowed characters: a-z,A-Z,-,',`.",
       "Please select a gender.",
@@ -47,7 +48,12 @@ const user = {
       "Please select a state.",
       "Please enter a postcode. Allowed characters: 0-9.",
       "Please enter a phone (mobile preferred). Allowed characters: 0-9,+,-, (,).",
-      "Please enter a DVA number. Allowed characters: a-z, A-Z, 0-9, /, #, -, (,).",
+      "An invalid 'Medicare Number' entered. Please try again.",
+   ],
+   validCopyFields:[
+      "Please enter a first name. Allowed characters: a-z,A-Z,-,',`.",
+      "Please enter a last name. Allowed characters: a-z,A-Z,-,',`.",
+      "Please enter a suburb / town. Allowed characters: a-z, A-Z, 0-9, /, #, -, (,).",
    ],
    validNoteMessage: "Please enter a clinical notes. Allowed characters: a-z, A-Z, 0-9, /, #, -,?, (,).",
    billing:{

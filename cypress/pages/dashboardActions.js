@@ -1832,6 +1832,34 @@ export class DashboardActions extends CommonActions
     this.clickHrefByText('Save update');
     cy.wait(1000);
   }
+
+  verifyListErrorPatientsDetailsVisible( list  = user.validMessage) {
+    for(const item of list)
+    {
+      this.assertText(item);
+    }
+  }
+
+  verifyListErrorCopyFieldsVisible( list  = user.validCopyFields) {
+    for(const item of list)
+    {
+      this.assertText(item);
+    }
+  }
+
+  verifyListErrorPatientsDetailsNotVisible( list  = user.validMessage) {
+    for(const item of list)
+    {
+      cy.get('body').contains(item).should('not.exist');
+    }
+  }
+
+  verifyListErrorCopyFieldsNotVisible( list  = user.validCopyFields) {
+    for(const item of list)
+    {
+      cy.get('body').contains(item).should('not.exist');
+    }
+  }
 }
 
 
