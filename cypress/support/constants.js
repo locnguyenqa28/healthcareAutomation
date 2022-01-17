@@ -51,7 +51,7 @@ const user = {
    ],
    validMedicareNumber: [
       "An invalid 'Medicare Number' entered. Please try again.",
-   ]
+   ],
    validCopyFields:[
       "Please enter a first name. Allowed characters: a-z,A-Z,-,',`.",
       "Please enter a last name. Allowed characters: a-z,A-Z,-,',`.",
