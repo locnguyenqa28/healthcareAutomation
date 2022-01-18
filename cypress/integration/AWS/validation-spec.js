@@ -123,6 +123,141 @@ describe("Validation fields checking", () => {
     dashboardActions.assertFirstName(firstname)
     dashboardActions.isReviewCase('Draft')
   });
+
+  it("Validation - Clinical condition", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `validation ${homeActions.randomAlpha(5)}`;
+    const lastname = `Clinical ${homeActions.randomAlpha(5)}`;
+    const validText = "abcdzABCDZ()--";
+    const validDVANumber = "abcdzABCDZ()--/#,1234567890";
+    const validNote = "abcdzABCDZ()--/#,1234567890.";
+    const invalidNote = "!@@@@@@@$$$$$";
+   
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Clinical Condition
+    dashboardActions.noPreviousHistory();
+    dashboardActions.provisionalDiagnosis();
+    dashboardActions.excludeMelasma();
+    dashboardActions.excludeNmsc();
+    dashboardActions.selectBiopsyType();
+    dashboardActions.enterClinicalNote(invalidNote);
+    dashboardActions.addBodyMap();
+    dashboardActions.assertText(user.validNoteMessage);
+    dashboardActions.enterClinicalNote(validNote);
+    
+    dashboardActions.backButton();
+
+    dashboardActions.verifyListErrorCopyFieldsNotVisible();
+
+    dashboardActions.saveDraft();
+
+    dashboardActions.assertFirstName(firstname)
+    dashboardActions.isReviewCase('Draft')
+  });
+
+  it("Validation - Body map - Upload image", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `validation ${homeActions.randomAlpha(5)}`;
+    const lastname = `${homeActions.randomAlpha(10)}`;
+    const validText = "abcdzABCDZ()--";
+    const validDVANumber = "abcdzABCDZ()--/#,1234567890";
+    const validNote = "abcdzABCDZ()--/#,1234567890.";
+    const invalidNote = "!@@@@@@@$$$$$";
+   
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Clinical Condition
+    dashboardActions.noPreviousHistory();
+    dashboardActions.provisionalDiagnosis();
+    dashboardActions.excludeMelasma();
+    dashboardActions.excludeNmsc();
+    dashboardActions.selectBiopsyType();
+    dashboardActions.enterClinicalNote(invalidNote);
+    dashboardActions.addBodyMap();
+    dashboardActions.assertText(user.validNoteMessage);
+    dashboardActions.enterClinicalNote(validNote);
+    
+    //Body map
+    dashboardActions.addBodyMap();
+    dashboardActions.clickImage();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation(invalidNote);
+    dashboardActions.saveBodyMap();
+    dashboardActions.assertText(user.validNoteMessage);
+    dashboardActions.enterSpecimenLocation(validNote);
+    dashboardActions.saveBodyMap();
+
+     //Upload Dermascopic Images
+     dashboardActions.assertHeader('Upload ');
+     dashboardActions.uploadImage();
+     dashboardActions.startUpload();
+     dashboardActions.isImageUploadedSuccessfully();
+     dashboardActions.assertFile('1.jpg')
+     dashboardActions.nextButtonUploadImg();
+
+      //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.saveDraft();
+    dashboardActions.assertFirstName(firstname)
+    dashboardActions.isReviewCase('Draft')
+  });
  
 });
   
