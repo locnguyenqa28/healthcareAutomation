@@ -1770,8 +1770,7 @@ export class DashboardActions extends CommonActions
      this.isReviewCase('Draft'); 
     }  
   }
-
-  
+ 
   addMuiltiLesionLargeAndInvalidImages(imageName,numberLesion, roundTest = user.regionsBodyMap.length, startRegion = 1) {
     const regions = user.regionsBodyMap;
     for(let i=1; i<= roundTest; i++){
@@ -1860,7 +1859,51 @@ export class DashboardActions extends CommonActions
       cy.get('body').contains(item).should('not.exist');
     }
   }
+
+  verifyListErrorCopyFieldsNotVisible( list  = user.validCopyFields) {
+    for(const item of list)
+    {
+      cy.get('body').contains(item).should('not.exist');
+    }
+  }
+
+  addAndValidateLesionLimitedImage(number = 4) {
+    const validNote = "abcdzABCDZ()--/#,1234567890.";
+    const invalidNote = "!@@@@@@@$$$$$";
+    //Clinical Condition
+    this.noPreviousHistory();
+    this.provisionalDiagnosis();
+    this.excludeMelasma();
+    this.excludeNmsc();
+    this.selectBiopsyType();
+    this.enterClinicalNote(invalidNote);
+    this.addBodyMap();
+    this.assertText(user.validNoteMessage);
+    this.enterClinicalNote(validNote);
+    
+    //Body map
+    this.addBodyMap();
+    this.clickImage();
+    this.selectBodyRegion();
+    this.enterSpecimenLocation(invalidNote);
+    this.saveBodyMap();
+    this.assertText(user.validNoteMessage);
+    this.enterSpecimenLocation(validNote);
+    this.saveBodyMap();
+
+   //Upload Dermascopic Images
+   this.assertHeader('Upload ');
+   this.uploadMultiImages(number);
+   this.assertText('Too many images')
+   cy.wait(500);
+   this.assertText('Remove');
+   this.startUpload();
+   this.isProgressBarDisappear();
+   this.isImageUploadedSuccessfully();
+   this.nextButtonUploadImg(30000, true);  
+  }
 }
+
 
 
 
