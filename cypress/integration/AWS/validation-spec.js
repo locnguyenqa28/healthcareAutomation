@@ -704,7 +704,7 @@ describe("Validation fields checking", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("Validation - Submit 2 lesions with invalid images", () => 
+  it("Validation - Submit 2 lesions with No image", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -751,7 +751,7 @@ describe("Validation fields checking", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("Validation - Submit 3 lesions with invalid images", () => 
+  it("Validation - Submit 3 lesions with No image", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -801,7 +801,7 @@ describe("Validation fields checking", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("Validation - Submit 4 lesions with invalid images", () => 
+  it("Validation - Submit 4 lesions with No image", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
