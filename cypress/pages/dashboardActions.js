@@ -1961,6 +1961,38 @@ export class DashboardActions extends CommonActions
         this.nextButtonUploadImg(30000, true);
       }
   }
+  
+  addAndValidateLesionCombineImages(number = 2, invalidImageNumber = 4) {
+    //Clinical Condition
+    this.noPreviousHistory();
+    this.provisionalDiagnosis();
+    this.excludeMelasma();
+    this.excludeNmsc();
+    this.selectBiopsyType();
+
+    //Case Images
+    this.addBodyMap();
+    this.clickImage();
+    this.selectBodyRegion();
+    this.enterSpecimenLocation();
+    this.saveBodyMap();
+
+    //Upload
+   this.assertHeader('Upload ');
+   this.uploadMultiInvalidImages(invalidImageNumber);
+   this.assertText('Invalid file format, please only select JPG photos')
+   cy.wait(500);
+   this.assertText('Remove');
+   
+   this.uploadMultiImages(number);
+   this.assertText('Too many images')
+   cy.wait(500);
+   this.assertText('Remove');
+   this.startUpload();
+   this.isProgressBarDisappear();
+   this.isImageUploadedSuccessfully();
+   this.nextButtonUploadImg(30000, true);  
+  }
 }
 
 

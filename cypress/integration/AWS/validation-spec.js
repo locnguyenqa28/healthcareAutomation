@@ -890,7 +890,7 @@ describe("Validation fields checking", () => {
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
-    dashboardActions.addAndValidateLesionInvalidImages(5, 2)
+    dashboardActions.addAndValidateLesionCombineImages(5, 2)
 
     //Case Summary
     dashboardActions.caseSummary();
@@ -935,10 +935,10 @@ describe("Validation fields checking", () => {
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
-    dashboardActions.addAndValidateLesionInvalidImages(5, 2)
+    dashboardActions.addAndValidateLesionCombineImages(5, 2)
     //Add another lesion
     dashboardActions.addAnotherLesion()
-    dashboardActions.addAndValidateLesionInvalidImages(5, 2)
+    dashboardActions.addAndValidateLesionCombineImages(5, 2)
     //Case Summary
     dashboardActions.caseSummary();
     dashboardActions.submitCasePrint();
@@ -982,13 +982,13 @@ describe("Validation fields checking", () => {
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
-    dashboardActions.addAndValidateLesionInvalidImages(5, 2)
+    dashboardActions.addAndValidateLesionCombineImages(5, 2)
     //Add another lesion
     dashboardActions.addAnotherLesion()
-    dashboardActions.addAndValidateLesionInvalidImages(5, 2)
+    dashboardActions.addAndValidateLesionCombineImages(5, 2)
     //Add another lesion
     dashboardActions.addAnotherLesion()
-    dashboardActions.addAndValidateLesionInvalidImages(5, 2)
+    dashboardActions.addAndValidateLesionCombineImages(5, 2)
     //Case Summary
     dashboardActions.caseSummary();
     dashboardActions.submitCasePrint();
@@ -1032,16 +1032,16 @@ describe("Validation fields checking", () => {
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
-    dashboardActions.addAndValidateLesionInvalidImages(5, 2)
+    dashboardActions.addAndValidateLesionCombineImages(5, 2)
     //Add another lesion
     dashboardActions.addAnotherLesion()
-    dashboardActions.addAndValidateLesionInvalidImages(5, 2)
+    dashboardActions.addAndValidateLesionCombineImages(5, 2)
     //Add another lesion
     dashboardActions.addAnotherLesion()
-    dashboardActions.addAndValidateLesionInvalidImages(5, 2)
+    dashboardActions.addAndValidateLesionCombineImages(5, 2)
     //Add another lesion
     dashboardActions.addAnotherLesion()
-    dashboardActions.addAndValidateLesionInvalidImages(5, 2)
+    dashboardActions.addAndValidateLesionCombineImages(5, 2)
 
     //Case Summary
     dashboardActions.caseSummary();
