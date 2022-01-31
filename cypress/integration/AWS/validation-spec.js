@@ -1054,7 +1054,367 @@ describe("Validation fields checking", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
  
-  it.skip("Validation - Clinic - check all fields & submit 1 lesion", () => 
+  it("Validation - Clinic - edit clinicName & submit 1 lesion no image", () => 
+  {
+    const clinicName = 'validationxzzLP';
+    const editName = `validation${homeActions.randomAlpha(5)}`;
+    // const clinicName = `validation${homeActions.randomAlpha(5)}`;
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Clinic
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickHrefByText('Setup');
+
+    // Clinic modal
+    clinicActions.assertText('Add new clinic');
+    clinicActions.clickEditClinicButtonByName(clinicName);
+    clinicActions.isModal('Edit a clinic');
+    clinicActions.enterClinicEditName(editName);
+    clinicActions.clickSaveEditClinic();
+
+    // Assert clinic
+    clinicActions.isClinicTable();
+    clinicActions.isAnyClinicName(editName); 
+
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `validation ${homeActions.randomAlpha(5)}`;
+    const lastname = `${homeActions.randomAlpha(10)}`;
+   
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.selectClinicOptionByName(editName);
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    dashboardActions.addALesionNoImage()
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+
+    // Changed clinicname back
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Clinic
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickHrefByText('Setup');
+
+    clinicActions.changeClinicName(editName, clinicName);
+  });
+ 
+  it("Validation - Clinic - edit clinicName & submit 2 lesions no image", () => 
+  {
+    const clinicName = 'validationxzzLP';
+    const editName = `validation${homeActions.randomAlpha(5)}`;
+    // const clinicName = `validation${homeActions.randomAlpha(5)}`;
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Clinic
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickHrefByText('Setup');
+
+    // Clinic modal
+    clinicActions.assertText('Add new clinic');
+    clinicActions.clickEditClinicButtonByName(clinicName);
+    clinicActions.isModal('Edit a clinic');
+    clinicActions.enterClinicEditName(editName);
+    clinicActions.clickSaveEditClinic();
+
+    // Assert clinic
+    clinicActions.isClinicTable();
+    clinicActions.isAnyClinicName(editName); 
+
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `validation ${homeActions.randomAlpha(5)}`;
+    const lastname = `${homeActions.randomAlpha(10)}`;
+   
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.selectClinicOptionByName(editName);
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    dashboardActions.addALesionNoImage()
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion()
+    dashboardActions.addALesionNoImage()
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+
+    // Changed clinicname back
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Clinic
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickHrefByText('Setup');
+
+    clinicActions.changeClinicName(editName, clinicName);
+  });
+ 
+  it("Validation - Clinic - edit clinicName & submit 3 lesions no image", () => 
+  {
+    const clinicName = 'validationxzzLP';
+    const editName = `validation${homeActions.randomAlpha(5)}`;
+    // const clinicName = `validation${homeActions.randomAlpha(5)}`;
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Clinic
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickHrefByText('Setup');
+
+    // Clinic modal
+    clinicActions.assertText('Add new clinic');
+    clinicActions.clickEditClinicButtonByName(clinicName);
+    clinicActions.isModal('Edit a clinic');
+    clinicActions.enterClinicEditName(editName);
+    clinicActions.clickSaveEditClinic();
+
+    // Assert clinic
+    clinicActions.isClinicTable();
+    clinicActions.isAnyClinicName(editName); 
+
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `validation ${homeActions.randomAlpha(5)}`;
+    const lastname = `${homeActions.randomAlpha(10)}`;
+   
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.selectClinicOptionByName(editName);
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    dashboardActions.addALesionNoImage()
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion()
+    dashboardActions.addALesionNoImage()
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion()
+    dashboardActions.addALesionNoImage()
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+
+    // Changed clinicname back
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Clinic
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickHrefByText('Setup');
+
+    clinicActions.changeClinicName(editName, clinicName);
+  });
+ 
+  it("Validation - Clinic - edit clinicName & submit 4 lesions no image", () => 
+  {
+    const clinicName = 'validationxzzLP';
+    const editName = `validation${homeActions.randomAlpha(5)}`;
+    // const clinicName = `validation${homeActions.randomAlpha(5)}`;
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Clinic
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickHrefByText('Setup');
+
+    // Clinic modal
+    clinicActions.assertText('Add new clinic');
+    clinicActions.clickEditClinicButtonByName(clinicName);
+    clinicActions.isModal('Edit a clinic');
+    clinicActions.enterClinicEditName(editName);
+    clinicActions.clickSaveEditClinic();
+
+    // Assert clinic
+    clinicActions.isClinicTable();
+    clinicActions.isAnyClinicName(editName); 
+
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `validation ${homeActions.randomAlpha(5)}`;
+    const lastname = `${homeActions.randomAlpha(10)}`;
+   
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    dashboardActions.selectClinicOptionByName(editName);
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    dashboardActions.addALesionNoImage()
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion()
+    dashboardActions.addALesionNoImage()
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion()
+    dashboardActions.addALesionNoImage()
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion()
+    dashboardActions.addALesionNoImage()
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+
+    // Changed clinicname back
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Clinic
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickHrefByText('Setup');
+
+    clinicActions.changeClinicName(editName, clinicName);
+  });
+   
+  it("Validation - Clinic - check all fields & submit 1 lesion", () => 
   {
     const clinicName = `validation${homeActions.randomAlpha(5)}`;
     loginActions.visitPage();
@@ -1097,7 +1457,7 @@ describe("Validation fields checking", () => {
     // Assert clinic
     clinicActions.reloadClinicPage();
     clinicActions.isClinicTable();
-    clinicActions.isClinicName(clinicName);
+    clinicActions.isAnyClinicName(clinicName);
 
     loginActions.visitPage();
     loginActions.inputUserName(user.username);

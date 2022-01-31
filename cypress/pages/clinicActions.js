@@ -1,6 +1,5 @@
 import { CommonActions } from "./commonAction";
 import user from "../support/constants";
-
 export class ClinicActions extends CommonActions
 {
   isModal(text = 'Add new clinic') {
@@ -159,6 +158,13 @@ export class ClinicActions extends CommonActions
     .click()
   }
 
+  isAnyClinicName(name, index = 0, timeOut = 500){
+    cy.wait(timeOut)
+    cy.get('[id*="data_clinic_"]')
+    .contains(name)
+    .should('be.visible')
+  }
+
   isClinicName(name, index = 0, timeOut = 500){
     cy.wait(timeOut)
     cy.get('.hasdata')
@@ -216,6 +222,14 @@ export class ClinicActions extends CommonActions
     cy.get('[onclick*=getclinnicbyid]')
     .eq(index)
     .click()
+  }
+
+  clickEditClinicButtonByName(name){
+    cy.get('[id*="data_clinic_"]')
+      .contains(name)
+      .parents('[id*="data_clinic_"]')
+      .find('[onclick*=getclinnicbyid]')
+      .click();
   }
 
   clickFirstInactiveClinicButton(isForce = false) {
@@ -338,6 +352,15 @@ export class ClinicActions extends CommonActions
     cy.get('select#clinic_state option')
     .eq(index)
     .should('contain.text',text);
+  }
+  
+  changeClinicName(orgName, changedName){
+    // Clinic modal
+    this.assertText('Add new clinic');
+    this.clickEditClinicButtonByName(orgName);
+    this.isModal('Edit a clinic');
+    this.enterClinicEditName(changedName);
+    this.clickSaveEditClinic();
   }
 }
 
