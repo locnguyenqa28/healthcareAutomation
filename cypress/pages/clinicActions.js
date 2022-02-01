@@ -165,10 +165,24 @@ export class ClinicActions extends CommonActions
     .should('be.visible')
   }
 
+  isLabByName(name, index = 0, timeOut = 500){
+    cy.wait(timeOut)
+    cy.get('[id*="data_clinic_"]')
+    .contains(name)
+    .should('be.visible')
+  }
+
   isClinicName(name, index = 0, timeOut = 500){
     cy.wait(timeOut)
     cy.get('.hasdata')
     .eq(index)
+    .contains(name)
+    .should('be.visible')
+  }
+
+  assertClinicName(name, index = 0, timeOut = 500){
+    cy.wait(timeOut)
+    cy.get('[id*="data_clinic_"]')
     .contains(name)
     .should('be.visible')
   }
@@ -308,7 +322,7 @@ export class ClinicActions extends CommonActions
       cy.wait(1000);
       this.clickCloseModal();
       cy.wait(1000);
-      this.isClinicName(list[randomIndex], index);
+      this.assertClinicName(list[randomIndex], index);
     })
   }
 
