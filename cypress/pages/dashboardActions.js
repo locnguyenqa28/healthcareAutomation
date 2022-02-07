@@ -552,15 +552,29 @@ export class DashboardActions extends CommonActions
       })
     }
   }
+
   isUploadSuccesfully(index, timeOut = 20000){
-    cy.wait(timeOut);
+    cy.wait(2000);
     cy.reload();
-    // this.isReviewCase('Review Case')
-    this.waitForReviewCase(10)
-    cy.get(".x-grid3-cell-last[tabindex='0']")
-    .eq(index)
-    .contains('Successful')
-    .should('be.visible')
+    cy.get('body').find('.x-grid3-col-4 a').then(($list) => {
+      cy.wrap($list).first().invoke('text')
+      .then((text) => {
+        if(text.indexOf('Review Case') >= 0) {
+          cy.get(".x-grid3-cell-last[tabindex='0']")
+          .eq(index)
+          .should('have.text', 'Successful')
+        } else {
+          cy.wait(timeOut);
+          cy.reload();
+          // Successful
+          this.waitForReviewCase(10)
+          cy.get(".x-grid3-cell-last[tabindex='0']")
+          .eq(index)
+          .should('have.text', 'Successful')
+        }
+      })
+    })
+   
   }
 
   // Summary add lesion
