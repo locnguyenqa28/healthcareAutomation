@@ -554,11 +554,10 @@ export class DashboardActions extends CommonActions
   }
 
   isUploadSuccesfully(index, timeOut = 20000){
-    cy.wait(2000);
     cy.reload();
-    cy.get('body').find('.x-grid3-col-4 a').then(($list) => {
-      cy.wrap($list).first().invoke('text')
-      .then((text) => {
+    cy.wait(2000);
+    cy.get('td.x-grid3-td-4').eq(1).invoke('text')
+    .then((text) => {
         if(text.indexOf('Review Case') >= 0) {
           cy.get(".x-grid3-cell-last[tabindex='0']")
           .eq(index)
@@ -572,9 +571,7 @@ export class DashboardActions extends CommonActions
           .eq(index)
           .should('have.text', 'Successful')
         }
-      })
-    })
-   
+    });
   }
 
   // Summary add lesion
