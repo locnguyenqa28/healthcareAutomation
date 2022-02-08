@@ -444,6 +444,13 @@ export class DashboardActions extends CommonActions
     cy.get('input[type="file"]')
     .attachFile(imageArr)
     .wait(2000)
+    this.assertText('Remove');
+    cy.get('body').find('.template-upload.fade.in').then(($list) => {
+      if($list.length !== number) {
+        cy.log('Wait for image fade in')
+        cy.wait(3000);
+      }
+    })
     this.startUpload();  
   }
 
@@ -1482,19 +1489,12 @@ export class DashboardActions extends CommonActions
   }
 
   addLargeImagesByName(imageName = '5mb.jpg', number=3) {
-    //Upload Dermascopic Images
-    // for(let i = 1; i<=number; i++){
-      this.assertHeader('Upload ');
-      this.uploadMultiImagesV2(imageName);
-      this.assertHeader('Upload ');
-      this.assertText('Remove');
-      cy.wait(2000);
-    // }
-    this.startUpload();
+    this.assertHeader('Upload ');
+    this.uploadMultiImagesV2(imageName, number);
+    this.assertHeader('Upload ');
+   
+    cy.wait(1000);
     this.waitForDeleteButtonVisible(number, 30);
-    cy.wait(2000);
-    this.startUpload();
-    cy.wait(2000);
     this.isProgressBarDisappear(90000);
     this.isImageUploadedSuccessfully(90000);
     this.nextButtonUploadImg(90000, true);
