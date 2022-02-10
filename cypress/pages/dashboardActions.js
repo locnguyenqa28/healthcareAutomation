@@ -2004,6 +2004,13 @@ export class DashboardActions extends CommonActions
    this.isImageUploadedSuccessfully();
    this.nextButtonUploadImg(30000, true);  
   }
+
+  addMoreMultiLesionsNoImage(number = 1) {
+    for (let i =0; i< number; i++){
+      this.addAnotherLesion()
+      this.addALesionNoImage()
+    }
+  }
 }
 
 
