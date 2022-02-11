@@ -2011,6 +2011,13 @@ export class DashboardActions extends CommonActions
       this.addALesionNoImage()
     }
   }
+
+  addMoreMultiLesionsLimitedImage(numLesion = 1, numImage = 4) {
+    for (let i =0; i< numLesion; i++){
+      this.addAnotherLesion()
+      this.addAndValidateLesionLimitedImage(numImage)
+    }
+  }
 }
 
 
