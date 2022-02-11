@@ -29,7 +29,7 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
+    dashboardActions.selectGender('Male');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -67,7 +67,7 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
+    dashboardActions.selectGender('Male');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -109,7 +109,7 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
+    dashboardActions.selectGender('Male');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -155,7 +155,7 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
+    dashboardActions.selectGender('Male');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -205,7 +205,7 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
+    dashboardActions.selectGender('Male');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -255,7 +255,7 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
+    dashboardActions.selectGender('Male');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -305,7 +305,7 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
+    dashboardActions.selectGender('Male');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -355,7 +355,7 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
+    dashboardActions.selectGender('Male');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -405,7 +405,7 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
+    dashboardActions.selectGender('Male');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -451,7 +451,7 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
+    dashboardActions.selectGender('Male');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -497,7 +497,7 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
+    dashboardActions.selectGender('Male');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -543,7 +543,7 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
+    dashboardActions.selectGender('Male');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -589,7 +589,7 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
+    dashboardActions.selectGender('Male');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -631,7 +631,7 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
+    dashboardActions.selectGender('Male');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -673,7 +673,7 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
+    dashboardActions.selectGender('Male');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -715,7 +715,7 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
+    dashboardActions.selectGender('Male');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -757,7 +757,7 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
+    dashboardActions.selectGender('Male');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -795,7 +795,7 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
+    dashboardActions.selectGender('Male');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -833,7 +833,7 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
+    dashboardActions.selectGender('Male');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -871,7 +871,7 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
+    dashboardActions.selectGender('Male');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -909,7 +909,7 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
+    dashboardActions.selectGender('Male');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -954,7 +954,7 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
+    dashboardActions.selectGender('Male');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -1001,7 +1001,7 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
+    dashboardActions.selectGender('Male');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -1048,7 +1048,7 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
+    dashboardActions.selectGender('Male');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -1093,7 +1093,7 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
+    dashboardActions.selectGender('Male');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -1140,7 +1140,7 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Unknown');
+    dashboardActions.selectGender('Male');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
