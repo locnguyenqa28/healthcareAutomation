@@ -2018,6 +2018,13 @@ export class DashboardActions extends CommonActions
       this.addAndValidateLesionLimitedImage(numImage)
     }
   }
+
+  addMoreMultiLesionsInvalidImage(numLesion = 1, numImage = 2, numbInvalidImage = 4) {
+    for (let i =0; i< numLesion; i++){
+      this.addAnotherLesion()
+      this.addALesionByInvalidImages(numImage, numbInvalidImage)
+    }
+  }
 }
 
 
