@@ -567,6 +567,15 @@ export class DashboardActions extends CommonActions
     .then((text) => {
         if(text.indexOf('Review Case') >= 0) {
           cy.get(".x-grid3-cell-last[tabindex='0']")
+          .eq(index).invoke('text')
+          .then((txt) => {
+            if(txt.indexOf('Uploading') >= 0){
+              cy.log('Uploading status, waiting...')
+              .wait(5000)
+              .reload();
+            }
+          });
+          cy.get(".x-grid3-cell-last[tabindex='0']")
           .eq(index)
           .should('have.text', 'Successful')
         } else {
