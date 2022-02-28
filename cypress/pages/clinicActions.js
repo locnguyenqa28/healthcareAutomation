@@ -316,7 +316,7 @@ export class ClinicActions extends CommonActions
 
   editAndVerifyClinicLabByIndex(index = 0) {
     this.getEditLabOption().then((list) => {
-      const randomIndex = Math.floor(Math.random() * list.length)
+      const randomIndex = Math.floor(Math.random() * (list.length - 1))
       this.selectEditLabOption(list[randomIndex]);
       this.clickSaveEditClinic();
       cy.wait(1000);
