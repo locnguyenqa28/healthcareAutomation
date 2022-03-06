@@ -1362,7 +1362,7 @@ describe("Laboratory checking", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
          
-  it("Laboratory - Clinic - edit Laboratory & submit 9 lesions limited image", () => 
+  it.skip("Laboratory - Clinic - edit Laboratory & submit 9 lesions limited image", () => 
   {
     const clinicName = 'validationxzzLP';
     loginActions.visitPage();
@@ -1427,7 +1427,7 @@ describe("Laboratory checking", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
          
-  it("Laboratory - Clinic - edit Laboratory & submit 10 lesions limited image", () => 
+  it.skip("Laboratory - Clinic - edit Laboratory & submit 10 lesions limited image", () => 
   {
     const clinicName = 'validationxzzLP';
     loginActions.visitPage();
