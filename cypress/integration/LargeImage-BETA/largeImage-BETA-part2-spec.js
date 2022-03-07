@@ -39,7 +39,7 @@ describe("Large image testing - BETA", () => {
     dashboardActions.addMuiltiPathologyRequestLargeImagesBySelectRegionV2('4.9_2.jpg', 7, 1, 2);
   });
 
-  it("5. Multiple Large images - 10 lesions 4.9Mb x 3 images - 5", () => 
+  it("5. Multiple Large images - 10 lesions 4.9Mb x 3 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
