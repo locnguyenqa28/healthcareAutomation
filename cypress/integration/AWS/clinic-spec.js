@@ -5,7 +5,7 @@ import { ClinicActions } from "../../pages/clinicActions";
 import user from "../../support/constants"
 
 
-describe.skip("Clinic", () => {
+describe("Clinic", () => {
     user.username = user.username1
     user.password = user.password1
     const loginActions = new LoginActions();
