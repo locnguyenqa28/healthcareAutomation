@@ -54,7 +54,7 @@ describe("Large image testing - BETA", () => {
     dashboardActions.addMuiltiPathologyRequestLargeImagesBySelectRegionV2('4.9_2.jpg', 10, 1, 5);
   });
  
-  it.skip("3. Multiple Large images - 8 lesions 4.9Mb x 3 images - 3", () => 
+  it("3. Multiple Large images - 8 lesions 4.9Mb x 3 images - 3", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -69,7 +69,7 @@ describe("Large image testing - BETA", () => {
     dashboardActions.addMuiltiPathologyRequestLargeImagesBySelectRegionV2('4.9_2.jpg', 8, 1, 3);
   }); 
 
-  it.skip("4. Multiple Large images - 9 lesions 4.9Mb x 3 images - 4", () => 
+  it("4. Multiple Large images - 9 lesions 4.9Mb x 3 images - 4", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
