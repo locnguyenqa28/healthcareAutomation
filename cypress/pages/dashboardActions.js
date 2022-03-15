@@ -2034,6 +2034,22 @@ export class DashboardActions extends CommonActions
       this.addALesionByInvalidImages(numImage, numbInvalidImage)
     }
   }
+
+  printCaseCheckingBasic() {
+    this.verifyElementContainsText('.printhideback strong', 
+    'Your request has been saved and your eRequest sent to your chosen Sonic Healthcare Laboratory.')
+    this.verifyElementContainsText('.printhideback strong', 
+    'Please print the referral (if required).')
+    this.verifyElementContainsText('[href="/cases/dashboard"]', 
+    'Return to the dashboard')
+    this.verifyElementContainsText('.printhideback[onclick="window.print()"]', 
+    'Print case')
+  }
+
+  printCaseCheckingPatients(...elements) {
+    const args = [...elements];
+    this.assertListText(args)
+  }
 }
 
 

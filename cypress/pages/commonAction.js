@@ -104,4 +104,22 @@ export class CommonActions {
  wait(number) {
   cy.wait(number);
  }
+
+ verifyElementContainsText(element, text) {
+   cy.get(element)
+    .contains(text)
+    .should('be.visible')
+ }
+
+ assertListText(list){
+    for (const item of list){
+      cy.get('body')
+      .contains(item)
+      .should('be.visible')
+    }
+  }
+
+ convertMedicareWithSymbol(text, cha =  '-'){
+    return text.slice(0, 3) + cha + text.slice(4,7) + cha + text.slice(7);
+  }
 }
