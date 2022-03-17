@@ -2036,10 +2036,11 @@ export class DashboardActions extends CommonActions
   }
 
   printCaseCheckingBasic() {
+    const text = "Your request has been saved and your eRequest sent to your chosen Sonic Healthcare Laboratory. Please print the referral (if required)."
     this.verifyElementContainsText('.printhideback strong', 
-    'Your request has been saved and your eRequest sent to your chosen Sonic Healthcare Laboratory.')
-    this.verifyElementContainsText('.printhideback strong', 
-    'Please print the referral (if required).')
+    'Your request has been saved and your eRequest sent to your chosen Sonic Healthcare Laboratory. Please print the referral (if required).')
+    // this.verifyElementContainsText('.printhideback strong', 
+    // 'Please print the referral (if required).')
     this.verifyElementContainsText('[href="/cases/dashboard"]', 
     'Return to the dashboard')
     this.verifyElementContainsText('.printhideback[onclick="window.print()"]', 
