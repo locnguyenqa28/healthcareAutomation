@@ -2014,6 +2014,13 @@ export class DashboardActions extends CommonActions
    this.nextButtonUploadImg(30000, true);  
   }
 
+  addMoreValidateLesionCombineImages(numLesion = 1, numImage = 2, invalidImages = 4) {
+    for (let i =0; i< numLesion; i++){
+      this.addAnotherLesion()
+      this.addAndValidateLesionCombineImages(numImage, invalidImages)
+    }
+  }
+
   addMoreMultiLesionsNoImage(number = 1) {
     for (let i =0; i< number; i++){
       this.addAnotherLesion()
