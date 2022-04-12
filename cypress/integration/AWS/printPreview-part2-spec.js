@@ -1405,7 +1405,7 @@ describe("Print Preview part 2 testing", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
   
-  it.only("Print Preview: add 7 Lesions - Delete 6 lesions - Combine limited & invalid images", () => 
+  it("Print Preview: add 7 Lesions - Delete 6 lesions - Combine limited & invalid images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -1446,7 +1446,7 @@ describe("Print Preview part 2 testing", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
   
-  it.only("Print Preview: add 8 Lesions - Delete 7 lesions - Combine limited & invalid images", () => 
+  it("Print Preview: add 8 Lesions - Delete 7 lesions - Combine limited & invalid images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -1487,7 +1487,7 @@ describe("Print Preview part 2 testing", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
   
-  it.only("Print Preview: add 9 Lesions - Delete 8 lesions - Combine limited & invalid images", () => 
+  it("Print Preview: add 9 Lesions - Delete 8 lesions - Combine limited & invalid images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -1528,7 +1528,7 @@ describe("Print Preview part 2 testing", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
   
-  it.only("Print Preview: add 10 Lesions - Delete 9 lesions - Combine limited & invalid images", () => 
+  it("Print Preview: add 10 Lesions - Delete 9 lesions - Combine limited & invalid images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
