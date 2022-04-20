@@ -4,7 +4,7 @@ import { DashboardActions } from "../../pages/dashboardActions";
 import { HomeActions } from "../../pages/homeAction";
 import { ClinicActions } from "../../pages/clinicActions";
 
-describe("Save Draft by API", () => {
+describe("Save Draft by API - part 1", () => {
   user.username = user.username1
   user.password = user.password1
   const homeActions = new HomeActions();
