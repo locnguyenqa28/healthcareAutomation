@@ -24,7 +24,7 @@ describe("Save Draft by API - Part 3", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const firstname = `api-${homeActions.randomAlpha(10)}`;
     const lastname = `combine`;
     dashboardActions.clickOkSelectClinic(true);
     clinicActions.selectSearchClinicByText('All');
@@ -63,7 +63,7 @@ describe("Save Draft by API - Part 3", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const firstname = `api-${homeActions.randomAlpha(10)}`;
     const lastname = `combine`;
     dashboardActions.clickOkSelectClinic(true);
     clinicActions.selectSearchClinicByText('All');
@@ -102,7 +102,7 @@ describe("Save Draft by API - Part 3", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const firstname = `api-${homeActions.randomAlpha(10)}`;
     const lastname = `combine`;
     dashboardActions.clickOkSelectClinic(true);
     clinicActions.selectSearchClinicByText('All');
@@ -141,7 +141,7 @@ describe("Save Draft by API - Part 3", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const firstname = `api-${homeActions.randomAlpha(10)}`;
     const lastname = `combine`;
     dashboardActions.clickOkSelectClinic(true);
     clinicActions.selectSearchClinicByText('All');
@@ -180,7 +180,7 @@ describe("Save Draft by API - Part 3", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const firstname = `api-${homeActions.randomAlpha(10)}`;
     const lastname = `combine`;
     dashboardActions.clickOkSelectClinic(true);
     clinicActions.selectSearchClinicByText('All');
@@ -219,7 +219,7 @@ describe("Save Draft by API - Part 3", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const firstname = `api-${homeActions.randomAlpha(10)}`;
     const lastname = `combine`;
     dashboardActions.clickOkSelectClinic(true);
     clinicActions.selectSearchClinicByText('All');
@@ -258,7 +258,7 @@ describe("Save Draft by API - Part 3", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const firstname = `api-${homeActions.randomAlpha(10)}`;
     const lastname = `combine`;
     dashboardActions.clickOkSelectClinic(true);
     clinicActions.selectSearchClinicByText('All');
@@ -297,7 +297,7 @@ describe("Save Draft by API - Part 3", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const firstname = `api-${homeActions.randomAlpha(10)}`;
     const lastname = `combine`;
     dashboardActions.clickOkSelectClinic(true);
     clinicActions.selectSearchClinicByText('All');
@@ -336,7 +336,7 @@ describe("Save Draft by API - Part 3", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const firstname = `api-${homeActions.randomAlpha(10)}`;
     const lastname = `combine`;
     dashboardActions.clickOkSelectClinic(true);
     clinicActions.selectSearchClinicByText('All');
@@ -375,7 +375,7 @@ describe("Save Draft by API - Part 3", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const firstname = `api-${homeActions.randomAlpha(10)}`;
     const lastname = `combine`;
     dashboardActions.clickOkSelectClinic(true);
     clinicActions.selectSearchClinicByText('All');
@@ -414,7 +414,7 @@ describe("Save Draft by API - Part 3", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const firstname = `api-${homeActions.randomAlpha(10)}`;
     const lastname = `combine`;
     dashboardActions.clickOkSelectClinic(true);
     clinicActions.selectSearchClinicByText('All');
@@ -453,7 +453,7 @@ describe("Save Draft by API - Part 3", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const firstname = `api-${homeActions.randomAlpha(10)}`;
     const lastname = `combine`;
     dashboardActions.clickOkSelectClinic(true);
     clinicActions.selectSearchClinicByText('All');
@@ -492,7 +492,7 @@ describe("Save Draft by API - Part 3", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const firstname = `api-${homeActions.randomAlpha(10)}`;
     const lastname = `combine`;
     dashboardActions.clickOkSelectClinic(true);
     clinicActions.selectSearchClinicByText('All');
@@ -531,7 +531,7 @@ describe("Save Draft by API - Part 3", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const firstname = `api-${homeActions.randomAlpha(10)}`;
     const lastname = `combine`;
     dashboardActions.clickOkSelectClinic(true);
     clinicActions.selectSearchClinicByText('All');
@@ -570,7 +570,7 @@ describe("Save Draft by API - Part 3", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const firstname = `api-${homeActions.randomAlpha(10)}`;
     const lastname = `combine`;
     dashboardActions.clickOkSelectClinic(true);
     clinicActions.selectSearchClinicByText('All');
