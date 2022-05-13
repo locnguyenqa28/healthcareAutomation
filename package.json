@@ -18,8 +18,7 @@
     "@shelex/cypress-allure-plugin": "^2.19.1",
     "cypress": "^8.5.0",
     "cypress-file-upload": "^5.0.8",
+    "cypress-mochawesome-reporter": "^3.0.1",
     "faker": "^4.1.0"
-  },
-  "dependencies": {
   }
 }

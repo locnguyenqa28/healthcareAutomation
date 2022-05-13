@@ -11,5 +11,14 @@
     "base": "https://sonic.ederm.com.au",
     "beta": "http://localhost:3000",
     "allureResultsPath": "report/results"
-  }
+  },
+  "reporter": "cypress-mochawesome-reporter",
+  "reporterOptions": {
+    "reportDir": "cypress/reports",
+    "charts": true,
+    "reportPageTitle": "My Test Suite",
+    "embeddedScreenshots": true,
+    "inlineAssets": true
+  },
+  "video": false
 }
