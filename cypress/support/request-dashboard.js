@@ -33,13 +33,16 @@ Cypress.Commands.add('getclinicByIDNoAuth', (id) => {
         }).then((res) => expect(res.body).to.be.equal(null));
   });
 
-Cypress.Commands.add('sqlInjection1', (
-  ) => {
+Cypress.Commands.add('sqlInjection', (sqlRequest) => {
         cy.request({
             method: 'POST',
-            url: `/admins/getusersxml?usertype=m&fname=k&lname=o%25'%20AND%20MID(VERSION(),1,1)%20LIKE%20'5'%
-            20AND%20'xVuq%25'%3D'xVuq&email=&username=29 HTTP/1.1`,
+            url: `https://sonic.ederm.com.au:443${sqlRequest}`,
             body:{
-            }
-        })
+            },
+            failOnStatusCode: false,
+        }).then((res) => 
+        {
+            cy.log(`Response: ${res.body}`).then(() => expect(res.status).not.to.eq(200));
+            
+        });
   });
