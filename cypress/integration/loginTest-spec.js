@@ -16,4 +16,15 @@ describe("Test Login Function", () => {
     homeActions.isDashBoardButtonDisplayed();
   });
 
+  it.only("Check getclinnicbyid", () => {
+    for(let id=0; id<101; id+=1){
+      cy.getclinicByIDNoAuth(id);
+    }
+  });
+
+  it("SQL injection", () => {
+  homeActions.visitPage();
+  cy.sqlInjection1();
+  });
+
 });

@@ -23,3 +23,23 @@ Cypress.Commands.add('saveDraft', (
             });
         });
   });
+
+Cypress.Commands.add('getclinicByIDNoAuth', (id) => {
+        cy.request({
+            method: 'GET',
+            url: `users/getclinnicbyid?id=${id}`,
+            body:{
+            }
+        }).then((res) => expect(res.body).to.be.equal(null));
+  });
+
+Cypress.Commands.add('sqlInjection1', (
+  ) => {
+        cy.request({
+            method: 'POST',
+            url: `/admins/getusersxml?usertype=m&fname=k&lname=o%25'%20AND%20MID(VERSION(),1,1)%20LIKE%20'5'%
+            20AND%20'xVuq%25'%3D'xVuq&email=&username=29 HTTP/1.1`,
+            body:{
+            }
+        })
+  });
