@@ -1,18 +1,23 @@
-import { LoginActions } from "../../pages/loginAction";
-import { HomeActions } from "../../pages/homeAction";
-import { DashboardActions } from "../../pages/dashboardActions";
-import user from "../../support/constants"
+import user from "../../../support/constants";
+import { LoginActions } from "../../../pages/loginAction";
+import { DashboardActions } from "../../../pages/dashboardActions";
+import { HomeActions } from "../../../pages/homeAction";
+import { ClinicActions } from "../../../pages/clinicActions";
 
+describe("Print Preview part 2 testing", () => {
+  user.username = user.username1
+  user.password = user.password1
+  const homeActions = new HomeActions();
+  const loginActions = new LoginActions();
+  const dashboardActions = new DashboardActions();
+  const clinicActions = new ClinicActions();
+  const validOtherText = "abdzABCZ--.";
+  const lesion1 = 'Lesion 1';
+  const lesion2 = 'Lesion 2';
+  const lesion3 = 'Lesion 3';
+  const lesion4 = 'Lesion 4';
 
-describe("Submit - AWS - part1", () => {
-    user.username = user.username1
-    user.password = user.password1
-    const loginActions = new LoginActions();
-    const homeActions = new HomeActions();
-    const dashboardActions = new DashboardActions();
-    const validDVANumber = 'Abc12345678'
-
-  it("01. Submit one Lesion more than 4 images", () => 
+  it("Print Preview: add 6 Lesions - Delete 5 lesions - 5 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -21,15 +26,15 @@ describe("Submit - AWS - part1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `one Lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `more than four images ${homeActions.randomAlpha(20)}`;
-  dashboardActions.selectClinicOptionByName();
+    const firstname = `printcase ${homeActions.randomAlpha(10)}`;
+    const lastname = `more than four images ${homeActions.randomAlpha(10)}`;
+    dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Male');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -40,17 +45,30 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionByNumberImages(5)
+    dashboardActions.addAndValidateLesionLimitedImage(5)
+
+    dashboardActions.addMoreMultiLesionsLimitedImage(5, 5)
 
     //Case Summary
     dashboardActions.caseSummary();
+    dashboardActions.deleteLesionByName(lesion1,5);
+
     dashboardActions.submitCasePrint();
+    dashboardActions.printCaseCheckingBasic();
+    dashboardActions.printCaseCheckingPatients(
+      firstname,
+      lastname,
+      user.DOB,
+      user.address,
+      user.city,
+      // medicareCode
+    )
     dashboardActions.returnToDashboard();
     homeActions.isDashboardDisplayed();
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("02. Submit two Lesion more than 4 images", () => 
+  it("Print Preview: add 7 Lesions - Delete 6 lesions - 5 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -59,15 +77,15 @@ describe("Submit - AWS - part1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `two Lesions ${homeActions.randomAlpha(20)}`;
-    const lastname = `more than four images ${homeActions.randomAlpha(20)}`;
-  dashboardActions.selectClinicOptionByName();
+    const firstname = `printcase ${homeActions.randomAlpha(10)}`;
+    const lastname = `more than four images ${homeActions.randomAlpha(10)}`;
+    dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Male');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -78,21 +96,30 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionByNumberImages(5)
+    dashboardActions.addAndValidateLesionLimitedImage(5)
 
-    //Add another lesion
-    dashboardActions.addAnotherLesion()
-    dashboardActions.addALesionByNumberImages(5)
+    dashboardActions.addMoreMultiLesionsLimitedImage(6, 5)
 
     //Case Summary
     dashboardActions.caseSummary();
+    dashboardActions.deleteLesionByName(lesion1,6);
+
     dashboardActions.submitCasePrint();
+    dashboardActions.printCaseCheckingBasic();
+    dashboardActions.printCaseCheckingPatients(
+      firstname,
+      lastname,
+      user.DOB,
+      user.address,
+      user.city,
+      // medicareCode
+    )
     dashboardActions.returnToDashboard();
     homeActions.isDashboardDisplayed();
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("03. Submit three Lesion more than 4 images", () => 
+  it("Print Preview: add 8 Lesions - Delete 7 lesions - 5 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -101,15 +128,15 @@ describe("Submit - AWS - part1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `three Lesions ${homeActions.randomAlpha(20)}`;
-    const lastname = `more than four images ${homeActions.randomAlpha(20)}`;
-  dashboardActions.selectClinicOptionByName();
+    const firstname = `printcase ${homeActions.randomAlpha(10)}`;
+    const lastname = `more than four images ${homeActions.randomAlpha(10)}`;
+    dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Male');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -120,25 +147,30 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionByNumberImages(5)
+    dashboardActions.addAndValidateLesionLimitedImage(5)
 
-    //Add another lesion
-    dashboardActions.addAnotherLesion()
-    dashboardActions.addALesionByNumberImages(5)
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion()
-    dashboardActions.addALesionByNumberImages(5)
+    dashboardActions.addMoreMultiLesionsLimitedImage(7, 5)
 
     //Case Summary
     dashboardActions.caseSummary();
+    dashboardActions.deleteLesionByName(lesion1,7);
+
     dashboardActions.submitCasePrint();
+    dashboardActions.printCaseCheckingBasic();
+    dashboardActions.printCaseCheckingPatients(
+      firstname,
+      lastname,
+      user.DOB,
+      user.address,
+      user.city,
+      // medicareCode
+    )
     dashboardActions.returnToDashboard();
     homeActions.isDashboardDisplayed();
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("04. Submit four Lesion more than 4 images", () => 
+  it("Print Preview: add 9 Lesions - Delete 8 lesions - 5 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -147,15 +179,15 @@ describe("Submit - AWS - part1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `four Lesions ${homeActions.randomAlpha(20)}`;
-    const lastname = `more than four images ${homeActions.randomAlpha(20)}`;
-  dashboardActions.selectClinicOptionByName();
+    const firstname = `printcase ${homeActions.randomAlpha(10)}`;
+    const lastname = `more than four images ${homeActions.randomAlpha(10)}`;
+    dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Male');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -166,29 +198,30 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionByNumberImages(5)
+    dashboardActions.addAndValidateLesionLimitedImage(5)
 
-    //Add another lesion
-    dashboardActions.addAnotherLesion()
-    dashboardActions.addALesionByNumberImages(5)
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion()
-    dashboardActions.addALesionByNumberImages(5)
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion()
-    dashboardActions.addALesionByNumberImages(5)
+    dashboardActions.addMoreMultiLesionsLimitedImage(8, 5)
 
     //Case Summary
     dashboardActions.caseSummary();
+    dashboardActions.deleteLesionByName(lesion1,8);
+
     dashboardActions.submitCasePrint();
+    dashboardActions.printCaseCheckingBasic();
+    dashboardActions.printCaseCheckingPatients(
+      firstname,
+      lastname,
+      user.DOB,
+      user.address,
+      user.city,
+      // medicareCode
+    )
     dashboardActions.returnToDashboard();
     homeActions.isDashboardDisplayed();
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("05. Submit four Lesion 4 images", () => 
+  it("Print Preview: add 10 Lesions - Delete 10 lesions - 5 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -197,15 +230,15 @@ describe("Submit - AWS - part1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `four lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `four images ${homeActions.randomAlpha(20)}`;
-  dashboardActions.selectClinicOptionByName();
+    const firstname = `printcase ${homeActions.randomAlpha(10)}`;
+    const lastname = `more than four images ${homeActions.randomAlpha(10)}`;
+    dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Male');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -216,29 +249,30 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionByNumberImages(4);
+    dashboardActions.addAndValidateLesionLimitedImage(5)
 
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(4);
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(4);
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(4);
+    dashboardActions.addMoreMultiLesionsLimitedImage(9, 5)
 
     //Case Summary
     dashboardActions.caseSummary();
+    dashboardActions.deleteLesionByName(lesion1,9);
+
     dashboardActions.submitCasePrint();
+    dashboardActions.printCaseCheckingBasic();
+    dashboardActions.printCaseCheckingPatients(
+      firstname,
+      lastname,
+      user.DOB,
+      user.address,
+      user.city,
+      // medicareCode
+    )
     dashboardActions.returnToDashboard();
     homeActions.isDashboardDisplayed();
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("06. Submit four Lesion 3 images", () => 
+  it("Print Preview: add 6 Lesions - Delete 1 lesions - 6 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -247,15 +281,15 @@ describe("Submit - AWS - part1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `four lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `three images ${homeActions.randomAlpha(20)}`;
-  dashboardActions.selectClinicOptionByName();
+    const firstname = `printcase ${homeActions.randomAlpha(10)}`;
+    const lastname = `more than four images ${homeActions.randomAlpha(10)}`;
+    dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Male');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -266,29 +300,30 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionByNumberImages(3);
+    dashboardActions.addAndValidateLesionLimitedImage(6)
 
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(3);
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(3);
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(3);
+    dashboardActions.addMoreMultiLesionsLimitedImage(5, 6)
 
     //Case Summary
     dashboardActions.caseSummary();
+    dashboardActions.deleteLesionByName(lesion1,1);
+
     dashboardActions.submitCasePrint();
+    dashboardActions.printCaseCheckingBasic();
+    dashboardActions.printCaseCheckingPatients(
+      firstname,
+      lastname,
+      user.DOB,
+      user.address,
+      user.city,
+      // medicareCode
+    )
     dashboardActions.returnToDashboard();
     homeActions.isDashboardDisplayed();
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("07. Submit four Lesion 2 images", () => 
+  it("Print Preview: add 7 Lesions - Delete 1 lesions - 7 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -297,15 +332,15 @@ describe("Submit - AWS - part1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `four lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `two images ${homeActions.randomAlpha(20)}`;
-  dashboardActions.selectClinicOptionByName();
+    const firstname = `printcase ${homeActions.randomAlpha(10)}`;
+    const lastname = `more than four images ${homeActions.randomAlpha(10)}`;
+    dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Male');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -316,29 +351,30 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionByNumberImages(2);
+    dashboardActions.addAndValidateLesionLimitedImage(7)
 
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(2);
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(2);
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(2);
+    dashboardActions.addMoreMultiLesionsLimitedImage(6, 7)
 
     //Case Summary
     dashboardActions.caseSummary();
+    dashboardActions.deleteLesionByName(lesion1,1);
+
     dashboardActions.submitCasePrint();
+    dashboardActions.printCaseCheckingBasic();
+    dashboardActions.printCaseCheckingPatients(
+      firstname,
+      lastname,
+      user.DOB,
+      user.address,
+      user.city,
+      // medicareCode
+    )
     dashboardActions.returnToDashboard();
     homeActions.isDashboardDisplayed();
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("08. Submit four Lesion 1 images", () => 
+  it("Print Preview: add 8 Lesions - Delete 1 lesions - 8 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -347,15 +383,15 @@ describe("Submit - AWS - part1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `four lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `one images ${homeActions.randomAlpha(20)}`;
-  dashboardActions.selectClinicOptionByName();
+    const firstname = `printcase ${homeActions.randomAlpha(10)}`;
+    const lastname = `more than four images ${homeActions.randomAlpha(10)}`;
+    dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Male');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -366,29 +402,30 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionByNumberImages(1);
+    dashboardActions.addAndValidateLesionLimitedImage(8)
 
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(1);
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(1);
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(1);
+    dashboardActions.addMoreMultiLesionsLimitedImage(7, 8)
 
     //Case Summary
     dashboardActions.caseSummary();
+    dashboardActions.deleteLesionByName(lesion1,1);
+
     dashboardActions.submitCasePrint();
+    dashboardActions.printCaseCheckingBasic();
+    dashboardActions.printCaseCheckingPatients(
+      firstname,
+      lastname,
+      user.DOB,
+      user.address,
+      user.city,
+      // medicareCode
+    )
     dashboardActions.returnToDashboard();
     homeActions.isDashboardDisplayed();
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("09. Submit three Lesion 4 images", () => 
+  it("Print Preview: add 9 Lesions - Delete 1 lesions - 9 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -397,15 +434,15 @@ describe("Submit - AWS - part1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `three Lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `four images ${homeActions.randomAlpha(20)}`;
-  dashboardActions.selectClinicOptionByName();
+    const firstname = `printcase ${homeActions.randomAlpha(10)}`;
+    const lastname = `more than four images ${homeActions.randomAlpha(10)}`;
+    dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Male');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -416,25 +453,30 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionByNumberImages(4);
+    dashboardActions.addAndValidateLesionLimitedImage(9)
 
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(4);
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(4);
+    dashboardActions.addMoreMultiLesionsLimitedImage(8, 9)
 
     //Case Summary
     dashboardActions.caseSummary();
+    dashboardActions.deleteLesionByName(lesion1,1);
+
     dashboardActions.submitCasePrint();
+    dashboardActions.printCaseCheckingBasic();
+    dashboardActions.printCaseCheckingPatients(
+      firstname,
+      lastname,
+      user.DOB,
+      user.address,
+      user.city,
+      // medicareCode
+    )
     dashboardActions.returnToDashboard();
     homeActions.isDashboardDisplayed();
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("10. Submit three Lesion 3 images", () => 
+  it("Print Preview: add 10 Lesions - Delete 1 lesions - 10 images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -443,15 +485,15 @@ describe("Submit - AWS - part1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `three Lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `three images ${homeActions.randomAlpha(20)}`;
-  dashboardActions.selectClinicOptionByName();
+    const firstname = `printcase ${homeActions.randomAlpha(10)}`;
+    const lastname = `more than four images ${homeActions.randomAlpha(10)}`;
+    dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Male');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -462,25 +504,30 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.nextButton();
 
     //Add first lesion
-    dashboardActions.addALesionByNumberImages(3);
+    dashboardActions.addAndValidateLesionLimitedImage(10)
 
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(3);
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(3);
+    dashboardActions.addMoreMultiLesionsLimitedImage(9, 10)
 
     //Case Summary
     dashboardActions.caseSummary();
+    dashboardActions.deleteLesionByName(lesion1,1);
+
     dashboardActions.submitCasePrint();
+    dashboardActions.printCaseCheckingBasic();
+    dashboardActions.printCaseCheckingPatients(
+      firstname,
+      lastname,
+      user.DOB,
+      user.address,
+      user.city,
+      // medicareCode
+    )
     dashboardActions.returnToDashboard();
     homeActions.isDashboardDisplayed();
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("11. Submit three Lesion 2 images", () => 
+  it("Print Preview: add 4 Lesions - Delete 3 lesions - Invalid images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -489,15 +536,15 @@ describe("Submit - AWS - part1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `three Lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `two images ${homeActions.randomAlpha(10)}`;
-  dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
+    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const lastname = `delete`;
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Male');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -506,438 +553,23 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.enterContact(user.contact);
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
-
-    //Add first lesion
-    dashboardActions.addALesionByNumberImages(2);
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(2);
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(2);
-
-    //Case Summary
-    dashboardActions.caseSummary();
-    dashboardActions.submitCasePrint();
-    dashboardActions.returnToDashboard();
-    homeActions.isDashboardDisplayed();
-    dashboardActions.isUploadSuccesfully(0);
-  });
-
-  it("12. Submit three Lesion 1 images", () => 
-  {
-    loginActions.visitPage();
-    loginActions.inputUserName(user.username);
-    loginActions.inputPassword(user.password);
-    loginActions.clickLoginButton();
-    homeActions.isDashBoardButtonDisplayed();
-    
-    //Add New Lesion - Patient Details
-    const firstname = `three Lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `one images ${homeActions.randomAlpha(20)}`;
-  dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Mrs');
-    dashboardActions.enterFirstName(firstname);
-    dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Male');
-    dashboardActions.enterDOB(user.DOB);
-    dashboardActions.enterHomeAdd(user.address);
-    dashboardActions.enterCity(user.city);
-    dashboardActions.selectState();
-    dashboardActions.enterPostcode(user.postcode);
-    dashboardActions.enterContact(user.contact);
-    dashboardActions.enterMedicare(user.medicare);
-    dashboardActions.nextButton();
-
-    //Add first lesion
-    dashboardActions.addALesionByNumberImages(1);
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(1);
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(1);
-
-    //Case Summary
-    dashboardActions.caseSummary();
-    dashboardActions.submitCasePrint();
-    dashboardActions.returnToDashboard();
-    homeActions.isDashboardDisplayed();
-    dashboardActions.isUploadSuccesfully(0);
-  });
-
-  it("13. Submit two Lesion 4 images", () => 
-  {
-    loginActions.visitPage();
-    loginActions.inputUserName(user.username);
-    loginActions.inputPassword(user.password);
-    loginActions.clickLoginButton();
-    homeActions.isDashBoardButtonDisplayed();
-    
-    //Add New Lesion - Patient Details
-    const firstname = `two Lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `four images ${homeActions.randomAlpha(20)}`;
-  dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Mrs');
-    dashboardActions.enterFirstName(firstname);
-    dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Male');
-    dashboardActions.enterDOB(user.DOB);
-    dashboardActions.enterHomeAdd(user.address);
-    dashboardActions.enterCity(user.city);
-    dashboardActions.selectState();
-    dashboardActions.enterPostcode(user.postcode);
-    dashboardActions.enterContact(user.contact);
-    dashboardActions.enterMedicare(user.medicare);
-    dashboardActions.nextButton();
-
-    //Add first lesion
-    dashboardActions.addALesionByNumberImages(4);
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(4);
-
-    //Case Summary
-    dashboardActions.caseSummary();
-    dashboardActions.submitCasePrint();
-    dashboardActions.returnToDashboard();
-    homeActions.isDashboardDisplayed();
-    dashboardActions.isUploadSuccesfully(0);
-  });
-
-  it("14. Submit two Lesion 3 images", () => 
-  {
-    loginActions.visitPage();
-    loginActions.inputUserName(user.username);
-    loginActions.inputPassword(user.password);
-    loginActions.clickLoginButton();
-    homeActions.isDashBoardButtonDisplayed();
-    
-    //Add New Lesion - Patient Details
-    const firstname = `two Lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `three images ${homeActions.randomAlpha(20)}`;
-  dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Mrs');
-    dashboardActions.enterFirstName(firstname);
-    dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Male');
-    dashboardActions.enterDOB(user.DOB);
-    dashboardActions.enterHomeAdd(user.address);
-    dashboardActions.enterCity(user.city);
-    dashboardActions.selectState();
-    dashboardActions.enterPostcode(user.postcode);
-    dashboardActions.enterContact(user.contact);
-    dashboardActions.enterMedicare(user.medicare);
-    dashboardActions.nextButton();
-
-    //Add first lesion
-    dashboardActions.addALesionByNumberImages(3);
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(3);
-
-    //Case Summary
-    dashboardActions.caseSummary();
-    dashboardActions.submitCasePrint();
-    dashboardActions.returnToDashboard();
-    homeActions.isDashboardDisplayed();
-    dashboardActions.isUploadSuccesfully(0);
-  });
-
-  it("15. Submit two Lesion 2 images", () => 
-  {
-    loginActions.visitPage();
-    loginActions.inputUserName(user.username);
-    loginActions.inputPassword(user.password);
-    loginActions.clickLoginButton();
-    homeActions.isDashBoardButtonDisplayed();
-    
-    //Add New Lesion - Patient Details
-    const firstname = `two Lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `two images ${homeActions.randomAlpha(10)}`;
-  dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Mrs');
-    dashboardActions.enterFirstName(firstname);
-    dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Male');
-    dashboardActions.enterDOB(user.DOB);
-    dashboardActions.enterHomeAdd(user.address);
-    dashboardActions.enterCity(user.city);
-    dashboardActions.selectState();
-    dashboardActions.enterPostcode(user.postcode);
-    dashboardActions.enterContact(user.contact);
-    dashboardActions.enterMedicare(user.medicare);
-    dashboardActions.nextButton();
-
-    //Add first lesion
-    dashboardActions.addALesionByNumberImages(2);
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(2);
-
-    //Case Summary
-    dashboardActions.caseSummary();
-    dashboardActions.submitCasePrint();
-    dashboardActions.returnToDashboard();
-    homeActions.isDashboardDisplayed();
-    dashboardActions.isUploadSuccesfully(0);
-  });
-
-  it("16. Submit three Lesion 1 images", () => 
-  {
-    loginActions.visitPage();
-    loginActions.inputUserName(user.username);
-    loginActions.inputPassword(user.password);
-    loginActions.clickLoginButton();
-    homeActions.isDashBoardButtonDisplayed();
-    
-    //Add New Lesion - Patient Details
-    const firstname = `three Lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `one images ${homeActions.randomAlpha(20)}`;
-  dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Mrs');
-    dashboardActions.enterFirstName(firstname);
-    dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Male');
-    dashboardActions.enterDOB(user.DOB);
-    dashboardActions.enterHomeAdd(user.address);
-    dashboardActions.enterCity(user.city);
-    dashboardActions.selectState();
-    dashboardActions.enterPostcode(user.postcode);
-    dashboardActions.enterContact(user.contact);
-    dashboardActions.enterMedicare(user.medicare);
-    dashboardActions.nextButton();
-
-    //Add first lesion
-    dashboardActions.addALesionByNumberImages(1);
-
-    //Add another lesion
-    dashboardActions.addAnotherLesion();
-    dashboardActions.addALesionByNumberImages(1);
-
-    //Case Summary
-    dashboardActions.caseSummary();
-    dashboardActions.submitCasePrint();
-    dashboardActions.returnToDashboard();
-    homeActions.isDashboardDisplayed();
-    dashboardActions.isUploadSuccesfully(0);
-  });
-
-  it("17. Submit one Lesion 4 images", () => 
-  {
-    loginActions.visitPage();
-    loginActions.inputUserName(user.username);
-    loginActions.inputPassword(user.password);
-    loginActions.clickLoginButton();
-    homeActions.isDashBoardButtonDisplayed();
-    
-    //Add New Lesion - Patient Details
-    const firstname = `one Lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `four images ${homeActions.randomAlpha(20)}`;
-  dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Mrs');
-    dashboardActions.enterFirstName(firstname);
-    dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Male');
-    dashboardActions.enterDOB(user.DOB);
-    dashboardActions.enterHomeAdd(user.address);
-    dashboardActions.enterCity(user.city);
-    dashboardActions.selectState();
-    dashboardActions.enterPostcode(user.postcode);
-    dashboardActions.enterContact(user.contact);
-    dashboardActions.enterMedicare(user.medicare);
-    dashboardActions.nextButton();
-
-    //Add first lesion
-    dashboardActions.addALesionByNumberImages(4);
-
-    //Case Summary
-    dashboardActions.caseSummary();
-    dashboardActions.submitCasePrint();
-    dashboardActions.returnToDashboard();
-    homeActions.isDashboardDisplayed();
-    dashboardActions.isUploadSuccesfully(0);
-  });
-
-  it("18. Submit one Lesion 3 images", () => 
-  {
-    loginActions.visitPage();
-    loginActions.inputUserName(user.username);
-    loginActions.inputPassword(user.password);
-    loginActions.clickLoginButton();
-    homeActions.isDashBoardButtonDisplayed();
-    
-    //Add New Lesion - Patient Details
-    const firstname = `one Lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `three images ${homeActions.randomAlpha(20)}`;
-  dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Mrs');
-    dashboardActions.enterFirstName(firstname);
-    dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Male');
-    dashboardActions.enterDOB(user.DOB);
-    dashboardActions.enterHomeAdd(user.address);
-    dashboardActions.enterCity(user.city);
-    dashboardActions.selectState();
-    dashboardActions.enterPostcode(user.postcode);
-    dashboardActions.enterContact(user.contact);
-    dashboardActions.enterMedicare(user.medicare);
-    dashboardActions.nextButton();
-
-    //Add first lesion
-    dashboardActions.addALesionByNumberImages(3);
-
-    //Case Summary
-    dashboardActions.caseSummary();
-    dashboardActions.submitCasePrint();
-    dashboardActions.returnToDashboard();
-    homeActions.isDashboardDisplayed();
-    dashboardActions.isUploadSuccesfully(0);
-  });
-
-  it("19. Submit one Lesion 2 images", () => 
-  {
-    loginActions.visitPage();
-    loginActions.inputUserName(user.username);
-    loginActions.inputPassword(user.password);
-    loginActions.clickLoginButton();
-    homeActions.isDashBoardButtonDisplayed();
-    
-    //Add New Lesion - Patient Details
-    const firstname = `one Lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `two images ${homeActions.randomAlpha(10)}`;
-  dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Mrs');
-    dashboardActions.enterFirstName(firstname);
-    dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Male');
-    dashboardActions.enterDOB(user.DOB);
-    dashboardActions.enterHomeAdd(user.address);
-    dashboardActions.enterCity(user.city);
-    dashboardActions.selectState();
-    dashboardActions.enterPostcode(user.postcode);
-    dashboardActions.enterContact(user.contact);
-    dashboardActions.enterMedicare(user.medicare);
-    dashboardActions.nextButton();
-
-    //Add first lesion
-    dashboardActions.addALesionByNumberImages(2);
-
-    //Case Summary
-    dashboardActions.caseSummary();
-    dashboardActions.submitCasePrint();
-    dashboardActions.returnToDashboard();
-    homeActions.isDashboardDisplayed();
-    dashboardActions.isUploadSuccesfully(0);
-  });
-
-  it("20. Submit one Lesion 1 images", () => 
-  {
-    loginActions.visitPage();
-    loginActions.inputUserName(user.username);
-    loginActions.inputPassword(user.password);
-    loginActions.clickLoginButton();
-    homeActions.isDashBoardButtonDisplayed();
-    
-    //Add New Lesion - Patient Details
-    const firstname = `three Lesion ${homeActions.randomAlpha(20)}`;
-    const lastname = `one images ${homeActions.randomAlpha(20)}`;
-  dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Mrs');
-    dashboardActions.enterFirstName(firstname);
-    dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Male');
-    dashboardActions.enterDOB(user.DOB);
-    dashboardActions.enterHomeAdd(user.address);
-    dashboardActions.enterCity(user.city);
-    dashboardActions.selectState();
-    dashboardActions.enterPostcode(user.postcode);
-    dashboardActions.enterContact(user.contact);
-    dashboardActions.enterMedicare(user.medicare);
-    dashboardActions.nextButton();
-
-    //Add first lesion
-    dashboardActions.addALesionByNumberImages(1);
-
-    //Case Summary
-    dashboardActions.caseSummary();
-    dashboardActions.submitCasePrint();
-    dashboardActions.returnToDashboard();
-    homeActions.isDashboardDisplayed();
-    dashboardActions.isUploadSuccesfully(0);
-  });
-
-  it("21. Bulk bill to DVA", () => 
-  {
-    loginActions.visitPage();
-    loginActions.inputUserName(user.username);
-    loginActions.inputPassword(user.password);
-    loginActions.clickLoginButton();
-    homeActions.isDashBoardButtonDisplayed();
-    
-    //Add New Lesion - Patient Details
-    const firstname = `submit ${homeActions.randomAlpha(20)}`;
-    const lastname = `Bulk bill to DVA`;
-  dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Mrs');
-    dashboardActions.enterFirstName(firstname);
-    dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Male');
-    dashboardActions.enterDOB(user.DOB);
-    dashboardActions.enterHomeAdd(user.address);
-    dashboardActions.enterCity(user.city);
-    dashboardActions.selectState();
-    dashboardActions.enterPostcode(user.postcode);
-    dashboardActions.enterContact(user.contact);
-    dashboardActions.enterMedicare(user.medicare);
-    dashboardActions.nextButton();
-
-    //Add first lesion
-    dashboardActions.addALesionByNumberImages(1);
-
-    //Case Summary
-    dashboardActions.caseSummary();
-
-    dashboardActions.clickEditPatientDetails();
-    dashboardActions.selectBilling(user.billing.DVA);
-    dashboardActions.enterDVANumber(validDVANumber);
-    dashboardActions.clickSavePatientDetails();
-    dashboardActions.clickOkPatientDetails();
    
+    //Add first lesion
+    dashboardActions.addALesionByInvalidImages(2)
+
+    dashboardActions.addMoreMultiLesionsInvalidImage(4, 2)
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.deleteLesionByName(lesion1,3);
+
     dashboardActions.submitCasePrint();
     dashboardActions.returnToDashboard();
     homeActions.isDashboardDisplayed();
     dashboardActions.isUploadSuccesfully(0);
   });
 
-  it("22.DVA to Bulk bill", () => 
+  it("Print Preview: add 4 Lesions - Delete 2 lesions - Invalid images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -946,109 +578,15 @@ describe("Submit - AWS - part1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `submit ${homeActions.randomAlpha(20)}`;
-    const lastname = `DVA to Bulk bill`;
-  dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
+    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const lastname = `delete`;
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Male');
-    dashboardActions.enterDOB(user.DOB);
-    dashboardActions.enterHomeAdd(user.address);
-    dashboardActions.enterCity(user.city);
-    dashboardActions.selectState();
-    dashboardActions.enterPostcode(user.postcode);
-    dashboardActions.enterContact(user.contact);
-    dashboardActions.selectBilling(user.billing.DVA)
-    dashboardActions.enterDVANumber(validDVANumber);
-   
-    dashboardActions.nextButton();
-
-    //Add first lesion
-    dashboardActions.addALesionByNumberImages(1);
-
-    //Case Summary
-    dashboardActions.caseSummary();
-
-    dashboardActions.clickEditPatientDetails();
-    dashboardActions.selectBilling(user.billing.bulkBill)
-    dashboardActions.enterMedicare(user.medicare);
-    dashboardActions.clickSavePatientDetails();
-    dashboardActions.clickOkPatientDetails();
-   
-    dashboardActions.submitCasePrint();
-    dashboardActions.returnToDashboard();
-    homeActions.isDashboardDisplayed();
-    dashboardActions.isUploadSuccesfully(0);
-  });
-
-  it("23.DVA to Private", () => 
-  {
-    loginActions.visitPage();
-    loginActions.inputUserName(user.username);
-    loginActions.inputPassword(user.password);
-    loginActions.clickLoginButton();
-    homeActions.isDashBoardButtonDisplayed();
-    
-    //Add New Lesion - Patient Details
-    const firstname = `submit ${homeActions.randomAlpha(10)}`;
-    const lastname = `DVA to private`;
-  dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Mrs');
-    dashboardActions.enterFirstName(firstname);
-    dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Male');
-    dashboardActions.enterDOB(user.DOB);
-    dashboardActions.enterHomeAdd(user.address);
-    dashboardActions.enterCity(user.city);
-    dashboardActions.selectState();
-    dashboardActions.enterPostcode(user.postcode);
-    dashboardActions.enterContact(user.contact);
-    dashboardActions.selectBilling(user.billing.DVA)
-    dashboardActions.enterDVANumber(validDVANumber);
-   
-    dashboardActions.nextButton();
-
-    //Add first lesion
-    dashboardActions.addALesionByNumberImages(1);
-
-    //Case Summary
-    dashboardActions.caseSummary();
-
-    dashboardActions.clickEditPatientDetails();
-    dashboardActions.selectBilling(user.billing.private)
-    dashboardActions.checkPrivate();
-    dashboardActions.clickSavePatientDetails();
-    dashboardActions.clickOkPatientDetails();
-  
-    dashboardActions.submitCasePrint();
-    dashboardActions.returnToDashboard();
-    homeActions.isDashboardDisplayed();
-    dashboardActions.isUploadSuccesfully(0);
-  }); 
-  
-  it("24. Bulk bill to Private", () => 
-  {
-    loginActions.visitPage();
-    loginActions.inputUserName(user.username);
-    loginActions.inputPassword(user.password);
-    loginActions.clickLoginButton();
-    homeActions.isDashBoardButtonDisplayed();
-    
-    //Add New Lesion - Patient Details
-    const firstname = `submit ${homeActions.randomAlpha(20)}`;
-    const lastname = `Bulk bill to Private`;
-  dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Mrs');
-    dashboardActions.enterFirstName(firstname);
-    dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Male');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
@@ -1057,26 +595,23 @@ describe("Submit - AWS - part1", () => {
     dashboardActions.enterContact(user.contact);
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
-
+   
     //Add first lesion
-    dashboardActions.addALesionByNumberImages(1);
+    dashboardActions.addALesionByInvalidImages(2)
+
+    dashboardActions.addMoreMultiLesionsInvalidImage(4, 2)
 
     //Case Summary
     dashboardActions.caseSummary();
+    dashboardActions.deleteLesionByName(lesion1,2);
 
-    dashboardActions.clickEditPatientDetails();
-    dashboardActions.selectBilling(user.billing.private)
-    dashboardActions.checkPrivate();
-    dashboardActions.clickSavePatientDetails();
-    dashboardActions.clickOkPatientDetails();
-  
     dashboardActions.submitCasePrint();
     dashboardActions.returnToDashboard();
     homeActions.isDashboardDisplayed();
     dashboardActions.isUploadSuccesfully(0);
   });
-  
-  it("25. Private to DVA", () => 
+
+  it("Print Preview: add 4 Lesions - Delete 1 lesions - Invalid images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -1085,89 +620,414 @@ describe("Submit - AWS - part1", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `submit ${homeActions.randomAlpha(10)}`;
-    const lastname = `private to DVA`;
-  dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
+    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const lastname = `delete`;
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
     dashboardActions.enterFirstName(firstname);
     dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Male');
+    dashboardActions.selectGender('Unknown');
     dashboardActions.enterDOB(user.DOB);
     dashboardActions.enterHomeAdd(user.address);
     dashboardActions.enterCity(user.city);
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
-    dashboardActions.selectBilling(user.billing.private)
-    dashboardActions.checkPrivate();
-   
-    dashboardActions.nextButton();
-
-    //Add first lesion
-    dashboardActions.addALesionByNumberImages(1);
-
-    //Case Summary
-    dashboardActions.caseSummary();
-
-    dashboardActions.clickEditPatientDetails();
-    dashboardActions.selectBilling(user.billing.DVA)
-    dashboardActions.enterDVANumber(validDVANumber);
-    dashboardActions.clickSavePatientDetails();
-    dashboardActions.clickOkPatientDetails();
-   
-    dashboardActions.submitCasePrint();
-    dashboardActions.returnToDashboard();
-    homeActions.isDashboardDisplayed();
-    dashboardActions.isUploadSuccesfully(0);
-  });
-    
-  it("26. Private to Bulk bill", () => 
-  {
-    loginActions.visitPage();
-    loginActions.inputUserName(user.username);
-    loginActions.inputPassword(user.password);
-    loginActions.clickLoginButton();
-    homeActions.isDashBoardButtonDisplayed();
-    
-    //Add New Lesion - Patient Details
-    const firstname = `submit ${homeActions.randomAlpha(20)}`;
-    const lastname = `Private to Bulk bill`;
-  dashboardActions.selectClinicOptionByName();
-    dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickAddNewLesion();
-    dashboardActions.selectTitle('Mrs');
-    dashboardActions.enterFirstName(firstname);
-    dashboardActions.enterLastName(lastname);
-    dashboardActions.selectGender('Male');
-    dashboardActions.enterDOB(user.DOB);
-    dashboardActions.enterHomeAdd(user.address);
-    dashboardActions.enterCity(user.city);
-    dashboardActions.selectState();
-    dashboardActions.enterPostcode(user.postcode);
-    dashboardActions.enterContact(user.contact);
-    dashboardActions.selectBilling(user.billing.private)
-    dashboardActions.checkPrivate();
-    dashboardActions.nextButton();
-
-    //Add first lesion
-    dashboardActions.addALesionByNumberImages(1);
-
-    //Case Summary
-    dashboardActions.caseSummary();
-
-    dashboardActions.clickEditPatientDetails();
-    dashboardActions.selectBilling(user.billing.bulkBill)
     dashboardActions.enterMedicare(user.medicare);
-    dashboardActions.clickSavePatientDetails();
-    dashboardActions.clickOkPatientDetails();
-  
+    dashboardActions.nextButton();
+   
+    //Add first lesion
+    dashboardActions.addALesionByInvalidImages(2)
+
+    dashboardActions.addMoreMultiLesionsInvalidImage(4, 2)
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.deleteLesionByName(lesion1,1);
+
     dashboardActions.submitCasePrint();
     dashboardActions.returnToDashboard();
     homeActions.isDashboardDisplayed();
     dashboardActions.isUploadSuccesfully(0);
   });
- 
+
+  it("Print Preview: add 5 Lesions - Delete 4 lesions - Invalid images", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const lastname = `delete`;
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+   
+    //Add first lesion
+    dashboardActions.addALesionByInvalidImages(2)
+
+    dashboardActions.addMoreMultiLesionsInvalidImage(4, 2)
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.deleteLesionByName(lesion1,4);
+
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+
+  it("Print Preview: add 5 Lesions - Delete 3 lesions - Invalid images", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const lastname = `delete`;
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+   
+    //Add first lesion
+    dashboardActions.addALesionByInvalidImages(2)
+
+    dashboardActions.addMoreMultiLesionsInvalidImage(4, 2)
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.deleteLesionByName(lesion1,3);
+
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+
+  it("Print Preview: add 5 Lesions - Delete 2 lesions - Invalid images", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const lastname = `delete`;
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+   
+    //Add first lesion
+    dashboardActions.addALesionByInvalidImages(2)
+
+    dashboardActions.addMoreMultiLesionsInvalidImage(4, 2)
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.deleteLesionByName(lesion1,2);
+
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+
+  it("Print Preview: add 5 Lesions - Delete 1 lesions - Invalid images", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const lastname = `delete`;
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+   
+    //Add first lesion
+    dashboardActions.addALesionByInvalidImages(2)
+
+    dashboardActions.addMoreMultiLesionsInvalidImage(4, 2)
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.deleteLesionByName(lesion1,1);
+
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+
+  it("Print Preview: add 6 Lesions - Delete 5 lesions - Invalid images", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const lastname = `delete`;
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+   
+    //Add first lesion
+    dashboardActions.addALesionByInvalidImages(2)
+
+    dashboardActions.addMoreMultiLesionsInvalidImage(5, 2)
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.deleteLesionByName(lesion1,5);
+
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+
+  it("Print Preview: add 6 Lesions - Delete 4 lesions - Invalid images", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const lastname = `delete`;
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+   
+    //Add first lesion
+    dashboardActions.addALesionByInvalidImages(2)
+
+    dashboardActions.addMoreMultiLesionsInvalidImage(5, 2)
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.deleteLesionByName(lesion1,4);
+
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+
+  it("Print Preview: add 6 Lesions - Delete 3 lesions - Invalid images", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const lastname = `delete`;
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+   
+    //Add first lesion
+    dashboardActions.addALesionByInvalidImages(2)
+
+    dashboardActions.addMoreMultiLesionsInvalidImage(5, 2)
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.deleteLesionByName(lesion1,3);
+
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+
+  it("Print Preview: add 6 Lesions - Delete 2 lesions - Invalid images", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const lastname = `delete`;
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+   
+    //Add first lesion
+    dashboardActions.addALesionByInvalidImages(2)
+
+    dashboardActions.addMoreMultiLesionsInvalidImage(5, 2)
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.deleteLesionByName(lesion1,2);
+
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
+
+  it("Print Preview: add 6 Lesions - Delete 1 lesions - Invalid images", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `print preview-${homeActions.randomAlpha(10)}`;
+    const lastname = `delete`;
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+   
+    //Add first lesion
+    dashboardActions.addALesionByInvalidImages(2)
+
+    dashboardActions.addMoreMultiLesionsInvalidImage(5, 2)
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.deleteLesionByName(lesion1,1);
+
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+  });
 });
-  
