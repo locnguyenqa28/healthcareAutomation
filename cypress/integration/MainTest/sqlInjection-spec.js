@@ -1,7 +1,7 @@
 
-import { LoginActions } from "../pages/loginAction";
-import { HomeActions } from "../pages/homeAction";
-import user from "../support/constants"
+import { LoginActions } from "../../pages/loginAction";
+import { HomeActions } from "../../pages/homeAction";
+import user from "../../support/constants"
 
 
 describe("SQL Injection", () => {
@@ -12,9 +12,6 @@ describe("SQL Injection", () => {
   20AND%20'xVuq%25'%3D'xVuq&email=&username=29`
   const requestMariaDB = `o%25'%20AND%20MID(VERSION(),1,14)%20LIKE%20'5.
   5.68-MariaDB'%20AND%20'xVuq%25'%3D'xVuq&email=&username=29`
-  const requestMariaDBFalse = `o%' AND MID(VERSION(),1,1) LIKE '4' AND 'xVuq%'='xVuq (false)`
-  const requestMariaDBTrue = `o%' AND MID(VERSION(),1,1) LIKE '4' AND 'xVuq%'='xVuq (true)`
-  const requestMariaDBHostName = `o%' AND (ORD(MID((IFNULL(CAST(@@HOSTNAME AS NCHAR),0x20)),2,1))>96)*1058 AND 'ZQMZ%'='ZQMZ`
 
   const listParameters1 = ['/admins/getusersxml?usertype=m&fname=k&lname=',
  '/admins/laboratoryxml?name=&code=' 
@@ -48,7 +45,7 @@ describe("SQL Injection", () => {
 
   it("SQL injection: Request 1 (“5.5.68-MariaDB”)", () => {
     homeActions.visitPage();
-    cy.sqlInjection(`${listParameters1[0]}${requestMariaDB}`);
+    cy.sqlInjectionStatus200CommentReject(`${listParameters1[0]}${requestMariaDB}`);
   });
 
   it("SQL injection 1: Request 1", () => {

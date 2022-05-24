@@ -46,3 +46,17 @@ Cypress.Commands.add('sqlInjection', (sqlRequest) => {
             
         });
   });
+
+Cypress.Commands.add('sqlInjectionStatus200CommentReject', (sqlRequest) => {
+        cy.request({
+            method: 'POST',
+            url: `https://sonic.ederm.com.au:443${sqlRequest}`,
+            body:{
+            },
+            failOnStatusCode: false,
+        }).then((res) => 
+        {
+            cy.log(`Response: ${res.body}`).then(() => expect(res.body).to.be.contain('The change you wanted was rejected'));
+            
+        });
+  });
