@@ -1,7 +1,7 @@
 
-import { LoginActions } from "../pages/loginAction";
-import { HomeActions } from "../pages/homeAction";
-import user from "../support/constants"
+import { LoginActions } from "../../pages/loginAction";
+import { HomeActions } from "../../pages/homeAction";
+import user from "../../support/constants"
 
 
 describe("Test Login Function", () => {

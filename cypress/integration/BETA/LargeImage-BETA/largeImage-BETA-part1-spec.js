@@ -1,8 +1,8 @@
-import { LoginActions } from "../../pages/loginAction";
-import { HomeActions } from "../../pages/homeAction";
-import { DashboardActions } from "../../pages/dashboardActions";
-import user from "../../support/constants";
-import { ClinicActions } from "../../pages/clinicActions";
+import { LoginActions } from "../../../pages/loginAction";
+import { HomeActions } from "../../../pages/homeAction";
+import { DashboardActions } from "../../../pages/dashboardActions";
+import user from "../../../support/constants";
+import { ClinicActions } from "../../../pages/clinicActions";
 
 
 describe("Large image testing - BETA part 1", () => {
