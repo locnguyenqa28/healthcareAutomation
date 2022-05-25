@@ -546,6 +546,7 @@ export class DashboardActions extends CommonActions
   }
   returnToDashboard(isForce = true){
     cy.get('a[href*="/cases/dashboard"]')
+      .first()
       .scrollIntoView()
       .click({force:isForce})
   }
