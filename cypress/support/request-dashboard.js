@@ -20,7 +20,7 @@ Cypress.Commands.add('saveDraft', (
                 url: `/api/createdraft?authkey=${authKey[0]}&firstname=${firstname}&title=Mr&lastname=Automation&gender=F&medicarenumber=2123-45670-1&dob=23/01/1969&address=test addd&city=01&patientfinancial=D&postcode=111&state=ACT&phone=123456`,
                 body :{
                 }
-            });
+            }).then(($res) => cy.log(`Data: ${Object.values($res.body)}`))
         });
   });
 

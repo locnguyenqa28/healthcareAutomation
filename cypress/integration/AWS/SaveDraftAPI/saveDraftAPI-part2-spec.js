@@ -1,8 +1,8 @@
-import user from "../../support/constants";
-import { LoginActions } from "../../pages/loginAction";
-import { DashboardActions } from "../../pages/dashboardActions";
-import { HomeActions } from "../../pages/homeAction";
-import { ClinicActions } from "../../pages/clinicActions";
+import user from "../../../support/constants";
+import { LoginActions } from "../../../pages/loginAction";
+import { DashboardActions } from "../../../pages/dashboardActions";
+import { HomeActions } from "../../../pages/homeAction";
+import { ClinicActions } from "../../../pages/clinicActions";
 
 describe("Save Draft by API - Part 2", () => {
   user.username = user.username1
