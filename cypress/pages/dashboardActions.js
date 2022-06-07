@@ -27,6 +27,11 @@ export class DashboardActions extends CommonActions
     cy.get(`body [value = '${value}']`)
     .should('be.visible')
   }
+
+  assertValueExist(value){
+    cy.get(`body [value = '${value}']`)
+    .should('be.exist')
+  }
   clickPathologyRequestByFirstName(name, isForce = false){
     cy.wait(1000);
     cy.get('.x-grid3-col')
