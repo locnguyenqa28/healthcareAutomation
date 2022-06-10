@@ -909,7 +909,7 @@ describe("Edit a Draft", () => {
      dashboardActions.assertValueVisible('suburb B')
   });
 
-  it("Edit a draft two copy & 1 hopital - 1 lesion", () => 
+  it("Edit a draft two copy & 1 hospital - 1 lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -1010,7 +1010,7 @@ describe("Edit a Draft", () => {
  
   });
 
-  it("Edit a draft two copy & 1 hopital - 2 lesions", () => 
+  it("Edit a draft two copy & 1 hospital - 2 lesions", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -1116,7 +1116,7 @@ describe("Edit a Draft", () => {
  
   });
 
-  it("Edit a draft two copy & 1 hopital - 3 lesions", () => 
+  it("Edit a draft two copy & 1 hospital - 3 lesions", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -1223,7 +1223,7 @@ describe("Edit a Draft", () => {
  
   });
 
-  it("Edit a draft two copy & 1 hopital - 4 lesions", () => 
+  it("Edit a draft two copy & 1 hospital - 4 lesions", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
