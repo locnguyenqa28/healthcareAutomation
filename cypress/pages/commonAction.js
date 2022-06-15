@@ -23,6 +23,12 @@ export class CommonActions {
     .contains(text)
     .should('not.visible')
   }
+  
+  assertTextIsNotExist(text){
+    cy.get('body')
+    .contains(text)
+    .should('not.exist')
+  }
   assertButton(text){
     cy.get('[onclick]')
     .contains(text)

@@ -1754,5 +1754,267 @@ describe("Edit a Draft", () => {
      dashboardActions.assertValueVisible('suburb C')
  
   });
+  
+  it("Make sure user can not edit a submit - 2 copies- 1 hospital - 1 lesion- no image", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `edit${homeActions.randomAlpha(10)}`;
+    const lastname = `submit${homeActions.randomAlpha(5)}`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Male');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+
+    dashboardActions.enterFirstNameCopy1('Copy A')
+    dashboardActions.enterLastNameCopy1('last name A')
+    dashboardActions.enterSuburbCopy1('suburb A')
+
+    dashboardActions.selectTitleCopy2ByIndex(2)
+    dashboardActions.enterFirstNameCopy2('Copy B')
+    dashboardActions.enterLastNameCopy2('last name B')
+    dashboardActions.enterSuburbCopy2('suburb B')
+
+    dashboardActions.enterFirstNameCopy3('Hospital')
+    dashboardActions.enterLastNameCopy3('Ward ')
+    dashboardActions.enterSuburbCopy3('suburb C')
+
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionNoImage()
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+
+    dashboardActions.clickReviewCaseByFirstName(firstname);
+
+    dashboardActions.assertElementNotExist('#editpatientdetails');
+    dashboardActions.assertTextIsNotExist('Edit body map and location');
+    dashboardActions.assertTextIsNotExist('Add Images');
+    dashboardActions.assertTextIsNotExist('Save update');
+    dashboardActions.assertTextIsNotVisible('Add another lesion');
+    dashboardActions.assertTextIsNotExist('Submit lesion & print');
+  });
+  
+  it("Make sure user can not edit a submit - 2 copies- 1 hospital - 2 lesions- no image", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `edit${homeActions.randomAlpha(10)}`;
+    const lastname = `submit${homeActions.randomAlpha(5)}`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Male');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+
+    dashboardActions.enterFirstNameCopy1('Copy A')
+    dashboardActions.enterLastNameCopy1('last name A')
+    dashboardActions.enterSuburbCopy1('suburb A')
+
+    dashboardActions.selectTitleCopy2ByIndex(2)
+    dashboardActions.enterFirstNameCopy2('Copy B')
+    dashboardActions.enterLastNameCopy2('last name B')
+    dashboardActions.enterSuburbCopy2('suburb B')
+
+    dashboardActions.enterFirstNameCopy3('Hospital')
+    dashboardActions.enterLastNameCopy3('Ward ')
+    dashboardActions.enterSuburbCopy3('suburb C')
+
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionNoImage()
+
+    dashboardActions.addAnotherLesion()
+    dashboardActions.addALesionNoImage()
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+
+    dashboardActions.clickReviewCaseByFirstName(firstname);
+
+    dashboardActions.assertElementNotExist('#editpatientdetails');
+    dashboardActions.assertTextIsNotExist('Edit body map and location');
+    dashboardActions.assertTextIsNotExist('Add Images');
+    dashboardActions.assertTextIsNotExist('Save update');
+    dashboardActions.assertTextIsNotVisible('Add another lesion');
+    dashboardActions.assertTextIsNotExist('Submit lesion & print');
+  });
+  
+  it("Make sure user can not edit a submit - 2 copies- 1 hospital - 3 lesions- no image", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `edit${homeActions.randomAlpha(10)}`;
+    const lastname = `submit${homeActions.randomAlpha(5)}`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Male');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+
+    dashboardActions.enterFirstNameCopy1('Copy A')
+    dashboardActions.enterLastNameCopy1('last name A')
+    dashboardActions.enterSuburbCopy1('suburb A')
+
+    dashboardActions.selectTitleCopy2ByIndex(2)
+    dashboardActions.enterFirstNameCopy2('Copy B')
+    dashboardActions.enterLastNameCopy2('last name B')
+    dashboardActions.enterSuburbCopy2('suburb B')
+
+    dashboardActions.enterFirstNameCopy3('Hospital')
+    dashboardActions.enterLastNameCopy3('Ward ')
+    dashboardActions.enterSuburbCopy3('suburb C')
+
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionNoImage()
+
+    dashboardActions.addAnotherLesion()
+    dashboardActions.addALesionNoImage()
+
+    dashboardActions.addAnotherLesion()
+    dashboardActions.addALesionNoImage()
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+
+    dashboardActions.clickReviewCaseByFirstName(firstname);
+
+    dashboardActions.assertElementNotExist('#editpatientdetails');
+    dashboardActions.assertTextIsNotExist('Edit body map and location');
+    dashboardActions.assertTextIsNotExist('Add Images');
+    dashboardActions.assertTextIsNotExist('Save update');
+    dashboardActions.assertTextIsNotVisible('Add another lesion');
+    dashboardActions.assertTextIsNotExist('Submit lesion & print');
+  });
+  
+  it("Make sure user can not edit a submit - 2 copies- 1 hospital - 4 lesions- no image", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `edit${homeActions.randomAlpha(10)}`;
+    const lastname = `submit${homeActions.randomAlpha(5)}`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Male');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+
+    dashboardActions.enterFirstNameCopy1('Copy A')
+    dashboardActions.enterLastNameCopy1('last name A')
+    dashboardActions.enterSuburbCopy1('suburb A')
+
+    dashboardActions.selectTitleCopy2ByIndex(2)
+    dashboardActions.enterFirstNameCopy2('Copy B')
+    dashboardActions.enterLastNameCopy2('last name B')
+    dashboardActions.enterSuburbCopy2('suburb B')
+
+    dashboardActions.enterFirstNameCopy3('Hospital')
+    dashboardActions.enterLastNameCopy3('Ward ')
+    dashboardActions.enterSuburbCopy3('suburb C')
+
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionNoImage()
+
+    dashboardActions.addAnotherLesion()
+    dashboardActions.addALesionNoImage()
+
+    dashboardActions.addAnotherLesion()
+    dashboardActions.addALesionNoImage()
+
+    dashboardActions.addAnotherLesion()
+    dashboardActions.addALesionNoImage()
+
+    //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.submitCasePrint();
+    dashboardActions.returnToDashboard();
+    homeActions.isDashboardDisplayed();
+    dashboardActions.isUploadSuccesfully(0);
+
+    dashboardActions.clickReviewCaseByFirstName(firstname);
+
+    dashboardActions.assertElementNotExist('#editpatientdetails');
+    dashboardActions.assertTextIsNotExist('Edit body map and location');
+    dashboardActions.assertTextIsNotExist('Add Images');
+    dashboardActions.assertTextIsNotExist('Save update');
+    dashboardActions.assertTextIsNotVisible('Add another lesion');
+    dashboardActions.assertTextIsNotExist('Submit lesion & print');
+  });
 
 });
