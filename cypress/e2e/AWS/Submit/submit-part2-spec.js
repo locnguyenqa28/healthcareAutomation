@@ -188,7 +188,7 @@ describe("Submit - AWS - part2", () => {
     //Add New Lesion - Patient Details
     const firstname = `submit ${homeActions.randomAlpha(20)}`;
     const lastname = `Gender Male - Other`;
-  dashboardActions.selectClinicOptionByName();
+    dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');
