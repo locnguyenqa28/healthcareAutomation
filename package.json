@@ -20,5 +20,8 @@
     "cypress-file-upload": "^5.0.8",
     "cypress-mochawesome-reporter": "^3.0.1",
     "faker": "^4.1.0"
+  },
+  "dependencies": {
+    "Cypress": "npm:cypress@^10.3.0"
   }
 }

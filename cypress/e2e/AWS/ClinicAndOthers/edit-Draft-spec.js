@@ -2955,7 +2955,7 @@ describe("Edit a Draft", () => {
  
   });
 
-  it("Edit a draft two copy & 1 hospital - 4 lesions - combined images type", () => 
+  it.only("Edit a draft two copy & 1 hospital - 4 lesions - combined images type", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -3027,7 +3027,6 @@ describe("Edit a Draft", () => {
 
     
      //Add another lesion
-     dashboardActions.addAnotherLesion();
      dashboardActions.addMoreValidateLesionCombineImages(4, 5, 2);
      
     //Case Summary
@@ -3056,7 +3055,7 @@ describe("Edit a Draft", () => {
  
   });
 
-  it("Edit a draft two copy & 1 hospital - 3 lesions - combined images type", () => 
+  it.only("Edit a draft two copy & 1 hospital - 3 lesions - combined images type", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -3128,7 +3127,6 @@ describe("Edit a Draft", () => {
 
     
      //Add another lesion
-     dashboardActions.addAnotherLesion();
      dashboardActions.addMoreValidateLesionCombineImages(3, 5, 2);
      
     //Case Summary
@@ -3157,7 +3155,7 @@ describe("Edit a Draft", () => {
  
   });
 
-  it("Edit a draft two copy & 1 hospital - 2 lesions - combined images type", () => 
+  it.only("Edit a draft two copy & 1 hospital - 2 lesions - combined images type", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -3229,7 +3227,6 @@ describe("Edit a Draft", () => {
 
     
      //Add another lesion
-     dashboardActions.addAnotherLesion();
      dashboardActions.addMoreValidateLesionCombineImages(2, 5, 2);
      
     //Case Summary
@@ -3258,7 +3255,7 @@ describe("Edit a Draft", () => {
  
   });
 
-  it("Edit a draft two copy & 1 hospital - 1 lesions - combined images type", () => 
+  it.only("Edit a draft two copy & 1 hospital - 1 lesions - combined images type", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -3330,7 +3327,6 @@ describe("Edit a Draft", () => {
 
     
      //Add another lesion
-     dashboardActions.addAnotherLesion();
      dashboardActions.addMoreValidateLesionCombineImages(1, 5, 2);
      
     //Case Summary
