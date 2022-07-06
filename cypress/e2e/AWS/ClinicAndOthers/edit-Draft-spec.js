@@ -2955,7 +2955,7 @@ describe("Edit a Draft", () => {
  
   });
 
-  it.only("Edit a draft two copy & 1 hospital - 4 lesions - combined images type", () => 
+  it("Edit a draft two copy & 1 hospital - 4 lesions - combined images type", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -3055,7 +3055,7 @@ describe("Edit a Draft", () => {
  
   });
 
-  it.only("Edit a draft two copy & 1 hospital - 3 lesions - combined images type", () => 
+  it("Edit a draft two copy & 1 hospital - 3 lesions - combined images type", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -3155,7 +3155,7 @@ describe("Edit a Draft", () => {
  
   });
 
-  it.only("Edit a draft two copy & 1 hospital - 2 lesions - combined images type", () => 
+  it("Edit a draft two copy & 1 hospital - 2 lesions - combined images type", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -3255,7 +3255,7 @@ describe("Edit a Draft", () => {
  
   });
 
-  it.only("Edit a draft two copy & 1 hospital - 1 lesions - combined images type", () => 
+  it("Edit a draft two copy & 1 hospital - 1 lesions - combined images type", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
