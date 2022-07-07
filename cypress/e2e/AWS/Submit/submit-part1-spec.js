@@ -23,7 +23,7 @@ describe("Submit - AWS - part1", () => {
     //Add New Lesion - Patient Details
     const firstname = `one Lesion ${homeActions.randomAlpha(20)}`;
     const lastname = `more than four images ${homeActions.randomAlpha(20)}`;
-  dashboardActions.selectClinicOptionByName();
+    dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
     dashboardActions.clickAddNewLesion();
     dashboardActions.selectTitle('Mrs');

@@ -2070,6 +2070,44 @@ export class DashboardActions extends CommonActions
     const args = [...elements];
     this.assertListText(args)
   }
+
+  forceVisit(url) {
+    cy.window().then(win => {
+      return win.open(url, '_self'); 
+    });
+  }
+
+  saveDraftAndGetUrlLogoutThenVisit(firstname) {
+    this.saveDraft();
+
+    this.assertFirstName(firstname);
+    this.isReviewCase('Draft');
+
+    //Case Summary
+    this.assertText(firstname);
+    this.assertText('Create New Pathology Request');
+    this.clickPathologyRequestByFirstName(firstname);
+    cy.url().then(($url) => {
+      this.logOut();
+      this.assertElement('#loginblock');
+      cy.visit($url);
+      this.assertElement('#loginblock');
+      this.assertTextIsNotExist(firstname);
+      this.forceVisit($url);
+      this.assertElement('#loginblock');
+      this.assertTextIsNotExist(firstname);
+    });
+  }
+
+  getUrlLogoutThenVisit() {
+      cy.url().then(($url) => {
+      this.logOut();
+      this.assertElement('#loginblock');
+      this.forceVisit($url);
+      this.assertElement('#loginblock');
+      this.assertTextIsNotExist('Lesion');
+    });
+  }
 }
 
 
