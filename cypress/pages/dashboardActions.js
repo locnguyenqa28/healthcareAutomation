@@ -2100,6 +2100,7 @@ export class DashboardActions extends CommonActions
   }
 
   getUrlLogoutThenVisit() {
+      cy.wait(2000)
       cy.url().then(($url) => {
       this.logOut();
       this.assertElement('#loginblock');
