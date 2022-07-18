@@ -17,6 +17,7 @@ describe("Application Links", () => {
     loginActions.inputUserName(user.adminUser);
     loginActions.inputPassword(user.adminPassword);
     loginActions.clickLoginButton();
+    cy.wait(3000);
     dashboardActions.activeSingleAccountLogin(0);
   });
 
@@ -336,13 +337,13 @@ describe("Application Links", () => {
     dashboardActions.saveBodyMap();
 
     //Upload Dermascopic Images
-    this.assertHeader('Upload ');
-    this.uploadMultiImages(number);
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.uploadMultiImages(3);
     cy.wait(500);
-    this.assertText('Remove');
-    this.startUpload();
-    this.isProgressBarDisappear();
-    this.isImageUploadedSuccessfully();
+    dashboardActions.assertText('Remove');
+    dashboardActions.startUpload();
+    dashboardActions.isProgressBarDisappear();
+    dashboardActions.isImageUploadedSuccessfully();
 
     dashboardActions.getUrlLogoutThenVisit();
 
@@ -391,7 +392,7 @@ describe("Application Links", () => {
 
     //Upload Dermascopic Images
     dashboardActions.assertHeader('Upload ');
-    dashboardActions.uploadMultiImages(number);
+    dashboardActions.uploadMultiImages(2);
     cy.wait(500);
     dashboardActions.assertText('Remove');
     dashboardActions.startUpload();
