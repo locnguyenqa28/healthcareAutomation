@@ -2,6 +2,27 @@ export class CommonActions {
   visitPage() {
     cy.visit('');
   }
+  
+  activeSingleAccountLogin(isDeActive =  1) {
+    const chkSingleAccount = `[name="ativeonelogin"][value="${isDeActive}"]`;
+    cy.get('[action="/admins/saveativeonelogin"]')
+      .should('be.visible')
+      .then(($item) => {
+        if($item.find(chkSingleAccount).length > 0) {
+          cy.get(chkSingleAccount)
+            .click()
+            .get('[action="/admins/saveativeonelogin"] [type="submit"]')
+            .click()
+        }else {
+          isDeActive === 0 ? cy.log('Already de-Active single Account mode') : cy.log('Already Active single Account mode');
+        }
+      })  
+    
+  }
+
+  visitDashboard() {
+    cy.visit('https://sonic.ederm.com.au/cases/dashboard');
+  }
 
   uploadImage(){
     cy.get('input[type="file"]')

@@ -2107,6 +2107,15 @@ export class DashboardActions extends CommonActions
       this.forceVisit($url);
       this.assertElement('#loginblock');
       this.assertTextIsNotExist('Lesion');
+      cy.wait(1000);
+      cy.visit('');
+      cy.get('input[id="name"]')
+      .type(user.username);
+      cy.get("input[id='password']")
+      .type(user.password);
+      cy.wait(1000);
+      cy.get('button[name="commit"]')
+      .click();
     });
   }
 }

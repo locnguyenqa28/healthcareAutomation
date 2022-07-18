@@ -12,6 +12,14 @@ describe("Application Links", () => {
   const dashboardActions = new DashboardActions();
   const clinicActions = new ClinicActions();
 
+  before('De-Active Signle account login',() => {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.adminUser);
+    loginActions.inputPassword(user.adminPassword);
+    loginActions.clickLoginButton();
+    dashboardActions.activeSingleAccountLogin(0);
+  });
+
   it("Make sure Unable to view or modify the clinic after logout", () => 
   {
     loginActions.visitPage();
@@ -19,6 +27,8 @@ describe("Application Links", () => {
     loginActions.inputPassword(user.password);
     loginActions.clickLoginButton();
     homeActions.isDashBoardButtonDisplayed();
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
     dashboardActions.getUrlLogoutThenVisit();
   });
 
@@ -231,7 +241,6 @@ describe("Application Links", () => {
     dashboardActions.addBodyMap();
 
     //Case Images
-    dashboardActions.addBodyMap();
     dashboardActions.clickImage();
     dashboardActions.selectBodyRegion();
     dashboardActions.enterSpecimenLocation();
@@ -276,7 +285,6 @@ describe("Application Links", () => {
     dashboardActions.addBodyMap();
 
     //Case Images
-    dashboardActions.addBodyMap();
     dashboardActions.clickImage();
     dashboardActions.selectBodyRegion();
     dashboardActions.enterSpecimenLocation();
@@ -322,7 +330,6 @@ describe("Application Links", () => {
     dashboardActions.addBodyMap();
 
     //Case Images
-    dashboardActions.addBodyMap();
     dashboardActions.clickImage();
     dashboardActions.selectBodyRegion();
     dashboardActions.enterSpecimenLocation();
@@ -377,7 +384,6 @@ describe("Application Links", () => {
     dashboardActions.addBodyMap();
 
     //Case Images
-    dashboardActions.addBodyMap();
     dashboardActions.clickImage();
     dashboardActions.selectBodyRegion();
     dashboardActions.enterSpecimenLocation();
