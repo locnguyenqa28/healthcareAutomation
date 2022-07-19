@@ -12,6 +12,15 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     const clinicActions = new ClinicActions();
     const validOtherText = "abdzABCZ--.";
   
+  before('De-Active Signle account login',() => {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.adminUser);
+    loginActions.inputPassword(user.adminPassword);
+    loginActions.clickLoginButton();
+    cy.wait(3000);
+    dashboardActions.activeSingleAccountLogin(0);
+  });
+
   it("EDERMPATH-62. The delete button is not presented after adding a new lesion", () => 
   {
     loginActions.visitPage();
