@@ -16,6 +16,16 @@ describe("Print Preview part 2 testing", () => {
   const lesion2 = 'Lesion 2';
   const lesion3 = 'Lesion 3';
   const lesion4 = 'Lesion 4';
+      
+  before('De-Active Signle account login',() => {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.adminUser);
+    loginActions.inputPassword(user.adminPassword);
+    loginActions.clickLoginButton();
+    cy.wait(3000);
+    dashboardActions.activeSingleAccountLogin(0);
+  });
+
 
   it("Print Preview: add 10 Lesions - Delete 9 lesions - 5 images", () => 
   {

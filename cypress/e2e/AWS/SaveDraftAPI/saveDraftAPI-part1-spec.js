@@ -12,6 +12,17 @@ describe("Save Draft by API - part 1", () => {
   const dashboardActions = new DashboardActions();
   const clinicActions = new ClinicActions();
 
+      
+  before('De-Active Signle account login',() => {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.adminUser);
+    loginActions.inputPassword(user.adminPassword);
+    loginActions.clickLoginButton();
+    cy.wait(3000);
+    dashboardActions.activeSingleAccountLogin(0);
+  });
+
+
   it("saveDraft by API is successfull", () => 
   {
     const firstname = `API-${dashboardActions.randomAlpha(10)}`;

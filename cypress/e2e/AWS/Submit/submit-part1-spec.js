@@ -10,7 +10,16 @@ describe("Submit - AWS - part1", () => {
     const loginActions = new LoginActions();
     const homeActions = new HomeActions();
     const dashboardActions = new DashboardActions();
-    const validDVANumber = 'Abc12345678'
+    const validDVANumber = 'Abc12345678';
+    
+    before('De-Active Signle account login',() => {
+      loginActions.visitPage();
+      loginActions.inputUserName(user.adminUser);
+      loginActions.inputPassword(user.adminPassword);
+      loginActions.clickLoginButton();
+      cy.wait(3000);
+      dashboardActions.activeSingleAccountLogin(0);
+    });
 
   it("01. Submit one Lesion more than 4 images", () => 
   {

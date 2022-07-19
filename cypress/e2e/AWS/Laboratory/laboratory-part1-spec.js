@@ -15,6 +15,16 @@ describe("Laboratory part 1 checking", () => {
 
     const validDVANumber = 'Abc12345678';
     const invalidSymbol = "%";
+        
+    before('De-Active Signle account login',() => {
+      loginActions.visitPage();
+      loginActions.inputUserName(user.adminUser);
+      loginActions.inputPassword(user.adminPassword);
+      loginActions.clickLoginButton();
+      cy.wait(3000);
+      dashboardActions.activeSingleAccountLogin(0);
+    });
+
        
   it("Laboratory - Clinic - edit Laboratory & submit 1 lesion limited image", () => 
   {

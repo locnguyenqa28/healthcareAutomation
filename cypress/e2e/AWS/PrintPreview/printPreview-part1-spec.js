@@ -16,6 +16,17 @@ describe("Print Preview part 1 testing", () => {
   const lesion2 = 'Lesion 2';
   const lesion3 = 'Lesion 3';
   const lesion4 = 'Lesion 4';
+
+      
+  before('De-Active Signle account login',() => {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.adminUser);
+    loginActions.inputPassword(user.adminPassword);
+    loginActions.clickLoginButton();
+    cy.wait(3000);
+    dashboardActions.activeSingleAccountLogin(0);
+  });
+
   // const medicareCode = dashboardActions.convertMedicareWithSymbol(user.medicare, "-")
   it("Print Preview: 1 Lesion - 5 images", () => 
   {

@@ -12,6 +12,16 @@ describe("Large image testing - AWS", () => {
   const loginActions = new LoginActions();
   const dashboardActions = new DashboardActions();
   const clinicActions = new ClinicActions();
+      
+  before('De-Active Signle account login',() => {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.adminUser);
+    loginActions.inputPassword(user.adminPassword);
+    loginActions.clickLoginButton();
+    cy.wait(3000);
+    dashboardActions.activeSingleAccountLogin(0);
+  });
+
 
   it("1. Multiple Large images - 1 lesions 4.9Mb x 3 images - 1", () => 
   {

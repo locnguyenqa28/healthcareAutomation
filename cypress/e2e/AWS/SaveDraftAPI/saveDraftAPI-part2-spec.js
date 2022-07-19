@@ -13,6 +13,16 @@ describe("Save Draft by API - Part 2", () => {
   const clinicActions = new ClinicActions();
 
   const lesion1 = 'Lesion 1';
+      
+  before('De-Active Signle account login',() => {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.adminUser);
+    loginActions.inputPassword(user.adminPassword);
+    loginActions.clickLoginButton();
+    cy.wait(3000);
+    dashboardActions.activeSingleAccountLogin(0);
+  });
+
  
   it("Save Draft By API: Full copy - add 2 Lesions - Delete 1 lesion - Combine limited & invalid images", () => 
   {

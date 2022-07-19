@@ -12,7 +12,17 @@ describe("Submit - AWS - part2", () => {
     const homeActions = new HomeActions();
     const dashboardActions = new DashboardActions();
     const clinicActions = new ClinicActions();
-    const validDVANumber = 'Abc12345678'
+    const validDVANumber = 'Abc12345678';
+        
+    before('De-Active Signle account login',() => {
+      loginActions.visitPage();
+      loginActions.inputUserName(user.adminUser);
+      loginActions.inputPassword(user.adminPassword);
+      loginActions.clickLoginButton();
+      cy.wait(3000);
+      dashboardActions.activeSingleAccountLogin(0);
+    });
+
   it("27. Gender Female - Male", () => 
   {
     loginActions.visitPage();

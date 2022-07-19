@@ -14,7 +14,17 @@ describe("Validation fields checking - part 1", () => {
     const clinicActions = new ClinicActions();
 
     const validDVANumber = 'Abc12345678';
-    const invalidSymbol = "%"
+    const invalidSymbol = "%";
+        
+    before('De-Active Signle account login',() => {
+      loginActions.visitPage();
+      loginActions.inputUserName(user.adminUser);
+      loginActions.inputPassword(user.adminPassword);
+      loginActions.clickLoginButton();
+      cy.wait(3000);
+      dashboardActions.activeSingleAccountLogin(0);
+    });
+
 
   it("Validation- Patient details fields ", () => 
   {

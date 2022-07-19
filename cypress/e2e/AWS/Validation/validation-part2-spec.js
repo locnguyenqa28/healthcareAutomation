@@ -15,6 +15,16 @@ describe("Validation fields checking-part2", () => {
 
     const validDVANumber = 'Abc12345678';
     const invalidSymbol = "%";
+        
+    before('De-Active Signle account login',() => {
+      loginActions.visitPage();
+      loginActions.inputUserName(user.adminUser);
+      loginActions.inputPassword(user.adminPassword);
+      loginActions.clickLoginButton();
+      cy.wait(3000);
+      dashboardActions.activeSingleAccountLogin(0);
+    });
+
 
   it("Validation - Submit 1 lesion with Combine limited & invalid images", () => 
   {
