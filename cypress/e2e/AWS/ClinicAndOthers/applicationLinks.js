@@ -39,8 +39,8 @@ describe("Application Links", () => {
     loginActions.inputUserName(user.adminUser);
     loginActions.inputPassword(user.adminPassword);
     loginActions.clickLoginButton();
-    cy.wait(3000);
-    cy.assertText('Dashboard')
+    cy.get('#admin').should('be.visible');
+    dashboardActions.assertText('Dashboard')
     dashboardActions.getUrlLogoutThenVisit();
   });
 

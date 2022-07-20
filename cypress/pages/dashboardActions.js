@@ -1347,7 +1347,7 @@ export class DashboardActions extends CommonActions
  }
 
  logOut() {
-  cy.get('.logout[href="/logout"]')
+  cy.get('[href="/logout"]')
     .click();
  }
  selectAndCheckDefaultClinic(option = 1, isForce = false)
