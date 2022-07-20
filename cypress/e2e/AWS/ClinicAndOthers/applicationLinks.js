@@ -21,7 +21,7 @@ describe("Application Links", () => {
     dashboardActions.activeSingleAccountLogin(0);
   });
 
-  it("Make sure Unable to view or modify the clinic after logout", () => 
+  it("Make sure Unable to view or modify the account after logout", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -30,6 +30,17 @@ describe("Application Links", () => {
     homeActions.isDashBoardButtonDisplayed();
     dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
+    dashboardActions.getUrlLogoutThenVisit();
+  });
+
+  it("Make sure Unable to view or modify the admin after logout", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.adminUser);
+    loginActions.inputPassword(user.adminPassword);
+    loginActions.clickLoginButton();
+    cy.wait(3000);
+    cy.assertText('Dashboard')
     dashboardActions.getUrlLogoutThenVisit();
   });
 
@@ -399,6 +410,132 @@ describe("Application Links", () => {
     dashboardActions.isProgressBarDisappear();
     dashboardActions.isImageUploadedSuccessfully();
     dashboardActions.nextButtonUploadImg(30000, true);
+
+    dashboardActions.getUrlLogoutThenVisit();
+
+  });
+  
+  it("Make sure Unable to view or modify at the lesion 2 completed after logout", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `links-${homeActions.randomAlpha(10)}`;
+    const lastname = `${homeActions.randomAlpha(5)}`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Male');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionByNumberImages(3)
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion()
+    dashboardActions.addALesionByNumberImages(3)
+
+    dashboardActions.getUrlLogoutThenVisit();
+
+  });
+  
+  it("Make sure Unable to view or modify at the lesion 3 completed after logout", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `links-${homeActions.randomAlpha(10)}`;
+    const lastname = `${homeActions.randomAlpha(5)}`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Male');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionByNumberImages(3)
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion()
+    dashboardActions.addALesionByNumberImages(3)
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion()
+    dashboardActions.addALesionByNumberImages(3)
+
+    dashboardActions.getUrlLogoutThenVisit();
+
+  });
+  
+  it("Make sure Unable to view or modify at the lesion 4 completed after logout", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `links-${homeActions.randomAlpha(10)}`;
+    const lastname = `${homeActions.randomAlpha(5)}`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Male');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    //Add first lesion
+    dashboardActions.addALesionByNumberImages(3)
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion()
+    dashboardActions.addALesionByNumberImages(3)
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion()
+    dashboardActions.addALesionByNumberImages(3)
+
+    //Add another lesion
+    dashboardActions.addAnotherLesion()
+    dashboardActions.addALesionByNumberImages(3)
 
     dashboardActions.getUrlLogoutThenVisit();
 

@@ -733,7 +733,7 @@ describe("Four and above lesions testing - part 1", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
     
-  it("4 lesions - 1 image: delete the 1 and 3 lesion", () => 
+  it.skip("4 lesions - 1 image: delete the 1 and 3 lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);

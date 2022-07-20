@@ -14,6 +14,16 @@ describe("Delete lesion AWS", () => {
     const lesion3 = 'Lesion 3';
     const lesion4 = 'Lesion 4';
 
+          
+  before('De-Active Signle account login',() => {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.adminUser);
+    loginActions.inputPassword(user.adminPassword);
+    loginActions.clickLoginButton();
+    cy.wait(3000);
+    dashboardActions.activeSingleAccountLogin(0);
+  });
+
   it("3 lesions, 1 image delete the second lesion", () => 
   {
     loginActions.visitPage();
