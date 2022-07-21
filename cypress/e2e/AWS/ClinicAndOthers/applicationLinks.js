@@ -540,5 +540,113 @@ describe("Application Links", () => {
     dashboardActions.getUrlLogoutThenVisit();
 
   });
+  
+  it("Make sure Unable to view or modify the admin - manage users after logout", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.adminUser);
+    loginActions.inputPassword(user.adminPassword);
+    loginActions.clickLoginButton();
+    cy.get('#admin').should('be.visible');
+    dashboardActions.assertText('Dashboard')
+    dashboardActions.clickHrefByText('Users')
+    dashboardActions.getUrlLogoutThenVisit();
+  });
+  
+  it("Make sure Unable to view or modify the admin - manage Cases after logout", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.adminUser);
+    loginActions.inputPassword(user.adminPassword);
+    loginActions.clickLoginButton();
+    cy.get('#admin').should('be.visible');
+    dashboardActions.assertText('Dashboard')
+    dashboardActions.clickHrefByText('Cases')
+    dashboardActions.getUrlLogoutThenVisit();
+  });
+  
+  it("Make sure Unable to view or modify the admin - System email after logout", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.adminUser);
+    loginActions.inputPassword(user.adminPassword);
+    loginActions.clickLoginButton();
+    cy.get('#admin').should('be.visible');
+    dashboardActions.assertText('Dashboard')
+    dashboardActions.clickHrefByText('System email')
+    dashboardActions.getUrlLogoutThenVisit();
+  });
+  
+  it("Make sure Unable to view or modify the admin - Audit after logout", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.adminUser);
+    loginActions.inputPassword(user.adminPassword);
+    loginActions.clickLoginButton();
+    cy.get('#admin').should('be.visible');
+    dashboardActions.assertText('Dashboard')
+    dashboardActions.clickHrefByText('Audit')
+    dashboardActions.getUrlLogoutThenVisit();
+  });
+  
+  it("Make sure Unable to view or modify the admin - Trust after logout", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.adminUser);
+    loginActions.inputPassword(user.adminPassword);
+    loginActions.clickLoginButton();
+    cy.get('#admin').should('be.visible');
+    dashboardActions.assertText('Dashboard')
+    dashboardActions.clickHrefByText('Trust')
+    dashboardActions.getUrlLogoutThenVisit();
+  });
+  
+  it("Make sure Unable to view or modify the admin - Tooltips after logout", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.adminUser);
+    loginActions.inputPassword(user.adminPassword);
+    loginActions.clickLoginButton();
+    cy.get('#admin').should('be.visible');
+    dashboardActions.assertText('Dashboard')
+    dashboardActions.clickHrefByText('Tooltips')
+    dashboardActions.getUrlLogoutThenVisit();
+  });
+  
+  it("Make sure Unable to view or modify the admin - Case report after logout", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.adminUser);
+    loginActions.inputPassword(user.adminPassword);
+    loginActions.clickLoginButton();
+    cy.get('#admin').should('be.visible');
+    dashboardActions.assertText('Dashboard')
+    dashboardActions.clickHrefByText('Case report')
+    dashboardActions.getUrlLogoutThenVisit();
+  });
+  
+  it("Make sure Unable to view or modify the admin - Login history after logout", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.adminUser);
+    loginActions.inputPassword(user.adminPassword);
+    loginActions.clickLoginButton();
+    cy.get('#admin').should('be.visible');
+    dashboardActions.assertText('Dashboard')
+    dashboardActions.clickHrefByText('Login history')
+    dashboardActions.getUrlLogoutThenVisit();
+  });
+  
+  it("Make sure Unable to view or modify the admin - Case history after logout", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.adminUser);
+    loginActions.inputPassword(user.adminPassword);
+    loginActions.clickLoginButton();
+    cy.get('#admin').should('be.visible');
+    dashboardActions.assertText('Dashboard')
+    dashboardActions.clickHrefByText('Case history')
+    dashboardActions.getUrlLogoutThenVisit();
+  });
 
 });
