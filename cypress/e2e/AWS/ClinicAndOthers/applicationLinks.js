@@ -648,5 +648,89 @@ describe("Application Links", () => {
     dashboardActions.clickHrefByText('Case history')
     dashboardActions.getUrlLogoutThenVisit();
   });
+  
+  it("Make sure Unable to view or modify the admin - Audit trail after logout", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.adminUser);
+    loginActions.inputPassword(user.adminPassword);
+    loginActions.clickLoginButton();
+    cy.get('#admin').should('be.visible');
+    dashboardActions.assertText('Dashboard')
+    dashboardActions.clickHrefByText('Audit trail')
+    dashboardActions.getUrlLogoutThenVisit();
+  });
+  
+  it("Make sure Unable to view or modify the admin - Case settings after logout", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.adminUser);
+    loginActions.inputPassword(user.adminPassword);
+    loginActions.clickLoginButton();
+    cy.get('#admin').should('be.visible');
+    dashboardActions.assertText('Dashboard')
+    dashboardActions.clickHrefByText('Case settings')
+    dashboardActions.getUrlLogoutThenVisit();
+  });
+  
+  it("Make sure Unable to view or modify the admin - Email matrix after logout", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.adminUser);
+    loginActions.inputPassword(user.adminPassword);
+    loginActions.clickLoginButton();
+    cy.get('#admin').should('be.visible');
+    dashboardActions.assertText('Dashboard')
+    dashboardActions.clickHrefByText('Email matrix')
+    dashboardActions.getUrlLogoutThenVisit();
+  });
+  
+  it("Make sure Unable to view or modify the admin - Textures after logout", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.adminUser);
+    loginActions.inputPassword(user.adminPassword);
+    loginActions.clickLoginButton();
+    cy.get('#admin').should('be.visible');
+    dashboardActions.assertText('Dashboard')
+    dashboardActions.clickHrefByText('Textures')
+    dashboardActions.getUrlLogoutThenVisit();
+  });
+  
+  it("Make sure Unable to view or modify the admin - Logs sonic api after logout", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.adminUser);
+    loginActions.inputPassword(user.adminPassword);
+    loginActions.clickLoginButton();
+    cy.get('#admin').should('be.visible');
+    dashboardActions.assertText('Dashboard')
+    dashboardActions.clickHrefByText('Logs sonic api')
+    dashboardActions.getUrlLogoutThenVisit();
+  });
+  
+  it("Make sure Unable to view or modify the admin - Laboratory after logout", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.adminUser);
+    loginActions.inputPassword(user.adminPassword);
+    loginActions.clickLoginButton();
+    cy.get('#admin').should('be.visible');
+    dashboardActions.assertText('Dashboard')
+    dashboardActions.clickHrefByText('Laboratory')
+    dashboardActions.getUrlLogoutThenVisit();
+  });
+  
+  it("Make sure Unable to view or modify the admin - Images demo after logout", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.adminUser);
+    loginActions.inputPassword(user.adminPassword);
+    loginActions.clickLoginButton();
+    cy.get('#admin').should('be.visible');
+    dashboardActions.assertText('Dashboard')
+    dashboardActions.clickHrefByText('Images demo')
+    dashboardActions.getUrlLogoutThenVisit();
+  });
 
 });
