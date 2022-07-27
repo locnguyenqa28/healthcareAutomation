@@ -149,4 +149,25 @@ export class CommonActions {
  convertMedicareWithSymbol(text, cha =  '-'){
     return text.slice(0, 3) + cha + text.slice(4,7) + cha + text.slice(7);
   }
+
+    
+  setTimeoutSession(number =  1) {
+    cy.get('input#timeoutsession')
+    .clear()
+    .type(number);
+    cy.get('input#timeoutsession')
+      .parents('td')
+      .find('[type="submit"]')
+      .click()  
+  }
+    
+  setTimeoutLogin(number =  1) {
+    cy.get('input#timeoutlogin')
+    .clear()
+    .type(number);
+    cy.get('input#timeoutlogin')
+      .parents('td')
+      .find('[type="submit"]')
+      .click()  
+  }
 }
