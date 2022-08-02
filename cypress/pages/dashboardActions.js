@@ -2138,6 +2138,12 @@ export class DashboardActions extends CommonActions
       // .click();
     });
   }
+
+  clickExitEderm() {
+   cy.get('a[onclick="logout_offline()"]')
+    .contains('Exit eDerm')
+    .click({ force: true })
+  }
 }
 
 

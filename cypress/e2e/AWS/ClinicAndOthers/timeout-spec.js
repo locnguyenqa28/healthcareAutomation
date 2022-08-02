@@ -11,54 +11,142 @@ describe("Timeout", () => {
   const loginActions = new LoginActions();
   const dashboardActions = new DashboardActions();
   const clinicActions = new ClinicActions();
-  const timeoutSession = 1;
-  const timeoutLogin = 2;
+  const timeoutSession = 6;
+  const timeoutLogin = 1;
 
-  before('De-Active Signle account login',() => {
+  before('Set timeout',() => {
     loginActions.visitPage();
     loginActions.inputUserName(user.adminUser);
     loginActions.inputPassword(user.adminPassword);
     loginActions.clickLoginButton();
+    dashboardActions.setTimeoutLogin(timeoutLogin);
     cy.wait(3000);
     dashboardActions.setTimeoutSession(timeoutSession);
     cy.wait(2000);
-    dashboardActions.setTimeoutLogin(timeoutLogin);
   });
 
-  it("Make sure Unable to view or modify the clinic after the session is time out", () => 
+  after('Reset timeout',() => {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.adminUser);
+    loginActions.inputPassword(user.adminPassword);
+    loginActions.clickLoginButton();
+    dashboardActions.setTimeoutLogin(60);
+    cy.wait(3000);
+    dashboardActions.setTimeoutSession(65);
+    cy.wait(2000);
+  });
+
+  it("The timeout popup able to visible at the patient details", () => 
   {
-    const clinicName = `checklinks-${homeActions.randomAlpha(10)}`;
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
     loginActions.inputPassword(user.password);
     loginActions.clickLoginButton();
     homeActions.isDashBoardButtonDisplayed();
     
-    //Add New Clinic
+    //Add New Lesion - Patient Details
+    const firstname = `timeout-${homeActions.randomAlpha(10)}`;
+    const lastname = `save ${homeActions.randomAlpha(10)}`;
     dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
-    dashboardActions.clickHrefByText('Setup');
-    clinicActions.clickHrefByText('Add new clinic');
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Unknown');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    const timeoutLoginMs =  timeoutLogin * 60000
+    const extraTime = 30000
+    cy.wait(timeoutLoginMs)
+    cy.wait(extraTime)
 
-    // Clinic modal
-    clinicActions.isModal('Add new clinic');
-    clinicActions.enterClinicName(clinicName);
-    clinicActions.enterClinicProvidernumber();
-    clinicActions.enterClinicAddress();
-    clinicActions.enterClinicSubhub();
-    clinicActions.enterClinicPostcode();
-    clinicActions.selectClinicLab();
-    clinicActions.selectClinicState();
-    clinicActions.enterClinicPhone();
-    clinicActions.enterClinicMobilePhone();
-    clinicActions.enterClinicEmail();
-    clinicActions.clickSaveClinic();
+    dashboardActions.assertText('You have been logged out for security purposes - click ')
+    dashboardActions.assertText('Exit eDerm')
+  });
 
-    // Assert clinic
-    clinicActions.reloadClinicPage();
-    clinicActions.isClinicTable();
-    clinicActions.isClinicName(clinicName); 
-    dashboardActions.getUrlLogoutThenVisit();
+  it("The timeout popup able to visible at the Clinical indication - empty", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `links-${homeActions.randomAlpha(10)}`;
+    const lastname = `${homeActions.randomAlpha(5)}`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Male');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+    const timeoutLoginMs =  timeoutLogin * 60000
+    const extraTime = 30000
+    cy.wait(timeoutLoginMs)
+    cy.wait(extraTime)
+
+    dashboardActions.assertText('You have been logged out for security purposes - click ')
+    dashboardActions.assertText('Exit eDerm')
+  });
+
+  it("The timeout popup able to visible at the Clinical indication - filled", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `links-${homeActions.randomAlpha(10)}`;
+    const lastname = `${homeActions.randomAlpha(5)}`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Male');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    
+    //Clinical Condition
+    dashboardActions.noPreviousHistory();
+    dashboardActions.provisionalDiagnosis();
+    dashboardActions.excludeMelasma();
+    dashboardActions.excludeNmsc();
+    dashboardActions.selectBiopsyType();
+
+    const timeoutLoginMs =  timeoutLogin * 60000
+    const extraTime = 30000
+    cy.wait(timeoutLoginMs)
+    cy.wait(extraTime)
+
+    dashboardActions.assertText('You have been logged out for security purposes - click ')
+    dashboardActions.assertText('Exit eDerm')
   });
 
 });
