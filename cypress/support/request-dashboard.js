@@ -6,12 +6,9 @@ Cypress.Commands.add('saveDraft', (
   ) => {
         cy.request({
             method: 'POST',
-            url: `/api/auth`,
-            body:{
-                username: userName,
-                password: pass
-            }
+            url: `/api/auth?username=${userName}&password=${pass}`,
         }).then((auth)=>{
+            cy.log(auth.body)
             const temp = auth.body.split(`<authkey>`)[1]
             const authKey = temp.split(`</authkey>`)
             cy.log(`Authen Key: ${authKey[0]}`)
