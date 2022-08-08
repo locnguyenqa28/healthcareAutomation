@@ -296,4 +296,185 @@ describe("Timeout", () => {
     dashboardActions.assertText('Exit eDerm')
   });
 
+  it("The timeout popup able to visible at uploadImage - 4 images", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `links-${homeActions.randomAlpha(10)}`;
+    const lastname = `${homeActions.randomAlpha(5)}`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Male');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    
+    //Clinical Condition
+    dashboardActions.noPreviousHistory();
+    dashboardActions.provisionalDiagnosis();
+    dashboardActions.excludeMelasma();
+    dashboardActions.excludeNmsc();
+    dashboardActions.selectBiopsyType();
+    dashboardActions.addBodyMap();
+
+    //Case bodymap
+    dashboardActions.clickImage();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation();
+    dashboardActions.saveBodyMap();
+
+    //Upload Dermascopic Images
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.uploadMultiImages(3);
+    cy.wait(500);
+    dashboardActions.assertText('Remove');
+    dashboardActions.startUpload();
+    dashboardActions.isProgressBarDisappear();
+    dashboardActions.isImageUploadedSuccessfully();
+
+    const timeoutLoginMs =  timeoutLogin * 60000
+    const extraTime = 30000
+    cy.wait(timeoutLoginMs)
+    cy.wait(extraTime)
+
+    dashboardActions.assertText('You have been logged out for security purposes - click ')
+    dashboardActions.assertText('Exit eDerm')
+  });
+
+  it("The timeout popup able to visible at uploadImage - invalid images", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `links-${homeActions.randomAlpha(10)}`;
+    const lastname = `${homeActions.randomAlpha(5)}`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Male');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    
+    //Clinical Condition
+    dashboardActions.noPreviousHistory();
+    dashboardActions.provisionalDiagnosis();
+    dashboardActions.excludeMelasma();
+    dashboardActions.excludeNmsc();
+    dashboardActions.selectBiopsyType();
+    dashboardActions.addBodyMap();
+
+    //Case bodymap
+    dashboardActions.clickImage();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation();
+    dashboardActions.saveBodyMap();
+
+    //Upload Dermascopic Images
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.uploadMultiInvalidImages(3);
+    cy.wait(500);
+    dashboardActions.assertText('Remove');
+    dashboardActions.startUpload();
+    dashboardActions.isProgressBarDisappear();
+    dashboardActions.isImageUploadedSuccessfully();
+
+    const timeoutLoginMs =  timeoutLogin * 60000
+    const extraTime = 30000
+    cy.wait(timeoutLoginMs)
+    cy.wait(extraTime)
+
+    dashboardActions.assertText('You have been logged out for security purposes - click ')
+    dashboardActions.assertText('Exit eDerm')
+  });
+  
+  it("The timeout popup able to visible at lesion 1 - completed", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `links-${homeActions.randomAlpha(10)}`;
+    const lastname = `${homeActions.randomAlpha(5)}`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Male');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    
+    //Clinical Condition
+    dashboardActions.noPreviousHistory();
+    dashboardActions.provisionalDiagnosis();
+    dashboardActions.excludeMelasma();
+    dashboardActions.excludeNmsc();
+    dashboardActions.selectBiopsyType();
+    dashboardActions.addBodyMap();
+
+    //Case bodymap
+    dashboardActions.clickImage();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation();
+    dashboardActions.saveBodyMap();
+
+    //Upload Dermascopic Images
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.uploadMultiImages(3);
+    cy.wait(500);
+    dashboardActions.assertText('Remove');
+    dashboardActions.startUpload();
+    dashboardActions.isProgressBarDisappear();
+    dashboardActions.isImageUploadedSuccessfully();
+    dashboardActions.nextButtonUploadImg(30000, true);
+
+    const timeoutLoginMs =  timeoutLogin * 60000
+    const extraTime = 30000
+    cy.wait(timeoutLoginMs)
+    cy.wait(extraTime)
+
+    dashboardActions.assertText('You have been logged out for security purposes - click ')
+    dashboardActions.assertText('Exit eDerm')
+  });
+
 });
