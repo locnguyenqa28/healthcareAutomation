@@ -1,8 +1,8 @@
-import { LoginActions } from "../../pages/loginAction";
-import { HomeActions } from "../../pages/homeAction";
-import { DashboardActions } from "../../pages/dashboardActions";
-import { ClinicActions } from "../../pages/clinicActions";
-import user from "../../support/constants"
+import { LoginActions } from "../../../pages/loginAction";
+import { HomeActions } from "../../../pages/homeAction";
+import { DashboardActions } from "../../../pages/dashboardActions";
+import { ClinicActions } from "../../../pages/clinicActions";
+import user from "../../../support/constants"
 
 
 describe("Validation fields checking-part2", () => {

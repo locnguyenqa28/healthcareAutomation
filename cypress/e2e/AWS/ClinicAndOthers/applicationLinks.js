@@ -673,7 +673,7 @@ describe("Application Links", () => {
     dashboardActions.getUrlLogoutThenVisit();
   });
   
-  it("Make sure Unable to view or modify the admin - Email matrix after logout", () => 
+  it.skip("Make sure Unable to view or modify the admin - Email matrix after logout", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.adminUser);
