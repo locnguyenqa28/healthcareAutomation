@@ -79,7 +79,7 @@ describe("Timeout", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `links-${homeActions.randomAlpha(10)}`;
+    const firstname = `timeout-${homeActions.randomAlpha(10)}`;
     const lastname = `${homeActions.randomAlpha(5)}`;
     dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -114,7 +114,7 @@ describe("Timeout", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `links-${homeActions.randomAlpha(10)}`;
+    const firstname = `timeout-${homeActions.randomAlpha(10)}`;
     const lastname = `${homeActions.randomAlpha(5)}`;
     dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -158,7 +158,7 @@ describe("Timeout", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `links-${homeActions.randomAlpha(10)}`;
+    const firstname = `timeout-${homeActions.randomAlpha(10)}`;
     const lastname = `${homeActions.randomAlpha(5)}`;
     dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -203,7 +203,7 @@ describe("Timeout", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `links-${homeActions.randomAlpha(10)}`;
+    const firstname = `timeout-${homeActions.randomAlpha(10)}`;
     const lastname = `${homeActions.randomAlpha(5)}`;
     dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -254,7 +254,7 @@ describe("Timeout", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `links-${homeActions.randomAlpha(10)}`;
+    const firstname = `timeout-${homeActions.randomAlpha(10)}`;
     const lastname = `${homeActions.randomAlpha(5)}`;
     dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -305,7 +305,7 @@ describe("Timeout", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `links-${homeActions.randomAlpha(10)}`;
+    const firstname = `timeout-${homeActions.randomAlpha(10)}`;
     const lastname = `${homeActions.randomAlpha(5)}`;
     dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -365,7 +365,7 @@ describe("Timeout", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `links-${homeActions.randomAlpha(10)}`;
+    const firstname = `timeout-${homeActions.randomAlpha(10)}`;
     const lastname = `${homeActions.randomAlpha(5)}`;
     dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -425,7 +425,7 @@ describe("Timeout", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `links-${homeActions.randomAlpha(10)}`;
+    const firstname = `timeout-${homeActions.randomAlpha(10)}`;
     const lastname = `${homeActions.randomAlpha(5)}`;
     dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -467,6 +467,150 @@ describe("Timeout", () => {
     dashboardActions.isProgressBarDisappear();
     dashboardActions.isImageUploadedSuccessfully();
     dashboardActions.nextButtonUploadImg(30000, true);
+
+    const timeoutLoginMs =  timeoutLogin * 60000
+    const extraTime = 30000
+    cy.wait(timeoutLoginMs)
+    cy.wait(extraTime)
+
+    dashboardActions.assertText('You have been logged out for security purposes - click ')
+    dashboardActions.assertText('Exit eDerm')
+  });
+
+  it("The timeout popup able to visible at lesion 2 completed", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `timeout-${homeActions.randomAlpha(10)}`;
+    const lastname = `${homeActions.randomAlpha(5)}`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Male');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+   //Add first lesion
+   dashboardActions.addALesionByNumberImages(3)
+
+   //Add another lesion
+   dashboardActions.addAnotherLesion()
+   dashboardActions.addALesionByNumberImages(3)
+
+
+    const timeoutLoginMs =  timeoutLogin * 60000
+    const extraTime = 30000
+    cy.wait(timeoutLoginMs)
+    cy.wait(extraTime)
+
+    dashboardActions.assertText('You have been logged out for security purposes - click ')
+    dashboardActions.assertText('Exit eDerm')
+  });
+
+  it("The timeout popup able to visible at lesion 3 completed", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `timeout-${homeActions.randomAlpha(10)}`;
+    const lastname = `${homeActions.randomAlpha(5)}`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Male');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+   //Add first lesion
+   dashboardActions.addALesionByNumberImages(3)
+
+   //Add another lesion
+   dashboardActions.addAnotherLesion()
+   dashboardActions.addALesionByNumberImages(3)
+
+   //Add another lesion
+   dashboardActions.addAnotherLesion()
+   dashboardActions.addALesionByNumberImages(3)
+
+
+    const timeoutLoginMs =  timeoutLogin * 60000
+    const extraTime = 30000
+    cy.wait(timeoutLoginMs)
+    cy.wait(extraTime)
+
+    dashboardActions.assertText('You have been logged out for security purposes - click ')
+    dashboardActions.assertText('Exit eDerm')
+  });
+
+  it("The timeout popup able to visible at lesion 4 completed", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `timeout-${homeActions.randomAlpha(10)}`;
+    const lastname = `${homeActions.randomAlpha(5)}`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Male');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+   //Add first lesion
+   dashboardActions.addALesionByNumberImages(3)
+
+   //Add another lesion
+   dashboardActions.addAnotherLesion()
+   dashboardActions.addALesionByNumberImages(3)
+
+   //Add another lesion
+   dashboardActions.addAnotherLesion()
+   dashboardActions.addALesionByNumberImages(3)
+
+   //Add another lesion
+   dashboardActions.addAnotherLesion()
+   dashboardActions.addALesionByNumberImages(3)
+
 
     const timeoutLoginMs =  timeoutLogin * 60000
     const extraTime = 30000
