@@ -528,7 +528,7 @@ describe("Timeout-extend", () => {
    dashboardActions.assertText('Log off and close')
   });
   
-  it("The timeout popup able to visible at lesion 3 completed", () => 
+  it("The timeout-extend popup able to visible at lesion 3 completed", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -577,7 +577,7 @@ describe("Timeout-extend", () => {
    dashboardActions.assertText('Log off and close')
   });
 
-  it("The timeout popup able to visible at lesion 4 completed", () => 
+  it("The timeout-extend popup able to visible at lesion 4 completed", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -629,7 +629,7 @@ describe("Timeout-extend", () => {
    dashboardActions.assertText('Log off and close')
   });
   
-  it("The timeout popup able to visible at print preview screen", () => 
+  it("The timeout-extend popup able to visible at print preview screen", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -676,7 +676,7 @@ describe("Timeout-extend", () => {
   dashboardActions.assertText('Log off and close')
   });
 
-  it("The timeout popup able to visible at dashboard screen", () => 
+  it("The timeout-extend popup able to visible at dashboard screen", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -692,5 +692,149 @@ describe("Timeout-extend", () => {
     dashboardActions.assertText(`You will be automatically logged out in ${timeoutLogin/2} minute`)
     dashboardActions.assertText(`Extend for ${timeoutLogin/2} minute`)
     dashboardActions.assertText('Log off and close')
+  });
+
+  it("The Extend and Logout popups able to visible at dashboard screen", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+    const timeoutLoginMs =  timeoutLogin * 60000
+    const extraTime = 30000
+    cy.wait(timeoutLoginMs/2)
+    cy.wait(extraTime)
+ 
+    dashboardActions.assertText(`You will be automatically logged out in ${timeoutLogin/2} minute`)
+    dashboardActions.assertText(`Extend for ${timeoutLogin/2} minute`)
+    dashboardActions.assertText('Log off and close')
+
+    cy.wait(timeoutLoginMs/2)
+    cy.wait(extraTime)
+
+    dashboardActions.assertText('You have been logged out for security purposes - click ')
+    dashboardActions.assertText('Exit eDerm')
+  });
+    
+  it("The Extend and Logout popup able to visible at print preview screen", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `extend-${homeActions.randomAlpha(10)}`;
+    const lastname = `${homeActions.randomAlpha(5)}`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Male');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+   //Add first lesion
+   dashboardActions.addALesionByNumberImages(3)
+
+   //Add another lesion
+   dashboardActions.addAnotherLesion()
+   dashboardActions.addALesionByNumberImages(3)
+    //Case Summary
+  dashboardActions.caseSummary();
+  dashboardActions.submitCasePrint();
+
+  const timeoutLoginMs =  timeoutLogin * 60000
+  const extraTime = 30000
+  cy.wait(timeoutLoginMs/2)
+  cy.wait(extraTime)
+
+  dashboardActions.assertText(`You will be automatically logged out in ${timeoutLogin/2} minute`)
+  dashboardActions.assertText(`Extend for ${timeoutLogin/2} minute`)
+  dashboardActions.assertText('Log off and close')
+
+  cy.wait(timeoutLoginMs/2)
+  cy.wait(extraTime)
+
+  dashboardActions.assertText('You have been logged out for security purposes - click ')
+  dashboardActions.assertText('Exit eDerm')
+  });
+
+  it("The timeout-extend popup able to visible at uploadImage - invalid images", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `extend-${homeActions.randomAlpha(10)}`;
+    const lastname = `${homeActions.randomAlpha(5)}`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Male');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    
+    //Clinical Condition
+    dashboardActions.noPreviousHistory();
+    dashboardActions.provisionalDiagnosis();
+    dashboardActions.excludeMelasma();
+    dashboardActions.excludeNmsc();
+    dashboardActions.selectBiopsyType();
+    dashboardActions.addBodyMap();
+
+    //Case bodymap
+    dashboardActions.clickImage();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation();
+    dashboardActions.saveBodyMap();
+
+    //Upload Dermascopic Images
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.uploadMultiInvalidImages(3);
+    cy.wait(500);
+    dashboardActions.assertText('Remove');
+    dashboardActions.startUpload();
+    dashboardActions.isProgressBarDisappear();
+    dashboardActions.isImageUploadedSuccessfully();
+
+    const timeoutLoginMs =  timeoutLogin * 60000
+    const extraTime = 30000
+    cy.wait(timeoutLoginMs/2)
+    cy.wait(extraTime)
+
+    dashboardActions.assertText(`You will be automatically logged out in ${timeoutLogin/2} minute`)
+    dashboardActions.assertText(`Extend for ${timeoutLogin/2} minute`)
+    dashboardActions.assertText('Log off and close')
+
+    cy.wait(timeoutLoginMs/2)
+    cy.wait(extraTime)
+  
+    dashboardActions.assertText('You have been logged out for security purposes - click ')
+    dashboardActions.assertText('Exit eDerm')
   });
 });
