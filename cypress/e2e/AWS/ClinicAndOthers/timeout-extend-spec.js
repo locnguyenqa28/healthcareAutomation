@@ -872,6 +872,12 @@ describe("Timeout-extend", () => {
     dashboardActions.assertText(`You will be automatically logged out in ${timeoutLogin/2} minute`)
     dashboardActions.assertText(`Extend for ${timeoutLogin/2} minute`)
     dashboardActions.assertText('Log off and close')
+
+    cy.wait(timeoutLoginMs/2)
+    cy.wait(extraTime)
+  
+    dashboardActions.assertText('You have been logged out for security purposes - click ')
+    dashboardActions.assertText('Exit eDerm')
   });
 
   it("The Extend and Logout popup able to visible at the Clinical indication - filled", () => 
@@ -918,5 +924,11 @@ describe("Timeout-extend", () => {
     dashboardActions.assertText(`You will be automatically logged out in ${timeoutLogin/2} minute`)
     dashboardActions.assertText(`Extend for ${timeoutLogin/2} minute`)
     dashboardActions.assertText('Log off and close')
+
+    cy.wait(timeoutLoginMs/2)
+    cy.wait(extraTime)
+  
+    dashboardActions.assertText('You have been logged out for security purposes - click ')
+    dashboardActions.assertText('Exit eDerm')
   });
 });
