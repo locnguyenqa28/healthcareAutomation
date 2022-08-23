@@ -27,9 +27,15 @@ describe("SQL Injection", () => {
   `o%' AND MID(VERSION(),1,14) LIKE '5.5.68-MariaDB' AND 'xVuq%'='xVuq (true)`,
   `o%' AND MID(VERSION(),1,14) LIKE '5.5.68-MariaDK' AND 'xVuq%'='xVuq (false)`]
 
-  it("Check getclinnicbyid", () => {
-    for(let id=0; id<101; id+=1){
-      cy.getclinicByIDNoAuth(id);
+  // it("Check getclinnicbyid", () => {
+  //   for(let id=0; id<101; id+=1){
+  //     cy.getclinicByIDNoAuth(id);
+  //   }
+  // });
+
+  it("Check getclinnicbyid by access to link", () => {
+    for(let id=0; id<15; id+=1){
+      cy.getclinicByOpenLinkIDNoAuth(id);
     }
   });
 

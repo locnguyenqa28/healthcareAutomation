@@ -771,7 +771,7 @@ describe("Timeout-extend", () => {
   dashboardActions.assertText('Exit eDerm')
   });
 
-  it("The timeout-extend popup able to visible at uploadImage - invalid images", () => 
+  it("The Extend and Logout popup able to visible at uploadImage - invalid images", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -836,5 +836,87 @@ describe("Timeout-extend", () => {
   
     dashboardActions.assertText('You have been logged out for security purposes - click ')
     dashboardActions.assertText('Exit eDerm')
+  });
+  
+  it("The Extend and Logout popup able to visible at the Clinical indication - empty", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `extend-${homeActions.randomAlpha(10)}`;
+    const lastname = `${homeActions.randomAlpha(5)}`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Male');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+    const timeoutLoginMs =  timeoutLogin * 60000
+    const extraTime = 10000
+    cy.wait(timeoutLoginMs/2)
+    cy.wait(extraTime)
+
+    dashboardActions.assertText(`You will be automatically logged out in ${timeoutLogin/2} minute`)
+    dashboardActions.assertText(`Extend for ${timeoutLogin/2} minute`)
+    dashboardActions.assertText('Log off and close')
+  });
+
+  it("The Extend and Logout popup able to visible at the Clinical indication - filled", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `extend-${homeActions.randomAlpha(10)}`;
+    const lastname = `${homeActions.randomAlpha(5)}`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Male');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    
+    //Clinical Condition
+    dashboardActions.noPreviousHistory();
+    dashboardActions.provisionalDiagnosis();
+    dashboardActions.excludeMelasma();
+    dashboardActions.excludeNmsc();
+    dashboardActions.selectBiopsyType();
+
+    const timeoutLoginMs =  timeoutLogin * 60000
+    const extraTime = 10000
+    cy.wait(timeoutLoginMs/2)
+    cy.wait(extraTime)
+
+
+    dashboardActions.assertText(`You will be automatically logged out in ${timeoutLogin/2} minute`)
+    dashboardActions.assertText(`Extend for ${timeoutLogin/2} minute`)
+    dashboardActions.assertText('Log off and close')
   });
 });

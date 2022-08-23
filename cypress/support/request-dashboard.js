@@ -27,7 +27,27 @@ Cypress.Commands.add('getclinicByIDNoAuth', (id) => {
             url: `users/getclinnicbyid?id=${id}`,
             body:{
             }
-        }).then((res) => expect(res.body).to.be.equal(null));
+        }).then((res) => 
+        {
+            cy.log(`Response: ${res.body}`).then(() => expect(res.status).not.to.eq(200));
+            
+        });
+  });
+
+Cypress.Commands.add('getclinicByOpenLinkIDNoAuth', (id) => {
+        cy.visit(`users/getclinnicbyid?id=${id}`).then((res) => 
+        {
+            cy.wait(500);
+            cy.log(`Check the link: users/getclinnicbyid?id=${id}`)
+            cy.get('body').then(($body) => {
+                if($body.find('#notice').length > 0) {
+                    cy.get('#notice')
+                    .contains('Please login.');
+                } else {
+                    cy.get('body').containss('The change you wanted was rejected');
+                }
+            })
+        });
   });
 
 Cypress.Commands.add('sqlInjection', (sqlRequest) => {
@@ -41,6 +61,27 @@ Cypress.Commands.add('sqlInjection', (sqlRequest) => {
         {
             cy.log(`Response: ${res.body}`).then(() => expect(res.status).not.to.eq(200));
             
+        });
+  });
+
+Cypress.Commands.add('sqlInjectionNotice', (sqlRequest) => {
+        cy.request({
+            method: 'POST',
+            url: `https://sonic.ederm.com.au:443${sqlRequest}`,
+            body:{
+            },
+            failOnStatusCode: false,
+        }).then((res) => 
+        {
+            cy.wait(1000);
+            cy.get('body').then(($body) => {
+                if($body.find('#notice').length > 0) {
+                    cy.get('#notice')
+                    .contains('Please login.');
+                } else {
+                    cy.log(`Response: ${res.body}`).then(() => expect(res.body).to.be.contain('The change you wanted was rejected'));
+                }
+            })
         });
   });
 
