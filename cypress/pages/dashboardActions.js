@@ -1206,8 +1206,8 @@ export class DashboardActions extends CommonActions
 
   assertFirstNameCopy1(text){
     cy.get('#case_doctor1firstname')
-    .invoke('attr','value')
-    .should('have.text',text)
+    .invoke('val')
+    .then(value => expect(value).contains(text));
   }
 
   enterFirstNameCopy2(text){
@@ -1216,10 +1216,22 @@ export class DashboardActions extends CommonActions
     .type(text)
   }
 
+  assertFirstNameCopy2(text){
+    cy.get('#case_doctor2firstname')
+    .invoke('val')
+    .then(value => expect(value).contains(text));
+  }
+
   enterFirstNameCopy3(text){
     cy.get('#case_doctor3firstname')
     .clear()
     .type(text)
+  }
+
+  assertFirstNameCopy3(text){
+    cy.get('#case_doctor3firstname')
+    .invoke('val')
+    .then(value => expect(value).contains(text));
   }
 
   enterFirstNameCopy4(text){
@@ -2143,6 +2155,30 @@ export class DashboardActions extends CommonActions
    cy.get('a[onclick="logout_offline()"]')
     .contains('Exit eDerm')
     .click({ force: true })
+  }
+
+  assertValueFirstNameInPatientDetails(name) {
+    cy.get('input[id="case_FirstName"]')
+    .invoke('val')
+    .then(text => expect(text).contains(name));
+  }
+
+  assertValueLastNameInPatientDetails(name) {
+    cy.get('input[id="case_LastName"]')
+    .invoke('val')
+    .then(text => expect(text).contains(name));
+  }
+
+  assertValueTitleInPatientDetails(value) {
+    cy.get('select[id="temptitle"]')
+    .invoke('val')
+    .then(text => expect(text).contains(value));
+  }
+
+  assertValueGenderInPatientDetails(value) {
+    cy.get('select[id="case_Gender"]')
+    .invoke('val')
+    .then(text => expect(text).contains(value));
   }
 }
 

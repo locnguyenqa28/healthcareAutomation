@@ -64,4 +64,12 @@ export class TimeoutActions extends CommonActions{
     clickLogOffInTimeout(){
         cy.get('[onclick="logoggofextend()"]').click();
     }
+
+    enterPasswordInExtend(password){
+        cy.get('input[type="password"]').clear().type(password);
+    }
+
+    clickExtend(){
+        cy.get('[onclick="checkloignsession();"]').click();
+    }
 }

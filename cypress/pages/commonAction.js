@@ -170,4 +170,10 @@ export class CommonActions {
       .find('[type="submit"]')
       .click()  
   }
+    
+  assertInputValue(value) {
+    cy.get('input')
+    .invoke('val')
+    .then(text => expect(text).contains(value));
+  }
 }
