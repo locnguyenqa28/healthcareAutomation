@@ -17,7 +17,9 @@ export class CommonActions {
           isDeActive === 0 ? cy.log('Already de-Active single Account mode') : cy.log('Already Active single Account mode');
         }
       })  
-    
+      .get('a[href="/logout"]')
+      .click()
+      .wait(1000);
   }
 
   visitDashboard() {

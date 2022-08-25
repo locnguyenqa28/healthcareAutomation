@@ -512,8 +512,8 @@ export class DashboardActions extends CommonActions
   }
 
   nextButtonUploadImg(time = 60000, isForce = true){
-    cy.get('a[id="showlinkshownextv2"]', { timeout: time })
-      .scrollIntoView()
+    cy.get('#showlinkshownextv2[href*="/cases/lesiondetails?case"]', { timeout: time })
+      .last()
       .click({force: isForce})
   }
  

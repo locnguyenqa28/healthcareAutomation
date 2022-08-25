@@ -20,6 +20,15 @@ Cypress.Commands.add('saveDraft', (
             }).then(($res) => cy.log(`Data: ${Object.values($res.body)}`))
         });
   });
+Cypress.Commands.add('loginAPI', (
+    userName = user.username,
+    pass = user.password,
+  ) => {
+        cy.request({
+            method: 'POST',
+            url: `/api/auth?username=${userName}&password=${pass}`,
+        });
+  });
 
 Cypress.Commands.add('getclinicByIDNoAuth', (id) => {
         cy.request({
