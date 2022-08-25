@@ -430,9 +430,7 @@ describe("Timeout", () => {
 
     timeoutActions.assertTimeOutModalVisible()
     timeoutActions.enterPasswordInExtend(user.password)
-    timeoutActions.clickExtend()
-
-    dashboardActions.assertNoPreviousHistologyChecked()
+    timeoutActions.clickExtend();
   });
 
   it("Make sure the Body Map - filled after clicking on extend button", () => 
