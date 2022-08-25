@@ -365,13 +365,14 @@ describe("Timeout", () => {
     cy.wait(timeoutLoginMs/2)
     cy.wait(extraTime)
 
-    timeoutActions.assertTimeOutModalVisible()
-    timeoutActions.enterPasswordInExtend(user.password)
-    timeoutActions.clickExtend()
-
+    
     dashboardActions.assertText(`You will be automatically logged out in ${timeoutLogin/2} minute`)
     dashboardActions.assertText(`Extend for ${timeoutLogin/2} minute`)
     dashboardActions.assertText('Log off and close')
+
+    timeoutActions.assertTimeOutModalVisible()
+    timeoutActions.enterPasswordInExtend(user.password)
+    timeoutActions.clickExtend()
 
     dashboardActions.assertValueFirstNameInPatientDetails(firstname)
     dashboardActions.assertValueLastNameInPatientDetails(lastname)
@@ -382,4 +383,113 @@ describe("Timeout", () => {
     dashboardActions.assertFirstNameCopy2('Copy B')
     dashboardActions.assertFirstNameCopy3('Hospital')
   });
+  
+  it("Make sure the Clinical indication - filled after clicking on extend button", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `extend-${homeActions.randomAlpha(10)}`;
+    const lastname = `${homeActions.randomAlpha(5)}`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Male');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    
+    //Clinical Condition
+    dashboardActions.noPreviousHistory();
+    dashboardActions.provisionalDiagnosis();
+    dashboardActions.excludeMelasma();
+    dashboardActions.excludeNmsc();
+    dashboardActions.selectBiopsyType();
+
+    const timeoutLoginMs =  timeoutLogin * 60000
+    const extraTime = 10000
+    cy.wait(timeoutLoginMs/2)
+    cy.wait(extraTime)
+
+    dashboardActions.assertText(`You will be automatically logged out in ${timeoutLogin/2} minute`)
+    dashboardActions.assertText(`Extend for ${timeoutLogin/2} minute`)
+    dashboardActions.assertText('Log off and close')
+
+    timeoutActions.assertTimeOutModalVisible()
+    timeoutActions.enterPasswordInExtend(user.password)
+    timeoutActions.clickExtend()
+
+    dashboardActions.assertNoPreviousHistologyChecked()
+  });
+
+  it("Make sure the Body Map - filled after clicking on extend button", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `extend-${homeActions.randomAlpha(10)}`;
+    const lastname = `${homeActions.randomAlpha(5)}`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Male');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+    
+    //Clinical Condition
+    dashboardActions.noPreviousHistory();
+    dashboardActions.provisionalDiagnosis();
+    dashboardActions.excludeMelasma();
+    dashboardActions.excludeNmsc();
+    dashboardActions.selectBiopsyType();
+    dashboardActions.addBodyMap();
+
+    //Case bodymap
+    dashboardActions.clickImage();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation('the automation testing');
+    
+    const timeoutLoginMs =  timeoutLogin * 60000
+    const extraTime = 10000
+    cy.wait(timeoutLoginMs/2)
+    cy.wait(extraTime)
+
+    dashboardActions.assertText(`You will be automatically logged out in ${timeoutLogin/2} minute`)
+    dashboardActions.assertText(`Extend for ${timeoutLogin/2} minute`)
+    dashboardActions.assertText('Log off and close')
+
+    timeoutActions.assertTimeOutModalVisible()
+    timeoutActions.enterPasswordInExtend(user.password)
+    timeoutActions.clickExtend()
+
+    dashboardActions.assertValueSpecimenLocationInBodyMap('the automation testing');
+  });
+
 });

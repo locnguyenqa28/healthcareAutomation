@@ -2180,6 +2180,12 @@ export class DashboardActions extends CommonActions
     .invoke('val')
     .then(text => expect(text).contains(value));
   }
+
+  assertValueSpecimenLocationInBodyMap(value) {
+    cy.get('textarea#specimenLocation')
+    .invoke('val')
+    .then(text => expect(text).contains(value));
+  }
 }
 
 
