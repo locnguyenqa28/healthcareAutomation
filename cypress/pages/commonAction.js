@@ -178,4 +178,11 @@ export class CommonActions {
     .invoke('val')
     .then(text => expect(text).contains(value));
   }
+
+  assertNumberElement(element, number) {
+    cy.get(element)
+    .should(($element) => {
+      expect($element).to.have.length(number)
+    });
+  }
 }
