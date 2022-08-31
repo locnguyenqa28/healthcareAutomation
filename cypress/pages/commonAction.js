@@ -185,4 +185,10 @@ export class CommonActions {
       expect($element).to.have.length(number)
     });
   }
+
+  clickElement(element, number=0) {
+    cy.get(element)
+      .eq(number)
+      .click();
+  }
 }
