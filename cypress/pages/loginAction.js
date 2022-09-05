@@ -19,7 +19,7 @@ export class LoginActions extends CommonActions{
       .should('contain',text)
   }
   assertPrivacyPolicy() {
-    cy.get('[href="https://www.sonicpathology.com.au/media/5768/spa_privacy-policy.pdf"]')
+    cy.get('[href="https://www.sonicpathology.com.au/media/6069/shap-privacy-policy-202203.pdf"]')
       .should('be.visible')
   }
   visitPageAndLogin(userName, password){

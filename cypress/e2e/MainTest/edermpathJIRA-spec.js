@@ -958,7 +958,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.isReviewCase('Draft')
   });
   
-  it("EDERMPATH-241. The reset password link does not present after logining with an invalid value", () => 
+  it.only("EDERMPATH-241. The reset password link does not present after logining with an invalid value", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
