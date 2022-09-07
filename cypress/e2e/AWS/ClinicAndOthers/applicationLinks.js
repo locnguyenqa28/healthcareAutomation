@@ -1077,7 +1077,7 @@ describe("Application Links", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `extend-${homeActions.randomAlpha(10)}`;
+    const firstname = `pplink-${homeActions.randomAlpha(10)}`;
     const lastname = `${homeActions.randomAlpha(5)}`;
     dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -1133,7 +1133,7 @@ describe("Application Links", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `extend-${homeActions.randomAlpha(10)}`;
+    const firstname = `pplink-${homeActions.randomAlpha(10)}`;
     const lastname = `${homeActions.randomAlpha(5)}`;
     dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -1190,7 +1190,7 @@ describe("Application Links", () => {
     homeActions.isDashBoardButtonDisplayed();
     
     //Add New Lesion - Patient Details
-    const firstname = `extend-${homeActions.randomAlpha(10)}`;
+    const firstname = `pplink-${homeActions.randomAlpha(10)}`;
     const lastname = `${homeActions.randomAlpha(5)}`;
     dashboardActions.selectClinicOptionByName();
     dashboardActions.clickOkSelectClinic();
@@ -1214,6 +1214,147 @@ describe("Application Links", () => {
    //Add another lesion
    dashboardActions.addAnotherLesion()
    dashboardActions.addALesionByNumberImages(3)
+
+   dashboardActions.assertElement(PPElement);
+   dashboardActions.clickElement(PPElement);
+   cy.url().should('eq', PPUrl);
+  });
+   
+  it("Make sure Privacy Policy link is added in the Ederm footer -  3 completed", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `pplink-${homeActions.randomAlpha(10)}`;
+    const lastname = `${homeActions.randomAlpha(5)}`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Male');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+   //Add first lesion
+   dashboardActions.addALesionByNumberImages(3)
+
+   //Add another lesion
+   dashboardActions.addAnotherLesion()
+   dashboardActions.addALesionByNumberImages(3)
+
+   //Add another lesion
+   dashboardActions.addAnotherLesion()
+   dashboardActions.addALesionByNumberImages(3)
+
+   dashboardActions.assertElement(PPElement);
+   dashboardActions.clickElement(PPElement);
+   cy.url().should('eq', PPUrl);
+  });
+
+  it("Make sure Privacy Policy link is added in the Ederm footer -  4 completed", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `pplink-${homeActions.randomAlpha(10)}`;
+    const lastname = `${homeActions.randomAlpha(5)}`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Male');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+   //Add first lesion
+   dashboardActions.addALesionByNumberImages(3)
+
+   //Add another lesion
+   dashboardActions.addAnotherLesion()
+   dashboardActions.addALesionByNumberImages(3)
+
+   //Add another lesion
+   dashboardActions.addAnotherLesion()
+   dashboardActions.addALesionByNumberImages(3)
+
+   //Add another lesion
+   dashboardActions.addAnotherLesion()
+   dashboardActions.addALesionByNumberImages(3);
+
+   dashboardActions.assertElement(PPElement);
+   dashboardActions.clickElement(PPElement);
+   cy.url().should('eq', PPUrl);
+  });
+
+  it("Make sure Privacy Policy link is added in the Ederm footer -  5 completed", () => 
+  {
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `pplink-${homeActions.randomAlpha(10)}`;
+    const lastname = `${homeActions.randomAlpha(5)}`;
+    dashboardActions.selectClinicOptionByName();
+    dashboardActions.clickOkSelectClinic();
+    dashboardActions.clickAddNewLesion();
+    dashboardActions.selectTitle('Mrs');
+    dashboardActions.enterFirstName(firstname);
+    dashboardActions.enterLastName(lastname);
+    dashboardActions.selectGender('Male');
+    dashboardActions.enterDOB(user.DOB);
+    dashboardActions.enterHomeAdd(user.address);
+    dashboardActions.enterCity(user.city);
+    dashboardActions.selectState();
+    dashboardActions.enterPostcode(user.postcode);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.nextButton();
+
+   //Add first lesion
+   dashboardActions.addALesionByNumberImages(3)
+
+   //Add another lesion
+   dashboardActions.addAnotherLesion()
+   dashboardActions.addALesionByNumberImages(3)
+
+   //Add another lesion
+   dashboardActions.addAnotherLesion()
+   dashboardActions.addALesionByNumberImages(3)
+
+   //Add another lesion
+   dashboardActions.addAnotherLesion()
+   dashboardActions.addALesionByNumberImages(3);
+
+   //Add another lesion
+   dashboardActions.addAnotherLesion()
+   dashboardActions.addALesionByNumberImages(3);
 
    dashboardActions.assertElement(PPElement);
    dashboardActions.clickElement(PPElement);
