@@ -339,7 +339,7 @@ describe("Large image testing - AWS", () => {
     dashboardActions.addMuiltiLesionLargeAndInvalidImages('4.9_2.jpg', 4, 1, 4);
   });
 
-  it.only("20. Combinine Large images - 1 lesions - added and deleted image- No json error", () => 
+  it("20. Combinine Large images - 1 lesions - added and deleted image- No json error", () => 
   {
     const imageName = '4.9_2.jpg';
     loginActions.visitPage();
@@ -417,7 +417,7 @@ describe("Large image testing - AWS", () => {
     dashboardActions.isReviewCase('Draft'); 
   });
 
-  it.only("21. Combinine Large images - 2 lesions - added and deleted image- No json error", () => 
+  it("21. Combinine Large images - 2 lesions - added and deleted image- No json error", () => 
   {
     const imageName = '4.9_2.jpg';
     loginActions.visitPage();
