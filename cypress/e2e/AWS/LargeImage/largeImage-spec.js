@@ -538,5 +538,373 @@ describe("Large image testing - AWS", () => {
     dashboardActions.assertFirstName(firstname)
     dashboardActions.isReviewCase('Draft'); 
   });
+
+  it("22. Combinine Large images - 3 lesions - added and deleted image- No json error", () => 
+  {
+    const imageName = '4.9_2.jpg';
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+   //Add New Lesion - Patient Details
+   const firstname = `large-${homeActions.randomAlpha(10)}`;
+   const lastname = `${homeActions.randomAlpha(5)}`;
+   dashboardActions.selectClinicOptionByName();
+   dashboardActions.clickOkSelectClinic();
+   dashboardActions.clickAddNewLesion();
+   dashboardActions.selectTitle('Mrs');
+   dashboardActions.enterFirstName(firstname);
+   dashboardActions.enterLastName(lastname);
+   dashboardActions.selectGender('Male');
+   dashboardActions.enterDOB(user.DOB);
+   dashboardActions.enterHomeAdd(user.address);
+   dashboardActions.enterCity(user.city);
+   dashboardActions.selectState();
+   dashboardActions.enterPostcode(user.postcode);
+   dashboardActions.enterContact(user.contact);
+   dashboardActions.enterMedicare(user.medicare);
+   dashboardActions.nextButton();
+
+   
+   //Clinical Condition
+   dashboardActions.noPreviousHistory();
+   dashboardActions.provisionalDiagnosis();
+   dashboardActions.excludeMelasma();
+   dashboardActions.excludeNmsc();
+   dashboardActions.selectBiopsyType();
+   dashboardActions.addBodyMap();
+  //Case bodymap
+    dashboardActions.clickImage();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation();
+    dashboardActions.saveBodyMap();
+
+  //Upload Dermascopic Images
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.uploadMultiImagesV2(imageName, 3);
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.assertText('Remove');
+    cy.wait(2000);
+    dashboardActions.startUpload();
+    dashboardActions.waitForDeleteButtonVisible(3, 30);
+    cy.wait(2000);
+    dashboardActions.startUpload();
+    cy.wait(2000);
+    dashboardActions.isProgressBarDisappear(90000);
+    dashboardActions.isImageUploadedSuccessfully(90000);
+
+    dashboardActions.clickDeleteImage(1);
+    dashboardActions.waitForDeleteButtonVisible(2, 30);
+
+    dashboardActions.uploadMultiImagesV2(imageName, 3);
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.assertText('Remove');
+    cy.wait(2000);
+    dashboardActions.startUpload();
+    dashboardActions.waitForDeleteButtonVisible(3, 30);
+    dashboardActions.isProgressBarDisappear(90000);
+    dashboardActions.isImageUploadedSuccessfully(90000);
+
+    dashboardActions.nextButtonUploadImg(90000, true);
+
+    dashboardActions.addAnotherLesion();
+      
+   //Clinical Condition
+   dashboardActions.noPreviousHistory();
+   dashboardActions.provisionalDiagnosis();
+   dashboardActions.excludeMelasma();
+   dashboardActions.excludeNmsc();
+   dashboardActions.selectBiopsyType();
+   dashboardActions.addBodyMap();
+  //Case bodymap
+    dashboardActions.clickImage();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation();
+    dashboardActions.saveBodyMap();
+
+  //Upload Dermascopic Images
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.uploadMultiImagesV2(imageName, 3);
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.assertText('Remove');
+    cy.wait(2000);
+    dashboardActions.startUpload();
+    dashboardActions.waitForDeleteButtonVisible(3, 30);
+    cy.wait(2000);
+    dashboardActions.startUpload();
+    cy.wait(2000);
+    dashboardActions.isProgressBarDisappear(90000);
+    dashboardActions.isImageUploadedSuccessfully(90000);
+
+    dashboardActions.clickDeleteImage(1);
+    dashboardActions.waitForDeleteButtonVisible(2, 30);
+
+    dashboardActions.uploadMultiImagesV2(imageName, 3);
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.assertText('Remove');
+    cy.wait(2000);
+    dashboardActions.startUpload();
+    dashboardActions.waitForDeleteButtonVisible(3, 30);
+    dashboardActions.isProgressBarDisappear(90000);
+    dashboardActions.isImageUploadedSuccessfully(90000);
+    dashboardActions.nextButtonUploadImg(90000, true);
+
+    dashboardActions.addAnotherLesion();
+      
+   //Clinical Condition
+   dashboardActions.noPreviousHistory();
+   dashboardActions.provisionalDiagnosis();
+   dashboardActions.excludeMelasma();
+   dashboardActions.excludeNmsc();
+   dashboardActions.selectBiopsyType();
+   dashboardActions.addBodyMap();
+  //Case bodymap
+    dashboardActions.clickImage();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation();
+    dashboardActions.saveBodyMap();
+
+  //Upload Dermascopic Images
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.uploadMultiImagesV2(imageName, 3);
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.assertText('Remove');
+    cy.wait(2000);
+    dashboardActions.startUpload();
+    dashboardActions.waitForDeleteButtonVisible(3, 30);
+    cy.wait(2000);
+    dashboardActions.startUpload();
+    cy.wait(2000);
+    dashboardActions.isProgressBarDisappear(90000);
+    dashboardActions.isImageUploadedSuccessfully(90000);
+
+    dashboardActions.clickDeleteImage(1);
+    dashboardActions.waitForDeleteButtonVisible(2, 30);
+
+    dashboardActions.uploadMultiImagesV2(imageName, 3);
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.assertText('Remove');
+    cy.wait(2000);
+    dashboardActions.startUpload();
+    dashboardActions.waitForDeleteButtonVisible(3, 30);
+    dashboardActions.isProgressBarDisappear(90000);
+    dashboardActions.isImageUploadedSuccessfully(90000);
+
+    dashboardActions.nextButtonUploadImg(90000, true);
+    
+
+  //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.saveDraft();
+
+    dashboardActions.assertFirstName(firstname)
+    dashboardActions.isReviewCase('Draft'); 
+  });
+
+  it("23. Combinine Large images - 4 lesions - added and deleted image- No json error", () => 
+  {
+    const imageName = '4.9_2.jpg';
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+
+   //Add New Lesion - Patient Details
+   const firstname = `large-${homeActions.randomAlpha(10)}`;
+   const lastname = `${homeActions.randomAlpha(5)}`;
+   dashboardActions.selectClinicOptionByName();
+   dashboardActions.clickOkSelectClinic();
+   dashboardActions.clickAddNewLesion();
+   dashboardActions.selectTitle('Mrs');
+   dashboardActions.enterFirstName(firstname);
+   dashboardActions.enterLastName(lastname);
+   dashboardActions.selectGender('Male');
+   dashboardActions.enterDOB(user.DOB);
+   dashboardActions.enterHomeAdd(user.address);
+   dashboardActions.enterCity(user.city);
+   dashboardActions.selectState();
+   dashboardActions.enterPostcode(user.postcode);
+   dashboardActions.enterContact(user.contact);
+   dashboardActions.enterMedicare(user.medicare);
+   dashboardActions.nextButton();
+
+   
+   //Clinical Condition
+   dashboardActions.noPreviousHistory();
+   dashboardActions.provisionalDiagnosis();
+   dashboardActions.excludeMelasma();
+   dashboardActions.excludeNmsc();
+   dashboardActions.selectBiopsyType();
+   dashboardActions.addBodyMap();
+  //Case bodymap
+    dashboardActions.clickImage();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation();
+    dashboardActions.saveBodyMap();
+
+  //Upload Dermascopic Images
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.uploadMultiImagesV2(imageName, 3);
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.assertText('Remove');
+    cy.wait(2000);
+    dashboardActions.startUpload();
+    dashboardActions.waitForDeleteButtonVisible(3, 30);
+    cy.wait(2000);
+    dashboardActions.startUpload();
+    cy.wait(2000);
+    dashboardActions.isProgressBarDisappear(90000);
+    dashboardActions.isImageUploadedSuccessfully(90000);
+
+    dashboardActions.clickDeleteImage(1);
+    dashboardActions.waitForDeleteButtonVisible(2, 30);
+
+    dashboardActions.uploadMultiImagesV2(imageName, 3);
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.assertText('Remove');
+    cy.wait(2000);
+    dashboardActions.startUpload();
+    dashboardActions.waitForDeleteButtonVisible(3, 30);
+    dashboardActions.isProgressBarDisappear(90000);
+    dashboardActions.isImageUploadedSuccessfully(90000);
+
+    dashboardActions.nextButtonUploadImg(90000, true);
+
+    dashboardActions.addAnotherLesion();
+      
+   //Clinical Condition
+   dashboardActions.noPreviousHistory();
+   dashboardActions.provisionalDiagnosis();
+   dashboardActions.excludeMelasma();
+   dashboardActions.excludeNmsc();
+   dashboardActions.selectBiopsyType();
+   dashboardActions.addBodyMap();
+  //Case bodymap
+    dashboardActions.clickImage();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation();
+    dashboardActions.saveBodyMap();
+
+  //Upload Dermascopic Images
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.uploadMultiImagesV2(imageName, 3);
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.assertText('Remove');
+    cy.wait(2000);
+    dashboardActions.startUpload();
+    dashboardActions.waitForDeleteButtonVisible(3, 30);
+    cy.wait(2000);
+    dashboardActions.startUpload();
+    cy.wait(2000);
+    dashboardActions.isProgressBarDisappear(90000);
+    dashboardActions.isImageUploadedSuccessfully(90000);
+
+    dashboardActions.clickDeleteImage(1);
+    dashboardActions.waitForDeleteButtonVisible(2, 30);
+
+    dashboardActions.uploadMultiImagesV2(imageName, 3);
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.assertText('Remove');
+    cy.wait(2000);
+    dashboardActions.startUpload();
+    dashboardActions.waitForDeleteButtonVisible(3, 30);
+    dashboardActions.isProgressBarDisappear(90000);
+    dashboardActions.isImageUploadedSuccessfully(90000);
+    dashboardActions.nextButtonUploadImg(90000, true);
+
+    dashboardActions.addAnotherLesion();
+      
+   //Clinical Condition
+   dashboardActions.noPreviousHistory();
+   dashboardActions.provisionalDiagnosis();
+   dashboardActions.excludeMelasma();
+   dashboardActions.excludeNmsc();
+   dashboardActions.selectBiopsyType();
+   dashboardActions.addBodyMap();
+  //Case bodymap
+    dashboardActions.clickImage();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation();
+    dashboardActions.saveBodyMap();
+
+  //Upload Dermascopic Images
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.uploadMultiImagesV2(imageName, 3);
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.assertText('Remove');
+    cy.wait(2000);
+    dashboardActions.startUpload();
+    dashboardActions.waitForDeleteButtonVisible(3, 30);
+    cy.wait(2000);
+    dashboardActions.startUpload();
+    cy.wait(2000);
+    dashboardActions.isProgressBarDisappear(90000);
+    dashboardActions.isImageUploadedSuccessfully(90000);
+
+    dashboardActions.clickDeleteImage(1);
+    dashboardActions.waitForDeleteButtonVisible(2, 30);
+
+    dashboardActions.uploadMultiImagesV2(imageName, 3);
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.assertText('Remove');
+    cy.wait(2000);
+    dashboardActions.startUpload();
+    dashboardActions.waitForDeleteButtonVisible(3, 30);
+    dashboardActions.isProgressBarDisappear(90000);
+    dashboardActions.isImageUploadedSuccessfully(90000);
+    dashboardActions.nextButtonUploadImg(90000, true);
+    dashboardActions.addAnotherLesion();
+      
+   //Clinical Condition
+   dashboardActions.noPreviousHistory();
+   dashboardActions.provisionalDiagnosis();
+   dashboardActions.excludeMelasma();
+   dashboardActions.excludeNmsc();
+   dashboardActions.selectBiopsyType();
+   dashboardActions.addBodyMap();
+  //Case bodymap
+    dashboardActions.clickImage();
+    dashboardActions.selectBodyRegion();
+    dashboardActions.enterSpecimenLocation();
+    dashboardActions.saveBodyMap();
+
+  //Upload Dermascopic Images
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.uploadMultiImagesV2(imageName, 3);
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.assertText('Remove');
+    cy.wait(2000);
+    dashboardActions.startUpload();
+    dashboardActions.waitForDeleteButtonVisible(3, 30);
+    cy.wait(2000);
+    dashboardActions.startUpload();
+    cy.wait(2000);
+    dashboardActions.isProgressBarDisappear(90000);
+    dashboardActions.isImageUploadedSuccessfully(90000);
+
+    dashboardActions.clickDeleteImage(1);
+    dashboardActions.waitForDeleteButtonVisible(2, 30);
+
+    dashboardActions.uploadMultiImagesV2(imageName, 3);
+    dashboardActions.assertHeader('Upload ');
+    dashboardActions.assertText('Remove');
+    cy.wait(2000);
+    dashboardActions.startUpload();
+    dashboardActions.waitForDeleteButtonVisible(3, 30);
+    dashboardActions.isProgressBarDisappear(90000);
+    dashboardActions.isImageUploadedSuccessfully(90000);
+
+    dashboardActions.nextButtonUploadImg(90000, true);
+
+  //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.saveDraft();
+
+    dashboardActions.assertFirstName(firstname)
+    dashboardActions.isReviewCase('Draft'); 
+  });
 });
   
