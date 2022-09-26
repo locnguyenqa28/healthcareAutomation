@@ -2186,6 +2186,58 @@ export class DashboardActions extends CommonActions
     .invoke('val')
     .then(text => expect(text).contains(value));
   }
+
+   
+addMuiltiLesionLargeThenDeleteImages(imageName, numberLesion) {
+
+  for(let index =1; index<= numberLesion; index ++){
+        
+   //Clinical Condition
+   this.noPreviousHistory();
+   this.provisionalDiagnosis();
+   this.excludeMelasma();
+   this.excludeNmsc();
+   this.selectBiopsyType();
+   this.addBodyMap();
+  //Case bodymap
+    this.clickImage();
+    this.selectBodyRegion();
+    this.enterSpecimenLocation();
+    this.saveBodyMap();
+
+  //Upload Dermascopic Images
+    this.assertHeader('Upload ');
+    this.uploadMultiImagesV2(imageName, 3);
+    this.assertHeader('Upload ');
+    this.assertText('Remove');
+    cy.wait(2000);
+    this.startUpload();
+    this.waitForDeleteButtonVisible(3, 30);
+    cy.wait(2000);
+    this.startUpload();
+    cy.wait(2000);
+    this.isProgressBarDisappear(90000);
+    this.isImageUploadedSuccessfully(90000);
+
+    this.clickDeleteImage(1);
+    this.waitForDeleteButtonVisible(2, 30);
+
+    this.uploadMultiImagesV2(imageName, 3);
+    this.assertHeader('Upload ');
+    this.assertText('Remove');
+    cy.wait(2000);
+    this.startUpload();
+    this.waitForDeleteButtonVisible(3, 30);
+    this.isProgressBarDisappear(90000);
+    this.isImageUploadedSuccessfully(90000);
+
+    this.nextButtonUploadImg(90000, true);
+        //Upload Dermascopic Images
+        if(index < numberLesion){
+          this.addAnotherLesion();
+        }
+    }
+  }
 }
 
 
