@@ -24,7 +24,6 @@ describe("Save Draft by API - Part 3", () => {
     dashboardActions.activeSingleAccountLogin(0);
   });
 
-
   
   it("Save Draft By API: Full copy - add 7 Lesions - Delete 6 lesions - Combine limited & invalid images", () => 
   {
@@ -640,13 +639,71 @@ describe("Save Draft by API - Part 3", () => {
   
     dashboardActions.addMoreValidateLesionCombineImages(3, 5, 1, true)
 
-    //Case Summary
-    dashboardActions.caseSummary();
-    dashboardActions.deleteLesionByName(lesion1,1);
+   //Case Summary
+   dashboardActions.caseSummary();
+   dashboardActions.deleteLesionByName(lesion1,1);
 
-    dashboardActions.submitCasePrint();
-    dashboardActions.returnToDashboard();
-    homeActions.isDashboardDisplayed();
-    dashboardActions.isUploadSuccesfully(0);
+   dashboardActions.submitCasePrint();
+   dashboardActions.returnToDashboard();
+   homeActions.isDashboardDisplayed();
+   dashboardActions.isUploadSuccesfully(0);
+  });
+
+  it("Save Draft By API: No error - Multiple upload largeImage and delete - 1 lesion", () => 
+  {
+    const imageName = '4.9_2.jpg';
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `api-${homeActions.randomAlpha(10)}`;
+    const lastname = `combine`;
+    cy.saveDraft(user.username, user.password, firstname);
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+    dashboardActions.assertText(firstname);
+    dashboardActions.assertText('Create New Pathology Request');
+
+    dashboardActions.clickPathologyRequestByFirstName(firstname);
+    dashboardActions.addAnotherLesion();
+  
+    dashboardActions.addMuiltiLesionLargeThenDeleteImages(imageName, 1)
+     //Case Summary
+     dashboardActions.caseSummary();
+     dashboardActions.saveDraft();
+     dashboardActions.assertFirstName(firstname)
+     dashboardActions.isReviewCase('Draft');
+  });
+
+  it("Save Draft By API: No error - Multiple upload largeImage and delete - 2 lesions", () => 
+  {
+    const imageName = '4.9_2.jpg';
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `api-${homeActions.randomAlpha(10)}`;
+    const lastname = `combine`;
+    cy.saveDraft(user.username, user.password, firstname);
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+    dashboardActions.assertText(firstname);
+    dashboardActions.assertText('Create New Pathology Request');
+
+    dashboardActions.clickPathologyRequestByFirstName(firstname);
+    dashboardActions.addAnotherLesion();
+  
+    dashboardActions.addMuiltiLesionLargeThenDeleteImages(imageName, 2)
+     //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.saveDraft();
+    dashboardActions.assertFirstName(firstname)
+    dashboardActions.isReviewCase('Draft');
   });
 });
