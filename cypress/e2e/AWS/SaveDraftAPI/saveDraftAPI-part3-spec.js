@@ -764,4 +764,62 @@ describe("Save Draft by API - Part 3", () => {
     dashboardActions.assertFirstName(firstname)
     dashboardActions.isReviewCase('Draft');
   });
+
+  it("Save Draft By API: No error - Multiple upload largeImage and delete - 5 lesions", () => 
+  {
+    const imageName = '4.9_2.jpg';
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `api-${homeActions.randomAlpha(10)}`;
+    const lastname = `combine`;
+    cy.saveDraft(user.username, user.password, firstname);
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+    dashboardActions.assertText(firstname);
+    dashboardActions.assertText('Create New Pathology Request');
+
+    dashboardActions.clickPathologyRequestByFirstName(firstname);
+    dashboardActions.addAnotherLesion();
+  
+    dashboardActions.addMuiltiLesionLargeThenDeleteImages(imageName, 5)
+     //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.saveDraft();
+    dashboardActions.assertFirstName(firstname)
+    dashboardActions.isReviewCase('Draft');
+  });
+
+  it("Save Draft By API: No error - Multiple upload largeImage and delete - 6 lesions", () => 
+  {
+    const imageName = '4.9_2.jpg';
+    loginActions.visitPage();
+    loginActions.inputUserName(user.username);
+    loginActions.inputPassword(user.password);
+    loginActions.clickLoginButton();
+    homeActions.isDashBoardButtonDisplayed();
+    
+    //Add New Lesion - Patient Details
+    const firstname = `api-${homeActions.randomAlpha(10)}`;
+    const lastname = `combine`;
+    cy.saveDraft(user.username, user.password, firstname);
+    dashboardActions.clickOkSelectClinic(true);
+    clinicActions.selectSearchClinicByText('All');
+    dashboardActions.assertText(firstname);
+    dashboardActions.assertText('Create New Pathology Request');
+
+    dashboardActions.clickPathologyRequestByFirstName(firstname);
+    dashboardActions.addAnotherLesion();
+  
+    dashboardActions.addMuiltiLesionLargeThenDeleteImages(imageName, 6)
+     //Case Summary
+    dashboardActions.caseSummary();
+    dashboardActions.saveDraft();
+    dashboardActions.assertFirstName(firstname)
+    dashboardActions.isReviewCase('Draft');
+  });
 });
