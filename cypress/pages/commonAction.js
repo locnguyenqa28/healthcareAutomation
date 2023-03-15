@@ -23,7 +23,7 @@ export class CommonActions {
   }
 
   visitDashboard() {
-    cy.visit('https://sonic.ederm.com.au/cases/dashboard');
+    cy.visit('https://sonic-test.ederm.com.au/cases/dashboard');
   }
 
   uploadImage(){

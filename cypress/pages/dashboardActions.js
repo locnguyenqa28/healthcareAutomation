@@ -14,7 +14,7 @@ export class DashboardActions extends CommonActions
   }
 
   clickAddNewLesion(){
-      cy.get('a[href="/cases?urgent=1"]')
+      cy.get('a[href="/cases/index?urgent=1"]')
         .contains('Create New Pathology Request').click()
   }
 

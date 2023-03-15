@@ -62,7 +62,7 @@ Cypress.Commands.add('getclinicByOpenLinkIDNoAuth', (id) => {
 Cypress.Commands.add('sqlInjection', (sqlRequest) => {
         cy.request({
             method: 'POST',
-            url: `https://sonic.ederm.com.au:443${sqlRequest}`,
+            url: `https://sonic-test.ederm.com.au:443${sqlRequest}`,
             body:{
             },
             failOnStatusCode: false,
@@ -76,7 +76,7 @@ Cypress.Commands.add('sqlInjection', (sqlRequest) => {
 Cypress.Commands.add('sqlInjectionNotice', (sqlRequest) => {
         cy.request({
             method: 'POST',
-            url: `https://sonic.ederm.com.au:443${sqlRequest}`,
+            url: `https://sonic-test.ederm.com.au:443${sqlRequest}`,
             body:{
             },
             failOnStatusCode: false,
@@ -97,7 +97,7 @@ Cypress.Commands.add('sqlInjectionNotice', (sqlRequest) => {
 Cypress.Commands.add('sqlInjectionStatus200CommentReject', (sqlRequest) => {
         cy.request({
             method: 'POST',
-            url: `https://sonic.ederm.com.au:443${sqlRequest}`,
+            url: `https://sonic-test.ederm.com.au:443${sqlRequest}`,
             body:{
             },
             failOnStatusCode: false,

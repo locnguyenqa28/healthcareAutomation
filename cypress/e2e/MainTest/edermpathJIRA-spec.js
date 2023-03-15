@@ -1133,7 +1133,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.assertText('Default clinic:');
     dashboardActions.assertText('Filter cases by clinic:');
     dashboardActions.assertText('Search');
-    dashboardActions.assertElement('[href="/cases?urgent=1"]');
+    dashboardActions.assertElement('[href="/cases/index?urgent=1"]');
     dashboardActions.assertButton('Search');
   });
   

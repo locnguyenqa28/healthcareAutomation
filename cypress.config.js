@@ -9,7 +9,7 @@ module.exports = defineConfig({
   viewportHeight: 768,
   failOnStatusCode: false,
   env: {
-    base: 'https://sonic.ederm.com.au',
+    base: 'https://sonic-test.ederm.com.au/',
     beta: 'http://localhost:3000',
     allureResultsPath: 'report/results',
   },
@@ -28,7 +28,7 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       return require('./cypress/plugins/index.js')(on, config)
     },
-    baseUrl: 'https://sonic.ederm.com.au',
+    baseUrl: 'https://sonic-test.ederm.com.au',
     specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx}',
   },
 })
