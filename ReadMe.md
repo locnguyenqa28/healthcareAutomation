@@ -1,7 +1,7 @@
 HEALTHCARE E2E Tests
 ====================
 
-Cypress and JS based frontend automation suite utilizing BDD methodologies of Cucumber and Gherkin.
+Cypress and JS based frontend automation suite utilizing BDD
 
 Prerequisites
 Node version 14 or higher
