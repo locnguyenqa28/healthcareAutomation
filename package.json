@@ -13,7 +13,7 @@
     "all": "npx cypress run -b chrome",
     "main": "npx cypress run -b chrome --spec \"cypress/integration/loginTest-spec.js\"",
     "dasboard-all": "npx cypress run -b chrome --record --key 9fe0806d-98ae-483e-9337-7deb2d08dfdc",
-    "dashboard-main": "npx cypress run -b chrome --record --spec \"cypress/e2e/MainTest/*.js\" --key 9fe0806d-98ae-483e-9337-7deb2d08dfdc",
+    "dashboard-main": "npx cypress run -b chrome --record --spec \"cypress/e2e/MainTest/*.js\" --key 9fe0806d-98ae-483e-9337-7deb2d08dfdc"
   },
   "author": "",
   "license": "ISC",
