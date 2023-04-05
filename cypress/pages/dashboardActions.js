@@ -1,8 +1,15 @@
 import { CommonActions } from "./commonAction";
 import user from "../support/constants";
-
+import setupRoutes from '../support/routes'
 export class DashboardActions extends CommonActions
 {
+  get okClinicButton() {
+    return '[type="button"][value="Ok"]'
+  }  
+  get nextInUploadImage() {
+    return '#showlinkshownextv2.docnavright'
+  }
+
   clickSetup(){
       this.clickHrefByText('Setup')
   }
@@ -511,10 +518,14 @@ export class DashboardActions extends CommonActions
       .should('be.visible')
   }
 
-  nextButtonUploadImg(time = 60000, isForce = true){
-    cy.get('#showlinkshownextv2[href*="/cases/lesiondetails?case"]', { timeout: time })
+  nextButtonUploadImg(time = 60000, isForce = false){
+    cy.wait('@POST_saveImage', { timeout: time })
+    cy.get('#uploadimage .txt-header').click()
+    cy.get(this.nextInUploadImage, { timeout: time })
       .last()
+      .contains('Next » ')
       .click({force: isForce})
+      .wait(5000)
   }
  
   //Case Summary
@@ -996,7 +1007,7 @@ export class DashboardActions extends CommonActions
   }
 
   isNextButtonOfUploadImage() {
-    cy.get('#showlinkshownextv2.docnavright')
+    cy.get(this.nextInUploadImage)
     .should('be.visible')
   }
 
@@ -1110,6 +1121,7 @@ export class DashboardActions extends CommonActions
   }
 
   selectClinicOptionByName(name, isTrue = false) {
+    cy.get('#ex2').should('be.visible')
     if(typeof(name)!= 'string' || name === null)
     {
       cy.get('.jquery-modal #id_set_default > option')
@@ -1121,16 +1133,19 @@ export class DashboardActions extends CommonActions
     }
   }
 
-  clickOkSelectClinic(isForce = false, timeOut = 1000) {
-    cy.wait(timeOut);
+  clickOkSelectClinic(isForce = true, timeOut = 2000) {
+    setupRoutes()
+    cy.get('#ex2').should('be.visible')
     cy.get('body').then(($body) => {
-      if($body.find('[onclick="setdefaultclinic()"]').length > 0){
-        cy.get('[onclick="setdefaultclinic()"]')
+      if($body.find(this.okClinicButton).length > 0){
+        cy.get(this.okClinicButton)
+        .focus()
         .click({force: isForce});
       }else {
         cy.log('Clinic modal does not appears');
       }
-    }); 
+    });
+    cy.wait('@POST_getCaseXml')
   }
 
   selectTitleCopy1ByIndex(index = 1, isTrue) {
