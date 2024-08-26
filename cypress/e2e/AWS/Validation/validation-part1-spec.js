@@ -54,6 +54,7 @@ describe("Validation fields checking - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
     dashboardActions.backButton();
@@ -91,6 +92,7 @@ describe("Validation fields checking - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy1ByIndex(1)
@@ -173,6 +175,7 @@ describe("Validation fields checking - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -233,6 +236,7 @@ describe("Validation fields checking - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -304,6 +308,7 @@ describe("Validation fields checking - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -349,6 +354,7 @@ describe("Validation fields checking - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -398,6 +404,7 @@ describe("Validation fields checking - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -451,6 +458,7 @@ describe("Validation fields checking - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -508,6 +516,7 @@ describe("Validation fields checking - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -553,6 +562,7 @@ describe("Validation fields checking - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -600,6 +610,7 @@ describe("Validation fields checking - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -650,6 +661,7 @@ describe("Validation fields checking - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -704,6 +716,7 @@ describe("Validation fields checking - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -749,6 +762,7 @@ describe("Validation fields checking - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -796,6 +810,7 @@ describe("Validation fields checking - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -846,6 +861,7 @@ describe("Validation fields checking - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 

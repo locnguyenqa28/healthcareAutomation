@@ -28,7 +28,8 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       return require('./cypress/plugins/index.js')(on, config)
     },
-    baseUrl: 'https://sonic-test.ederm.com.au',
+    // baseUrl: 'https://sonic-test.ederm.com.au',
+    baseUrl: 'https://beta2.ederm.com.au/',
     specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx}',
   },
 })

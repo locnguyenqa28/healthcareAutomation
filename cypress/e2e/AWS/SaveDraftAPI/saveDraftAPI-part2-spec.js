@@ -94,6 +94,7 @@ describe("Save Draft by API - Part 2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
    
@@ -133,6 +134,7 @@ describe("Save Draft by API - Part 2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -172,6 +174,7 @@ describe("Save Draft by API - Part 2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -211,6 +214,7 @@ describe("Save Draft by API - Part 2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
    
@@ -250,6 +254,7 @@ describe("Save Draft by API - Part 2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
    
@@ -289,6 +294,7 @@ describe("Save Draft by API - Part 2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
    
@@ -328,6 +334,7 @@ describe("Save Draft by API - Part 2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
    
@@ -367,6 +374,7 @@ describe("Save Draft by API - Part 2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
    

@@ -1,500 +1,440 @@
 import { CommonActions } from "./commonAction";
 import user from "../support/constants";
-import setupRoutes from '../support/routes'
-export class DashboardActions extends CommonActions
-{
+import setupRoutes from "../support/routes";
+export class DashboardActions extends CommonActions {
   get okClinicButton() {
-    return '[type="button"][value="Ok"]'
-  }  
+    return '[type="button"][value="Ok"]';
+  }
   get nextInUploadImage() {
-    return '#showlinkshownextv2.docnavright'
+    return "#showlinkshownextv2.docnavright";
   }
 
-  clickSetup(){
-      this.clickHrefByText('Setup')
+  clickSetup() {
+    this.clickHrefByText("Setup");
   }
-  clickEditAccount(){
-      cy.get('a[href="/users/edit/17"]').click()
+  clickEditAccount() {
+    cy.get('a[href="/users/edit/17"]').click();
   }
-  clickSaveUpdateAccount(){
-      cy.get('[onclick][type = "submit"][value="Save Update"]').click()
-  }
-
-  clickAddNewLesion(){
-      cy.get('a[href="/cases/index?urgent=1"]')
-        .contains('Create New Pathology Request').click()
+  clickSaveUpdateAccount() {
+    cy.get('[onclick][type = "submit"][value="Save Update"]').click();
   }
 
-  clickDeleteLesion(text = 'Lesion 1'){
-      cy.get('div[id] h3').contains(text).next().contains('Delete').click();
-      cy.wait(1000);
+  clickAddNewLesion() {
+    cy.get('a[href="/cases/index?urgent=1"]')
+      .contains("Create New Pathology Request")
+      .click();
   }
 
-  assertValueVisible(value){
-    cy.get(`body [value = '${value}']`)
-    .should('be.visible')
-  }
-
-  assertValueExist(value){
-    cy.get(`body [value = '${value}']`)
-    .should('be.exist')
-  }
-  clickPathologyRequestByFirstName(name, isForce = false){
+  clickDeleteLesion(text = "Lesion 1") {
+    cy.get("div[id] h3").contains(text).next().contains("Delete").click();
     cy.wait(1000);
-    cy.get('.x-grid3-col')
+  }
+
+  assertValueVisible(value) {
+    cy.get(`body [value = '${value}']`).should("be.visible");
+  }
+
+  assertValueExist(value) {
+    cy.get(`body [value = '${value}']`).should("be.exist");
+  }
+  clickPathologyRequestByFirstName(name, isForce = false) {
+    cy.wait(1000);
+    cy.get(".x-grid3-col")
       .contains(name)
       .parent()
       .first()
-      .nextUntil('td.x-grid3-col.x-grid3-td-4')
+      .nextUntil("td.x-grid3-col.x-grid3-td-4")
       .next()
-      .contains('Draft')
+      .contains("Draft")
       .first()
-      .should('be.visible')
-      .click({force:isForce});
+      .should("be.visible")
+      .click({ force: isForce });
   }
 
-  clickReviewCaseByFirstName(name){
-      cy.get('.x-grid3-col')
-        .contains(name)
-        .parent()
-        .nextUntil('td.x-grid3-col.x-grid3-td-4').next().contains('Review Case').click();
-  }
-
-  assertGender(gender){
-    cy.get('#case_Gender [selected]').contains(gender).should('be.visible')
-  }
-
-  selectTitle(option){
-      cy.get('select[id="temptitle"]')
-        .select(option)
-  }
-  
-  enterSubHurbAccount(text){
-      cy.get('input[id="user_Suburb"]')
-        .clear()
-        .type(text)
-  }
-  
-  clickEditPatientDetails(isForce = false){
-      cy.get('a#editpatientdetails')
-        .click({force: isForce})
-  }
-  
-  clickSavePatientDetails(isForce = false){
-      cy.get('a#saveeditpatientdetails')
-        .click({force: isForce})
-  }
-  
-  clickOkPatientDetails(isForce = true){
-      this.assertText('Please confirm the following details are correct:');
-      cy.wait(1000);
-      cy.get('.jquery-modal a[onclick*="sendupdatepatientdeatils"]')
-        .click({force: isForce})
-  }
-
-  enterFirstName(firstname){
-      cy.get('input[id="case_FirstName"]')
-        .clear()
-        .type(firstname)
-  }
-
-  assertLengthFirstName(number){
-      cy.get('input[id="case_FirstName"]')
-        .invoke('attr', 'size')
-        .should('eq', number.toString())
-  }
-
-  enterLastName(lastname){
-      cy.get('input[id="case_LastName"]')
-        .clear()
-        .type(lastname)
-  }
-
-  
-  assertLengthLastName(number){
-    cy.get('input[id="case_LastName"]')
-      .invoke('attr', 'size')
-      .should('eq', number.toString())
-}
-
-  clickGender(){
-    cy.get('select[id="case_Gender"]')
+  clickReviewCaseByFirstName(name) {
+    cy.get(".x-grid3-col")
+      .contains(name)
       .parent()
-      .click()
+      .nextUntil("td.x-grid3-col.x-grid3-td-4")
+      .next()
+      .contains("Review Case")
+      .click();
   }
 
-  isGender(text){
-    cy.get('select[id="case_Gender"]')
-      .contains(text).should('be.visible')
+  assertGender(gender) {
+    cy.get("#case_Gender [selected]").contains(gender).should("be.visible");
   }
 
-  isNotGender(text){
-    cy.get('select[id="case_Gender"]')
-      .should('not.contain.text', text)
+  selectTitle(option) {
+    cy.get('select[id="temptitle"]').select(option);
   }
 
-  selectGender(option){
-    cy.get('body').then(($body) => {
-      if($body.find('a#editpatientdetails').length > 0) {
+  enterSubHurbAccount(text) {
+    cy.get('input[id="user_Suburb"]').clear().type(text);
+  }
+
+  clickEditPatientDetails(isForce = false) {
+    cy.get("a#editpatientdetails").click({ force: isForce });
+  }
+
+  clickSavePatientDetails(isForce = false) {
+    cy.get("a#saveeditpatientdetails").click({ force: isForce });
+  }
+
+  clickOkPatientDetails(isForce = true) {
+    this.assertText("Please confirm the following details are correct:");
+    cy.wait(1000);
+    cy.get('.jquery-modal a[onclick*="sendupdatepatientdeatils"]').click({
+      force: isForce,
+    });
+  }
+
+  enterFirstName(firstname) {
+    cy.get('input[id="case_FirstName"]').clear().type(firstname);
+  }
+
+  assertLengthFirstName(number) {
+    cy.get('input[id="case_FirstName"]')
+      .invoke("attr", "size")
+      .should("eq", number.toString());
+  }
+
+  enterLastName(lastname) {
+    cy.get('input[id="case_LastName"]').clear().type(lastname);
+  }
+
+  assertLengthLastName(number) {
+    cy.get('input[id="case_LastName"]')
+      .invoke("attr", "size")
+      .should("eq", number.toString());
+  }
+
+  clickGender() {
+    cy.get('select[id="case_Gender"]').parent().click();
+  }
+
+  isGender(text) {
+    cy.get('select[id="case_Gender"]').contains(text).should("be.visible");
+  }
+
+  isNotGender(text) {
+    cy.get('select[id="case_Gender"]').should("not.contain.text", text);
+  }
+
+  selectGender(option) {
+    cy.get("body").then(($body) => {
+      if ($body.find("a#editpatientdetails").length > 0) {
         this.clickEditPatientDetails();
-        cy.get('select[id="case_Gender"]')
-          .select(option);
+        cy.get('select[id="case_Gender"]').select(option);
         this.clickSavePatientDetails();
         this.clickOkPatientDetails();
       } else {
-        cy.get('select[id="case_Gender"]')
-        .select(option)
+        cy.get('select[id="case_Gender"]').select(option);
       }
     });
   }
 
-  assertGender(option){
-    cy.get('select[id="case_Gender"] [selected="selected"]')
-      .should('be.visible')
+  assertGender(option) {
+    cy.get('select[id="case_Gender"] [selected="selected"]').should(
+      "be.visible"
+    );
   }
 
-  selectLab(option){
-    cy.get('select[id="labcode"]')
-      .select(option)
+  selectLab(option) {
+    cy.get('select[id="labcode"]').select(option);
   }
 
-  isLab(option){
+  isLab(option) {
     cy.get('select[id="labcode"] [selected="selected"]')
       .contains(option)
-      .should('be.visible')
+      .should("be.visible");
   }
 
-  isState(option){
+  isState(option) {
     cy.get('select[id="case_patientstate"] [selected="selected"]')
       .contains(option)
-      .should('be.visible')
+      .should("be.visible");
   }
 
-  isTitle(option){
+  isTitle(option) {
     cy.get('select[id="temptitle"] [selected="selected"]')
       .contains(option)
-      .should('be.visible')
+      .should("be.visible");
   }
 
-  selectGenderM(){
-      cy.get('input[value="m"]')
-        .click()
+  selectGenderM() {
+    cy.get('input[value="m"]').click();
   }
 
-  selectGenderF(){
-      cy.get('input[value="f"]')
-        .click()
+  selectGenderF() {
+    cy.get('input[value="f"]').click();
   }
 
-  enterDOB(DOB){
-      cy.get('input[id="case_DOB"]')
-        .type(DOB)
+  enterDOB(DOB) {
+    cy.get('input[id="case_DOB"]').type(DOB);
   }
 
-  enterHomeAdd(address){
-      cy.get('input[id="case_Address"]')
-        .type(address)
+  enterHomeAdd(address) {
+    cy.get('input[id="case_Address"]').type(address);
   }
 
-  assertLengthAddress(number){
+  assertLengthAddress(number) {
     cy.get('input[id="case_Address"]')
-      .invoke('attr', 'size')
-      .should('eq', number.toString())
+      .invoke("attr", "size")
+      .should("eq", number.toString());
   }
 
-  enterCity(city){
-      cy.get('input[id="case_suburb"]')
-        .type(city)
+  enterCity(city) {
+    cy.get('input[id="case_suburb"]').type(city);
   }
 
-  
-  assertLengthsuburb(number){
+  assertLengthsuburb(number) {
     cy.get('input[id="case_suburb"]')
-      .invoke('attr', 'size')
-      .should('eq', number.toString())
+      .invoke("attr", "size")
+      .should("eq", number.toString());
   }
 
-  selectState(state = 'NSW'){
-      cy.get('select[id="case_patientstate"]')
-        .select(state)
+  selectState(state = "NSW") {
+    cy.get('select[id="case_patientstate"]').select(state);
   }
 
-  isStateVisible(state = 'NSW'){
-      cy.get('#case_patientstate')
-        .contains(state)
-        .should('be.visible')
+  isStateVisible(state = "NSW") {
+    cy.get("#case_patientstate").contains(state).should("be.visible");
   }
 
-  enterPostcode(postcode){
-      cy.get('input[id="case_PostCode"]')
-        .type(postcode)
+  enterPostcode(postcode) {
+    cy.get('input[id="case_PostCode"]').type(postcode);
   }
 
-  enterContact(contact){
-    cy.get('input[id="case_NotificationPhone"]')
-        .type(contact)
+  enterContact(contact) {
+    cy.get('input[id="case_NotificationPhone"]').type(contact);
   }
 
-  enterMedicare(medicare){
-    cy.get('input[id="case_NHS"]')
-      .clear()
-      .type(medicare)
+  enterMedicare(medicare) {
+    cy.get('input[id="case_NHS"]').clear().type(medicare);
   }
 
-  assertMedicare(medicare){
-    cy.get(`input[id="case_NHS"][value="${medicare}"]`)
-      .should('be.visible')
+  assertMedicare(medicare) {
+    cy.get(`input[id="case_NHS"][value="${medicare}"]`).should("be.visible");
   }
 
-  selectBilling(option = 'DVA'){
-    cy.get('select#case_patientfinancial')
-      .select(option)
+  selectBilling(option = "D") {
+    cy.get("select#case_patientfinancial").select(option);
   }
 
-  assertSelectedBilling(option = 'DVA'){
-    cy.get(`select#case_patientfinancial [selected="selected"][value="${option}"]`)
-    .should('be.visible')
+  assertSelectedBilling(option = "D") {
+    cy.get(
+      `select#case_patientfinancial [selected="selected"][value="${option}"]`
+    ).should("be.visible");
   }
 
   isPatientInformedFinancialUncheck() {
-    cy.get('#shownhsprivate #case_patientinformedfinancial')
-    .should('not.checked')
+    cy.get("#shownhsprivate #case_patientinformedfinancial").should(
+      "not.checked"
+    );
   }
-  checkPrivate(isForce = false){
-    cy.get('body').then(($body)=>{
-      if($body.find('#shownhsprivate #case_patientinformedfinancial[checked="checked"]').length !== 1){
-        cy.get('#shownhsprivate #case_patientinformedfinancial')
-        .click({force: isForce})
+  checkPrivate(isForce = false) {
+    cy.get("body").then(($body) => {
+      if (
+        $body.find(
+          '#shownhsprivate #case_patientinformedfinancial[checked="checked"]'
+        ).length !== 1
+      ) {
+        cy.get("#shownhsprivate #case_patientinformedfinancial").click({
+          force: isForce,
+        });
       }
-    })
+    });
   }
 
-  isPrivateChecked(){
-    cy.get('#shownhsprivate #case_patientinformedfinancial')
-      .should('be.checked')
+  isPrivateChecked() {
+    cy.get("#shownhsprivate #case_patientinformedfinancial").should(
+      "be.checked"
+    );
   }
 
-  enterDVANumber(text){
-    cy.get('input#case_dvano')
-      .type(text)
+  enterDVANumber(text) {
+    cy.get("input#case_dvano").type(text);
   }
 
-  assertDVANumber(text){
-    cy.get(`input#case_dvano[value="${text}"]`)
-      .should('be.visible')
+  assertDVANumber(text) {
+    cy.get(`input#case_dvano[value="${text}"]`).should("be.visible");
   }
 
-  saveDraft(isForce = false){
-      cy.get('a[onclick]')
-        .contains('Save draft » ').click({force:isForce});
+  saveDraft(isForce = false) {
+    cy.get("a[onclick]").contains("Save draft » ").click({ force: isForce });
   }
 
-  dblclicksaveDraft(){
-      cy.get('a[onclick]')
-        .contains('Save draft » ')
-        .dblclick()
-        .wait(1000)
+  dblclicksaveDraft() {
+    cy.get("a[onclick]").contains("Save draft » ").dblclick().wait(1000);
   }
-  nextButton(isForce = false){
-      cy.get('.docnav telederm .docnavright')
-        .scrollIntoView()
-        .click({force:isForce});
+  nextButton(isForce = false) {
+    cy.get(".docnav telederm .docnavright")
+      .scrollIntoView()
+      .click({ force: isForce });
   }
-  nextButtonNoScroll(isForce = false){
-      cy.get('#showlinkshownext')
-        .click({force:isForce});
+  nextButtonNoScroll(isForce = false) {
+    cy.get("#showlinkshownext").click({ force: isForce });
   }
-  backButton(isForce = false){
-      cy.wait(1500);
-      cy.get('a.clss-back')
-        .contains('Back').first().click({ force: isForce});
+  backButton(isForce = false) {
+    cy.wait(1500);
+    cy.get("a.clss-back").contains("Back").first().click({ force: isForce });
   }
-  backFromUpload(isForce = false){
-      cy.wait(500);
-      cy.get('[onclick="backupload()"]')
-        .contains('Back').first().click({ force: isForce});
+  backFromUpload(isForce = false) {
+    cy.wait(500);
+    cy.get('[onclick="backupload()"]')
+      .contains("Back")
+      .first()
+      .click({ force: isForce });
   }
 
-  assertTextArea(text){
-    cy.get('textarea')
-    .contains(text)
-    .should('be.visible')
+  assertTextArea(text) {
+    cy.get("textarea").contains(text).should("be.visible");
   }
 
-  assertFirstName(firstname){
-    cy.get('.x-grid3-col-1').first()
-    .contains(firstname)
-    .should('be.visible')
+  assertFirstName(firstname) {
+    cy.get(".x-grid3-col-1").first().contains(firstname).should("be.visible");
   }
 
-  assertLastName(lastname){
-    cy.get('.x-grid3-col-2').first()
-    .contains(lastname)
-    .should('be.visible')
+  assertLastName(lastname) {
+    cy.get(".x-grid3-col-2").first().contains(lastname).should("be.visible");
   }
 
-  isReviewCase(status){
-    cy.get('.x-grid3-col-4').first()
-    .contains(status)
-    .should('be.visible')
+  isReviewCase(status) {
+    cy.get(".x-grid3-col-4").first().contains(status).should("be.visible");
   }
   //Clinical Condition
-  addBodyMap(){
-    cy.get('a[id="goodlink"]')
-      .click()
+  addBodyMap() {
+    cy.get('a[id="goodlink"]').click();
   }
 
-  clickEditBodyMap(){
-    this.clickHrefByText('Edit body map and location', true)
+  clickEditBodyMap() {
+    this.clickHrefByText("Edit body map and location", true);
   }
 
-  noPreviousHistory(){
-      cy.get('input[id="important_1"]')
-        .click()
+  noPreviousHistory() {
+    cy.get('input[id="important_1"]').click();
   }
 
-  previousHistory(){
-      cy.get('input[id="important_17"]')
-        .click()
+  previousHistory() {
+    cy.get('input[id="important_17"]').click();
   }
-  provisionalDiagnosis(text = 'IEC (IEC/SCCis/Bowens)'){
+  provisionalDiagnosis(text = "IEC (IEC/SCCis/Bowens)") {
     cy.get('select[id *= "ProvisionalDiagnosis"]')
-      .should('be.visible')
-      .select(text)
+      .should("be.visible")
+      .select(text);
   }
-  excludeMelasma(){
-    cy.get('[id="ExcludeMelanoma_1"]')
-      .click()
+  excludeMelasma() {
+    cy.get('[id="ExcludeMelanoma_1"]').click();
   }
-  excludeNmsc(){
-    cy.get('[id="ExcludeNMSC_1"]')
-      .click()
+  excludeNmsc() {
+    cy.get('[id="ExcludeNMSC_1"]').click();
   }
-  selectBiopsyType(){
-    cy.get('select[id="BiopsyType"]')
-      .select('O (Other)')
+  selectBiopsyType() {
+    cy.get('select[id="BiopsyType"]').select("O (Other)");
   }
-  clickImage(){
-    cy.get('img[id="showimaged"]').first()
-      .click()
+  clickImage() {
+    cy.get('img[id="showimaged"]').first().click();
   }
-  clickRIghtHand(){
-      cy.get('div[style="top: 389px; left: 534px;"]')
-        .click()
+  clickRIghtHand() {
+    cy.get('div[style="top: 389px; left: 534px;"]').click();
   }
 
-  selectBodyRegion(text = 'Neck', isForce = true){
-      cy.get('#body_layout_form select#BodyMapRegion')
+  selectBodyRegion(text = "Neck", isForce = true) {
+    cy.get("#body_layout_form select#BodyMapRegion")
       .eq(0)
-      .select(text, {force: isForce})
+      .select(text, { force: isForce });
   }
 
-  enterClinicalNote(text="test notes"){
-      cy.get('textarea[id="important_16"]')
-        .clear()
-        .type(text)
+  enterClinicalNote(text = "test notes") {
+    cy.get('textarea[id="important_16"]').clear().type(text);
   }
 
-  enterSpecimenLocation(text = 'automation text'){
-      cy.get('textarea[id="specimenLocation"]')
-        .clear()
-        .type(text)
+  enterSpecimenLocation(text = "automation text") {
+    cy.get('textarea[id="specimenLocation"]').clear().type(text);
   }
 
-  assertLengthSpecimenLocation(number){
+  assertLengthSpecimenLocation(number) {
     cy.get('textarea[id="specimenLocation"]')
-      .invoke('attr', 'maxlength')
-      .should('eq', number.toString())
+      .invoke("attr", "maxlength")
+      .should("eq", number.toString());
   }
 
-  enterOtherTitle(text){
-      cy.get('#showtitle input')
-        .clear()
-        .type(text)
+  enterOtherTitle(text) {
+    cy.get("#showtitle input").clear().type(text);
   }
 
-  assertMaxLengthOtherTitle(number){
-      cy.get('#showtitle input')
-        .invoke('attr', 'maxlength')
-        .should('eq', number)
+  assertMaxLengthOtherTitle(number) {
+    cy.get("#showtitle input").invoke("attr", "maxlength").should("eq", number);
   }
 
-  saveBodyMap(){
-      cy.get('button[id="uploadbodylayoutupdate"]')
-        .click()
+  saveBodyMap() {
+    cy.get('button[id="uploadbodylayoutupdate"]').click();
   }
 
-  dblclickSaveBodyMap(){
-      cy.get('button[id="uploadbodylayoutupdate"]')
-        .dblclick()
+  dblclickSaveBodyMap() {
+    cy.get('button[id="uploadbodylayoutupdate"]').dblclick();
   }
 
   //Upload Dermascopic Images
-  uploadImage(name = '1.jpg'){
-      cy.get('input[type="file"]')
-        .attachFile(name)
+  uploadImage(name = "1.jpg") {
+    cy.get('input[type="file"]').attachFile(name);
   }
 
-  uploadMultiImages(number){
-    const imageArr = []
-    for(let i = 1; i< number+1; i++){
-     imageArr.push(`${i}.jpg`)
+  uploadMultiImages(number) {
+    const imageArr = [];
+    for (let i = 1; i < number + 1; i++) {
+      imageArr.push(`${i}.jpg`);
     }
-    cy.get('input[type="file"]')
-    .attachFile(imageArr)
-    .wait(2000)
-    this.startUpload();  
+    cy.get('input[type="file"]').attachFile(imageArr).wait(2000);
+    this.startUpload();
   }
 
-  
-  uploadMultiImagesV2(name, number = 4){
-    const imageArr = []
-    for(let i = 1; i< number+1; i++){
-     imageArr.push(name)
-     cy.wait(200)
+  uploadMultiImagesV2(name, number = 4) {
+    const imageArr = [];
+    for (let i = 1; i < number + 1; i++) {
+      imageArr.push(name);
+      cy.wait(200);
     }
-    cy.get('input[type="file"]')
-    .attachFile(imageArr)
-    .wait(2000)
-    this.assertText('Remove');
-    cy.get('body').find('.template-upload.fade.in').then(($list) => {
-      if($list.length !== number) {
-        cy.log('Wait for image fade in')
-        cy.wait(3000);
-      }
-    })
-    this.startUpload();  
+    cy.get('input[type="file"]').attachFile(imageArr).wait(2000);
+    this.assertText("Remove");
+    cy.get("body")
+      .find(".template-upload.fade.in")
+      .then(($list) => {
+        if ($list.length !== number) {
+          cy.log("Wait for image fade in");
+          cy.wait(3000);
+        }
+      });
+    this.startUpload();
   }
 
-  uploadMultiInvalidImages(number){
-    const imageArr = []
-    for(let i = 1; i< number+1; i++){
-     imageArr.push(`${i}.png`)
+  uploadMultiInvalidImages(number) {
+    const imageArr = [];
+    for (let i = 1; i < number + 1; i++) {
+      imageArr.push(`${i}.png`);
     }
-    cy.get('input[type="file"]')
-    .attachFile(imageArr)
-    .wait(500)
-    this.startUpload();  
+    cy.get('input[type="file"]').attachFile(imageArr).wait(500);
+    this.startUpload();
   }
-  
 
-  uploadAdditionalImages(number=1){
-    cy.url(url => {
+  uploadAdditionalImages(number = 1) {
+    cy.url((url) => {
       // Get window object
       cy.window().then((win) => {
-        cy.stub(win, 'open', newUrl => {
-           // change window location to be same as the popup url
+        cy.stub(win, "open", (newUrl) => {
+          // change window location to be same as the popup url
           win.location.href = Cypress.config().baseUrl + newUrl;
-        }).as('windowOpen') 
+        }).as("windowOpen");
       });
 
-      this.clickHrefByText('Add additional images')
+      this.clickHrefByText("Add additional images");
 
-      cy.get('@windowOpen').should('be.called')
+      cy.get("@windowOpen").should("be.called");
       cy.window().then((win) => {
-        cy.stub(win, 'open', newUrl => {
+        cy.stub(win, "open", (newUrl) => {
           win.location.href = Cypress.config().baseUrl + newUrl;
-        }).as('windowOpen') 
+        }).as("windowOpen");
       });
       cy.wait(2000);
       this.uploadMultiImages(number);
@@ -504,107 +444,110 @@ export class DashboardActions extends CommonActions
     });
   }
 
-  isProgressBarDisappear(time = 90000){
-    cy.get('body').find('.fileupload-progress', { timeout: time }).last().should('not.be.visible')
+  isProgressBarDisappear(time = 90000) {
+    cy.get("body")
+      .find(".fileupload-progress", { timeout: time })
+      .last()
+      .should("not.be.visible");
   }
 
-  startUpload(isForce=true){
-    cy.get('[id="btn-start-upload"][type="submit"]')
-      .click({force:isForce})
+  startUpload(isForce = true) {
+    cy.get('[id="btn-start-upload"][type="submit"]').click({ force: isForce });
   }
 
-  isImageUploadedSuccessfully(time = 90000){
-    cy.get('td[class="preview"]', { timeout: time })
-      .should('be.visible')
+  isImageUploadedSuccessfully(time = 90000) {
+    cy.get('td[class="preview"]', { timeout: time }).should("be.visible");
   }
 
-  nextButtonUploadImg(time = 60000, isForce = false){
-    cy.wait('@POST_saveImage', { timeout: time })
-    cy.get('#uploadimage .txt-header').click()
+  nextButtonUploadImg(time = 60000, isForce = false) {
+    cy.wait("@POST_saveImage", { timeout: time });
+    cy.get("#uploadimage .txt-header").click();
     cy.get(this.nextInUploadImage, { timeout: time })
       .last()
-      .contains('Next » ')
-      .click({force: isForce})
-      .wait(5000)
-  }
- 
-  //Case Summary
-  addAnotherLesion(){
-    cy.get('a[href]')
-      .contains('Add another lesion').first().click()
-  }
-  caseSummary(){
-    cy.get('a[class="addlesion"]')
-      .contains('Request summary >>').click()
-  }
-  
-  clickSubmitOnly(){
-    this.assertText('Submit request & print »');
-    cy
-      .get('a.submit1')
-      .contains('Submit request & print »').click()
+      .contains("Next » ")
+      .click({ force: isForce })
+      .wait(5000);
   }
 
-  clickCancelSubmit(){
+  //Case Summary
+  addAnotherLesion() {
+    cy.get("a[href]").contains("Add another lesion").first().click();
+  }
+  caseSummary() {
+    cy.get('a[class="addlesion"]').contains("Request summary >>").click();
+  }
+
+  clickSubmitOnly() {
+    this.assertText("Submit request & print »");
+    cy.get("a.submit1").contains("Submit request & print »").click();
+  }
+
+  clickCancelSubmit() {
     cy.get('[onclick="cloeasemodelreviews()"]').click();
   }
 
-  clickContinueSubmit(){
+  clickContinueSubmit() {
     cy.get('[onclick="continuemodelreviews()"]').click();
   }
 
-  submitCasePrint(){
-    this.assertText('Submit request & print »');
-    cy
-      .get('a.submit1')
-      .contains('Submit request & print »').click()
-      .get('#ex1review2 [onclick="continuemodelreviews()"]').click();
+  submitCasePrint() {
+    this.assertText("Submit request & print »");
+    cy.get("a.submit1")
+      .contains("Submit request & print »")
+      .click()
+      .get('#ex1review2 [onclick="continuemodelreviews()"]')
+      .click();
   }
-  returnToDashboard(isForce = true){
+  returnToDashboard(isForce = true) {
     cy.get('a[href*="/cases/dashboard"]')
       .first()
       .scrollIntoView()
-      .click({force:isForce})
+      .click({ force: isForce });
   }
   waitForReviewCase(round = 1) {
-    for(let i =0; i<round; i++){
-      cy.get(".x-grid3-td-4[tabindex='0']").first().then(($col) => {
-        if($col.find('[href *="/cases/tdgp_viewdetails_submit/"]').length < 1) {
-          cy.wait(10000);
-          cy.reload();
-        }
-      })
+    for (let i = 0; i < round; i++) {
+      cy.get(".x-grid3-td-4[tabindex='0']")
+        .first()
+        .then(($col) => {
+          if (
+            $col.find('[href *="/cases/tdgp_viewdetails_submit/"]').length < 1
+          ) {
+            cy.wait(10000);
+            cy.reload();
+          }
+        });
     }
   }
 
-  isUploadSuccesfully(index, timeOut = 20000){
+  isUploadSuccesfully(index, timeOut = 20000) {
     cy.reload();
     cy.wait(2000);
-    cy.get('td.x-grid3-td-4').eq(1).invoke('text')
-    .then((text) => {
-        if(text.indexOf('Review Case') >= 0) {
+    cy.get("td.x-grid3-td-4")
+      .eq(1)
+      .invoke("text")
+      .then((text) => {
+        if (text.indexOf("Review Case") >= 0) {
           cy.get(".x-grid3-cell-last[tabindex='0']")
-          .eq(index).invoke('text')
-          .then((txt) => {
-            if(txt.indexOf('Uploading') >= 0){
-              cy.log('Uploading status, waiting...')
-              .wait(5000)
-              .reload();
-            }
-          });
+            .eq(index)
+            .invoke("text")
+            .then((txt) => {
+              if (txt.indexOf("Uploading") >= 0) {
+                cy.log("Uploading status, waiting...").wait(5000).reload();
+              }
+            });
           cy.get(".x-grid3-cell-last[tabindex='0']")
-          .eq(index)
-          .should('have.text', 'Successful')
+            .eq(index)
+            .should("have.text", "Successful");
         } else {
           cy.wait(timeOut);
           cy.reload();
           // Successful
-          this.waitForReviewCase(10)
+          this.waitForReviewCase(10);
           cy.get(".x-grid3-cell-last[tabindex='0']")
-          .eq(index)
-          .should('have.text', 'Successful')
+            .eq(index)
+            .should("have.text", "Successful");
         }
-    });
+      });
   }
 
   // Summary add lesion
@@ -624,13 +567,13 @@ export class DashboardActions extends CommonActions
     this.saveBodyMap();
 
     //Upload Dermascopic Images
-    this.assertHeader('Upload ');
+    this.assertHeader("Upload ");
     this.uploadImage();
     cy.wait(500);
-    this.assertText('Remove');
+    this.assertText("Remove");
     this.startUpload();
     this.isImageUploadedSuccessfully();
-    this.assertFile('1.jpg')
+    this.assertFile("1.jpg");
     this.nextButtonUploadImg(30000, true);
   }
 
@@ -650,11 +593,11 @@ export class DashboardActions extends CommonActions
     this.saveBodyMap();
 
     //Upload Dermascopic Images
-    this.assertHeader('Upload ');
-    this.clickHrefByText('Continue with no images');
+    this.assertHeader("Upload ");
+    this.clickHrefByText("Continue with no images");
   }
 
-  addALesionNoImageSelectBodyMap(text = 'Neck') {
+  addALesionNoImageSelectBodyMap(text = "Neck") {
     //Clinical Condition
     this.noPreviousHistory();
     this.provisionalDiagnosis();
@@ -670,33 +613,34 @@ export class DashboardActions extends CommonActions
     this.saveBodyMap();
 
     //Upload Dermascopic Images
-    this.assertHeader('Upload ');
-    this.clickHrefByText('Continue with no images');
+    this.assertHeader("Upload ");
+    this.clickHrefByText("Continue with no images");
   }
 
   addMuiltiPathologyRequestNoImagesBySelectRegion() {
     this.selectClinicOptionByName();
     this.clickOkSelectClinic();
     const regions = user.regionsBodyMap;
-    for(let i=20; i<regions.length; i++){
+    for (let i = 20; i < regions.length; i++) {
       let name = regions[i];
-      if(regions[i].indexOf('(') > 0){
-        const temp = regions[i].split('(');
-        name= temp[0].trim();
+      if (regions[i].indexOf("(") > 0) {
+        const temp = regions[i].split("(");
+        name = temp[0].trim();
       }
       const firstname = `Submit-${this.randomAlpha(5)}`;
       const lastname = `${name}`;
       this.clickAddNewLesion();
-      this.selectTitle('Mrs');
+      this.selectTitle("Mrs");
       this.enterFirstName(firstname);
       this.enterLastName(lastname);
-      this.selectGender('Unknown');
+      this.selectGender("Unknown");
       this.enterDOB(user.DOB);
       this.enterHomeAdd(user.address);
       this.enterCity(user.city);
       this.selectState();
       this.enterPostcode(user.postcode);
       this.enterContact(user.contact);
+      this.selectBilling();
       this.enterMedicare(user.medicare);
       this.nextButton();
 
@@ -710,19 +654,19 @@ export class DashboardActions extends CommonActions
       this.addBodyMap();
       this.clickImage();
       this.selectBodyRegion();
-      this.enterSpecimenLocation(name)
-      this.assertHeader('Body map');    
-   
-      this.selectBodyRegion(regions[i], false)
+      this.enterSpecimenLocation(name);
+      this.assertHeader("Body map");
+
+      this.selectBodyRegion(regions[i], false);
       this.saveBodyMap();
       //Upload Dermascopic Images
-      this.assertHeader('Upload ');
-      this.clickHrefByText('Continue with no images');
-        //Case Summary
+      this.assertHeader("Upload ");
+      this.clickHrefByText("Continue with no images");
+      //Case Summary
       this.caseSummary();
       this.submitCasePrint();
       this.returnToDashboard();
-    } 
+    }
   }
 
   addALesionByInvalidImages(number = 2, invalidImageNumber = 4) {
@@ -741,45 +685,45 @@ export class DashboardActions extends CommonActions
     this.saveBodyMap();
 
     //Upload Dermascopic Images
-    if(number === 0){
-      this.assertHeader('Upload');
+    if (number === 0) {
+      this.assertHeader("Upload");
       cy.wait(500);
       this.uploadMultiInvalidImages(invalidImageNumber);
-      this.assertText('Remove');
-      this.clickHrefByText('Continue with no images');
-    } else if(number !== 4){
-      this.assertHeader('Upload ');
+      this.assertText("Remove");
+      this.clickHrefByText("Continue with no images");
+    } else if (number !== 4) {
+      this.assertHeader("Upload ");
       this.uploadMultiImages(number);
       cy.wait(500);
-      this.assertText('Remove');
+      this.assertText("Remove");
       this.startUpload();
       this.isProgressBarDisappear();
       this.isImageUploadedSuccessfully();
       this.uploadMultiInvalidImages(invalidImageNumber);
       cy.wait(500);
-      this.assertText('Remove');
+      this.assertText("Remove");
       this.nextButtonUploadImg(30000, true);
-     } else {
-        this.assertHeader('Upload ');
-        this.uploadMultiImages(number-1);
-        cy.wait(500);
-        this.assertText('Remove');
-        this.startUpload();
-        this.isProgressBarDisappear();
-        this.isImageUploadedSuccessfully();
-        this.uploadMultiInvalidImages(invalidImageNumber);
-        cy.wait(500);
-        // upload 1 image
-        this.assertText('Remove');
-        this.assertHeader('Upload ');
-        this.uploadMultiImages(1);
-        cy.wait(500);
-        this.assertText('Remove');
-        this.startUpload();
-        this.isProgressBarDisappear();
-        this.isImageUploadedSuccessfully();
-        this.nextButtonUploadImg(30000, true);
-      }
+    } else {
+      this.assertHeader("Upload ");
+      this.uploadMultiImages(number - 1);
+      cy.wait(500);
+      this.assertText("Remove");
+      this.startUpload();
+      this.isProgressBarDisappear();
+      this.isImageUploadedSuccessfully();
+      this.uploadMultiInvalidImages(invalidImageNumber);
+      cy.wait(500);
+      // upload 1 image
+      this.assertText("Remove");
+      this.assertHeader("Upload ");
+      this.uploadMultiImages(1);
+      cy.wait(500);
+      this.assertText("Remove");
+      this.startUpload();
+      this.isProgressBarDisappear();
+      this.isImageUploadedSuccessfully();
+      this.nextButtonUploadImg(30000, true);
+    }
   }
 
   addALesionByNumberImages(number = 4) {
@@ -798,10 +742,10 @@ export class DashboardActions extends CommonActions
     this.saveBodyMap();
 
     //Upload Dermascopic Images
-    this.assertHeader('Upload ');
+    this.assertHeader("Upload ");
     this.uploadMultiImages(number);
     cy.wait(500);
-    this.assertText('Remove');
+    this.assertText("Remove");
     this.startUpload();
     this.isProgressBarDisappear();
     this.isImageUploadedSuccessfully();
@@ -824,11 +768,11 @@ export class DashboardActions extends CommonActions
     this.saveBodyMap();
 
     //Upload Dermascopic Images
-    for(let i = 1; i<=number; i++){
-      this.assertHeader('Upload ');
-      this.uploadImage('4 MB.jpg');
-      this.assertHeader('Upload ');
-      this.assertText('Remove');
+    for (let i = 1; i <= number; i++) {
+      this.assertHeader("Upload ");
+      this.uploadImage("4 MB.jpg");
+      this.assertHeader("Upload ");
+      this.assertText("Remove");
       cy.wait(500);
       this.startUpload();
       this.isProgressBarDisappear(90000);
@@ -853,31 +797,31 @@ export class DashboardActions extends CommonActions
     this.saveBodyMap();
 
     //Upload Dermascopic Images
-    this.assertHeader('Upload ');
-    this.uploadImage('15.jpg');
-    this.assertHeader('Upload ');
-    this.assertText('Remove');
+    this.assertHeader("Upload ");
+    this.uploadImage("15.jpg");
+    this.assertHeader("Upload ");
+    this.assertText("Remove");
     cy.wait(500);
     this.startUpload();
 
-    this.assertHeader('Upload ');
-    this.uploadImage('1.jpg');
-    this.assertHeader('Upload ');
-    this.assertText('Remove');
+    this.assertHeader("Upload ");
+    this.uploadImage("1.jpg");
+    this.assertHeader("Upload ");
+    this.assertText("Remove");
     cy.wait(500);
     this.startUpload();
 
-    this.assertHeader('Upload ');
-    this.uploadImage('2.jpg');
-    this.assertHeader('Upload ');
-    this.assertText('Remove');
+    this.assertHeader("Upload ");
+    this.uploadImage("2.jpg");
+    this.assertHeader("Upload ");
+    this.assertText("Remove");
     cy.wait(500);
     this.startUpload();
 
-    this.assertHeader('Upload ');
-    this.uploadImage('3.jpg');
-    this.assertHeader('Upload ');
-    this.assertText('Remove');
+    this.assertHeader("Upload ");
+    this.uploadImage("3.jpg");
+    this.assertHeader("Upload ");
+    this.assertText("Remove");
     cy.wait(500);
     this.startUpload();
 
@@ -887,8 +831,8 @@ export class DashboardActions extends CommonActions
   }
 
   assertAllLabNextAndBack() {
-    for(const index in user.lab){
-      this.selectLab(user.lab[index])
+    for (const index in user.lab) {
+      this.selectLab(user.lab[index]);
       this.nextButton();
       this.noPreviousHistory();
       this.backButton();
@@ -896,559 +840,508 @@ export class DashboardActions extends CommonActions
     }
   }
 
-  isPatientDetails(txt = 'Patient details') {
-    cy.get('.bgbox-left .txt-header')
-    .eq(1)
-    .contains(txt)
-    .should('be.visible')
+  isPatientDetails(txt = "Patient details") {
+    cy.get(".bgbox-left .txt-header").eq(1).contains(txt).should("be.visible");
   }
 
   assertAllLabSaveAndDraft(name) {
-    for(const index in user.lab){
-      this.selectLab(user.lab[index])
-      this.clickButtonByText('Save');
+    for (const index in user.lab) {
+      this.selectLab(user.lab[index]);
+      this.clickButtonByText("Save");
       this.clickPathologyRequestByFirstName(name);
       this.isLab(user.lab[index]);
     }
   }
 
   assertAllStateSaveAndDraft(name) {
-    for(const index in user.state){
+    for (const index in user.state) {
       this.clickEditPatientDetails();
       this.selectState(user.state[index]);
       this.clickSavePatientDetails();
       this.clickOkPatientDetails();
-      this.clickButtonByText('Save');
+      this.clickButtonByText("Save");
       this.clickPathologyRequestByFirstName(name);
       this.isState(user.state[index]);
     }
   }
 
   compareDOB(DOB) {
-   cy.get('input[id="case_DOB"]')
-   .invoke('attr','value')
-   .should('eq',DOB)
+    cy.get('input[id="case_DOB"]').invoke("attr", "value").should("eq", DOB);
   }
 
   assertNoPreviousHistologyChecked() {
-   cy.get('[id="important_1"][checked="checked"]')
-   .should('be.visible')
+    cy.get('[id="important_1"][checked="checked"]').should("be.visible");
   }
 
   scrollToLesion(text) {
-   cy.get('h3>span').contains(text).scrollIntoView();
+    cy.get("h3>span").contains(text).scrollIntoView();
   }
 
   assertAllValidMessage() {
-   for(const message of user.validMessage){
-     this.assertText(message);
-   }
+    for (const message of user.validMessage) {
+      this.assertText(message);
+    }
   }
 
   assertTitleTop(text) {
-    cy.get('.txt-titile-top').contains(text).should('be.visible');
+    cy.get(".txt-titile-top").contains(text).should("be.visible");
   }
 
   assertTitleTxt(text) {
-    cy.get('.title-txt').contains(text).should('be.visible');
+    cy.get(".title-txt").contains(text).should("be.visible");
   }
-  
+
   assertHeader(text) {
-    cy.get('.txt-header').contains(text).should('be.visible');
+    cy.get(".txt-header").contains(text).should("be.visible");
   }
 
   isOrBetweenBiopsyTypeAndSurgicalManagement() {
-    cy.get('select#BiopsyType').parent().contains('Or').should('be.visible');
+    cy.get("select#BiopsyType").parent().contains("Or").should("be.visible");
   }
 
   assertUploadImagesDescription(text) {
-    cy.get('.row.fileupload-buttonbar').contains(text).should('be.visible');
+    cy.get(".row.fileupload-buttonbar").contains(text).should("be.visible");
   }
 
   isTheOrderOnlyOne(name) {
-    cy.get('.x-grid3-td-1')
-    .find('.x-grid3-col-1')
-    .contains(name)
-    .should('have.length',1);
+    cy.get(".x-grid3-td-1")
+      .find(".x-grid3-col-1")
+      .contains(name)
+      .should("have.length", 1);
   }
 
   clickBackToBody() {
-    cy.get('telederm#showlinkuploadback')
-    .should('be.visible')
-    .click()
+    cy.get("telederm#showlinkuploadback").should("be.visible").click();
   }
 
   clickBackToUploadImage() {
-    cy.get('#backtoupload')
-    .should('be.visible')
-    .click()
+    cy.get("#backtoupload").should("be.visible").click();
   }
 
   clickDeleteImage(number = 1) {
-    cy.get('.delete>button')
-    .eq(--number)
-    .should('be.visible')
-    .click()
+    cy.get(".delete>button").eq(--number).should("be.visible").click();
   }
 
   clickBackButtonOfUploadImageInLessionDetails() {
-    cy.get('div#menu_bottom_lession a#backtoupload')
-    .click()
+    cy.get("div#menu_bottom_lession a#backtoupload").click();
   }
 
   isBackButtonOfUploadImageInLessionDetails() {
-    cy.get('div#menu_bottom_lession')
-    .should('be.visible')
+    cy.get("div#menu_bottom_lession").should("be.visible");
   }
 
   isBackButtonOfUploadImage() {
-    cy.get('#showlinkuploadback .docnavleft2')
-    .should('be.visible')
+    cy.get("#showlinkuploadback .docnavleft2").should("be.visible");
   }
 
   isNextButtonOfUploadImage() {
-    cy.get(this.nextInUploadImage)
-    .should('be.visible')
+    cy.get(this.nextInUploadImage).should("be.visible");
   }
 
   isPreviousHistologyChecked() {
-    cy.get('label')
-    .contains('Previous histology')
-    .prev()
-    .should('be.checked')
+    cy.get("label").contains("Previous histology").prev().should("be.checked");
   }
 
   assertNoExcludemelanomaByLesion() {
     cy.get('[id^="ExcludeMelanoma"]')
-    .eq(1)
-    .should('be.disabled')
-    .should('be.checked')
+      .eq(1)
+      .should("be.disabled")
+      .should("be.checked");
   }
 
   assertNoExcludeNMSCByLesion() {
     cy.get('[id^="ExcludeMelanoma"]')
-    .eq(1)
-    .should('be.disabled')
-    .should('be.checked')
+      .eq(1)
+      .should("be.disabled")
+      .should("be.checked");
   }
 
   assertNoDermoscopyPerformedByLesion() {
     cy.get('[id^="DermoscopyPerformed"]')
-    .eq(1)
-    .should('be.disabled')
-    .should('be.checked')
+      .eq(1)
+      .should("be.disabled")
+      .should("be.checked");
   }
 
   assertProvisionalDiagnosis(number = 1) {
-    cy.get('[id^="ProvisionalDiagnosis"]')
-    .eq(--number)
-    .should('be.disabled')
+    cy.get('[id^="ProvisionalDiagnosis"]').eq(--number).should("be.disabled");
   }
 
-  assertAddress(maxLength = '100') {
-    cy.get('#user_Address')
-    .invoke('attr', 'maxlength')
-    .should('eq', maxLength)
+  assertAddress(maxLength = "100") {
+    cy.get("#user_Address").invoke("attr", "maxlength").should("eq", maxLength);
   }
 
-  isStateDropdownVisible(){
-    cy.get('select#user_State2')
-    .should('be.visible')
+  isStateDropdownVisible() {
+    cy.get("select#user_State2").should("be.visible");
   }
 
-  selectStateAccount(state = 'TAS'){
-    cy.get('select#user_State2')
-    .select(state);
+  selectStateAccount(state = "TAS") {
+    cy.get("select#user_State2").select(state);
   }
 
-  selectAndAssertEditedRegion(){
+  selectAndAssertEditedRegion() {
     this.clickEditBodyMap(true);
-    this.assertHeader('Body map');
+    this.assertHeader("Body map");
 
-    cy.get('#body_layout_form select#BodyMapRegion option')
-    .then(($options) => {
+    cy.get("#body_layout_form select#BodyMapRegion option").then(($options) => {
       // get the text of each option
-      const regions =  Cypress._.map($options, ($option) => $option.innerText)
-      cy.log(regions.toLocaleString())
-      for(let i=1; i<regions.length; i++){
-        const randomID = Math.floor(Math.random() * (regions.length - 1)) + 1
-        if(regions[randomID].indexOf('(') > 0){
-          const temp = regions[randomID].split('(');
+      const regions = Cypress._.map($options, ($option) => $option.innerText);
+      cy.log(regions.toLocaleString());
+      for (let i = 1; i < regions.length; i++) {
+        const randomID = Math.floor(Math.random() * (regions.length - 1)) + 1;
+        if (regions[randomID].indexOf("(") > 0) {
+          const temp = regions[randomID].split("(");
           regions[randomID] = temp[0].trim();
         }
-        this.selectBodyRegion(regions[randomID], false)
+        this.selectBodyRegion(regions[randomID], false);
         this.saveBodyMap();
-        this.assertText('Body map is updating, please wait.')
-        this.assertNoText('Body map is updating, please wait.')
-        this.assertTitleTop('Confirm request details')
-        cy.get('a[href]').contains('Edit body map and location').scrollIntoView();
-        this.assertText(regions[randomID])
-        if(i<regions.length - 1) {
+        this.assertText("Body map is updating, please wait.");
+        this.assertNoText("Body map is updating, please wait.");
+        this.assertTitleTop("Confirm request details");
+        cy.get("a[href]")
+          .contains("Edit body map and location")
+          .scrollIntoView();
+        this.assertText(regions[randomID]);
+        if (i < regions.length - 1) {
           this.clickEditBodyMap(true);
-          this.assertHeader('Body map');
+          this.assertHeader("Body map");
         }
         break;
-      }  
-    })
-     
+      }
+    });
   }
 
   selectAndAssertEditedProvisionalDiagnosis(firstname) {
-    cy.get('select[id *= ProvisionalDiagnosis] option')
-    .then(($options) => {
+    cy.get("select[id *= ProvisionalDiagnosis] option").then(($options) => {
       // get the text of each option
-      const pds =  Cypress._.map($options, ($option) => $option.innerText)
-      const randomID = Math.floor(Math.random() * (pds.length - 1)) + 1
-     
+      const pds = Cypress._.map($options, ($option) => $option.innerText);
+      const randomID = Math.floor(Math.random() * (pds.length - 1)) + 1;
+
       const tmpText = pds[randomID].trim();
-      this.assertTitleTop('Confirm request details');
-      this.assertText('Lesion 1');
-      cy.get('.txt-header').contains('Clinical indication').scrollIntoView();
-      this.assertText('Provisional diagnosis:')
-      this.provisionalDiagnosis(tmpText, false)
-      this.assertText(tmpText)
-      this.clickHrefByText('Save update')
-      this.assertTitleTop('Dashboard')
-      this.assertFirstName(firstname)
-      this.isReviewCase('Draft')
-      this.clickPathologyRequestByFirstName(firstname);
-      this.assertTitleTop('Confirm request details');
-      this.assertText('Lesion 1');
-      cy.get('.txt-header').contains('Clinical indication').scrollIntoView();
-      this.assertText('Provisional diagnosis:');
+      this.assertTitleTop("Confirm request details");
+      this.assertText("Lesion 1");
+      cy.get(".txt-header").contains("Clinical indication").scrollIntoView();
+      this.assertText("Provisional diagnosis:");
+      this.provisionalDiagnosis(tmpText, false);
       this.assertText(tmpText);
-    });      
+      this.clickHrefByText("Save update");
+      this.assertTitleTop("Dashboard");
+      this.assertFirstName(firstname);
+      this.isReviewCase("Draft");
+      this.clickPathologyRequestByFirstName(firstname);
+      this.assertTitleTop("Confirm request details");
+      this.assertText("Lesion 1");
+      cy.get(".txt-header").contains("Clinical indication").scrollIntoView();
+      this.assertText("Provisional diagnosis:");
+      this.assertText(tmpText);
+    });
   }
 
   selectClinicOptionByName(name, isTrue = false) {
-    cy.get('#ex2').should('be.visible')
-    if(typeof(name)!= 'string' || name === null)
-    {
-      cy.get('.jquery-modal #id_set_default > option')
+    cy.get("#ex2").should("be.visible");
+    if (typeof name != "string" || name === null) {
+      cy.get(".jquery-modal #id_set_default > option")
         .eq(1)
-        .then(element => cy.get('#id_set_default').select(element.val(), {force: isTrue}))
+        .then((element) =>
+          cy.get("#id_set_default").select(element.val(), { force: isTrue })
+        );
     } else {
-      cy.get("#id_set_default")
-      .select(name, {force: isTrue});
+      cy.get("#id_set_default").select(name, { force: isTrue });
     }
   }
 
   clickOkSelectClinic(isForce = true, timeOut = 2000) {
-    setupRoutes()
-    cy.get('#ex2').should('be.visible')
-    cy.get('body').then(($body) => {
-      if($body.find(this.okClinicButton).length > 0){
-        cy.get(this.okClinicButton)
-        .focus()
-        .click({force: isForce});
-      }else {
-        cy.log('Clinic modal does not appears');
+    setupRoutes();
+    cy.get("#ex2").should("be.visible");
+    cy.get("body").then(($body) => {
+      if ($body.find(this.okClinicButton).length > 0) {
+        cy.get(this.okClinicButton).focus().click({ force: isForce });
+      } else {
+        cy.log("Clinic modal does not appears");
       }
     });
-    cy.wait('@POST_getCaseXml')
+    cy.wait("@POST_getCaseXml");
   }
 
   selectTitleCopy1ByIndex(index = 1, isTrue) {
-      const titleLocator = '#case_doctor1title'
-      cy.get(`${titleLocator} > option`)
-        .eq(index)
-        .then(element => cy.get(`${titleLocator}`).select(element.val(), {force: isTrue}))
+    const titleLocator = "#case_doctor1title";
+    cy.get(`${titleLocator} > option`)
+      .eq(index)
+      .then((element) =>
+        cy.get(`${titleLocator}`).select(element.val(), { force: isTrue })
+      );
   }
 
   selectTitleCopy2ByIndex(index = 1, isTrue) {
-      const titleLocator = '#case_doctor2title'
-      cy.get(`${titleLocator} > option`)
-        .eq(index)
-        .then(element => cy.get(`${titleLocator}`).select(element.val(), {force: isTrue}))
+    const titleLocator = "#case_doctor2title";
+    cy.get(`${titleLocator} > option`)
+      .eq(index)
+      .then((element) =>
+        cy.get(`${titleLocator}`).select(element.val(), { force: isTrue })
+      );
   }
 
   selectTitleCopy3ByIndex(index = 1, isTrue) {
-      const titleLocator = '#case_doctor3title'
-      cy.get(`${titleLocator} > option`)
-        .eq(index)
-        .then(element => cy.get(`${titleLocator}`).select(element.val(), {force: isTrue}))
+    const titleLocator = "#case_doctor3title";
+    cy.get(`${titleLocator} > option`)
+      .eq(index)
+      .then((element) =>
+        cy.get(`${titleLocator}`).select(element.val(), { force: isTrue })
+      );
   }
 
   selectTitleCopy4ByIndex(index = 1, isTrue) {
-      const titleLocator = '#case_doctor4title'
-      cy.get(`${titleLocator} > option`)
-        .eq(index)
-        .then(element => cy.get(`${titleLocator}`).select(element.val(), {force: isTrue}))
+    const titleLocator = "#case_doctor4title";
+    cy.get(`${titleLocator} > option`)
+      .eq(index)
+      .then((element) =>
+        cy.get(`${titleLocator}`).select(element.val(), { force: isTrue })
+      );
   }
 
-  assertLengthFirstNameCopy1(number){
-    cy.get('#case_doctor1firstname')
-      .invoke('attr', 'size')
-      .should('eq', number.toString())
+  assertLengthFirstNameCopy1(number) {
+    cy.get("#case_doctor1firstname")
+      .invoke("attr", "size")
+      .should("eq", number.toString());
   }
 
-  assertLengthLastNameCopy1(number){
-    cy.get('#case_doctor1fullname')
-      .invoke('attr', 'size')
-      .should('eq', number.toString())
+  assertLengthLastNameCopy1(number) {
+    cy.get("#case_doctor1fullname")
+      .invoke("attr", "size")
+      .should("eq", number.toString());
   }
 
-  assertLengthFirstNameCopy2(number){
-    cy.get('#case_doctor2firstname')
-      .invoke('attr', 'size')
-      .should('eq', number.toString())
+  assertLengthFirstNameCopy2(number) {
+    cy.get("#case_doctor2firstname")
+      .invoke("attr", "size")
+      .should("eq", number.toString());
   }
 
-  
-  assertLengthLastNameCopy2(number){
-    cy.get('#case_doctor2fullname')
-      .invoke('attr', 'size')
-      .should('eq', number.toString())
+  assertLengthLastNameCopy2(number) {
+    cy.get("#case_doctor2fullname")
+      .invoke("attr", "size")
+      .should("eq", number.toString());
   }
 
-  assertLengthFirstNameCopy3(number){
-    cy.get('#case_doctor3firstname')
-      .invoke('attr', 'size')
-      .should('eq', number.toString())
-  }
-  
-  assertLengthLastNameCopy3(number){
-    cy.get('#case_doctor3fullname')
-      .invoke('attr', 'size')
-      .should('eq', number.toString())
+  assertLengthFirstNameCopy3(number) {
+    cy.get("#case_doctor3firstname")
+      .invoke("attr", "size")
+      .should("eq", number.toString());
   }
 
-  enterFirstNameCopy1(text){
-    cy.get('#case_doctor1firstname')
-    .clear()
-    .type(text)
+  assertLengthLastNameCopy3(number) {
+    cy.get("#case_doctor3fullname")
+      .invoke("attr", "size")
+      .should("eq", number.toString());
   }
 
-  assertFirstNameCopy1(text){
-    cy.get('#case_doctor1firstname')
-    .invoke('val')
-    .then(value => expect(value).contains(text));
+  enterFirstNameCopy1(text) {
+    cy.get("#case_doctor1firstname").clear().type(text);
   }
 
-  enterFirstNameCopy2(text){
-    cy.get('#case_doctor2firstname')
-    .clear()
-    .type(text)
+  assertFirstNameCopy1(text) {
+    cy.get("#case_doctor1firstname")
+      .invoke("val")
+      .then((value) => expect(value).contains(text));
   }
 
-  assertFirstNameCopy2(text){
-    cy.get('#case_doctor2firstname')
-    .invoke('val')
-    .then(value => expect(value).contains(text));
+  enterFirstNameCopy2(text) {
+    cy.get("#case_doctor2firstname").clear().type(text);
   }
 
-  enterFirstNameCopy3(text){
-    cy.get('#case_doctor3firstname')
-    .clear()
-    .type(text)
+  assertFirstNameCopy2(text) {
+    cy.get("#case_doctor2firstname")
+      .invoke("val")
+      .then((value) => expect(value).contains(text));
   }
 
-  assertFirstNameCopy3(text){
-    cy.get('#case_doctor3firstname')
-    .invoke('val')
-    .then(value => expect(value).contains(text));
+  enterFirstNameCopy3(text) {
+    cy.get("#case_doctor3firstname").clear().type(text);
   }
 
-  enterFirstNameCopy4(text){
-    cy.get('#case_doctor4firstname')
-    .clear()
-    .type(text)
+  assertFirstNameCopy3(text) {
+    cy.get("#case_doctor3firstname")
+      .invoke("val")
+      .then((value) => expect(value).contains(text));
   }
 
-  enterLastNameCopy1(text){
-    cy.get('#case_doctor1fullname')
-    .clear()
-    .type(text)
+  enterFirstNameCopy4(text) {
+    cy.get("#case_doctor4firstname").clear().type(text);
   }
 
-  enterLastNameCopy2(text){
-    cy.get('#case_doctor2fullname')
-    .clear()
-    .type(text)
+  enterLastNameCopy1(text) {
+    cy.get("#case_doctor1fullname").clear().type(text);
   }
 
-  enterLastNameCopy3(text){
-    cy.get('#case_doctor3fullname')
-    .clear()
-    .type(text)
+  enterLastNameCopy2(text) {
+    cy.get("#case_doctor2fullname").clear().type(text);
   }
 
-  enterLastNameCopy4(text){
-    cy.get('#case_doctor4fullname')
-    .clear()
-    .type(text)
+  enterLastNameCopy3(text) {
+    cy.get("#case_doctor3fullname").clear().type(text);
   }
 
-  assertLengthSuburbCopy1(number){
-    cy.get('#case_doctor1suburb')
-      .invoke('attr', 'size')
-      .should('eq', number.toString())
+  enterLastNameCopy4(text) {
+    cy.get("#case_doctor4fullname").clear().type(text);
   }
 
-  assertLengthSuburbCopy2(number){
-    cy.get('#case_doctor2suburb')
-      .invoke('attr', 'size')
-      .should('eq', number.toString())
+  assertLengthSuburbCopy1(number) {
+    cy.get("#case_doctor1suburb")
+      .invoke("attr", "size")
+      .should("eq", number.toString());
   }
 
-  assertLengthSuburbCopy3(number){
-    cy.get('#case_doctor3suburb')
-      .invoke('attr', 'size')
-      .should('eq', number.toString())
+  assertLengthSuburbCopy2(number) {
+    cy.get("#case_doctor2suburb")
+      .invoke("attr", "size")
+      .should("eq", number.toString());
   }
 
-  enterSuburbCopy1(text){
-    cy.get('#case_doctor1suburb')
-    .clear()
-    .type(text)
+  assertLengthSuburbCopy3(number) {
+    cy.get("#case_doctor3suburb")
+      .invoke("attr", "size")
+      .should("eq", number.toString());
   }
 
-  enterSuburbCopy2(text){
-    cy.get('#case_doctor2suburb')
-    .clear()
-    .type(text)
+  enterSuburbCopy1(text) {
+    cy.get("#case_doctor1suburb").clear().type(text);
   }
 
-  enterSuburbCopy3(text){
-    cy.get('#case_doctor3suburb')
-    .clear()
-    .type(text)
+  enterSuburbCopy2(text) {
+    cy.get("#case_doctor2suburb").clear().type(text);
   }
 
-  enterSuburbCopy4(text){
-    cy.get('#case_doctor4suburb')
-    .clear()
-    .type(text)
+  enterSuburbCopy3(text) {
+    cy.get("#case_doctor3suburb").clear().type(text);
   }
 
-  clickOnTheDoNotSendCheckBox(){
+  enterSuburbCopy4(text) {
+    cy.get("#case_doctor4suburb").clear().type(text);
+  }
+
+  clickOnTheDoNotSendCheckBox() {
     cy.get(user.patientDetailsElement.doNotSendCheckbox)
-    .should('be.visible')
-    .click()
+      .should("be.visible")
+      .click();
   }
 
-  isDoNotSendChecked(){
-    cy.get(user.patientDetailsElement.doNotSendCheckbox)
-    .should('be.checked')
+  isDoNotSendChecked() {
+    cy.get(user.patientDetailsElement.doNotSendCheckbox).should("be.checked");
   }
 
-  checkOrderIsAddedToClinicDefault(orderName){
-    cy.get('#clinic_search option[selected]').invoke('text').then((clinicName) => {
-      this.assertText('Accession No.');
-      this.assertText(orderName);
-      this.clickPathologyRequestByFirstName(orderName, true);
-      this.assertText(clinicName);
-    })
+  checkOrderIsAddedToClinicDefault(orderName) {
+    cy.get("#clinic_search option[selected]")
+      .invoke("text")
+      .then((clinicName) => {
+        this.assertText("Accession No.");
+        this.assertText(orderName);
+        this.clickPathologyRequestByFirstName(orderName, true);
+        this.assertText(clinicName);
+      });
   }
-  isEditPatientDetailsVisible(){
-    cy.get('a#editpatientdetails')
-    .should('be.visible')
+  isEditPatientDetailsVisible() {
+    cy.get("a#editpatientdetails").should("be.visible");
   }
-  checkAllPatientDetailsISDisabled(elementObj = user.patientDetailsElement){
-    const elements = Object.values(elementObj)
-    for(const item of elements){
-      cy.get(item).should('be.disabled');
+  checkAllPatientDetailsISDisabled(elementObj = user.patientDetailsElement) {
+    const elements = Object.values(elementObj);
+    for (const item of elements) {
+      cy.get(item).should("be.disabled");
     }
   }
 
-  deleteLesionByName(lesion1, times = 1){
-    for(let index = 0; index<times; index+=1)
-    {
-      this.assertButton('Dashboard')
-      this.scrollToLesion(lesion1)
-      this.assertText(lesion1)
-      this.clickDeleteLesion(lesion1)
+  deleteLesionByName(lesion1, times = 1) {
+    for (let index = 0; index < times; index += 1) {
+      this.assertButton("Dashboard");
+      this.scrollToLesion(lesion1);
+      this.assertText(lesion1);
+      this.clickDeleteLesion(lesion1);
     }
   }
 
- isPatientClinic(clinicName){
-   cy.get('#clinicnname option[selected]')
-   .invoke('text')
-   .should('be.equal', clinicName);
- }
+  isPatientClinic(clinicName) {
+    cy.get("#clinicnname option[selected]")
+      .invoke("text")
+      .should("be.equal", clinicName);
+  }
 
- isDefaultClinic(clinicName){
-   cy.get('#setdefaultclinic > b')
-   .invoke('text')
-   .should('be.equal', clinicName);
- }
+  isDefaultClinic(clinicName) {
+    cy.get("#setdefaultclinic > b")
+      .invoke("text")
+      .should("be.equal", clinicName);
+  }
 
- logOut() {
-  cy.get('[href="/logout"]')
-    .click();
- }
- selectAndCheckDefaultClinic(option = 1, isForce = false)
-  {
-    cy.get('#id_set_default > option')
+  logOut() {
+    cy.get('[href="/logout"]').click();
+  }
+  selectAndCheckDefaultClinic(option = 1, isForce = false) {
+    cy.get("#id_set_default > option")
       .eq(option)
-      .invoke('text').then((text) => {
-        cy.get('#id_set_default')
-        .select(text, {force: isForce});
+      .invoke("text")
+      .then((text) => {
+        cy.get("#id_set_default").select(text, { force: isForce });
         this.clickOkSelectClinic();
         cy.wait(1000);
         this.isDefaultClinic(text);
-      })
+      });
   }
- selectAndCheckPatientClinic(option = 1, isForce = false)
-  {
-    cy.get('#clinicnname > option')
+  selectAndCheckPatientClinic(option = 1, isForce = false) {
+    cy.get("#clinicnname > option")
       .eq(option)
-      .invoke('text').then((text) => {
-        cy.get('#clinicnname')
-        .select(text, {force: isForce});
+      .invoke("text")
+      .then((text) => {
+        cy.get("#clinicnname").select(text, { force: isForce });
         this.nextButton();
         this.backButton();
         cy.wait(1000);
         this.isPatientClinic(text);
-      })
+      });
   }
-  
- editToScheduleFee()
-  {
+
+  editToScheduleFee() {
     this.clickEditPatientDetails();
     // scheduleFee
     this.selectBilling(user.billing.scheduleFee);
     this.isPatientInformedFinancialUncheck();
+    this.selectBilling();
     this.enterMedicare(user.medicare);
     this.checkPrivate();
     this.clickSavePatientDetails();
     this.clickOkPatientDetails();
   }
 
- fillScheduleFeeInPatientDetails()
-  {
+  fillScheduleFeeInPatientDetails() {
     this.selectBilling(user.billing.scheduleFee);
+    this.selectBilling();
     this.enterMedicare(user.medicare);
     this.checkPrivate();
   }
 
-  addMultiSubmit() 
-  {
+  addMultiSubmit() {
     this.selectClinicOptionByName();
     this.clickOkSelectClinic();
-    for(let i=0; i<50; i++){
-      const subname = this.randomAlpha(10)
+    for (let i = 0; i < 50; i++) {
+      const subname = this.randomAlpha(10);
       const firstname = `API-${subname}`;
       cy.saveDraft(user.username, user.password, firstname);
-      cy.reload()
+      cy.reload();
       this.clickOkSelectClinic();
       this.assertText(subname);
-      this.assertText('Create New Pathology Request');
+      this.assertText("Create New Pathology Request");
       this.clickPathologyRequestByFirstName(subname);
 
       // Copies report
 
-      this.enterFirstNameCopy3('Hospital')
-      this.enterLastNameCopy3('Ward ')
-      this.enterSuburbCopy3('suburb C')
+      this.enterFirstNameCopy3("Hospital");
+      this.enterLastNameCopy3("Ward ");
+      this.enterSuburbCopy3("suburb C");
 
-      this.clickHrefByText('Save update');
+      this.clickHrefByText("Save update");
 
       this.clickPathologyRequestByFirstName(subname);
-      
-      this.assertValueVisible('Hospital')
-      this.assertValueVisible('Ward ')
-      this.assertValueVisible('suburb C')
+
+      this.assertValueVisible("Hospital");
+      this.assertValueVisible("Ward ");
+      this.assertValueVisible("suburb C");
 
       this.addAnotherLesion();
       this.addALesionByInvalidImages(1, 4);
@@ -1457,35 +1350,34 @@ export class DashboardActions extends CommonActions
       this.caseSummary();
       this.submitCasePrint();
       this.returnToDashboard();
-    } 
+    }
   }
-  addMultiSubmitByImageName(imageName, times) 
-  {
+  addMultiSubmitByImageName(imageName, times) {
     this.selectClinicOptionByName();
     this.clickOkSelectClinic();
-    for(let i=0; i<times; i++){
-      const subname = this.randomAlpha(10)
+    for (let i = 0; i < times; i++) {
+      const subname = this.randomAlpha(10);
       const firstname = `API-${subname}`;
       cy.saveDraft(user.username, user.password, firstname);
-      cy.reload()
+      cy.reload();
       this.clickOkSelectClinic();
       this.assertText(subname);
-      this.assertText('Create New Pathology Request');
+      this.assertText("Create New Pathology Request");
       this.clickPathologyRequestByFirstName(subname);
 
       // Copies report
 
-      this.enterFirstNameCopy3('Hospital')
-      this.enterLastNameCopy3('Ward ')
-      this.enterSuburbCopy3('suburb C')
+      this.enterFirstNameCopy3("Hospital");
+      this.enterLastNameCopy3("Ward ");
+      this.enterSuburbCopy3("suburb C");
 
-      this.clickHrefByText('Save update');
+      this.clickHrefByText("Save update");
 
       this.clickPathologyRequestByFirstName(subname);
-      
-      this.assertValueVisible('Hospital')
-      this.assertValueVisible('Ward ')
-      this.assertValueVisible('suburb C')
+
+      this.assertValueVisible("Hospital");
+      this.assertValueVisible("Ward ");
+      this.assertValueVisible("suburb C");
 
       this.addAnotherLesion();
       this.addALesionByInvalidImages(1, 4);
@@ -1503,38 +1395,41 @@ export class DashboardActions extends CommonActions
       this.caseSummary();
       this.submitCasePrint();
       this.returnToDashboard();
-    } 
-  }
-  
-  editBodyMap(specText = 'edited', optionIndex = Math.floor(Math.random() * user.regionsBodyMap.length)) {
-      //Edit body map
-      this.clickEditBodyMap()
-      this.selectBodyRegion(user.regionsBodyMap[optionIndex]);
-      this.enterSpecimenLocation(specText);
-      this.saveBodyMap();
-      this.assertElement('#bdm_uploading');
-      this.assertElementNotExist('img#bdm_uploading');
-      this.assertText('Edit body map and location')
-  }
-
-  waitForDeleteButtonVisible(number, round){
-    for(let i = 1; i<= round; i++){
-      cy.get('body').then(($body) => {
-        if($body.find('button[data-type="DELETE"]').length < number) {
-          cy.wait(2000);
-          if(i=== round/2){
-            this.startUpload();
-          }
-        }
-      })
     }
   }
 
-  addLargeImagesByName(imageName = '5mb.jpg', number=3) {
-    this.assertHeader('Upload ');
+  editBodyMap(
+    specText = "edited",
+    optionIndex = Math.floor(Math.random() * user.regionsBodyMap.length)
+  ) {
+    //Edit body map
+    this.clickEditBodyMap();
+    this.selectBodyRegion(user.regionsBodyMap[optionIndex]);
+    this.enterSpecimenLocation(specText);
+    this.saveBodyMap();
+    this.assertElement("#bdm_uploading");
+    this.assertElementNotExist("img#bdm_uploading");
+    this.assertText("Edit body map and location");
+  }
+
+  waitForDeleteButtonVisible(number, round) {
+    for (let i = 1; i <= round; i++) {
+      cy.get("body").then(($body) => {
+        if ($body.find('button[data-type="DELETE"]').length < number) {
+          cy.wait(2000);
+          if (i === round / 2) {
+            this.startUpload();
+          }
+        }
+      });
+    }
+  }
+
+  addLargeImagesByName(imageName = "5mb.jpg", number = 3) {
+    this.assertHeader("Upload ");
     this.uploadMultiImagesV2(imageName, number);
-    this.assertHeader('Upload ');
-   
+    this.assertHeader("Upload ");
+
     cy.wait(1000);
     this.waitForDeleteButtonVisible(number, 30);
     this.isProgressBarDisappear(90000);
@@ -1542,12 +1437,12 @@ export class DashboardActions extends CommonActions
     this.nextButtonUploadImg(90000, true);
   }
 
-  addCombineLargeAndInvalidImagesByName(imageName = '5mb.jpg', number=3) {
-    this.assertHeader('Upload ');
-    this.uploadMultiInvalidImages(1)
+  addCombineLargeAndInvalidImagesByName(imageName = "5mb.jpg", number = 3) {
+    this.assertHeader("Upload ");
+    this.uploadMultiInvalidImages(1);
     this.uploadMultiImagesV2(imageName);
-    this.assertHeader('Upload ');
-    this.assertText('Remove');
+    this.assertHeader("Upload ");
+    this.assertText("Remove");
     cy.wait(2000);
     this.startUpload();
     this.waitForDeleteButtonVisible(number, 30);
@@ -1558,32 +1453,37 @@ export class DashboardActions extends CommonActions
     this.isImageUploadedSuccessfully(90000);
     this.nextButtonUploadImg(90000, true);
   }
-  
-  addMuiltiPathologyRequestLargeImagesBySelectRegion(imageName,numberLesion, roundTest = user.regionsBodyMap.length) {
+
+  addMuiltiPathologyRequestLargeImagesBySelectRegion(
+    imageName,
+    numberLesion,
+    roundTest = user.regionsBodyMap.length
+  ) {
     const regions = user.regionsBodyMap;
-    for(let i=1; i<= roundTest; i++){
+    for (let i = 1; i <= roundTest; i++) {
       let name = regions[i];
-      if(regions[i].indexOf('(') > 0){
-        const temp = regions[i].split('(');
-        name= temp[0].trim();
+      if (regions[i].indexOf("(") > 0) {
+        const temp = regions[i].split("(");
+        name = temp[0].trim();
       }
       const firstname = `Submit-${this.randomAlpha(5)}`;
       const lastname = `${name}`;
       this.clickAddNewLesion();
-      this.selectTitle('Mrs');
+      this.selectTitle("Mrs");
       this.enterFirstName(firstname);
       this.enterLastName(lastname);
-      this.selectGender('Unknown');
+      this.selectGender("Unknown");
       this.enterDOB(user.DOB);
       this.enterHomeAdd(user.address);
       this.enterCity(user.city);
       this.selectState();
       this.enterPostcode(user.postcode);
       this.enterContact(user.contact);
+      this.selectBilling();
       this.enterMedicare(user.medicare);
       this.nextButton();
 
-      for(let index =1; index<= numberLesion; index ++){
+      for (let index = 1; index <= numberLesion; index++) {
         this.noPreviousHistory();
         this.provisionalDiagnosis();
         this.excludeMelasma();
@@ -1594,14 +1494,14 @@ export class DashboardActions extends CommonActions
         this.addBodyMap();
         this.clickImage();
         this.selectBodyRegion();
-        this.enterSpecimenLocation(name)
-        this.assertHeader('Body map');    
-    
-        this.selectBodyRegion(regions[i], false)
+        this.enterSpecimenLocation(name);
+        this.assertHeader("Body map");
+
+        this.selectBodyRegion(regions[i], false);
         this.saveBodyMap();
         //Upload Dermascopic Images
-        this.addLargeImagesByName(imageName, numberLesion)
-        if(index < numberLesion){
+        this.addLargeImagesByName(imageName, numberLesion);
+        if (index < numberLesion) {
           this.addAnotherLesion();
         }
       }
@@ -1609,36 +1509,42 @@ export class DashboardActions extends CommonActions
       this.submitCasePrint();
       this.returnToDashboard();
       cy.wait(2000);
-    } 
+    }
     this.isUploadSuccesfully(0, 15000);
   }
-  
-  addMuiltiPathologyRequestLargeImagesBySelectRegionV2(imageName,numberLesion, roundTest = user.regionsBodyMap.length, startRegion = 1) {
+
+  addMuiltiPathologyRequestLargeImagesBySelectRegionV2(
+    imageName,
+    numberLesion,
+    roundTest = user.regionsBodyMap.length,
+    startRegion = 1
+  ) {
     const regions = user.regionsBodyMap;
-    for(let i=1; i<= roundTest; i++){
-      let regionNum = startRegion + (i-1)
+    for (let i = 1; i <= roundTest; i++) {
+      let regionNum = startRegion + (i - 1);
       let name = regions[regionNum];
-      if(regions[regionNum].indexOf('(') > 0){
-        const temp = regions[regionNum].split('(');
-        name= temp[0].trim();
+      if (regions[regionNum].indexOf("(") > 0) {
+        const temp = regions[regionNum].split("(");
+        name = temp[0].trim();
       }
       const firstname = `Submit-${this.randomAlpha(5)}`;
       const lastname = `${name}`;
       this.clickAddNewLesion();
-      this.selectTitle('Mrs');
+      this.selectTitle("Mrs");
       this.enterFirstName(firstname);
       this.enterLastName(lastname);
-      this.selectGender('Unknown');
+      this.selectGender("Unknown");
       this.enterDOB(user.DOB);
       this.enterHomeAdd(user.address);
       this.enterCity(user.city);
       this.selectState();
       this.enterPostcode(user.postcode);
       this.enterContact(user.contact);
+      this.selectBilling();
       this.enterMedicare(user.medicare);
       this.nextButton();
 
-      for(let index =1; index<= numberLesion; index ++){
+      for (let index = 1; index <= numberLesion; index++) {
         this.noPreviousHistory();
         this.provisionalDiagnosis();
         this.excludeMelasma();
@@ -1649,14 +1555,14 @@ export class DashboardActions extends CommonActions
         this.addBodyMap();
         this.clickImage();
         this.selectBodyRegion();
-        this.enterSpecimenLocation(name)
-        this.assertHeader('Body map');    
-    
-        this.selectBodyRegion(regions[regionNum], false)
+        this.enterSpecimenLocation(name);
+        this.assertHeader("Body map");
+
+        this.selectBodyRegion(regions[regionNum], false);
         this.saveBodyMap();
         //Upload Dermascopic Images
-        this.addLargeImagesByName(imageName, 3)
-        if(index < numberLesion){
+        this.addLargeImagesByName(imageName, 3);
+        if (index < numberLesion) {
           this.addAnotherLesion();
         }
       }
@@ -1664,36 +1570,43 @@ export class DashboardActions extends CommonActions
       this.submitCasePrint();
       this.returnToDashboard();
       cy.wait(2000);
-    } 
+    }
     this.isUploadSuccesfully(0, 20000);
   }
 
-  addMuiltiPathologyRequestLargeImagesAndDeleteLesion(imageName,numberLesion, roundTest = user.regionsBodyMap.length, startRegion = 1, lesion = 'Lesion 2') {
+  addMuiltiPathologyRequestLargeImagesAndDeleteLesion(
+    imageName,
+    numberLesion,
+    roundTest = user.regionsBodyMap.length,
+    startRegion = 1,
+    lesion = "Lesion 2"
+  ) {
     const regions = user.regionsBodyMap;
-    for(let i=1; i<= roundTest; i++){
-      let regionNum = startRegion + (i-1)
+    for (let i = 1; i <= roundTest; i++) {
+      let regionNum = startRegion + (i - 1);
       let name = regions[regionNum];
-      if(regions[regionNum].indexOf('(') > 0){
-        const temp = regions[regionNum].split('(');
-        name= temp[0].trim();
+      if (regions[regionNum].indexOf("(") > 0) {
+        const temp = regions[regionNum].split("(");
+        name = temp[0].trim();
       }
       const firstname = `Submit-${this.randomAlpha(5)}`;
       const lastname = `${name}`;
       this.clickAddNewLesion();
-      this.selectTitle('Mrs');
+      this.selectTitle("Mrs");
       this.enterFirstName(firstname);
       this.enterLastName(lastname);
-      this.selectGender('Unknown');
+      this.selectGender("Unknown");
       this.enterDOB(user.DOB);
       this.enterHomeAdd(user.address);
       this.enterCity(user.city);
       this.selectState();
       this.enterPostcode(user.postcode);
       this.enterContact(user.contact);
+      this.selectBilling();
       this.enterMedicare(user.medicare);
       this.nextButton();
 
-      for(let index =1; index<= numberLesion; index ++){
+      for (let index = 1; index <= numberLesion; index++) {
         this.noPreviousHistory();
         this.provisionalDiagnosis();
         this.excludeMelasma();
@@ -1704,55 +1617,61 @@ export class DashboardActions extends CommonActions
         this.addBodyMap();
         this.clickImage();
         this.selectBodyRegion();
-        this.enterSpecimenLocation(name)
-        this.assertHeader('Body map');    
-    
-        this.selectBodyRegion(regions[regionNum], false)
+        this.enterSpecimenLocation(name);
+        this.assertHeader("Body map");
+
+        this.selectBodyRegion(regions[regionNum], false);
         this.saveBodyMap();
         //Upload Dermascopic Images
-        this.addLargeImagesByName(imageName, 3)
-        if(index < numberLesion){
+        this.addLargeImagesByName(imageName, 3);
+        if (index < numberLesion) {
           this.addAnotherLesion();
         }
-      }  
-    } 
+      }
+    }
     this.caseSummary();
-    this.assertButton('Dashboard')
-    this.scrollToLesion(lesion)
-    this.assertText(lesion)
-    this.clickDeleteLesion(lesion)
-    this.assertText('Submit request & print');
+    this.assertButton("Dashboard");
+    this.scrollToLesion(lesion);
+    this.assertText(lesion);
+    this.clickDeleteLesion(lesion);
+    this.assertText("Submit request & print");
     this.submitCasePrint();
     this.returnToDashboard();
     this.isUploadSuccesfully(0);
   }
 
-  addMuiltiPathologyRequestLargeImagesAndSaveDraft(imageName,numberLesion, roundTest = user.regionsBodyMap.length, startRegion = 1) {
+  addMuiltiPathologyRequestLargeImagesAndSaveDraft(
+    imageName,
+    numberLesion,
+    roundTest = user.regionsBodyMap.length,
+    startRegion = 1
+  ) {
     const regions = user.regionsBodyMap;
-    for(let i=1; i<= roundTest; i++){
-      let regionNum = startRegion + (i-1)
+    for (let i = 1; i <= roundTest; i++) {
+      let regionNum = startRegion + (i - 1);
       let name = regions[regionNum];
-      if(regions[regionNum].indexOf('(') > 0){
-        const temp = regions[regionNum].split('(');
-        name= temp[0].trim();
+      if (regions[regionNum].indexOf("(") > 0) {
+        const temp = regions[regionNum].split("(");
+        name = temp[0].trim();
       }
       const firstname = `Submit-${this.randomAlpha(5)}`;
       const lastname = `${name}`;
       this.clickAddNewLesion();
-      this.selectTitle('Mrs');
+      this.selectTitle("Mrs");
       this.enterFirstName(firstname);
       this.enterLastName(lastname);
-      this.selectGender('Unknown');
+      this.selectGender("Unknown");
       this.enterDOB(user.DOB);
       this.enterHomeAdd(user.address);
       this.enterCity(user.city);
       this.selectState();
       this.enterPostcode(user.postcode);
       this.enterContact(user.contact);
+      this.selectBilling();
       this.enterMedicare(user.medicare);
       this.nextButton();
 
-      for(let index =1; index<= numberLesion; index ++){
+      for (let index = 1; index <= numberLesion; index++) {
         this.noPreviousHistory();
         this.provisionalDiagnosis();
         this.excludeMelasma();
@@ -1763,37 +1682,43 @@ export class DashboardActions extends CommonActions
         this.addBodyMap();
         this.clickImage();
         this.selectBodyRegion();
-        this.enterSpecimenLocation(name)
-        this.assertHeader('Body map');    
-    
-        this.selectBodyRegion(regions[regionNum], false)
+        this.enterSpecimenLocation(name);
+        this.assertHeader("Body map");
+
+        this.selectBodyRegion(regions[regionNum], false);
         this.saveBodyMap();
         //Upload Dermascopic Images
-        this.addLargeImagesByName(imageName, 3)
-        if(index < numberLesion){
+        this.addLargeImagesByName(imageName, 3);
+        if (index < numberLesion) {
           this.addAnotherLesion();
         }
       }
-       //Case Summary
-     this.caseSummary();
-     this.saveDraft();
+      //Case Summary
+      this.caseSummary();
+      this.saveDraft();
 
-     this.assertFirstName(firstname)
-     this.isReviewCase('Draft'); 
-    }  
+      this.assertFirstName(firstname);
+      this.isReviewCase("Draft");
+    }
   }
 
-  saveDraftMuiltiMultilLesionsLargeImages(firstname, imageName,numberLesion, roundTest = user.regionsBodyMap.length, startRegion = 1) {
+  saveDraftMuiltiMultilLesionsLargeImages(
+    firstname,
+    imageName,
+    numberLesion,
+    roundTest = user.regionsBodyMap.length,
+    startRegion = 1
+  ) {
     const regions = user.regionsBodyMap;
-    for(let i=1; i<= roundTest; i++){
-      let regionNum = startRegion + (i-1)
+    for (let i = 1; i <= roundTest; i++) {
+      let regionNum = startRegion + (i - 1);
       let name = regions[regionNum];
-      if(regions[regionNum].indexOf('(') > 0){
-        const temp = regions[regionNum].split('(');
-        name= temp[0].trim();
+      if (regions[regionNum].indexOf("(") > 0) {
+        const temp = regions[regionNum].split("(");
+        name = temp[0].trim();
       }
       this.addAnotherLesion();
-      for(let index =1; index<= numberLesion; index ++){
+      for (let index = 1; index <= numberLesion; index++) {
         this.noPreviousHistory();
         this.provisionalDiagnosis();
         this.excludeMelasma();
@@ -1804,52 +1729,58 @@ export class DashboardActions extends CommonActions
         this.addBodyMap();
         this.clickImage();
         this.selectBodyRegion();
-        this.enterSpecimenLocation(name)
-        this.assertHeader('Body map');    
-    
-        this.selectBodyRegion(regions[regionNum], false)
+        this.enterSpecimenLocation(name);
+        this.assertHeader("Body map");
+
+        this.selectBodyRegion(regions[regionNum], false);
         this.saveBodyMap();
         //Upload Dermascopic Images
-        this.addLargeImagesByName(imageName, 3)
-        if(index < numberLesion){
+        this.addLargeImagesByName(imageName, 3);
+        if (index < numberLesion) {
           this.addAnotherLesion();
         }
       }
-       //Case Summary
-     this.caseSummary();
-     this.saveDraft();
+      //Case Summary
+      this.caseSummary();
+      this.saveDraft();
 
-     this.assertFirstName(firstname)
-     this.isReviewCase('Draft'); 
-    }  
+      this.assertFirstName(firstname);
+      this.isReviewCase("Draft");
+    }
   }
- 
-  addMuiltiLesionLargeAndInvalidImages(imageName,numberLesion, roundTest = user.regionsBodyMap.length, startRegion = 1) {
+
+  addMuiltiLesionLargeAndInvalidImages(
+    imageName,
+    numberLesion,
+    roundTest = user.regionsBodyMap.length,
+    startRegion = 1
+  ) {
     const regions = user.regionsBodyMap;
-    for(let i=1; i<= roundTest; i++){
-      let regionNum = startRegion + (i-1)
+    for (let i = 1; i <= roundTest; i++) {
+      let regionNum = startRegion + (i - 1);
       let name = regions[regionNum];
-      if(regions[regionNum].indexOf('(') > 0){
-        const temp = regions[regionNum].split('(');
-        name= temp[0].trim();
+      if (regions[regionNum].indexOf("(") > 0) {
+        const temp = regions[regionNum].split("(");
+        name = temp[0].trim();
       }
       const firstname = `Submit-${this.randomAlpha(5)}`;
       const lastname = `${name}`;
       this.clickAddNewLesion();
-      this.selectTitle('Mrs');
+      this.selectTitle("Mrs");
       this.enterFirstName(firstname);
       this.enterLastName(lastname);
-      this.selectGender('Unknown');
+      this.selectGender("Unknown");
       this.enterDOB(user.DOB);
       this.enterHomeAdd(user.address);
       this.enterCity(user.city);
       this.selectState();
       this.enterPostcode(user.postcode);
       this.enterContact(user.contact);
+      this.selectBilling();
       this.enterMedicare(user.medicare);
       this.nextButton();
 
-      for(let index =1; index<= numberLesion; index ++){
+      for (let index = 1; index <= numberLesion; index++) {
         this.noPreviousHistory();
         this.provisionalDiagnosis();
         this.excludeMelasma();
@@ -1860,63 +1791,58 @@ export class DashboardActions extends CommonActions
         this.addBodyMap();
         this.clickImage();
         this.selectBodyRegion();
-        this.enterSpecimenLocation(name)
-        this.assertHeader('Body map');    
-    
-        this.selectBodyRegion(regions[regionNum], false)
+        this.enterSpecimenLocation(name);
+        this.assertHeader("Body map");
+
+        this.selectBodyRegion(regions[regionNum], false);
         this.saveBodyMap();
         //Upload Dermascopic Images
-        this.addCombineLargeAndInvalidImagesByName(imageName, 3)
-        if(index < numberLesion){
+        this.addCombineLargeAndInvalidImagesByName(imageName, 3);
+        if (index < numberLesion) {
           this.addAnotherLesion();
         }
-      } 
+      }
       this.caseSummary();
-      this.assertButton('Dashboard')
-      this.assertText('Submit request & print');
+      this.assertButton("Dashboard");
+      this.assertText("Submit request & print");
       this.submitCasePrint();
       this.returnToDashboard();
-      this.isUploadSuccesfully(0); 
-    } 
+      this.isUploadSuccesfully(0);
+    }
   }
 
   clickSaveUpdateForBeta() {
-    this.clickHrefByText('Save update');
+    this.clickHrefByText("Save update");
     cy.wait(1000);
   }
 
-  verifyListErrorPatientsDetailsVisible( list  = user.validMessage) {
-    for(const item of list)
-    {
+  verifyListErrorPatientsDetailsVisible(list = user.validMessage) {
+    for (const item of list) {
       this.assertText(item);
     }
   }
 
-  verifyListErrorCopyFieldsVisible( list  = user.validCopyFields) {
-    for(const item of list)
-    {
+  verifyListErrorCopyFieldsVisible(list = user.validCopyFields) {
+    for (const item of list) {
       this.assertText(item);
     }
   }
 
-  verifyListErrorPatientsDetailsNotVisible( list  = user.validMessage) {
-    for(const item of list)
-    {
-      cy.get('body').contains(item).should('not.exist');
+  verifyListErrorPatientsDetailsNotVisible(list = user.validMessage) {
+    for (const item of list) {
+      cy.get("body").contains(item).should("not.exist");
     }
   }
 
-  verifyListErrorCopyFieldsNotVisible( list  = user.validCopyFields) {
-    for(const item of list)
-    {
-      cy.get('body').contains(item).should('not.exist');
+  verifyListErrorCopyFieldsNotVisible(list = user.validCopyFields) {
+    for (const item of list) {
+      cy.get("body").contains(item).should("not.exist");
     }
   }
 
-  verifyListErrorCopyFieldsNotVisible( list  = user.validCopyFields) {
-    for(const item of list)
-    {
-      cy.get('body').contains(item).should('not.exist');
+  verifyListErrorCopyFieldsNotVisible(list = user.validCopyFields) {
+    for (const item of list) {
+      cy.get("body").contains(item).should("not.exist");
     }
   }
 
@@ -1933,7 +1859,7 @@ export class DashboardActions extends CommonActions
     this.addBodyMap();
     this.assertText(user.validNoteMessage);
     this.enterClinicalNote(validNote);
-    
+
     //Body map
     this.addBodyMap();
     this.clickImage();
@@ -1944,18 +1870,18 @@ export class DashboardActions extends CommonActions
     this.enterSpecimenLocation(validNote);
     this.saveBodyMap();
 
-   //Upload Dermascopic Images
-   this.assertHeader('Upload ');
-   this.uploadMultiImages(number);
-   this.assertText('Too many images')
-   cy.wait(500);
-   this.assertText('Remove');
-   this.startUpload();
-   this.isProgressBarDisappear();
-   this.isImageUploadedSuccessfully();
-   this.nextButtonUploadImg(30000, true);  
+    //Upload Dermascopic Images
+    this.assertHeader("Upload ");
+    this.uploadMultiImages(number);
+    this.assertText("Too many images");
+    cy.wait(500);
+    this.assertText("Remove");
+    this.startUpload();
+    this.isProgressBarDisappear();
+    this.isImageUploadedSuccessfully();
+    this.nextButtonUploadImg(30000, true);
   }
-  
+
   addAndValidateLesionInvalidImages(number = 2, invalidImageNumber = 4) {
     //Clinical Condition
     this.noPreviousHistory();
@@ -1972,49 +1898,49 @@ export class DashboardActions extends CommonActions
     this.saveBodyMap();
 
     //Upload Dermascopic Images
-    if(number === 0){
-      this.assertHeader('Upload');
+    if (number === 0) {
+      this.assertHeader("Upload");
       cy.wait(500);
       this.uploadMultiInvalidImages(invalidImageNumber);
-      this.assertText('Remove');
-      this.clickHrefByText('Continue with no images');
-    } else if(number !== 4){
-      this.assertHeader('Upload ');
+      this.assertText("Remove");
+      this.clickHrefByText("Continue with no images");
+    } else if (number !== 4) {
+      this.assertHeader("Upload ");
       this.uploadMultiImages(number);
       cy.wait(500);
-      this.assertText('Remove');
+      this.assertText("Remove");
       this.startUpload();
       this.isProgressBarDisappear();
       this.isImageUploadedSuccessfully();
       this.uploadMultiInvalidImages(invalidImageNumber);
-      this.assertText('Invalid file format, please only select JPG photos')
+      this.assertText("Invalid file format, please only select JPG photos");
       cy.wait(500);
-      this.assertText('Remove');
+      this.assertText("Remove");
       this.nextButtonUploadImg(30000, true);
-     } else {
-        this.assertHeader('Upload ');
-        this.uploadMultiImages(number-1);
-        cy.wait(500);
-        this.assertText('Remove');
-        this.startUpload();
-        this.isProgressBarDisappear();
-        this.isImageUploadedSuccessfully();
-        this.uploadMultiInvalidImages(invalidImageNumber);
-        this.assertText('Invalid file format, please only select JPG photos')
-        cy.wait(500);
-        // upload 1 image
-        this.assertText('Remove');
-        this.assertHeader('Upload ');
-        this.uploadMultiImages(1);
-        cy.wait(500);
-        this.assertText('Remove');
-        this.startUpload();
-        this.isProgressBarDisappear();
-        this.isImageUploadedSuccessfully();
-        this.nextButtonUploadImg(30000, true);
-      }
+    } else {
+      this.assertHeader("Upload ");
+      this.uploadMultiImages(number - 1);
+      cy.wait(500);
+      this.assertText("Remove");
+      this.startUpload();
+      this.isProgressBarDisappear();
+      this.isImageUploadedSuccessfully();
+      this.uploadMultiInvalidImages(invalidImageNumber);
+      this.assertText("Invalid file format, please only select JPG photos");
+      cy.wait(500);
+      // upload 1 image
+      this.assertText("Remove");
+      this.assertHeader("Upload ");
+      this.uploadMultiImages(1);
+      cy.wait(500);
+      this.assertText("Remove");
+      this.startUpload();
+      this.isProgressBarDisappear();
+      this.isImageUploadedSuccessfully();
+      this.nextButtonUploadImg(30000, true);
+    }
   }
-  
+
   addAndValidateLesionCombineImages(number = 2, invalidImageNumber = 4) {
     //Clinical Condition
     this.noPreviousHistory();
@@ -2031,76 +1957,92 @@ export class DashboardActions extends CommonActions
     this.saveBodyMap();
 
     //Upload
-   this.assertHeader('Upload ');
-   this.uploadMultiInvalidImages(invalidImageNumber);
-   this.assertText('Invalid file format, please only select JPG photos')
-   cy.wait(500);
-   this.assertText('Remove');
-   
-   this.uploadMultiImages(number);
-   this.assertText('Too many images')
-   cy.wait(500);
-   this.assertText('Remove');
-   this.startUpload();
-   this.isProgressBarDisappear();
-   this.isImageUploadedSuccessfully();
-   this.nextButtonUploadImg(30000, true);  
+    this.assertHeader("Upload ");
+    this.uploadMultiInvalidImages(invalidImageNumber);
+    this.assertText("Invalid file format, please only select JPG photos");
+    cy.wait(500);
+    this.assertText("Remove");
+
+    this.uploadMultiImages(number);
+    this.assertText("Too many images");
+    cy.wait(500);
+    this.assertText("Remove");
+    this.startUpload();
+    this.isProgressBarDisappear();
+    this.isImageUploadedSuccessfully();
+    this.nextButtonUploadImg(30000, true);
   }
 
-  addMoreValidateLesionCombineImages(numLesion = 1, numImage = 2, invalidImages = 4, isSaveDraft = false) {
-    for (let i =0; i< numLesion; i++){
-      if(isSaveDraft){
-        if(i !== 0){
-          this.addAnotherLesion()
+  addMoreValidateLesionCombineImages(
+    numLesion = 1,
+    numImage = 2,
+    invalidImages = 4,
+    isSaveDraft = false
+  ) {
+    for (let i = 0; i < numLesion; i++) {
+      if (isSaveDraft) {
+        if (i !== 0) {
+          this.addAnotherLesion();
         }
       } else {
-        this.addAnotherLesion()
+        this.addAnotherLesion();
       }
-      this.addAndValidateLesionCombineImages(numImage, invalidImages)
+      this.addAndValidateLesionCombineImages(numImage, invalidImages);
     }
   }
 
   addMoreMultiLesionsNoImage(number = 1) {
-    for (let i =0; i< number; i++){
-      this.addAnotherLesion()
-      this.addALesionNoImage()
+    for (let i = 0; i < number; i++) {
+      this.addAnotherLesion();
+      this.addALesionNoImage();
     }
   }
 
   addMoreMultiLesionsLimitedImage(numLesion = 1, numImage = 4) {
-    for (let i =0; i< numLesion; i++){
-      this.addAnotherLesion()
-      this.addAndValidateLesionLimitedImage(numImage)
+    for (let i = 0; i < numLesion; i++) {
+      this.addAnotherLesion();
+      this.addAndValidateLesionLimitedImage(numImage);
     }
   }
 
-  addMoreMultiLesionsInvalidImage(numLesion = 1, numImage = 2, numbInvalidImage = 4) {
-    for (let i =0; i< numLesion; i++){
-      this.addAnotherLesion()
-      this.addALesionByInvalidImages(numImage, numbInvalidImage)
+  addMoreMultiLesionsInvalidImage(
+    numLesion = 1,
+    numImage = 2,
+    numbInvalidImage = 4
+  ) {
+    for (let i = 0; i < numLesion; i++) {
+      this.addAnotherLesion();
+      this.addALesionByInvalidImages(numImage, numbInvalidImage);
     }
   }
 
   printCaseCheckingBasic() {
-    const text = "Your request has been saved and your eRequest sent to your chosen Sonic Healthcare Laboratory. Please print the referral (if required)."
-    this.verifyElementContainsText('.printhideback strong', 
-    'Your request has been saved and your eRequest sent to your chosen Sonic Healthcare Laboratory. Please print the referral (if required).')
-    // this.verifyElementContainsText('.printhideback strong', 
+    const text =
+      "Your request has been saved and your eRequest sent to your chosen Sonic Healthcare Laboratory. Please print the referral (if required).";
+    this.verifyElementContainsText(
+      ".printhideback strong",
+      "Your request has been saved and your eRequest sent to your chosen Sonic Healthcare Laboratory. Please print the referral (if required)."
+    );
+    // this.verifyElementContainsText('.printhideback strong',
     // 'Please print the referral (if required).')
-    this.verifyElementContainsText('[href="/cases/dashboard"]', 
-    'Return to the dashboard')
-    this.verifyElementContainsText('.printhideback[onclick="window.print()"]', 
-    'Print case')
+    this.verifyElementContainsText(
+      '[href="/cases/dashboard"]',
+      "Return to the dashboard"
+    );
+    this.verifyElementContainsText(
+      '.printhideback[onclick="window.print()"]',
+      "Print case"
+    );
   }
 
   printCaseCheckingPatients(...elements) {
     const args = [...elements];
-    this.assertListText(args)
+    this.assertListText(args);
   }
 
   forceVisit(url) {
-    cy.window().then(win => {
-      return win.open(url, '_self'); 
+    cy.window().then((win) => {
+      return win.open(url, "_self");
     });
   }
 
@@ -2108,32 +2050,32 @@ export class DashboardActions extends CommonActions
     this.saveDraft();
 
     this.assertFirstName(firstname);
-    this.isReviewCase('Draft');
+    this.isReviewCase("Draft");
 
     //Case Summary
     this.assertText(firstname);
-    this.assertText('Create New Pathology Request');
+    this.assertText("Create New Pathology Request");
     this.clickPathologyRequestByFirstName(firstname);
     cy.url().then(($url) => {
       this.logOut();
-      this.assertElement('#loginblock');
+      this.assertElement("#loginblock");
       cy.visit($url);
-      this.assertElement('#loginblock');
+      this.assertElement("#loginblock");
       this.assertTextIsNotExist(firstname);
       this.forceVisit($url);
-      this.assertElement('#loginblock');
+      this.assertElement("#loginblock");
       this.assertTextIsNotExist(firstname);
     });
   }
 
   getUrlLogoutThenVisit() {
-      cy.wait(2000)
-      cy.url().then(($url) => {
+    cy.wait(2000);
+    cy.url().then(($url) => {
       this.logOut();
-      this.assertElement('#loginblock');
+      this.assertElement("#loginblock");
       this.forceVisit($url);
-      this.assertElement('#loginblock');
-      this.assertTextIsNotExist('Dashboard');
+      this.assertElement("#loginblock");
+      this.assertTextIsNotExist("Dashboard");
       // cy.wait(1000);
       // cy.visit('');
       // cy.get('input[id="name"]')
@@ -2147,13 +2089,13 @@ export class DashboardActions extends CommonActions
   }
 
   getUrlWaitTimeoutThenVisit(time = 60000) {
-      cy.wait(2000)
-      cy.url().then(($url) => {
-      cy.wait(time)
-      this.assertElement('#loginblock');
+    cy.wait(2000);
+    cy.url().then(($url) => {
+      cy.wait(time);
+      this.assertElement("#loginblock");
       this.forceVisit($url);
-      this.assertElement('#loginblock');
-      this.assertTextIsNotExist('Dashboard');
+      this.assertElement("#loginblock");
+      this.assertTextIsNotExist("Dashboard");
       // cy.wait(1000);
       // cy.visit('');
       // cy.get('input[id="name"]')
@@ -2167,94 +2109,87 @@ export class DashboardActions extends CommonActions
   }
 
   clickExitEderm() {
-   cy.get('a[onclick="logout_offline()"]')
-    .contains('Exit eDerm')
-    .click({ force: true })
+    cy.get('a[onclick="logout_offline()"]')
+      .contains("Exit eDerm")
+      .click({ force: true });
   }
 
   assertValueFirstNameInPatientDetails(name) {
     cy.get('input[id="case_FirstName"]')
-    .invoke('val')
-    .then(text => expect(text).contains(name));
+      .invoke("val")
+      .then((text) => expect(text).contains(name));
   }
 
   assertValueLastNameInPatientDetails(name) {
     cy.get('input[id="case_LastName"]')
-    .invoke('val')
-    .then(text => expect(text).contains(name));
+      .invoke("val")
+      .then((text) => expect(text).contains(name));
   }
 
   assertValueTitleInPatientDetails(value) {
     cy.get('select[id="temptitle"]')
-    .invoke('val')
-    .then(text => expect(text).contains(value));
+      .invoke("val")
+      .then((text) => expect(text).contains(value));
   }
 
   assertValueGenderInPatientDetails(value) {
     cy.get('select[id="case_Gender"]')
-    .invoke('val')
-    .then(text => expect(text).contains(value));
+      .invoke("val")
+      .then((text) => expect(text).contains(value));
   }
 
   assertValueSpecimenLocationInBodyMap(value) {
-    cy.get('textarea#specimenLocation')
-    .invoke('val')
-    .then(text => expect(text).contains(value));
+    cy.get("textarea#specimenLocation")
+      .invoke("val")
+      .then((text) => expect(text).contains(value));
   }
 
-   
-addMuiltiLesionLargeThenDeleteImages(imageName, numberLesion) {
+  addMuiltiLesionLargeThenDeleteImages(imageName, numberLesion) {
+    for (let index = 1; index <= numberLesion; index++) {
+      //Clinical Condition
+      this.noPreviousHistory();
+      this.provisionalDiagnosis();
+      this.excludeMelasma();
+      this.excludeNmsc();
+      this.selectBiopsyType();
+      this.addBodyMap();
+      //Case bodymap
+      this.clickImage();
+      this.selectBodyRegion();
+      this.enterSpecimenLocation();
+      this.saveBodyMap();
 
-  for(let index =1; index<= numberLesion; index ++){
-        
-   //Clinical Condition
-   this.noPreviousHistory();
-   this.provisionalDiagnosis();
-   this.excludeMelasma();
-   this.excludeNmsc();
-   this.selectBiopsyType();
-   this.addBodyMap();
-  //Case bodymap
-    this.clickImage();
-    this.selectBodyRegion();
-    this.enterSpecimenLocation();
-    this.saveBodyMap();
+      //Upload Dermascopic Images
+      this.assertHeader("Upload ");
+      this.uploadMultiImagesV2(imageName, 3);
+      this.assertHeader("Upload ");
+      this.assertText("Remove");
+      cy.wait(2000);
+      this.startUpload();
+      this.waitForDeleteButtonVisible(3, 30);
+      cy.wait(2000);
+      this.startUpload();
+      cy.wait(2000);
+      this.isProgressBarDisappear(90000);
+      this.isImageUploadedSuccessfully(90000);
 
-  //Upload Dermascopic Images
-    this.assertHeader('Upload ');
-    this.uploadMultiImagesV2(imageName, 3);
-    this.assertHeader('Upload ');
-    this.assertText('Remove');
-    cy.wait(2000);
-    this.startUpload();
-    this.waitForDeleteButtonVisible(3, 30);
-    cy.wait(2000);
-    this.startUpload();
-    cy.wait(2000);
-    this.isProgressBarDisappear(90000);
-    this.isImageUploadedSuccessfully(90000);
+      this.clickDeleteImage(1);
+      this.waitForDeleteButtonVisible(2, 30);
 
-    this.clickDeleteImage(1);
-    this.waitForDeleteButtonVisible(2, 30);
+      this.uploadMultiImagesV2(imageName, 3);
+      this.assertHeader("Upload ");
+      this.assertText("Remove");
+      cy.wait(2000);
+      this.startUpload();
+      this.waitForDeleteButtonVisible(3, 30);
+      this.isProgressBarDisappear(90000);
+      this.isImageUploadedSuccessfully(90000);
 
-    this.uploadMultiImagesV2(imageName, 3);
-    this.assertHeader('Upload ');
-    this.assertText('Remove');
-    cy.wait(2000);
-    this.startUpload();
-    this.waitForDeleteButtonVisible(3, 30);
-    this.isProgressBarDisappear(90000);
-    this.isImageUploadedSuccessfully(90000);
-
-    this.nextButtonUploadImg(90000, true);
-        //Upload Dermascopic Images
-        if(index < numberLesion){
-          this.addAnotherLesion();
-        }
+      this.nextButtonUploadImg(90000, true);
+      //Upload Dermascopic Images
+      if (index < numberLesion) {
+        this.addAnotherLesion();
+      }
     }
   }
 }
-
-
-
-

@@ -48,7 +48,8 @@ describe("Submit - AWS - part3", () => {
      dashboardActions.selectState();
      dashboardActions.enterPostcode(user.postcode);
      dashboardActions.enterContact(user.contact);
-     dashboardActions.enterMedicare(user.medicare);
+         dashboardActions.selectBilling();
+    dashboardActions.enterMedicare(user.medicare);
      dashboardActions.nextButton();
   
      
@@ -126,7 +127,8 @@ describe("Submit - AWS - part3", () => {
      dashboardActions.selectState();
      dashboardActions.enterPostcode(user.postcode);
      dashboardActions.enterContact(user.contact);
-     dashboardActions.enterMedicare(user.medicare);
+         dashboardActions.selectBilling();
+    dashboardActions.enterMedicare(user.medicare);
      dashboardActions.nextButton();
   
      
@@ -248,7 +250,8 @@ describe("Submit - AWS - part3", () => {
      dashboardActions.selectState();
      dashboardActions.enterPostcode(user.postcode);
      dashboardActions.enterContact(user.contact);
-     dashboardActions.enterMedicare(user.medicare);
+         dashboardActions.selectBilling();
+    dashboardActions.enterMedicare(user.medicare);
      dashboardActions.nextButton();
   
      dashboardActions.addMuiltiLesionLargeThenDeleteImages(imageName, 3)
@@ -286,7 +289,8 @@ describe("Submit - AWS - part3", () => {
      dashboardActions.selectState();
      dashboardActions.enterPostcode(user.postcode);
      dashboardActions.enterContact(user.contact);
-     dashboardActions.enterMedicare(user.medicare);
+         dashboardActions.selectBilling();
+    dashboardActions.enterMedicare(user.medicare);
      dashboardActions.nextButton();
   
      dashboardActions.addMuiltiLesionLargeThenDeleteImages(imageName, 4)
@@ -323,7 +327,8 @@ describe("Submit - AWS - part3", () => {
      dashboardActions.selectState();
      dashboardActions.enterPostcode(user.postcode);
      dashboardActions.enterContact(user.contact);
-     dashboardActions.enterMedicare(user.medicare);
+         dashboardActions.selectBilling();
+    dashboardActions.enterMedicare(user.medicare);
      dashboardActions.nextButton();
   
      dashboardActions.addMuiltiLesionLargeThenDeleteImages(imageName, 5)
@@ -360,7 +365,8 @@ describe("Submit - AWS - part3", () => {
      dashboardActions.selectState();
      dashboardActions.enterPostcode(user.postcode);
      dashboardActions.enterContact(user.contact);
-     dashboardActions.enterMedicare(user.medicare);
+         dashboardActions.selectBilling();
+    dashboardActions.enterMedicare(user.medicare);
      dashboardActions.nextButton();
   
      dashboardActions.addMuiltiLesionLargeThenDeleteImages(imageName, 6)
@@ -397,7 +403,8 @@ describe("Submit - AWS - part3", () => {
      dashboardActions.selectState();
      dashboardActions.enterPostcode(user.postcode);
      dashboardActions.enterContact(user.contact);
-     dashboardActions.enterMedicare(user.medicare);
+         dashboardActions.selectBilling();
+    dashboardActions.enterMedicare(user.medicare);
      dashboardActions.nextButton();
   
      dashboardActions.addMuiltiLesionLargeThenDeleteImages(imageName, 7)
@@ -434,7 +441,8 @@ describe("Submit - AWS - part3", () => {
      dashboardActions.selectState();
      dashboardActions.enterPostcode(user.postcode);
      dashboardActions.enterContact(user.contact);
-     dashboardActions.enterMedicare(user.medicare);
+         dashboardActions.selectBilling();
+    dashboardActions.enterMedicare(user.medicare);
      dashboardActions.nextButton();
   
      dashboardActions.addMuiltiLesionLargeThenDeleteImages(imageName, 8)

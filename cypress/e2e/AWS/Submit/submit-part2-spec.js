@@ -47,6 +47,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -88,6 +89,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -129,6 +131,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -170,6 +173,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -211,6 +215,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -252,6 +257,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -293,6 +299,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -334,6 +341,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -375,6 +383,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -416,6 +425,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -457,6 +467,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -498,6 +509,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -539,6 +551,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy1ByIndex()
@@ -582,6 +595,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy2ByIndex()
@@ -625,6 +639,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.enterFirstNameCopy3('Hospital')
@@ -667,6 +682,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy1ByIndex(1)
@@ -716,6 +732,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy1ByIndex(1)
@@ -769,6 +786,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -819,6 +837,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -865,6 +884,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -907,6 +927,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -953,6 +974,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -991,6 +1013,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     // Copies report
@@ -1040,6 +1063,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     // Copies report
@@ -1089,6 +1113,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     // Copies report
@@ -1138,6 +1163,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     // Copies report
@@ -1187,6 +1213,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     // Copies report
@@ -1236,6 +1263,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -1329,6 +1357,7 @@ describe("Submit - AWS - part2", () => {
 
     dashboardActions.clickEditPatientDetails();
     dashboardActions.selectBilling(user.billing.bulkBill)
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.clickSavePatientDetails();
     dashboardActions.clickOkPatientDetails();
@@ -1498,6 +1527,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -1557,6 +1587,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -1610,6 +1641,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -1657,6 +1689,7 @@ describe("Submit - AWS - part2", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 

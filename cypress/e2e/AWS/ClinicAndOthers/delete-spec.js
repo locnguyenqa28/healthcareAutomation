@@ -49,6 +49,7 @@ describe("Delete lesion AWS", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
      dashboardActions.assertText('Next »')
     dashboardActions.assertText('Save draft » ')
@@ -105,6 +106,7 @@ describe("Delete lesion AWS", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.assertText('Next »')
     dashboardActions.assertText('Save draft » ')
@@ -170,6 +172,7 @@ describe("Delete lesion AWS", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
      dashboardActions.assertText('Next »')
     dashboardActions.assertText('Save draft » ')
@@ -235,6 +238,7 @@ describe("Delete lesion AWS", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
      dashboardActions.assertText('Next »')
     dashboardActions.assertText('Save draft » ')
@@ -299,6 +303,7 @@ describe("Delete lesion AWS", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
      dashboardActions.assertText('Next »')
     dashboardActions.assertText('Save draft » ')
@@ -349,6 +354,7 @@ describe("Delete lesion AWS", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy1ByIndex()
@@ -400,6 +406,7 @@ describe("Delete lesion AWS", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy1ByIndex(1)
@@ -457,6 +464,7 @@ describe("Delete lesion AWS", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy1ByIndex(1)
@@ -518,6 +526,7 @@ describe("Delete lesion AWS", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy1ByIndex()
@@ -579,6 +588,7 @@ describe("Delete lesion AWS", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy1ByIndex(1)
@@ -646,6 +656,7 @@ describe("Delete lesion AWS", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy1ByIndex(1)
@@ -721,6 +732,7 @@ describe("Delete lesion AWS", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy1ByIndex(1)
@@ -796,6 +808,7 @@ describe("Delete lesion AWS", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy1ByIndex(1)
@@ -871,6 +884,7 @@ describe("Delete lesion AWS", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy1ByIndex(1)
@@ -940,6 +954,7 @@ describe("Delete lesion AWS", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy1ByIndex(1)
@@ -1003,6 +1018,7 @@ describe("Delete lesion AWS", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy1ByIndex(1)
@@ -1066,6 +1082,7 @@ describe("Delete lesion AWS", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy1ByIndex(1)
@@ -1129,6 +1146,7 @@ describe("Delete lesion AWS", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy1ByIndex(1)
@@ -1195,6 +1213,7 @@ describe("Delete lesion AWS", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy1ByIndex(1)
@@ -1252,6 +1271,7 @@ describe("Delete lesion AWS", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy1ByIndex(1)
@@ -1315,6 +1335,7 @@ describe("Delete lesion AWS", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy1ByIndex(1)
@@ -1384,6 +1405,7 @@ describe("Delete lesion AWS", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy1ByIndex(1)
@@ -1459,6 +1481,7 @@ describe("Delete lesion AWS", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy1ByIndex(1)
@@ -1516,6 +1539,7 @@ describe("Delete lesion AWS", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy1ByIndex(1)
@@ -1576,6 +1600,7 @@ describe("Delete lesion AWS", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy1ByIndex(1)
@@ -1638,6 +1663,7 @@ describe("Delete lesion AWS", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy1ByIndex(1)
