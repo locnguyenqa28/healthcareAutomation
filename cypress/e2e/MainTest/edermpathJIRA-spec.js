@@ -47,6 +47,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -96,6 +97,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -145,6 +147,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -209,6 +212,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState(state);
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -250,6 +254,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.saveDraft();
@@ -286,6 +291,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -335,6 +341,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -395,6 +402,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.saveDraft();
     dashboardActions.clickPathologyRequestByFirstName(firstname)
@@ -428,6 +436,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -472,6 +481,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -538,6 +548,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -597,6 +608,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.saveDraft();
@@ -630,6 +642,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -684,6 +697,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -737,6 +751,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.saveDraft();
@@ -772,6 +787,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.saveDraft();
@@ -808,6 +824,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -848,6 +865,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -937,6 +955,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
     //Add first lesion
@@ -996,6 +1015,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -1034,6 +1054,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -1071,6 +1092,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -1106,6 +1128,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -1161,6 +1184,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -1203,6 +1227,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
     dashboardActions.selectBilling(user.billing.scheduleFee);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.checkPrivate();
     dashboardActions.saveDraft();
@@ -1233,6 +1258,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.enterContact(user.contact);
     dashboardActions.selectBilling(user.billing.scheduleFee);
     dashboardActions.checkPrivate();
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
     dashboardActions.backButton();
@@ -1268,6 +1294,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.enterContact(user.contact);
     dashboardActions.selectBilling(user.billing.scheduleFee);
     dashboardActions.checkPrivate();
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.selectAndCheckPatientClinic(1);
   });
@@ -1323,6 +1350,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
 
     dashboardActions.selectTitleCopy1ByIndex(1)
@@ -1402,6 +1430,7 @@ describe("Verify bug on EDERMPATH JIRA", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+        dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 

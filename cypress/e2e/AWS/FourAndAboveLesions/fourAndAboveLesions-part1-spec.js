@@ -36,6 +36,7 @@ describe("Four and above lesions testing - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -86,6 +87,7 @@ describe("Four and above lesions testing - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -136,6 +138,7 @@ describe("Four and above lesions testing - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -186,6 +189,7 @@ describe("Four and above lesions testing - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -236,6 +240,7 @@ describe("Four and above lesions testing - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -286,6 +291,7 @@ describe("Four and above lesions testing - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -446,6 +452,7 @@ describe("Four and above lesions testing - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -523,6 +530,7 @@ describe("Four and above lesions testing - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -572,6 +580,7 @@ describe("Four and above lesions testing - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.nextButton();
 
@@ -621,6 +630,7 @@ describe("Four and above lesions testing - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.assertText('Next »')
     dashboardActions.assertText('Save draft » ')
@@ -690,6 +700,7 @@ describe("Four and above lesions testing - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
      dashboardActions.assertText('Next »')
     dashboardActions.assertText('Save draft » ')
@@ -733,7 +744,7 @@ describe("Four and above lesions testing - part 1", () => {
     dashboardActions.isUploadSuccesfully(0);
   });
     
-  it.skip("4 lesions - 1 image: delete the 1 and 3 lesion", () => 
+  it("4 lesions - 1 image: delete the 1 and 3 lesion", () => 
   {
     loginActions.visitPage();
     loginActions.inputUserName(user.username);
@@ -759,6 +770,7 @@ describe("Four and above lesions testing - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
      dashboardActions.assertText('Next »')
     dashboardActions.assertText('Save draft » ')
@@ -828,6 +840,7 @@ describe("Four and above lesions testing - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
      dashboardActions.assertText('Next »')
     dashboardActions.assertText('Save draft » ')
@@ -898,6 +911,7 @@ describe("Four and above lesions testing - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
     dashboardActions.assertText('Next »')
     dashboardActions.assertText('Save draft » ')
@@ -967,6 +981,7 @@ describe("Four and above lesions testing - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
      dashboardActions.assertText('Next »')
     dashboardActions.assertText('Save draft » ')
@@ -1029,6 +1044,7 @@ describe("Four and above lesions testing - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
      dashboardActions.assertText('Next »')
     dashboardActions.assertText('Save draft » ')
@@ -1109,6 +1125,7 @@ describe("Four and above lesions testing - part 1", () => {
     dashboardActions.selectState();
     dashboardActions.enterPostcode(user.postcode);
     dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
     dashboardActions.enterMedicare(user.medicare);
      dashboardActions.assertText('Next »')
     dashboardActions.assertText('Save draft » ')
