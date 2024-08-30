@@ -106,8 +106,9 @@ describe("Large image testing - AWS", () => {
    dashboardActions.enterCity(user.city);
    dashboardActions.selectState();
    dashboardActions.enterPostcode(user.postcode);
-   dashboardActions.enterContact(user.contact);
-   dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
+    dashboardActions.enterMedicare(user.medicare);
    dashboardActions.nextButton();
 
    
@@ -184,8 +185,9 @@ describe("Large image testing - AWS", () => {
    dashboardActions.enterCity(user.city);
    dashboardActions.selectState();
    dashboardActions.enterPostcode(user.postcode);
-   dashboardActions.enterContact(user.contact);
-   dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
+    dashboardActions.enterMedicare(user.medicare);
    dashboardActions.nextButton();
 
    
@@ -306,8 +308,9 @@ describe("Large image testing - AWS", () => {
    dashboardActions.enterCity(user.city);
    dashboardActions.selectState();
    dashboardActions.enterPostcode(user.postcode);
-   dashboardActions.enterContact(user.contact);
-   dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
+    dashboardActions.enterMedicare(user.medicare);
    dashboardActions.nextButton();
 
    
@@ -470,8 +473,9 @@ describe("Large image testing - AWS", () => {
    dashboardActions.enterCity(user.city);
    dashboardActions.selectState();
    dashboardActions.enterPostcode(user.postcode);
-   dashboardActions.enterContact(user.contact);
-   dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
+    dashboardActions.enterMedicare(user.medicare);
    dashboardActions.nextButton();
 
    
@@ -674,8 +678,9 @@ describe("Large image testing - AWS", () => {
    dashboardActions.enterCity(user.city);
    dashboardActions.selectState();
    dashboardActions.enterPostcode(user.postcode);
-   dashboardActions.enterContact(user.contact);
-   dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
+    dashboardActions.enterMedicare(user.medicare);
    dashboardActions.nextButton();
 
    dashboardActions.addMuiltiLesionLargeThenDeleteImages(imageName, 5)
@@ -712,8 +717,9 @@ describe("Large image testing - AWS", () => {
    dashboardActions.enterCity(user.city);
    dashboardActions.selectState();
    dashboardActions.enterPostcode(user.postcode);
-   dashboardActions.enterContact(user.contact);
-   dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
+    dashboardActions.enterMedicare(user.medicare);
    dashboardActions.nextButton();
 
    dashboardActions.addMuiltiLesionLargeThenDeleteImages(imageName, 5)
@@ -750,8 +756,9 @@ describe("Large image testing - AWS", () => {
    dashboardActions.enterCity(user.city);
    dashboardActions.selectState();
    dashboardActions.enterPostcode(user.postcode);
-   dashboardActions.enterContact(user.contact);
-   dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
+    dashboardActions.enterMedicare(user.medicare);
    dashboardActions.nextButton();
 
    dashboardActions.addMuiltiLesionLargeThenDeleteImages(imageName, 5)
@@ -788,8 +795,9 @@ describe("Large image testing - AWS", () => {
    dashboardActions.enterCity(user.city);
    dashboardActions.selectState();
    dashboardActions.enterPostcode(user.postcode);
-   dashboardActions.enterContact(user.contact);
-   dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
+    dashboardActions.enterMedicare(user.medicare);
    dashboardActions.nextButton();
 
    dashboardActions.addMuiltiLesionLargeThenDeleteImages(imageName, 8)
@@ -826,8 +834,9 @@ describe("Large image testing - AWS", () => {
    dashboardActions.enterCity(user.city);
    dashboardActions.selectState();
    dashboardActions.enterPostcode(user.postcode);
-   dashboardActions.enterContact(user.contact);
-   dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
+    dashboardActions.enterMedicare(user.medicare);
    dashboardActions.nextButton();
 
    dashboardActions.addMuiltiLesionLargeThenDeleteImages(imageName, 9)
@@ -864,8 +873,9 @@ describe("Large image testing - AWS", () => {
    dashboardActions.enterCity(user.city);
    dashboardActions.selectState();
    dashboardActions.enterPostcode(user.postcode);
-   dashboardActions.enterContact(user.contact);
-   dashboardActions.enterMedicare(user.medicare);
+    dashboardActions.enterContact(user.contact);
+    dashboardActions.selectBilling();
+    dashboardActions.enterMedicare(user.medicare);
    dashboardActions.nextButton();
 
    dashboardActions.addMuiltiLesionLargeThenDeleteImages(imageName, 9)
